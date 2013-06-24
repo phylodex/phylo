@@ -1,0 +1,37 @@
+==========================================================================================
+CMPT 275 GROUP 11: Phylodex
+
+Author: Steve King
+Data: June 23, 2013
+
+Coding Standards
+==========================================================================================
+
+1. Identifiers
+	1.1 meaningful variable names starting with a lowercase letter
+	1.2 variable names written in camelCase
+	1.3 descriptive method names written in camelCase
+	1.4 use of constants in "define" statements in place of literal numbers
+	1.5 all class names are to begin with "PX", which is short-hand for "Phylodex"
+	1.6 class names are self-descriptive
+	
+2. Internal Documentation
+	2.1 Header comments for most functions should not be required, as the method names are
+       self-descriptive
+	2.2 Inline comments within methods should be in point form to describe a set of steps
+           or a procedure only when necessary
+	2.3 The use of self-descriptive identifiers and constants should help to make the code
+           self-documenting
+	2.4 A header comment for each class file shall show the author, date of creation, and
+           the name of the class
+	2.5 Header comments for *.h files shall have a short description of what the class
+           accomplishes
+			
+3. Source code style
+	3.1 Blocks of code should be properly indented in a consistent manner to demonstrate
+           the nesting of the blocks
+	3.2 Empty lines should be used to separate method implementations, and sections of 
+           code within method implementations that do specific tasks
+	3.3 The use of empty lines shall be consistent, and shall never exceed more than two
+           empty lines in a section
+	3.4 Comments should be used sparringly

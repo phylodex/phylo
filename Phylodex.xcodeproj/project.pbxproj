@@ -1,0 +1,639 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		082F898B1777763800780AA5 /* Penguin.png in Resources */ = {isa = PBXBuildFile; fileRef = 082F898A1777763800780AA5 /* Penguin.png */; };
+		082F898D177776C600780AA5 /* Housecat.png in Resources */ = {isa = PBXBuildFile; fileRef = 082F898C177776C600780AA5 /* Housecat.png */; };
+		087AF3A61776E46A004034F3 /* PXNameAndImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 087AF3A51776E46A004034F3 /* PXNameAndImageCell.m */; };
+		087AF3A81776E475004034F3 /* PXNameAndImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 087AF3A71776E475004034F3 /* PXNameAndImageCell.xib */; };
+		1F08DAE31777CE53005F18EF /* PXSearchResultPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F08DAE11777CE52005F18EF /* PXSearchResultPhotoViewController.m */; };
+		1F08DAE41777CE53005F18EF /* PXSearchResultPhotoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F08DAE21777CE53005F18EF /* PXSearchResultPhotoViewController.xib */; };
+		1F195647177559EA00AEB906 /* PXNetworkConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F195646177559EA00AEB906 /* PXNetworkConnection.m */; };
+		1F19564A1775687B00AEB906 /* PXXMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F1956491775687B00AEB906 /* PXXMLParser.m */; };
+		1F293CB31770FBC9009C8DA9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F293CB21770FBC9009C8DA9 /* UIKit.framework */; };
+		1F293CB51770FBC9009C8DA9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F293CB41770FBC9009C8DA9 /* Foundation.framework */; };
+		1F293CB71770FBC9009C8DA9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F293CB61770FBC9009C8DA9 /* CoreGraphics.framework */; };
+		1F293CB91770FBC9009C8DA9 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F293CB81770FBC9009C8DA9 /* CoreData.framework */; };
+		1F293CBF1770FBC9009C8DA9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F293CBD1770FBC9009C8DA9 /* InfoPlist.strings */; };
+		1F293CC11770FBC9009C8DA9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F293CC01770FBC9009C8DA9 /* main.m */; };
+		1F293CC51770FBC9009C8DA9 /* PXAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F293CC41770FBC9009C8DA9 /* PXAppDelegate.m */; };
+		1F293CC71770FBC9009C8DA9 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F293CC61770FBC9009C8DA9 /* Default.png */; };
+		1F293CC91770FBC9009C8DA9 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F293CC81770FBC9009C8DA9 /* Default@2x.png */; };
+		1F293CCB1770FBC9009C8DA9 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F293CCA1770FBC9009C8DA9 /* Default-568h@2x.png */; };
+		1F293CCE1770FBC9009C8DA9 /* Phylodex.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1F293CCC1770FBC9009C8DA9 /* Phylodex.xcdatamodeld */; };
+		1F293CD61770FBC9009C8DA9 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F293CD51770FBC9009C8DA9 /* SenTestingKit.framework */; };
+		1F293CD71770FBC9009C8DA9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F293CB21770FBC9009C8DA9 /* UIKit.framework */; };
+		1F293CD81770FBC9009C8DA9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F293CB41770FBC9009C8DA9 /* Foundation.framework */; };
+		1F293CD91770FBC9009C8DA9 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F293CB81770FBC9009C8DA9 /* CoreData.framework */; };
+		1F293CE11770FBC9009C8DA9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F293CDF1770FBC9009C8DA9 /* InfoPlist.strings */; };
+		1F293CE41770FBC9009C8DA9 /* PhylodexTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F293CE31770FBC9009C8DA9 /* PhylodexTests.m */; };
+		1F293CF0177101DC009C8DA9 /* PXRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F293CEE177101DC009C8DA9 /* PXRootViewController.m */; };
+		1F293CF1177101DC009C8DA9 /* PXRootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F293CEF177101DC009C8DA9 /* PXRootViewController.xib */; };
+		1F293CFA17710670009C8DA9 /* PXShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F293CF817710670009C8DA9 /* PXShareViewController.m */; };
+		1F293CFB17710670009C8DA9 /* PXShareViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F293CF917710670009C8DA9 /* PXShareViewController.xib */; };
+		1F2F7D48177903DA002D2CB4 /* PXDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F2F7D46177903DA002D2CB4 /* PXDetailViewController.m */; };
+		1F2F7D49177903DA002D2CB4 /* PXDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F2F7D47177903DA002D2CB4 /* PXDetailViewController.xib */; };
+		1FB8C31117783E6000E51694 /* coding_standards.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1FB8C31017783E6000E51694 /* coding_standards.txt */; };
+		1FEF45B51773C3C900B1E0D6 /* Lion.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FEF45B41773C3C900B1E0D6 /* Lion.png */; };
+		1FF7E89B1773ABF800215E38 /* PXDummyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF7E89A1773ABF800215E38 /* PXDummyModel.m */; };
+		1FF7E89E1773AD0100215E38 /* PXDummyCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF7E89D1773AD0100215E38 /* PXDummyCollection.m */; };
+		1FF7E8A31773B14900215E38 /* Eagle.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FF7E8A21773B14900215E38 /* Eagle.png */; };
+		B6A16AAB17777D800024F0BB /* PXSearchResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6A16AA417777D800024F0BB /* PXSearchResultsViewController.m */; };
+		B6A16AAC17777D800024F0BB /* PXSearchResultsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6A16AA517777D800024F0BB /* PXSearchResultsViewController.xib */; };
+		B6A16AAD17777D800024F0BB /* PXWebSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6A16AA717777D800024F0BB /* PXWebSearchViewController.m */; };
+		B6A16AAE17777D800024F0BB /* PXWebSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6A16AA817777D800024F0BB /* PXWebSearchViewController.xib */; };
+		EDB03D8117777164009B0D55 /* Capture.png in Resources */ = {isa = PBXBuildFile; fileRef = EDB03D7D17777164009B0D55 /* Capture.png */; };
+		EDB03D8217777164009B0D55 /* Share.png in Resources */ = {isa = PBXBuildFile; fileRef = EDB03D7E17777164009B0D55 /* Share.png */; };
+		EDB03D8317777164009B0D55 /* Phylodex.png in Resources */ = {isa = PBXBuildFile; fileRef = EDB03D7F17777164009B0D55 /* Phylodex.png */; };
+		EDB03D8417777164009B0D55 /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = EDB03D8017777164009B0D55 /* second.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1F293CDA1770FBC9009C8DA9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1F293CA71770FBC9009C8DA9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1F293CAE1770FBC9009C8DA9;
+			remoteInfo = Phylodex;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		082F898A1777763800780AA5 /* Penguin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Penguin.png; sourceTree = "<group>"; };
+		082F898C177776C600780AA5 /* Housecat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Housecat.png; sourceTree = "<group>"; };
+		087AF3A41776E46A004034F3 /* PXNameAndImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXNameAndImageCell.h; sourceTree = "<group>"; };
+		087AF3A51776E46A004034F3 /* PXNameAndImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXNameAndImageCell.m; sourceTree = "<group>"; };
+		087AF3A71776E475004034F3 /* PXNameAndImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PXNameAndImageCell.xib; sourceTree = "<group>"; };
+		1F08DAE01777CE51005F18EF /* PXSearchResultPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PXSearchResultPhotoViewController.h; path = ../PXSearchResultPhotoViewController.h; sourceTree = "<group>"; };
+		1F08DAE11777CE52005F18EF /* PXSearchResultPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PXSearchResultPhotoViewController.m; path = ../PXSearchResultPhotoViewController.m; sourceTree = "<group>"; };
+		1F08DAE21777CE53005F18EF /* PXSearchResultPhotoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PXSearchResultPhotoViewController.xib; path = ../PXSearchResultPhotoViewController.xib; sourceTree = "<group>"; };
+		1F195645177559EA00AEB906 /* PXNetworkConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PXNetworkConnection.h; path = Phylodex/PXNetworkConnection.h; sourceTree = "<group>"; };
+		1F195646177559EA00AEB906 /* PXNetworkConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PXNetworkConnection.m; path = Phylodex/PXNetworkConnection.m; sourceTree = "<group>"; };
+		1F1956481775687B00AEB906 /* PXXMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PXXMLParser.h; path = Phylodex/PXXMLParser.h; sourceTree = "<group>"; };
+		1F1956491775687B00AEB906 /* PXXMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PXXMLParser.m; path = Phylodex/PXXMLParser.m; sourceTree = "<group>"; };
+		1F293CAF1770FBC9009C8DA9 /* Phylodex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Phylodex.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F293CB21770FBC9009C8DA9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		1F293CB41770FBC9009C8DA9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1F293CB61770FBC9009C8DA9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		1F293CB81770FBC9009C8DA9 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		1F293CBC1770FBC9009C8DA9 /* Phylodex-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Phylodex-Info.plist"; sourceTree = "<group>"; };
+		1F293CBE1770FBC9009C8DA9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1F293CC01770FBC9009C8DA9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		1F293CC21770FBC9009C8DA9 /* Phylodex-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Phylodex-Prefix.pch"; sourceTree = "<group>"; };
+		1F293CC31770FBC9009C8DA9 /* PXAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PXAppDelegate.h; sourceTree = "<group>"; };
+		1F293CC41770FBC9009C8DA9 /* PXAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PXAppDelegate.m; sourceTree = "<group>"; };
+		1F293CC61770FBC9009C8DA9 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		1F293CC81770FBC9009C8DA9 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		1F293CCA1770FBC9009C8DA9 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		1F293CCD1770FBC9009C8DA9 /* Phylodex.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Phylodex.xcdatamodel; sourceTree = "<group>"; };
+		1F293CD41770FBC9009C8DA9 /* PhylodexTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhylodexTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F293CD51770FBC9009C8DA9 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		1F293CDE1770FBC9009C8DA9 /* PhylodexTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PhylodexTests-Info.plist"; sourceTree = "<group>"; };
+		1F293CE01770FBC9009C8DA9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1F293CE21770FBC9009C8DA9 /* PhylodexTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhylodexTests.h; sourceTree = "<group>"; };
+		1F293CE31770FBC9009C8DA9 /* PhylodexTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhylodexTests.m; sourceTree = "<group>"; };
+		1F293CED177101DC009C8DA9 /* PXRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXRootViewController.h; sourceTree = "<group>"; };
+		1F293CEE177101DC009C8DA9 /* PXRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXRootViewController.m; sourceTree = "<group>"; };
+		1F293CEF177101DC009C8DA9 /* PXRootViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PXRootViewController.xib; sourceTree = "<group>"; };
+		1F293CF717710670009C8DA9 /* PXShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXShareViewController.h; sourceTree = "<group>"; };
+		1F293CF817710670009C8DA9 /* PXShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXShareViewController.m; sourceTree = "<group>"; };
+		1F293CF917710670009C8DA9 /* PXShareViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PXShareViewController.xib; sourceTree = "<group>"; };
+		1F2F7D45177903DA002D2CB4 /* PXDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXDetailViewController.h; sourceTree = "<group>"; };
+		1F2F7D46177903DA002D2CB4 /* PXDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXDetailViewController.m; sourceTree = "<group>"; };
+		1F2F7D47177903DA002D2CB4 /* PXDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PXDetailViewController.xib; sourceTree = "<group>"; };
+		1FB8C31017783E6000E51694 /* coding_standards.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = coding_standards.txt; sourceTree = "<group>"; };
+		1FEF45B41773C3C900B1E0D6 /* Lion.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Lion.png; sourceTree = "<group>"; };
+		1FF7E8991773ABF800215E38 /* PXDummyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PXDummyModel.h; path = Phylodex/PXDummyModel.h; sourceTree = "<group>"; };
+		1FF7E89A1773ABF800215E38 /* PXDummyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PXDummyModel.m; path = Phylodex/PXDummyModel.m; sourceTree = "<group>"; };
+		1FF7E89C1773AD0100215E38 /* PXDummyCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PXDummyCollection.h; path = Phylodex/PXDummyCollection.h; sourceTree = "<group>"; };
+		1FF7E89D1773AD0100215E38 /* PXDummyCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PXDummyCollection.m; path = Phylodex/PXDummyCollection.m; sourceTree = "<group>"; };
+		1FF7E8A21773B14900215E38 /* Eagle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Eagle.png; sourceTree = "<group>"; };
+		B6A16AA317777D800024F0BB /* PXSearchResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PXSearchResultsViewController.h; path = ../PXSearchResultsViewController.h; sourceTree = "<group>"; };
+		B6A16AA417777D800024F0BB /* PXSearchResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PXSearchResultsViewController.m; path = ../PXSearchResultsViewController.m; sourceTree = "<group>"; };
+		B6A16AA517777D800024F0BB /* PXSearchResultsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PXSearchResultsViewController.xib; path = ../PXSearchResultsViewController.xib; sourceTree = "<group>"; };
+		B6A16AA617777D800024F0BB /* PXWebSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PXWebSearchViewController.h; path = ../PXWebSearchViewController.h; sourceTree = "<group>"; };
+		B6A16AA717777D800024F0BB /* PXWebSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PXWebSearchViewController.m; path = ../PXWebSearchViewController.m; sourceTree = "<group>"; };
+		B6A16AA817777D800024F0BB /* PXWebSearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PXWebSearchViewController.xib; path = ../PXWebSearchViewController.xib; sourceTree = "<group>"; };
+		EDB03D7D17777164009B0D55 /* Capture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Capture.png; sourceTree = "<group>"; };
+		EDB03D7E17777164009B0D55 /* Share.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Share.png; sourceTree = "<group>"; };
+		EDB03D7F17777164009B0D55 /* Phylodex.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Phylodex.png; sourceTree = "<group>"; };
+		EDB03D8017777164009B0D55 /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1F293CAC1770FBC9009C8DA9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F293CB31770FBC9009C8DA9 /* UIKit.framework in Frameworks */,
+				1F293CB51770FBC9009C8DA9 /* Foundation.framework in Frameworks */,
+				1F293CB71770FBC9009C8DA9 /* CoreGraphics.framework in Frameworks */,
+				1F293CB91770FBC9009C8DA9 /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1F293CD01770FBC9009C8DA9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F293CD61770FBC9009C8DA9 /* SenTestingKit.framework in Frameworks */,
+				1F293CD71770FBC9009C8DA9 /* UIKit.framework in Frameworks */,
+				1F293CD81770FBC9009C8DA9 /* Foundation.framework in Frameworks */,
+				1F293CD91770FBC9009C8DA9 /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1F293CA61770FBC9009C8DA9 = {
+			isa = PBXGroup;
+			children = (
+				1FF7E89F1773B0EC00215E38 /* Resources */,
+				1F293CBA1770FBC9009C8DA9 /* Phylodex */,
+				1F293CDC1770FBC9009C8DA9 /* PhylodexTests */,
+				1F293CB11770FBC9009C8DA9 /* Frameworks */,
+				1F293CB01770FBC9009C8DA9 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1F293CB01770FBC9009C8DA9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1F293CAF1770FBC9009C8DA9 /* Phylodex.app */,
+				1F293CD41770FBC9009C8DA9 /* PhylodexTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1F293CB11770FBC9009C8DA9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1F293CB21770FBC9009C8DA9 /* UIKit.framework */,
+				1F293CB41770FBC9009C8DA9 /* Foundation.framework */,
+				1F293CB61770FBC9009C8DA9 /* CoreGraphics.framework */,
+				1F293CB81770FBC9009C8DA9 /* CoreData.framework */,
+				1F293CD51770FBC9009C8DA9 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1F293CBA1770FBC9009C8DA9 /* Phylodex */ = {
+			isa = PBXGroup;
+			children = (
+				1FB8C31017783E6000E51694 /* coding_standards.txt */,
+				1F293CC31770FBC9009C8DA9 /* PXAppDelegate.h */,
+				1F293CC41770FBC9009C8DA9 /* PXAppDelegate.m */,
+				1FF7E8A61773B24600215E38 /* Views */,
+				1FF7E8A51773B20900215E38 /* Controllers */,
+				1FF7E8A41773B1E700215E38 /* Models */,
+				1F293CCC1770FBC9009C8DA9 /* Phylodex.xcdatamodeld */,
+				1F293CBB1770FBC9009C8DA9 /* Supporting Files */,
+			);
+			path = Phylodex;
+			sourceTree = "<group>";
+		};
+		1F293CBB1770FBC9009C8DA9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EDB03D7D17777164009B0D55 /* Capture.png */,
+				EDB03D7E17777164009B0D55 /* Share.png */,
+				EDB03D7F17777164009B0D55 /* Phylodex.png */,
+				EDB03D8017777164009B0D55 /* second.png */,
+				1F293CBC1770FBC9009C8DA9 /* Phylodex-Info.plist */,
+				1F293CBD1770FBC9009C8DA9 /* InfoPlist.strings */,
+				1F293CC01770FBC9009C8DA9 /* main.m */,
+				1F293CC21770FBC9009C8DA9 /* Phylodex-Prefix.pch */,
+				1F293CC61770FBC9009C8DA9 /* Default.png */,
+				1F293CC81770FBC9009C8DA9 /* Default@2x.png */,
+				1F293CCA1770FBC9009C8DA9 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1F293CDC1770FBC9009C8DA9 /* PhylodexTests */ = {
+			isa = PBXGroup;
+			children = (
+				1F293CE21770FBC9009C8DA9 /* PhylodexTests.h */,
+				1F293CE31770FBC9009C8DA9 /* PhylodexTests.m */,
+				1F293CDD1770FBC9009C8DA9 /* Supporting Files */,
+			);
+			path = PhylodexTests;
+			sourceTree = "<group>";
+		};
+		1F293CDD1770FBC9009C8DA9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1F293CDE1770FBC9009C8DA9 /* PhylodexTests-Info.plist */,
+				1F293CDF1770FBC9009C8DA9 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1FF7E89F1773B0EC00215E38 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1FEF45B41773C3C900B1E0D6 /* Lion.png */,
+				1FF7E8A21773B14900215E38 /* Eagle.png */,
+				082F898A1777763800780AA5 /* Penguin.png */,
+				082F898C177776C600780AA5 /* Housecat.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		1FF7E8A41773B1E700215E38 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1F195645177559EA00AEB906 /* PXNetworkConnection.h */,
+				1F195646177559EA00AEB906 /* PXNetworkConnection.m */,
+				1F1956481775687B00AEB906 /* PXXMLParser.h */,
+				1F1956491775687B00AEB906 /* PXXMLParser.m */,
+				1FF7E8991773ABF800215E38 /* PXDummyModel.h */,
+				1FF7E89C1773AD0100215E38 /* PXDummyCollection.h */,
+				1FF7E89D1773AD0100215E38 /* PXDummyCollection.m */,
+				1FF7E89A1773ABF800215E38 /* PXDummyModel.m */,
+			);
+			name = Models;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		1FF7E8A51773B20900215E38 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1F08DAE01777CE51005F18EF /* PXSearchResultPhotoViewController.h */,
+				1F08DAE11777CE52005F18EF /* PXSearchResultPhotoViewController.m */,
+				B6A16AA317777D800024F0BB /* PXSearchResultsViewController.h */,
+				B6A16AA417777D800024F0BB /* PXSearchResultsViewController.m */,
+				B6A16AA617777D800024F0BB /* PXWebSearchViewController.h */,
+				B6A16AA717777D800024F0BB /* PXWebSearchViewController.m */,
+				1F293CF717710670009C8DA9 /* PXShareViewController.h */,
+				1F293CF817710670009C8DA9 /* PXShareViewController.m */,
+				1F293CED177101DC009C8DA9 /* PXRootViewController.h */,
+				1F293CEE177101DC009C8DA9 /* PXRootViewController.m */,
+				087AF3A41776E46A004034F3 /* PXNameAndImageCell.h */,
+				087AF3A51776E46A004034F3 /* PXNameAndImageCell.m */,
+				1F2F7D45177903DA002D2CB4 /* PXDetailViewController.h */,
+				1F2F7D46177903DA002D2CB4 /* PXDetailViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		1FF7E8A61773B24600215E38 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1F2F7D47177903DA002D2CB4 /* PXDetailViewController.xib */,
+				1F08DAE21777CE53005F18EF /* PXSearchResultPhotoViewController.xib */,
+				B6A16AA517777D800024F0BB /* PXSearchResultsViewController.xib */,
+				B6A16AA817777D800024F0BB /* PXWebSearchViewController.xib */,
+				087AF3A71776E475004034F3 /* PXNameAndImageCell.xib */,
+				1F293CF917710670009C8DA9 /* PXShareViewController.xib */,
+				1F293CEF177101DC009C8DA9 /* PXRootViewController.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1F293CAE1770FBC9009C8DA9 /* Phylodex */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1F293CE71770FBC9009C8DA9 /* Build configuration list for PBXNativeTarget "Phylodex" */;
+			buildPhases = (
+				1F293CAB1770FBC9009C8DA9 /* Sources */,
+				1F293CAC1770FBC9009C8DA9 /* Frameworks */,
+				1F293CAD1770FBC9009C8DA9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Phylodex;
+			productName = Phylodex;
+			productReference = 1F293CAF1770FBC9009C8DA9 /* Phylodex.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1F293CD31770FBC9009C8DA9 /* PhylodexTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1F293CEA1770FBC9009C8DA9 /* Build configuration list for PBXNativeTarget "PhylodexTests" */;
+			buildPhases = (
+				1F293CCF1770FBC9009C8DA9 /* Sources */,
+				1F293CD01770FBC9009C8DA9 /* Frameworks */,
+				1F293CD11770FBC9009C8DA9 /* Resources */,
+				1F293CD21770FBC9009C8DA9 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1F293CDB1770FBC9009C8DA9 /* PBXTargetDependency */,
+			);
+			name = PhylodexTests;
+			productName = PhylodexTests;
+			productReference = 1F293CD41770FBC9009C8DA9 /* PhylodexTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1F293CA71770FBC9009C8DA9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = PX;
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = Phylosoft;
+			};
+			buildConfigurationList = 1F293CAA1770FBC9009C8DA9 /* Build configuration list for PBXProject "Phylodex" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 1F293CA61770FBC9009C8DA9;
+			productRefGroup = 1F293CB01770FBC9009C8DA9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1F293CAE1770FBC9009C8DA9 /* Phylodex */,
+				1F293CD31770FBC9009C8DA9 /* PhylodexTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1F293CAD1770FBC9009C8DA9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F293CBF1770FBC9009C8DA9 /* InfoPlist.strings in Resources */,
+				1F293CC71770FBC9009C8DA9 /* Default.png in Resources */,
+				1F293CC91770FBC9009C8DA9 /* Default@2x.png in Resources */,
+				1F293CCB1770FBC9009C8DA9 /* Default-568h@2x.png in Resources */,
+				1F293CF1177101DC009C8DA9 /* PXRootViewController.xib in Resources */,
+				1F293CFB17710670009C8DA9 /* PXShareViewController.xib in Resources */,
+				1FF7E8A31773B14900215E38 /* Eagle.png in Resources */,
+				1FEF45B51773C3C900B1E0D6 /* Lion.png in Resources */,
+				087AF3A81776E475004034F3 /* PXNameAndImageCell.xib in Resources */,
+				EDB03D8117777164009B0D55 /* Capture.png in Resources */,
+				EDB03D8217777164009B0D55 /* Share.png in Resources */,
+				EDB03D8317777164009B0D55 /* Phylodex.png in Resources */,
+				EDB03D8417777164009B0D55 /* second.png in Resources */,
+				082F898B1777763800780AA5 /* Penguin.png in Resources */,
+				082F898D177776C600780AA5 /* Housecat.png in Resources */,
+				B6A16AAC17777D800024F0BB /* PXSearchResultsViewController.xib in Resources */,
+				B6A16AAE17777D800024F0BB /* PXWebSearchViewController.xib in Resources */,
+				1F08DAE41777CE53005F18EF /* PXSearchResultPhotoViewController.xib in Resources */,
+				1FB8C31117783E6000E51694 /* coding_standards.txt in Resources */,
+				1F2F7D49177903DA002D2CB4 /* PXDetailViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1F293CD11770FBC9009C8DA9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F293CE11770FBC9009C8DA9 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1F293CD21770FBC9009C8DA9 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1F293CAB1770FBC9009C8DA9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F293CC11770FBC9009C8DA9 /* main.m in Sources */,
+				1F293CC51770FBC9009C8DA9 /* PXAppDelegate.m in Sources */,
+				1F293CCE1770FBC9009C8DA9 /* Phylodex.xcdatamodeld in Sources */,
+				1F293CF0177101DC009C8DA9 /* PXRootViewController.m in Sources */,
+				1F293CFA17710670009C8DA9 /* PXShareViewController.m in Sources */,
+				1FF7E89B1773ABF800215E38 /* PXDummyModel.m in Sources */,
+				1FF7E89E1773AD0100215E38 /* PXDummyCollection.m in Sources */,
+				1F195647177559EA00AEB906 /* PXNetworkConnection.m in Sources */,
+				1F19564A1775687B00AEB906 /* PXXMLParser.m in Sources */,
+				087AF3A61776E46A004034F3 /* PXNameAndImageCell.m in Sources */,
+				B6A16AAB17777D800024F0BB /* PXSearchResultsViewController.m in Sources */,
+				B6A16AAD17777D800024F0BB /* PXWebSearchViewController.m in Sources */,
+				1F08DAE31777CE53005F18EF /* PXSearchResultPhotoViewController.m in Sources */,
+				1F2F7D48177903DA002D2CB4 /* PXDetailViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1F293CCF1770FBC9009C8DA9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F293CE41770FBC9009C8DA9 /* PhylodexTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1F293CDB1770FBC9009C8DA9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1F293CAE1770FBC9009C8DA9 /* Phylodex */;
+			targetProxy = 1F293CDA1770FBC9009C8DA9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		1F293CBD1770FBC9009C8DA9 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1F293CBE1770FBC9009C8DA9 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		1F293CDF1770FBC9009C8DA9 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1F293CE01770FBC9009C8DA9 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1F293CE51770FBC9009C8DA9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		1F293CE61770FBC9009C8DA9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1F293CE81770FBC9009C8DA9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Phylodex/Phylodex-Prefix.pch";
+				INFOPLIST_FILE = "Phylodex/Phylodex-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		1F293CE91770FBC9009C8DA9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Phylodex/Phylodex-Prefix.pch";
+				INFOPLIST_FILE = "Phylodex/Phylodex-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		1F293CEB1770FBC9009C8DA9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Phylodex.app/Phylodex";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Phylodex/Phylodex-Prefix.pch";
+				INFOPLIST_FILE = "PhylodexTests/PhylodexTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		1F293CEC1770FBC9009C8DA9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Phylodex.app/Phylodex";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Phylodex/Phylodex-Prefix.pch";
+				INFOPLIST_FILE = "PhylodexTests/PhylodexTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1F293CAA1770FBC9009C8DA9 /* Build configuration list for PBXProject "Phylodex" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1F293CE51770FBC9009C8DA9 /* Debug */,
+				1F293CE61770FBC9009C8DA9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1F293CE71770FBC9009C8DA9 /* Build configuration list for PBXNativeTarget "Phylodex" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1F293CE81770FBC9009C8DA9 /* Debug */,
+				1F293CE91770FBC9009C8DA9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1F293CEA1770FBC9009C8DA9 /* Build configuration list for PBXNativeTarget "PhylodexTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1F293CEB1770FBC9009C8DA9 /* Debug */,
+				1F293CEC1770FBC9009C8DA9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		1F293CCC1770FBC9009C8DA9 /* Phylodex.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				1F293CCD1770FBC9009C8DA9 /* Phylodex.xcdatamodel */,
+			);
+			currentVersion = 1F293CCD1770FBC9009C8DA9 /* Phylodex.xcdatamodel */;
+			path = Phylodex.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 1F293CA71770FBC9009C8DA9 /* Project object */;
+}

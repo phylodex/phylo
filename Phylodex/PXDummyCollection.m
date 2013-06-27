@@ -16,7 +16,7 @@
 // This is ugly, but just to get interaction in the prototype working
 - (id)init {
     // initialize a collection of dummy objects
-    NSArray *animals = [NSArray arrayWithObjects:@"Gorilla", @"Eagle", @"Dog", @"Lion", @"Penguin", @"Housecat", nil];
+    NSArray *animals = [NSArray arrayWithObjects:@"Gorilla", @"Eagle", @"Dog",@"Deer", @"Lion", @"Penguin", @"Housecat", nil];
     dummyModels = [[NSMutableArray alloc] initWithCapacity:[animals count]];
     
     for (NSString *animal in animals) {

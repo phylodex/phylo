@@ -52,6 +52,7 @@
 		B6A16AAC17777D800024F0BB /* PXSearchResultsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6A16AA517777D800024F0BB /* PXSearchResultsViewController.xib */; };
 		B6A16AAD17777D800024F0BB /* PXWebSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6A16AA717777D800024F0BB /* PXWebSearchViewController.m */; };
 		B6A16AAE17777D800024F0BB /* PXWebSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6A16AA817777D800024F0BB /* PXWebSearchViewController.xib */; };
+		B6A33E1C177CB15A00978241 /* Frog.png in Resources */ = {isa = PBXBuildFile; fileRef = B6A33E1B177CB15A00978241 /* Frog.png */; };
 		EDB03D8117777164009B0D55 /* Capture.png in Resources */ = {isa = PBXBuildFile; fileRef = EDB03D7D17777164009B0D55 /* Capture.png */; };
 		EDB03D8217777164009B0D55 /* Share.png in Resources */ = {isa = PBXBuildFile; fileRef = EDB03D7E17777164009B0D55 /* Share.png */; };
 		EDB03D8317777164009B0D55 /* Phylodex.png in Resources */ = {isa = PBXBuildFile; fileRef = EDB03D7F17777164009B0D55 /* Phylodex.png */; };
@@ -131,6 +132,7 @@
 		B6A16AA617777D800024F0BB /* PXWebSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PXWebSearchViewController.h; path = ../PXWebSearchViewController.h; sourceTree = "<group>"; };
 		B6A16AA717777D800024F0BB /* PXWebSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PXWebSearchViewController.m; path = ../PXWebSearchViewController.m; sourceTree = "<group>"; };
 		B6A16AA817777D800024F0BB /* PXWebSearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PXWebSearchViewController.xib; path = ../PXWebSearchViewController.xib; sourceTree = "<group>"; };
+		B6A33E1B177CB15A00978241 /* Frog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Frog.png; path = Phylodex/Frog.png; sourceTree = "<group>"; };
 		EDB03D7D17777164009B0D55 /* Capture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Capture.png; sourceTree = "<group>"; };
 		EDB03D7E17777164009B0D55 /* Share.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Share.png; sourceTree = "<group>"; };
 		EDB03D7F17777164009B0D55 /* Phylodex.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Phylodex.png; sourceTree = "<group>"; };
@@ -254,6 +256,7 @@
 				1FAA58F0177CB6120072CF9A /* Horse.png */,
 				08A10B72177CAB2100AB0609 /* Gorilla.png */,
 				1FEF45B41773C3C900B1E0D6 /* Lion.png */,
+				B6A33E1B177CB15A00978241 /* Frog.png */,
 				1FF7E8A21773B14900215E38 /* Eagle.png */,
 				082F898A1777763800780AA5 /* Penguin.png */,
 				082F898C177776C600780AA5 /* Housecat.png */,
@@ -409,6 +412,7 @@
 				1FB8C31117783E6000E51694 /* coding_standards.txt in Resources */,
 				1F2F7D49177903DA002D2CB4 /* PXDetailViewController.xib in Resources */,
 				08A10B73177CAB2100AB0609 /* Gorilla.png in Resources */,
+				B6A33E1C177CB15A00978241 /* Frog.png in Resources */,
 				08A10B75177CAEAC00AB0609 /* Dog.png in Resources */,
 				1FAA58F1177CB6120072CF9A /* Horse.png in Resources */,
 			);

@@ -7,7 +7,6 @@
 //  Created by Steve King on 2013-06-18.
 //  Copyright (c) 2013 Phylosoft. All rights reserved.
 //
-// Change_test
 
 #import "PXRootViewController.h"
 
@@ -16,16 +15,17 @@
 @end
 
 @implementation PXRootViewController
-//id for the custom cell
+
+// id for the custom cell
 static NSString *CellTableIdentifier = @"CellTableIdentifier";
 
-@synthesize lifeforms;
+@synthesize lifeforms, managedObjectContext, addButton;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
     if (self) {
-        self.title = @"Phylodex";
+        self.title = kTitle;
         self.tabBarItem.image = [UIImage imageNamed:@"Phylodex"];
     }
     return self;
@@ -35,25 +35,38 @@ static NSString *CellTableIdentifier = @"CellTableIdentifier";
 {
     [super viewDidLoad];
     
-    // display edit button
-    // TO-DO implement handling of edit functions
-    self.navigationItem.rightBarButtonItem = self.editButtonItem;
-
-    // populate the collection of lifeforms (user photos)
-    lifeforms = [NSMutableArray array];
-    PXDummyCollection *collection = [[PXDummyCollection alloc] init];
-    for (PXDummyModel *model in collection.dummyModels) {
-        [lifeforms addObject:model];
-    }
+    // set edit and add buttons in navigation controller
+    self.navigationItem.leftBarButtonItem = self.editButtonItem;
+    addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addPhylo)];
+	addButton.enabled = YES;
+    self.navigationItem.rightBarButtonItem = addButton;
+	
+    // Fetch existing phylodex entries.
+    // Create a fetch request, add a sort descriptor, then execute the fetch.
+	NSFetchRequest *request = [[NSFetchRequest alloc] init];
+	NSEntityDescription *entity = [NSEntityDescription entityForName:@"Phylodex" inManagedObjectContext:managedObjectContext];
+	[request setEntity:entity];
+	
+	// Order the entries by name
+	NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+	NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
+	[request setSortDescriptors:sortDescriptors];
+	
+	// Execute the fetch -- create a mutable copy of the result.
+	NSError *error = nil;
+	NSMutableArray *mutableFetchResults = [[managedObjectContext executeFetchRequest:request error:&error] mutableCopy];
+	if (mutableFetchResults == nil) {
+		// Handle the error.
+	}
+	[self setLifeforms:mutableFetchResults];
     
     //get the right table
     UITableView *tableView = (id)[self.view viewWithTag:1];
     //set the height of the cells
-    tableView.rowHeight = 65;
+    tableView.rowHeight = kTableRowHeight;
     //reference to the custom cell class
     UINib *nib = [UINib nibWithNibName:@"PXNameAndImageCell" bundle:nil];
-    [tableView registerNib:nib
-    forCellReuseIdentifier:CellTableIdentifier];
+    [tableView registerNib:nib forCellReuseIdentifier:CellTableIdentifier];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -75,8 +88,7 @@ static NSString *CellTableIdentifier = @"CellTableIdentifier";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // Return the number of rows in the section.
-    // this is determined by the number of photos the user has
+    // Return the number of rows in the section, determined by the number of photos the user has
     return [lifeforms count];
 }
 
@@ -88,12 +100,13 @@ static NSString *CellTableIdentifier = @"CellTableIdentifier";
         cell = [[PXNameAndImageCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    // Configure the cell...
-    PXDummyModel *lifeform = [lifeforms objectAtIndex:indexPath.row];
-    cell.name = lifeform.name;
-	cell.species = lifeform.species;
-    cell.image = lifeform.image;  
-    return cell;
+    // Get the phylodex entry for the current index path and configure table view cell
+    Phylodex *phylo = (Phylodex *)[lifeforms objectAtIndex:indexPath.row];
+    cell.name = phylo.name;
+    cell.species = @"Species"; // NEED TO BE IMPLEMENTED
+    cell.image = phylo.thumbnail;
+    
+	return cell;
 }
 
 /*
@@ -105,19 +118,27 @@ static NSString *CellTableIdentifier = @"CellTableIdentifier";
 }
 */
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
+// handle deleting of phylodex entries
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+		
+        // Delete the managed object at the given index path.
+		NSManagedObject *eventToDelete = [lifeforms objectAtIndex:indexPath.row];
+		[managedObjectContext deleteObject:eventToDelete];
+		
+		// Update the array and table view.
+        [lifeforms removeObjectAtIndex:indexPath.row];
+        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:YES];
+		
+		// Commit the change.
+		NSError *error = nil;
+		if (![managedObjectContext save:&error]) {
+			// Handle the error.
+		}
+    }
 }
-*/
+
 
 /*
 // Override to support rearranging the table view.
@@ -139,27 +160,22 @@ static NSString *CellTableIdentifier = @"CellTableIdentifier";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
-    
     // set the child controller, and its delegate to the root controller
     PXDetailViewController *detailViewController = [[PXDetailViewController alloc] init];
     detailViewController.delegate = self;
 
-    // set the title of the detail view to the name of the animal (hard-coded for now)
+    // Get the phylodex entry for the current index path and set the values for the child controller
+    Phylodex *phylo = (Phylodex *)[lifeforms objectAtIndex:indexPath.row];
     
-    PXDummyModel *lifeform = [lifeforms objectAtIndex:indexPath.row];
-    //detailViewController.model = lifeform;
-    detailViewController.image = lifeform.image;
-    detailViewController.nameTextField.text = lifeform.name;
-    detailViewController.speciesTextField.text = lifeform.species;
-    NSString *title = lifeform.name;
-    detailViewController.title = title;
+    // NOTE: Need to make properties for each of the fields in the detail view controller, the
+    // IBOutlets will populate themselves from these property values
+    // Likely just make a property for the Phylodex object for the detail view controller
+    
+    detailViewController.image = phylo.photo.image;
+    detailViewController.nameTextField.text = phylo.name;
+    detailViewController.speciesTextField.text = @"Species";
+    detailViewController.title = phylo.name;
+    
     [self.navigationController pushViewController:detailViewController animated:YES];
 }
 
@@ -167,14 +183,23 @@ static NSString *CellTableIdentifier = @"CellTableIdentifier";
 
 - (void)detailViewControllerDidSave:(PXDetailViewController *)controller
 {
-    // save the changes made by user in child controller to the persistent data store and reload data
+    // TO-DO: save the changes made by user in child controller to the persistent data store and reload data
     [controller.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)detailViewControllerDidCancel:(PXDetailViewController *)controller
 {
-    // do nothing, just return to the phylodex
+    // TO-DO: reset the values from the model and return to the phylodex
     [controller.navigationController popViewControllerAnimated:YES];
+}
+
+#pragma mark - custom event handlers
+
+- (void)addPhylo
+{
+    // TO-DO: Implement a method to add a new entry
+    // this should push the detail view controller or an add view controller
+    
 }
 
 @end

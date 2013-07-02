@@ -35,17 +35,96 @@
     [controllers addObject:phylodexNav];
     UINavigationController *webSearchNav = [[UINavigationController alloc] initWithRootViewController:webSearch];
     [controllers addObject:webSearchNav];
-    // to-do: make a collection view object
-    //    UINavigationController *shareNav = [[UINavigationController alloc] initWithRootViewController:share];
+    
+    NSManagedObjectContext *context = [self managedObjectContext];
+	if (!context) {
+		// Handle the error.
+	}
+	phylodex.managedObjectContext = context;
+    
+//    to-do: make a collection view object
+//    UINavigationController *shareNav = [[UINavigationController alloc] initWithRootViewController:share];
 //    [controllers addObject:shareNav];
     
     // set up the tab bar controller
     _rootController = [[UITabBarController alloc] init];
     _rootController.viewControllers = controllers;
     
+    // FOR DEVELOPMENT PURPOSES: populate with dummy data
+    // insert dummy data only if database is empty already
+    if (![self coreDataHasEntriesForEntityName:@"Phylodex"]) {
+        [self populateDummyData];
+    }
+    
     _window.rootViewController = _rootController;
     [_window makeKeyAndVisible];
     
+    return YES;
+}
+
+// FOR DEVELOPMENT PURPOSES!!!
+// Populate the user data base with some items if they aren't there yet
+- (void)populateDummyData
+{
+    PXDummyCollection *collection = [[PXDummyCollection alloc] init];
+    
+    // add each dummy entry into the user database
+    for (PXDummyModel *model in collection.dummyModels) {
+        Phylodex *phylo = (Phylodex *)[NSEntityDescription insertNewObjectForEntityForName:@"Phylodex" inManagedObjectContext:_managedObjectContext];
+        Photo *photo = (Photo *)[NSEntityDescription insertNewObjectForEntityForName:@"Photo" inManagedObjectContext:_managedObjectContext];
+        
+        [phylo setDate:[NSDate date]]; // Should be timestamp, but this will be constant for simulator.
+        [phylo setName:model.name];
+        [phylo setHabitat:@"Earth"];
+        
+        // set the image
+        UIImage *selectedImage = [UIImage imageNamed:[NSString stringWithFormat:@"%@%@", model.name, @".png"]];
+        
+        // Associate the photo object with the phylodex entry
+        photo.image = selectedImage;
+        
+        // Create a thumbnail version of the image for the event object.
+        CGSize size = selectedImage.size;
+        CGFloat ratio = 0;
+        if (size.width > size.height) {
+            ratio = 65.0 / size.width;
+        }
+        else {
+            ratio = 65.0 / size.height;
+        }
+        CGRect rect = CGRectMake(0.0, 0.0, ratio * size.width, ratio * size.height);
+        
+        UIGraphicsBeginImageContext(rect.size);
+        [selectedImage drawInRect:rect];
+        phylo.thumbnail = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        
+    }
+	
+	// Commit the change.
+	NSError *error = nil;
+	if (![_managedObjectContext save:&error]) {
+		// Handle the error.
+	}
+    
+}
+
+// FOR DEVELOPMENT PURPOSES!!!
+// source: http://stackoverflow.com/questions/4956905/core-data-database-is-empty-test
+// checks if the core data store is empty
+- (BOOL)coreDataHasEntriesForEntityName:(NSString *)entityName {
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:entityName inManagedObjectContext:self.managedObjectContext];
+    [request setEntity:entity];
+    [request setFetchLimit:1];
+    NSError *error = nil;
+    NSArray *results = [self.managedObjectContext executeFetchRequest:request error:&error];
+    if (!results) {
+       // handle error
+    }
+    if ([results count] == 0) {
+        return NO;
+    }
     return YES;
 }
 
@@ -130,6 +209,9 @@
     }
     
     NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"Phylodex.sqlite"];
+    
+    // FOR DEVELOPMENT PURPOSES: DELETES THE STORE
+//    [[NSFileManager defaultManager] removeItemAtURL:storeURL error:nil];
     
     NSError *error = nil;
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];

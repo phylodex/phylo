@@ -10,13 +10,32 @@
 
 #import <Foundation/Foundation.h>
 #import "PXDummyCollection.h"
+#import "PXXMLParserFirstStep.h"
+#import "PXXMLParserSecondStep.h"
+#import "PXXMLParserThirdStep.h"
+
+@class PXXMLParserFirstStep;
+@class PXXMLParserSecondStep;
+@class PXXMLParserThirdStep;
 
 // define the identifiers to extract info from the xml data
 #define NAME_ID = @"name"
 #define UUID_ID = @"uuid"
 
-@interface PXXMLParser : NSObject
+@interface PXXMLParser : NSObject <NSXMLParserDelegate> {
+    NSXMLParser *xmlParser;
+    NSMutableArray *animalArray;
+    NSMutableDictionary *animal;
+    NSString *name;
+    NSString *species;
+    NSString *imagePath;
+    NSString *currentElement;
+}
+
+@property (nonatomic, retain) NSXMLParser *xmlParser;
+@property (nonatomic, retain) NSMutableArray *animalArray;
 
 + (NSMutableArray *)extractItemsFromXMLData:(NSString *)data;
+- (NSMutableArray *)parseFile:(NSMutableArray *) data : (NSInteger) size;
 
 @end

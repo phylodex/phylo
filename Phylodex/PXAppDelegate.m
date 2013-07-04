@@ -27,14 +27,17 @@
     // set up the modal view controllers
     PXRootViewController *phylodex = [[PXRootViewController alloc] init];
     PXWebSearchViewController *webSearch = [[PXWebSearchViewController alloc] init];
+    PXCameraViewController *capature = [[PXCameraViewController alloc]init];
     // to-do: collection view
     //PXShareViewController *share = [[PXShareViewController alloc] init];
     
     // add the modes to the controllers array
     UINavigationController *phylodexNav = [[UINavigationController alloc] initWithRootViewController:phylodex];
     [controllers addObject:phylodexNav];
+    [controllers addObject:capature];
     UINavigationController *webSearchNav = [[UINavigationController alloc] initWithRootViewController:webSearch];
     [controllers addObject:webSearchNav];
+    
     // to-do: make a collection view object
     //    UINavigationController *shareNav = [[UINavigationController alloc] initWithRootViewController:share];
 //    [controllers addObject:shareNav];

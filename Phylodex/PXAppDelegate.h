@@ -12,6 +12,7 @@
 #import "PXRootViewController.h"
 #import "PXWebSearchViewController.h"
 #import "PXShareViewController.h"
+#import "PXCameraViewController.h"
 
 #define NUM_MODES 4 // how many modes in the tab bar controller
 

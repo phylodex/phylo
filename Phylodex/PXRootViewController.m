@@ -59,6 +59,9 @@ static NSString *CellTableIdentifier = @"CellTableIdentifier";
     // self.clearsSelectionOnViewWillAppear = NO;
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    [self.tableView reloadData];
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

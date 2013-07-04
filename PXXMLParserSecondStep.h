@@ -10,14 +10,11 @@
 
 @interface PXXMLParserSecondStep : NSObject <NSXMLParserDelegate> {
     NSXMLParser *xmlParser;
-    NSMutableArray *animalSpeciesArray;
     NSMutableDictionary *animalSpecies;
     NSMutableString *currentElementValue;
 }
 
 @property (nonatomic, retain) NSXMLParser *xmlParser;
-@property (nonatomic, retain) NSMutableArray *animalSpeciesArray;
-@property (nonatomic, retain) NSString *searchResultXMLData;
 
-- (NSMutableArray *) ParseSpeciesArray: (NSMutableArray *)nameArray;
+- (NSMutableDictionary *) ParseSpeciesArray: (NSData *)xmldata :(NSString *)name;
 @end

@@ -9,9 +9,13 @@
 #import <Foundation/Foundation.h>
 
 @interface PXXMLParserThirdStep : NSObject <NSXMLParserDelegate> {
-    
+    NSXMLParser *xmlParser;
+    NSMutableDictionary *animalImage;
+    NSMutableString *currentElementValue;
 }
 
-- (NSMutableArray *) ParseImageArray: (NSMutableArray *) speciesArray;
+@property (nonatomic, retain) NSXMLParser *xmlParser;
+
+- (NSMutableDictionary *) ParseImageArray: (NSData *)xmldata :(NSString *)name;
 
 @end

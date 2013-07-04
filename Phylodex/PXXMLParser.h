@@ -23,19 +23,13 @@
 #define UUID_ID = @"uuid"
 
 @interface PXXMLParser : NSObject <NSXMLParserDelegate> {
-    NSXMLParser *xmlParser;
-    NSMutableArray *animalArray;
-    NSMutableDictionary *animal;
-    NSString *name;
-    NSString *species;
-    NSString *imagePath;
-    NSString *currentElement;
+    NSMutableArray *firstStepResults;
+    NSMutableArray *secondStepResults;
+    NSMutableArray *thirdStepResults;
 }
 
-@property (nonatomic, retain) NSXMLParser *xmlParser;
-@property (nonatomic, retain) NSMutableArray *animalArray;
-
 + (NSMutableArray *)extractItemsFromXMLData:(NSString *)data;
-- (NSMutableArray *)parseFile:(NSMutableArray *) data : (NSInteger) size;
-
+- (NSMutableArray *)parseFileSecondStep:(NSMutableArray *) firstStepArray;
+- (NSMutableArray *)parseFileThirdStep:(NSMutableArray *) firstStepArray;
+- (NSMutableArray *)parserMerge: (PXXMLParser*) parser;
 @end

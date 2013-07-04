@@ -10,33 +10,18 @@
 
 @implementation PXXMLParserSecondStep
 
-@synthesize animalSpeciesArray, xmlParser, searchResultXMLData;
+@synthesize xmlParser;
 
-- (NSMutableArray *) ParseSpeciesArray: (NSMutableArray *)nameArray {
+- (NSMutableDictionary *) ParseSpeciesArray: (NSData *)xmldata :(NSString *)name {
     
-    animalSpeciesArray = [[NSMutableArray alloc] init];
-    NSLog(@"nameArray count is: %lu", (unsigned long) [nameArray count]);
-    int length = (unsigned long) [nameArray count];
-    for (int i = 0; i < length; i++) {
-        animalSpecies = [[NSMutableDictionary alloc]init];
-        [animalSpecies setObject:[[nameArray objectAtIndex:i] objectForKey:@"Name"] forKey:@"Name"];
-        [animalSpeciesArray addObject:animalSpecies];
-//        [[animalSpeciesArray objectAtIndex:i] setObject:[[nameArray objectAtIndex:i]objectForKey:@"Name" ] forKey:@"Name"];
-    }
+    animalSpecies = [[NSMutableDictionary alloc]init];
+    [animalSpecies setObject:name forKey:@"Name"];
+
+    xmlParser = [[NSXMLParser alloc]initWithData:xmldata];
+    xmlParser.delegate = self;
+    [xmlParser parse];
     
-    for (int i = 0; i < [nameArray count]; i++) {
-        NSString *query = [[NSString alloc]initWithFormat:@"https://services.natureserve.org/idd/rest/ns/v1.1/globalSpecies/comprehensive?uid=%@&NSAccessKeyId=731c33b1-68ba-43f1-acb8-14fd4e0dcf0d",[[nameArray objectAtIndex:i] objectForKey:@"UniqueID"]];
-        NSURL *url = [[NSURL alloc]initWithString:query];
-        searchResultXMLData = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:nil];
-        NSData *dataString = [[NSData alloc]init];
-        dataString = [searchResultXMLData dataUsingEncoding:NSUTF8StringEncoding];
-        xmlParser = [[NSXMLParser alloc]initWithData:dataString];
-        xmlParser.delegate = self;
-        [xmlParser parse];
-        NSLog(@"check once");
-    }
-    NSLog(@"self.animalSpeciesArray is: %@", self.animalSpeciesArray);
-    return self.animalSpeciesArray;
+    return animalSpecies;
 }
 
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict {
@@ -55,9 +40,10 @@
 
 -(void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName {
     
-    if ([elementName isEqualToString:@"foodComments"]) {
-        [animalSpecies setObject:currentElementValue forKey:@"Species"];
-        NSLog(@"%@", animalSpecies);
+//  what does "species" need? what kind of data in the xml file? please check it
+    if ([elementName isEqualToString:@"kingdom"]) {
+        NSString *currentElementValueString = [[NSString alloc] initWithString:[[currentElementValue componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]] componentsJoinedByString:@""]];
+        [animalSpecies setObject:currentElementValueString forKey:@"Species"];
     }
     if ([elementName isEqualToString:@"globalSpecies"]) {
         return;

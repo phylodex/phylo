@@ -12,6 +12,10 @@
 #import "PXRootViewController.h"
 #import "PXWebSearchViewController.h"
 #import "PXShareViewController.h"
+#import "Phylodex.h"
+#import "Photo.h"
+// dummy collection for development purposes
+#import "PXDummyCollection.h"
 
 #define NUM_MODES 4 // how many modes in the tab bar controller
 

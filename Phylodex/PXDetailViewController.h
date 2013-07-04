@@ -16,10 +16,10 @@
 @property (nonatomic, assign)id <PXDetailViewControllerDelegate>delegate;
 //@property (retain, nonatomic) PXDummyModel *model;
 @property (retain, nonatomic) IBOutlet UIImage *image;
-@property (weak, nonatomic) IBOutlet UIImageView *imageView;
-@property (weak, nonatomic) IBOutlet UIButton *cropButton;
-@property (weak, nonatomic) IBOutlet UITextField *nameTextField;
-@property (weak, nonatomic) IBOutlet UITextField *speciesTextField;
+@property (retain, nonatomic) IBOutlet UIImageView *imageView;
+@property (retain, nonatomic) IBOutlet UIButton *cropButton;
+@property (retain, nonatomic) IBOutlet UITextField *nameTextField;
+@property (retain, nonatomic) IBOutlet UITextField *speciesTextField;
 
 @end
 

@@ -49,6 +49,45 @@
         _imagepathValue.image = [UIImage imageNamed:_imagepath];
     }
 }
-
+- (void)willTransitionToState:(UITableViewCellStateMask)state {
+    
+    [super willTransitionToState:state];
+    
+    if (state == UITableViewCellStateDefaultMask) {
+        
+        NSLog(@"Default");
+        // When the cell returns to normal (not editing)
+        // Do something...
+        _nameSpacer.constant = 20;
+        _speciesSpacer.constant = 20;
+        _imageSpacer.constant = 0;
+        
+    } else if ((state & UITableViewCellStateShowingEditControlMask) && (state & UITableViewCellStateShowingDeleteConfirmationMask)) {
+        
+        NSLog(@"Edit Control + Delete Button");
+        // When the cell goes from Showing-the-Edit-Control (-) to Showing-the-Edit-Control (-) AND the Delete Button [Delete]
+        // !!! It's important to have this BEFORE just showing the Edit Control because the edit control applies to both cases.!!!
+        // Do something...
+        NSLog(@"Need to indent the ");
+        NSLog(_nameValue.text);
+        _imageSpacer.constant = -80;
+        
+    } else if (state & UITableViewCellStateShowingEditControlMask) {
+        
+        NSLog(@"Edit Control Only");
+        // When the cell goes into edit mode and Shows-the-Edit-Control (-)
+        // Do something...
+        NSLog(@"Need to indent the ");
+        NSLog(_nameValue.text);
+        _nameSpacer.constant = 40;
+        _speciesSpacer.constant = 40;
+        _imageSpacer.constant = 0;
+    } else if (state == UITableViewCellStateShowingDeleteConfirmationMask) {
+        
+        NSLog(@"Swipe to Delete [Delete] button only");
+        // When the user swipes a row to delete without using the edit button.
+        // Do something...
+    }
+}
 @end
 

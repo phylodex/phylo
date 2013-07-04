@@ -8,18 +8,37 @@
 
 #import <UIKit/UIKit.h>
 #import "PXDummyModel.h"
+#import "ImageCropper.h"
+
+@class PXDetailViewController;
 
 @protocol PXDetailViewControllerDelegate;
 
-@interface PXDetailViewController : UIViewController
+@interface PXDetailViewController : UIViewController<UITableViewDelegate,UITableViewDataSource , ImageCropperDelegate>{
+    PXDetailViewController *detailView;
+    NSMutableArray *resultArray;
+    UITableViewController *table;
+    //IBOutlet UIImageView *imageView;
+}
 
 @property (nonatomic, assign)id <PXDetailViewControllerDelegate>delegate;
 //@property (retain, nonatomic) PXDummyModel *model;
 @property (retain, nonatomic) IBOutlet UIImage *image;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UIButton *cropButton;
-@property (weak, nonatomic) IBOutlet UITextField *nameTextField;
+//@property (weak, nonatomic) IBOutlet UITextField *nameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *speciesTextField;
+
+
+@property (retain, nonatomic) NSMutableArray *resultArray;
+@property (retain, nonatomic) UITableView *table;
+@property (strong, nonatomic) IBOutlet UIScrollView *tableView;
+//@property (strong, nonatomic) IBOutlet UIImageView *tableView;
+@property (strong, nonatomic) IBOutlet UITableViewController *tableViewContro;
+@property (nonatomic, retain)NSMutableArray *lifeforms; //list of animals
+
+
+- (IBAction)cropButtonWasPressed:(id)sender;
 
 @end
 

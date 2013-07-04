@@ -20,5 +20,8 @@
 @property (strong, nonatomic) IBOutlet UILabel *nameValue;
 @property (strong, nonatomic) IBOutlet UILabel *speciesValue;
 @property (strong, nonatomic) IBOutlet UIImageView *imagepathValue;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *nameSpacer;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *speciesSpacer;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *imageSpacer;
 
 @end

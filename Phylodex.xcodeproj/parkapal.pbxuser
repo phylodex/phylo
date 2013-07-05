@@ -1,0 +1,91 @@
+// !$*UTF8*$!
+{
+	087E3112178631D60065E40E /* Phylodex */ = {
+		isa = PBXExecutable;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		breakpointsEnabled = 0;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		dataTipCustomDataFormattersEnabled = 1;
+		dataTipShowTypeColumn = 1;
+		dataTipSortType = 0;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = Phylodex;
+		showTypeColumn = 0;
+		sourceDirectories = (
+		);
+	};
+	087E3128178631DA0065E40E /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+			repositoryNamesForRoots = {
+				"" = "";
+			};
+		};
+	};
+	087E3129178631DA0065E40E /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	1F293CA71770FBC9009C8DA9 /* Project object */ = {
+		activeBuildConfigurationName = Debug;
+		activeExecutable = 087E3112178631D60065E40E /* Phylodex */;
+		activeTarget = 1F293CAE1770FBC9009C8DA9 /* Phylodex */;
+		codeSenseManager = 087E3129178631DA0065E40E /* Code sense */;
+		executables = (
+			087E3112178631D60065E40E /* Phylodex */,
+		);
+		perUserDictionary = {
+			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					341,
+					20,
+					48.16259765625,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 394670550;
+			PBXWorkspaceStateSaveDate = 394670550;
+		};
+		sourceControlManager = 087E3128178631DA0065E40E /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+	1F293CAE1770FBC9009C8DA9 /* Phylodex */ = {
+		activeExec = 0;
+		executables = (
+			087E3112178631D60065E40E /* Phylodex */,
+		);
+	};
+	1F293CD31770FBC9009C8DA9 /* PhylodexTests */ = {
+		activeExec = 0;
+	};
+}

@@ -35,7 +35,10 @@
         [animalName setObject:@"Not Exist" forKey:@"Name"];
         [animalName setObject:@"Not Exist" forKey:@"Food Comment"];
         [animalName setObject:@"Not Exist" forKey:@"UniqueID"];
+        
+        //the reason that program crashed is i set the value @"Not Exist" to a UIImage type
         [animalName setObject:@"Not Exist" forKey:@"Image"];
+        
         [animalName setObject:@"Not Exist" forKey:@"Kingdom"];
         [animalName setObject:@"Not Exist" forKey:@"Phylum"];
         [animalName setObject:@"Not Exist" forKey:@"Class"];

@@ -12,10 +12,9 @@
 
 @synthesize xmlParser;
 
-- (NSMutableDictionary *) ParseSpeciesArray: (NSData *)xmldata :(NSString *)name {
+- (NSMutableDictionary *) ParseSpeciesArray: (NSData *)xmldata :(NSMutableDictionary *)name {
     
-    animalSpecies = [[NSMutableDictionary alloc]init];
-    [animalSpecies setObject:name forKey:@"Name"];
+    animalSpecies = [[NSMutableDictionary alloc]initWithDictionary:name];
 
     xmlParser = [[NSXMLParser alloc]initWithData:xmldata];
     xmlParser.delegate = self;
@@ -40,15 +39,110 @@
 
 -(void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName {
     
-//  what does "species" need? what kind of data in the xml file? please check it
+
+//THIS IS BASICALLY ALL INFORMATION CORRESPONDED WITH KEY-NAMES I INITIALIZED IN THE "PXXMLParserFirstStep.m" EXCEPT "Image" and "CopyrightsHolder" (YOU CAN FIND THEM IN "PXXMLParserThirdStep.m"), IF YOU WANT ADD ANY KEY-VALUE PAIR FROM "Global Comprehensive Species" SEARCHING RETURNED XML FILE, YOU CAN SIMPLY ADD IF STATEMENT HERE
+//HOPING FOLLOWING EXPLANATION HELPS
+//******************************************************************************************************
+//******************************************************************************************************
+    //if the identifier name (elementName in Xcode words) is the same as @"something you want" then do
     if ([elementName isEqualToString:@"kingdom"]) {
-        NSString *currentElementValueString = [[NSString alloc] initWithString:[[currentElementValue componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]] componentsJoinedByString:@""]];
-        [animalSpecies setObject:currentElementValueString forKey:@"Species"];
+        //here simply delete all newline and whitespace characters in the currentElementValue (currentElementValue is the string between the 2 corresponed identifiers, eg. <name>Golden Eagle</name> then the currentElementValue wii be Golden Eagle)
+        //however in some cases, you want a paragraph between the 2 corresponded identifiers, you can use
+        //*********************************************************************************************
+        //NSString *currentElementValueString = [[NSString alloc] initWithString:[[currentElementValue componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]] componentsJoinedByString:@""]];
+        //*********************************************************************************************
+        //note that it becomes [NSCharacterSet newlineCharacterSet] not [NSCharacterSet whitespaceAndNewlineCharacterSet]
+        //However for any currentElementValue I parsed from xml file, the format is:
+        //"/n/t/n         Golden Eagle" please notice thoses whitespaces, if I only delete newline characters, it becomes "         Golden Eagle", but if I delete both characters(newline and whitespace), it becomes "GoldenEagle". unfortunately, I haven't a way to deal with that. hopefully you can find it
+        NSString *currentElementValueString = [[NSString alloc] initWithString:[[currentElementValue componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] componentsJoinedByString:@""]];
+        
+        //here I just add the string to the corresponded key
+        if (currentElementValueString != nil) {
+            [animalSpecies setObject:currentElementValueString forKey:@"Kingdom"];
+        }
     }
+    
+    if ([elementName isEqualToString:@"phylum"]) {
+        NSString *currentElementValueString = [[NSString alloc] initWithString:[[currentElementValue componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] componentsJoinedByString:@""]];
+        if (currentElementValueString != nil) {
+            [animalSpecies setObject:currentElementValueString forKey:@"Phylum"];
+        }
+    }
+    if ([elementName isEqualToString:@"class"]) {
+        NSString *currentElementValueString = [[NSString alloc] initWithString:[[currentElementValue componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] componentsJoinedByString:@""]];
+        if (currentElementValueString != nil) {
+            [animalSpecies setObject:currentElementValueString forKey:@"Class"];
+        }
+    }
+    if ([elementName isEqualToString:@"order"]) {
+        NSString *currentElementValueString = [[NSString alloc] initWithString:[[currentElementValue componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] componentsJoinedByString:@""]];
+        if (currentElementValueString != nil) {
+            [animalSpecies setObject:currentElementValueString forKey:@"Order"];
+        }
+    }
+    if ([elementName isEqualToString:@"family"]) {
+        NSString *currentElementValueString = [[NSString alloc] initWithString:[[currentElementValue componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] componentsJoinedByString:@""]];
+        if (currentElementValueString != nil) {
+            [animalSpecies setObject:currentElementValueString forKey:@"Family"];
+        }
+    }
+    if ([elementName isEqualToString:@"genus"]) {
+        NSString *currentElementValueString = [[NSString alloc] initWithString:[[currentElementValue componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] componentsJoinedByString:@""]];
+        if (currentElementValueString != nil) {
+            [animalSpecies setObject:currentElementValueString forKey:@"Genus"];
+        }
+    }
+    if ([elementName isEqualToString:@"economicComments"]) {
+        NSString *currentElementValueString = [[NSString alloc] initWithString:[[currentElementValue componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]] componentsJoinedByString:@""]];
+        if (currentElementValueString != nil) {
+            [animalSpecies setObject:currentElementValueString forKey:@"EconomicComments"];
+        }
+    }
+    if ([elementName isEqualToString:@"shortGeneralDescription"]) {
+        NSString *currentElementValueString = [[NSString alloc] initWithString:[[currentElementValue componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]] componentsJoinedByString:@""]];
+        if (currentElementValueString != nil) {
+            [animalSpecies setObject:currentElementValueString forKey:@"ShortGeneralDescription"];
+        }
+    }
+    if ([elementName isEqualToString:@"generalDescription"]) {
+        NSString *currentElementValueString = [[NSString alloc] initWithString:[[currentElementValue componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]] componentsJoinedByString:@""]];
+        if (currentElementValueString != nil) {
+            [animalSpecies setObject:currentElementValueString forKey:@"GeneralDescription"];
+        }
+    }
+    if ([elementName isEqualToString:@"reproductionComments"]) {
+        NSString *currentElementValueString = [[NSString alloc] initWithString:[[currentElementValue componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]] componentsJoinedByString:@""]];
+        if (currentElementValueString != nil) {
+            [animalSpecies setObject:currentElementValueString forKey:@"ReproductionComments"];
+        }
+    }
+    if ([elementName isEqualToString:@"habitat"]) {
+        NSString *currentElementValueString = [[NSString alloc] initWithString:[[currentElementValue componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]] componentsJoinedByString:@""]];
+        if (currentElementValueString != nil) {
+            if ([animalSpecies objectForKey:@"Habitat"] != nil) {
+                NSString *addingHabitat = [[NSString alloc]initWithFormat:@"%@, %@",[animalSpecies objectForKey:@"Habitat"],currentElementValueString];
+                [animalSpecies setObject:addingHabitat forKey:@"Habitat"];
+            }
+            else {
+                [animalSpecies setObject:currentElementValueString forKey:@"Habitat"];
+            }
+            
+        }
+    }
+    if ([elementName isEqualToString:@"foodComments"]) {
+        NSString *currentElementValueString = [[NSString alloc] initWithString:[[currentElementValue componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]] componentsJoinedByString:@""]];
+        if (currentElementValueString != nil) {
+            [animalSpecies setObject:currentElementValueString forKey:@"FoodComments"];
+        }
+    }
+//******************************************************************************************************
+//******************************************************************************************************
+    
+    
     if ([elementName isEqualToString:@"globalSpecies"]) {
         return;
     }
-    
+
     currentElementValue = nil;
 }
 

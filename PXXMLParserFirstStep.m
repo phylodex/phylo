@@ -19,7 +19,6 @@
     animalNameArray = [[NSMutableArray alloc] init];
     xmlParser.delegate = self;
     [xmlParser parse];
-//    NSLog(@"%@",self.animalNameArray);
     return self.animalNameArray;
 }
 
@@ -28,6 +27,31 @@
     if ([elementName isEqualToString:@"speciesSearchResult"]) {
         
         animalName = [[NSMutableDictionary alloc]init];
+        
+        
+        
+//SET THE INITIAL KEYS FOR THE FINAL RESULT ARRAY, ANY KEY YOU WANT YOU CAN SET HERE, FOR INITIALIZATION PURPOSE, PLEASE SET IT TO @"Not Exist" ALWAYS
+//**************************************************************************************
+        [animalName setObject:@"Not Exist" forKey:@"Name"];
+        [animalName setObject:@"Not Exist" forKey:@"Food Comment"];
+        [animalName setObject:@"Not Exist" forKey:@"UniqueID"];
+        [animalName setObject:@"Not Exist" forKey:@"Image"];
+        [animalName setObject:@"Not Exist" forKey:@"Kingdom"];
+        [animalName setObject:@"Not Exist" forKey:@"Phylum"];
+        [animalName setObject:@"Not Exist" forKey:@"Class"];
+        [animalName setObject:@"Not Exist" forKey:@"Order"];
+        [animalName setObject:@"Not Exist" forKey:@"Family"];
+        [animalName setObject:@"Not Exist" forKey:@"Genus"];
+        [animalName setObject:@"Not Exist" forKey:@"EconomicComments"];
+        [animalName setObject:@"Not Exist" forKey:@"ShortGeneralDescription"];
+        [animalName setObject:@"Not Exist" forKey:@"ReproductionComments"];
+        [animalName setObject:@"Not Exist" forKey:@"Habitat"];
+        [animalName setObject:@"Not Exist" forKey:@"FoodComments"];
+        [animalName setObject:@"Not Exist" forKey:@"CopyrightsHolder"];
+//**************************************************************************************
+        
+        
+        
     }
 }
 
@@ -65,11 +89,16 @@
                 i++;
             }
         }
-        
-        [animalName setObject:newString forKey:@"Name"];
+        if (newString != nil) {
+            [animalName setObject:newString forKey:@"Name"];
+        }
+
     }
     else if ([elementName isEqualToString:@"globalSpeciesUid"]) {
-        [animalName setObject:currentElementValueString forKey:@"UniqueID"];
+        if (currentElementValueString != nil) {
+            [animalName setObject:currentElementValueString forKey:@"UniqueID"];
+        }
+    
     }
     if ([elementName isEqualToString:@"speciesSearchResult"]) {
         [animalNameArray addObject:animalName];

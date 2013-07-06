@@ -31,5 +31,5 @@
 + (NSMutableArray *)extractItemsFromXMLData:(NSString *)data;
 - (NSMutableArray *)parseFileSecondStep:(NSMutableArray *) firstStepArray;
 - (NSMutableArray *)parseFileThirdStep:(NSMutableArray *) firstStepArray;
-- (NSMutableArray *)parserMerge: (PXXMLParser*) parser;
+//- (NSMutableArray *)parserMerge: (PXXMLParser*) parser;
 @end

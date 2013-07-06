@@ -12,10 +12,11 @@
     NSXMLParser *xmlParser;
     NSMutableDictionary *animalImage;
     NSMutableString *currentElementValue;
+    Boolean foundImage;
 }
 
 @property (nonatomic, retain) NSXMLParser *xmlParser;
 
-- (NSMutableDictionary *) ParseImageArray: (NSData *)xmldata :(NSString *)name;
+- (NSMutableDictionary *) ParseImageArray: (NSData *)xmldata :(NSMutableDictionary *)name;
 
 @end

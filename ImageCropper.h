@@ -4,10 +4,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
 @protocol ImageCropperDelegate;
 
-@interface ImageCropper : UIViewController <UIScrollViewDelegate> {
+
+
+@interface ImageCropper : UIViewController {
 	UIScrollView *scrollView;
 	UIImageView *imageView;
 	
@@ -17,7 +18,7 @@
 @property (nonatomic, retain) UIScrollView *scrollView;
 @property (nonatomic, retain) UIImageView *imageView;
 
-@property (nonatomic, assign) id <ImageCropperDelegate> delegate;
+@property (nonatomic, weak) id <ImageCropperDelegate> delegate;
 
 - (id)initWithImage:(UIImage *)image;
 

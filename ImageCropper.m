@@ -8,11 +8,11 @@
 @implementation ImageCropper
 
 @synthesize scrollView, imageView;
-//@synthesize delegate;
+
 
 - (id)initWithImage:(UIImage *)image {
 	self = [super init];
-	
+	self=[super init];
 	if (self) {
 		[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent animated:YES];
 		
@@ -43,8 +43,6 @@
 		[navigationBar setTranslucent:YES];
 		
 		UINavigationItem *aNavigationItem = [[UINavigationItem alloc] initWithTitle:@"Move and Scale"];
-        
-        
 		[aNavigationItem setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelCropping)]];
 		[aNavigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(finishCropping)]];
 		
@@ -86,12 +84,6 @@
 	return imageView;
 }
 
-- (void)dealloc {
-/*	[imageView release];
-	[scrollView release];
-	
-    [super dealloc];
-*/
-}
+
 
 @end

@@ -5,6 +5,11 @@
 //  Created by Steve King on 2013-06-24.
 //  Copyright (c) 2013 Phylosoft. All rights reserved.
 //
+//
+//  ImageCropper.h
+//  Created by http://github.com/iosdeveloper
+//
+
 
 #import <UIKit/UIKit.h>
 #import "ImageCropper.h"
@@ -35,7 +40,7 @@
 //@property (strong, nonatomic) IBOutlet UIImageView *tableView;
 //@property (nonatomic, retain) IBOutlet ViewController *viewController;
 //@property (nonatomic, retain)NSMutableArray *lifeforms; //list of animals
-//@property (weak, nonatomic) IBOutlet UIButton *cropButton;
+@property (weak, nonatomic) IBOutlet UIButton *cropButton;
 @property (weak, nonatomic) IBOutlet UITextField *speciesTextField;
 @property (nonatomic, assign)id <PXDetailViewControllerDelegate>delegate;
 @property (retain, nonatomic) IBOutlet UIImage *image;

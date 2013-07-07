@@ -5,6 +5,10 @@
 //  Created by Steve King on 2013-06-24.
 //  Copyright (c) 2013 Phylosoft. All rights reserved.
 //
+//
+//  ImageCropper.h
+//  Created by http://github.com/iosdeveloper
+//
 
 //#import "SSPhotoCropperDemoViewController.h"
 //#import "PXCropViewController.h"
@@ -26,7 +30,7 @@
 
 @synthesize nameTextField;
 //@synthesize lifeforms;
-//@synthesize cropButton;
+@synthesize cropButton;
 //@synthesize model;
 @synthesize speciesTextField;
 @synthesize image;

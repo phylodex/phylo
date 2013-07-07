@@ -8,15 +8,15 @@
 @implementation ImageCropper
 
 @synthesize scrollView, imageView;
-
+//@synthesize delegate;
 
 - (id)initWithImage:(UIImage *)image {
 	self = [super init];
-	self=[super init];
+	
 	if (self) {
 		[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent animated:YES];
 		
-		scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0.0, -20.0, 320.0, 480.0)];
+		scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0.0, 40.0, 320.0, 480.0)];
 		[scrollView setBackgroundColor:[UIColor blackColor]];
 		[scrollView setDelegate:self];
 		[scrollView setShowsHorizontalScrollIndicator:NO];
@@ -43,8 +43,10 @@
 		[navigationBar setTranslucent:YES];
 		
 		UINavigationItem *aNavigationItem = [[UINavigationItem alloc] initWithTitle:@"Move and Scale"];
-//		[aNavigationItem setLeftBarButtonItem:[[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelCropping)] autorelease]];
-//		[aNavigationItem setRightBarButtonItem:[[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(finishCropping)] autorelease]];
+        
+        
+		[aNavigationItem setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelCropping)]];
+		[aNavigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(finishCropping)]];
 		
 		[navigationBar setItems:[NSArray arrayWithObject:aNavigationItem]];
 		
@@ -84,6 +86,12 @@
 	return imageView;
 }
 
-
+- (void)dealloc {
+/*	[imageView release];
+	[scrollView release];
+	
+    [super dealloc];
+*/
+}
 
 @end

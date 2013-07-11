@@ -29,12 +29,22 @@
     PXWebSearchViewController *webSearch = [[PXWebSearchViewController alloc] init];
     // to-do: collection view
     //PXShareViewController *share = [[PXShareViewController alloc] init];
+    UICollectionViewFlowLayout *aFlowLayout = [[UICollectionViewFlowLayout alloc] init];
+    [aFlowLayout setItemSize:CGSizeMake(90, 90)];
+    [aFlowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
+    aFlowLayout.sectionInset = UIEdgeInsetsMake(10.0,10.0,10.0,10.0);
+    PXShareViewController *share = [[PXShareViewController alloc]initWithCollectionViewLayout:aFlowLayout];
+    
+    
     
     // add the modes to the controllers array
     UINavigationController *phylodexNav = [[UINavigationController alloc] initWithRootViewController:phylodex];
     [controllers addObject:phylodexNav];
     UINavigationController *webSearchNav = [[UINavigationController alloc] initWithRootViewController:webSearch];
     [controllers addObject:webSearchNav];
+    // to-do: make a collection view object
+        UINavigationController *shareNav = [[UINavigationController alloc] initWithRootViewController:share];
+    [controllers addObject:shareNav];
     
     NSManagedObjectContext *context = [self managedObjectContext];
 	if (!context) {
@@ -42,9 +52,6 @@
 	}
 	phylodex.managedObjectContext = context;
     
-//    to-do: make a collection view object
-//    UINavigationController *shareNav = [[UINavigationController alloc] initWithRootViewController:share];
-//    [controllers addObject:shareNav];
     
     // set up the tab bar controller
     _rootController = [[UITabBarController alloc] init];

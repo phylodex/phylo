@@ -7,10 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		081600A8178E6B2B00C8C904 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 081600A7178E6B2B00C8C904 /* MessageUI.framework */; };
 		082F898B1777763800780AA5 /* Penguin.png in Resources */ = {isa = PBXBuildFile; fileRef = 082F898A1777763800780AA5 /* Penguin.png */; };
 		082F898D177776C600780AA5 /* Housecat.png in Resources */ = {isa = PBXBuildFile; fileRef = 082F898C177776C600780AA5 /* Housecat.png */; };
 		087AF3A61776E46A004034F3 /* PXNameAndImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 087AF3A51776E46A004034F3 /* PXNameAndImageCell.m */; };
 		087AF3A81776E475004034F3 /* PXNameAndImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 087AF3A71776E475004034F3 /* PXNameAndImageCell.xib */; };
+		08834CC91785F723003472D5 /* Search.png in Resources */ = {isa = PBXBuildFile; fileRef = 08834CC81785F723003472D5 /* Search.png */; };
+		0891C2511786360C00F29BAD /* PXShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0891C24F1786360C00F29BAD /* PXShareViewController.m */; };
+		0891C2521786360C00F29BAD /* PXShareViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0891C2501786360C00F29BAD /* PXShareViewController.xib */; };
+		0891C2551786519300F29BAD /* PXShareCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0891C2541786519300F29BAD /* PXShareCell.m */; };
+		0891C2571786646900F29BAD /* PXShareCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0891C2561786646900F29BAD /* PXShareCell.xib */; };
 		08A10B73177CAB2100AB0609 /* Gorilla.png in Resources */ = {isa = PBXBuildFile; fileRef = 08A10B72177CAB2100AB0609 /* Gorilla.png */; };
 		08A10B75177CAEAC00AB0609 /* Dog.png in Resources */ = {isa = PBXBuildFile; fileRef = 08A10B74177CAEAC00AB0609 /* Dog.png */; };
 		1F08DAE31777CE53005F18EF /* PXSearchResultPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F08DAE11777CE52005F18EF /* PXSearchResultPhotoViewController.m */; };
@@ -36,8 +42,6 @@
 		1F293CE41770FBC9009C8DA9 /* PhylodexTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F293CE31770FBC9009C8DA9 /* PhylodexTests.m */; };
 		1F293CF0177101DC009C8DA9 /* PXRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F293CEE177101DC009C8DA9 /* PXRootViewController.m */; };
 		1F293CF1177101DC009C8DA9 /* PXRootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F293CEF177101DC009C8DA9 /* PXRootViewController.xib */; };
-		1F293CFA17710670009C8DA9 /* PXShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F293CF817710670009C8DA9 /* PXShareViewController.m */; };
-		1F293CFB17710670009C8DA9 /* PXShareViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F293CF917710670009C8DA9 /* PXShareViewController.xib */; };
 		1F2F7D48177903DA002D2CB4 /* PXDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F2F7D46177903DA002D2CB4 /* PXDetailViewController.m */; };
 		1F2F7D49177903DA002D2CB4 /* PXDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F2F7D47177903DA002D2CB4 /* PXDetailViewController.xib */; };
 		1F377E791780E9AD00A770BA /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F377E781780E9AD00A770BA /* Photo.m */; };
@@ -70,11 +74,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		081600A7178E6B2B00C8C904 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		082F898A1777763800780AA5 /* Penguin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Penguin.png; sourceTree = "<group>"; };
 		082F898C177776C600780AA5 /* Housecat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Housecat.png; sourceTree = "<group>"; };
 		087AF3A41776E46A004034F3 /* PXNameAndImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXNameAndImageCell.h; sourceTree = "<group>"; };
 		087AF3A51776E46A004034F3 /* PXNameAndImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXNameAndImageCell.m; sourceTree = "<group>"; };
 		087AF3A71776E475004034F3 /* PXNameAndImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PXNameAndImageCell.xib; sourceTree = "<group>"; };
+		08834CC81785F723003472D5 /* Search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Search.png; sourceTree = "<group>"; };
+		0891C24E1786360C00F29BAD /* PXShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXShareViewController.h; sourceTree = "<group>"; };
+		0891C24F1786360C00F29BAD /* PXShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXShareViewController.m; sourceTree = "<group>"; };
+		0891C2501786360C00F29BAD /* PXShareViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PXShareViewController.xib; sourceTree = "<group>"; };
+		0891C2531786519300F29BAD /* PXShareCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXShareCell.h; sourceTree = "<group>"; };
+		0891C2541786519300F29BAD /* PXShareCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXShareCell.m; sourceTree = "<group>"; };
+		0891C2561786646900F29BAD /* PXShareCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PXShareCell.xib; sourceTree = "<group>"; };
 		08A10B72177CAB2100AB0609 /* Gorilla.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Gorilla.png; sourceTree = "<group>"; };
 		08A10B74177CAEAC00AB0609 /* Dog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Dog.png; sourceTree = "<group>"; };
 		1F08DAE01777CE51005F18EF /* PXSearchResultPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PXSearchResultPhotoViewController.h; path = ../PXSearchResultPhotoViewController.h; sourceTree = "<group>"; };
@@ -108,9 +120,6 @@
 		1F293CED177101DC009C8DA9 /* PXRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXRootViewController.h; sourceTree = "<group>"; };
 		1F293CEE177101DC009C8DA9 /* PXRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXRootViewController.m; sourceTree = "<group>"; };
 		1F293CEF177101DC009C8DA9 /* PXRootViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PXRootViewController.xib; sourceTree = "<group>"; };
-		1F293CF717710670009C8DA9 /* PXShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXShareViewController.h; sourceTree = "<group>"; };
-		1F293CF817710670009C8DA9 /* PXShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXShareViewController.m; sourceTree = "<group>"; };
-		1F293CF917710670009C8DA9 /* PXShareViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PXShareViewController.xib; sourceTree = "<group>"; };
 		1F2F7D45177903DA002D2CB4 /* PXDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXDetailViewController.h; sourceTree = "<group>"; };
 		1F2F7D46177903DA002D2CB4 /* PXDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXDetailViewController.m; sourceTree = "<group>"; };
 		1F2F7D47177903DA002D2CB4 /* PXDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PXDetailViewController.xib; sourceTree = "<group>"; };
@@ -144,6 +153,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				081600A8178E6B2B00C8C904 /* MessageUI.framework in Frameworks */,
 				1F293CB31770FBC9009C8DA9 /* UIKit.framework in Frameworks */,
 				1F293CB51770FBC9009C8DA9 /* Foundation.framework in Frameworks */,
 				1F293CB71770FBC9009C8DA9 /* CoreGraphics.framework in Frameworks */,
@@ -188,6 +198,7 @@
 		1F293CB11770FBC9009C8DA9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				081600A7178E6B2B00C8C904 /* MessageUI.framework */,
 				1F293CB21770FBC9009C8DA9 /* UIKit.framework */,
 				1F293CB41770FBC9009C8DA9 /* Foundation.framework */,
 				1F293CB61770FBC9009C8DA9 /* CoreGraphics.framework */,
@@ -217,6 +228,7 @@
 			children = (
 				EDB03D7D17777164009B0D55 /* Capture.png */,
 				EDB03D7E17777164009B0D55 /* Share.png */,
+				08834CC81785F723003472D5 /* Search.png */,
 				EDB03D7F17777164009B0D55 /* Phylodex.png */,
 				EDB03D8017777164009B0D55 /* second.png */,
 				1F293CBC1770FBC9009C8DA9 /* Phylodex-Info.plist */,
@@ -287,14 +299,16 @@
 		1FF7E8A51773B20900215E38 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				0891C24E1786360C00F29BAD /* PXShareViewController.h */,
+				0891C24F1786360C00F29BAD /* PXShareViewController.m */,
+				0891C2531786519300F29BAD /* PXShareCell.h */,
+				0891C2541786519300F29BAD /* PXShareCell.m */,
 				1F08DAE01777CE51005F18EF /* PXSearchResultPhotoViewController.h */,
 				1F08DAE11777CE52005F18EF /* PXSearchResultPhotoViewController.m */,
 				B6A16AA317777D800024F0BB /* PXSearchResultsViewController.h */,
 				B6A16AA417777D800024F0BB /* PXSearchResultsViewController.m */,
 				B6A16AA617777D800024F0BB /* PXWebSearchViewController.h */,
 				B6A16AA717777D800024F0BB /* PXWebSearchViewController.m */,
-				1F293CF717710670009C8DA9 /* PXShareViewController.h */,
-				1F293CF817710670009C8DA9 /* PXShareViewController.m */,
 				1F293CED177101DC009C8DA9 /* PXRootViewController.h */,
 				1F293CEE177101DC009C8DA9 /* PXRootViewController.m */,
 				087AF3A41776E46A004034F3 /* PXNameAndImageCell.h */,
@@ -308,12 +322,13 @@
 		1FF7E8A61773B24600215E38 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0891C2501786360C00F29BAD /* PXShareViewController.xib */,
+				0891C2561786646900F29BAD /* PXShareCell.xib */,
 				1F2F7D47177903DA002D2CB4 /* PXDetailViewController.xib */,
 				1F08DAE21777CE53005F18EF /* PXSearchResultPhotoViewController.xib */,
 				B6A16AA517777D800024F0BB /* PXSearchResultsViewController.xib */,
 				B6A16AA817777D800024F0BB /* PXWebSearchViewController.xib */,
 				087AF3A71776E475004034F3 /* PXNameAndImageCell.xib */,
-				1F293CF917710670009C8DA9 /* PXShareViewController.xib */,
 				1F293CEF177101DC009C8DA9 /* PXRootViewController.xib */,
 			);
 			name = Views;
@@ -396,7 +411,6 @@
 				1F293CC91770FBC9009C8DA9 /* Default@2x.png in Resources */,
 				1F293CCB1770FBC9009C8DA9 /* Default-568h@2x.png in Resources */,
 				1F293CF1177101DC009C8DA9 /* PXRootViewController.xib in Resources */,
-				1F293CFB17710670009C8DA9 /* PXShareViewController.xib in Resources */,
 				1FF7E8A31773B14900215E38 /* Eagle.png in Resources */,
 				1FEF45B51773C3C900B1E0D6 /* Lion.png in Resources */,
 				087AF3A81776E475004034F3 /* PXNameAndImageCell.xib in Resources */,
@@ -412,6 +426,9 @@
 				1FB8C31117783E6000E51694 /* coding_standards.txt in Resources */,
 				1F2F7D49177903DA002D2CB4 /* PXDetailViewController.xib in Resources */,
 				08A10B73177CAB2100AB0609 /* Gorilla.png in Resources */,
+				08834CC91785F723003472D5 /* Search.png in Resources */,
+				0891C2521786360C00F29BAD /* PXShareViewController.xib in Resources */,
+				0891C2571786646900F29BAD /* PXShareCell.xib in Resources */,
 				B6A33E1C177CB15A00978241 /* Frog.png in Resources */,
 				08A10B75177CAEAC00AB0609 /* Dog.png in Resources */,
 				1FAA58F1177CB6120072CF9A /* Horse.png in Resources */,
@@ -453,7 +470,6 @@
 				1F293CC51770FBC9009C8DA9 /* PXAppDelegate.m in Sources */,
 				1F293CCE1770FBC9009C8DA9 /* Phylodex.xcdatamodeld in Sources */,
 				1F293CF0177101DC009C8DA9 /* PXRootViewController.m in Sources */,
-				1F293CFA17710670009C8DA9 /* PXShareViewController.m in Sources */,
 				1FF7E89B1773ABF800215E38 /* PXDummyModel.m in Sources */,
 				1FF7E89E1773AD0100215E38 /* PXDummyCollection.m in Sources */,
 				1F195647177559EA00AEB906 /* PXNetworkConnection.m in Sources */,
@@ -463,6 +479,8 @@
 				B6A16AAD17777D800024F0BB /* PXWebSearchViewController.m in Sources */,
 				1F08DAE31777CE53005F18EF /* PXSearchResultPhotoViewController.m in Sources */,
 				1F2F7D48177903DA002D2CB4 /* PXDetailViewController.m in Sources */,
+				0891C2511786360C00F29BAD /* PXShareViewController.m in Sources */,
+				0891C2551786519300F29BAD /* PXShareCell.m in Sources */,
 				1F377E791780E9AD00A770BA /* Photo.m in Sources */,
 				1F377E7F1780F0EF00A770BA /* Phylodex.m in Sources */,
 			);

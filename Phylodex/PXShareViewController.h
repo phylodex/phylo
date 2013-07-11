@@ -2,14 +2,17 @@
 //  PXShareViewController.h
 //  Phylodex
 //
-//  Description: Share view to share images (stub now, and not used)
-//
-//  Created by Steve King on 2013-06-18.
+//  Created by ParkaPal on 2013-07-04.
 //  Copyright (c) 2013 Phylosoft. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
+#import <MessageUI/MessageUI.h>
+#import "PXDummyCollection.h"
 
-@interface PXShareViewController : UICollectionViewController
+
+@interface PXShareViewController : UICollectionViewController <MFMailComposeViewControllerDelegate>
+
+@property (nonatomic, retain)NSMutableArray *lifeforms; // list of animals
 
 @end

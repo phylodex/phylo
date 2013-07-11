@@ -10,13 +10,26 @@
 
 #import <Foundation/Foundation.h>
 #import "PXDummyCollection.h"
+#import "PXXMLParserFirstStep.h"
+#import "PXXMLParserSecondStep.h"
+#import "PXXMLParserThirdStep.h"
+
+@class PXXMLParserFirstStep;
+@class PXXMLParserSecondStep;
+@class PXXMLParserThirdStep;
 
 // define the identifiers to extract info from the xml data
 #define NAME_ID = @"name"
 #define UUID_ID = @"uuid"
 
-@interface PXXMLParser : NSObject
+@interface PXXMLParser : NSObject <NSXMLParserDelegate> {
+    NSMutableArray *firstStepResults;
+    NSMutableArray *secondStepResults;
+    NSMutableArray *thirdStepResults;
+}
 
 + (NSMutableArray *)extractItemsFromXMLData:(NSString *)data;
-
+- (NSMutableArray *)parseFileSecondStep:(NSMutableArray *) firstStepArray;
+- (NSMutableArray *)parseFileThirdStep:(NSMutableArray *) firstStepArray;
+//- (NSMutableArray *)parserMerge: (PXXMLParser*) parser;
 @end

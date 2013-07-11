@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		081600A8178E6B2B00C8C904 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 081600A7178E6B2B00C8C904 /* MessageUI.framework */; };
 		082F898B1777763800780AA5 /* Penguin.png in Resources */ = {isa = PBXBuildFile; fileRef = 082F898A1777763800780AA5 /* Penguin.png */; };
 		082F898D177776C600780AA5 /* Housecat.png in Resources */ = {isa = PBXBuildFile; fileRef = 082F898C177776C600780AA5 /* Housecat.png */; };
 		087AF3A61776E46A004034F3 /* PXNameAndImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 087AF3A51776E46A004034F3 /* PXNameAndImageCell.m */; };
@@ -68,6 +69,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		081600A7178E6B2B00C8C904 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		082F898A1777763800780AA5 /* Penguin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Penguin.png; sourceTree = "<group>"; };
 		082F898C177776C600780AA5 /* Housecat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Housecat.png; sourceTree = "<group>"; };
 		087AF3A41776E46A004034F3 /* PXNameAndImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXNameAndImageCell.h; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				081600A8178E6B2B00C8C904 /* MessageUI.framework in Frameworks */,
 				1F293CB31770FBC9009C8DA9 /* UIKit.framework in Frameworks */,
 				1F293CB51770FBC9009C8DA9 /* Foundation.framework in Frameworks */,
 				1F293CB71770FBC9009C8DA9 /* CoreGraphics.framework in Frameworks */,
@@ -183,6 +186,7 @@
 		1F293CB11770FBC9009C8DA9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				081600A7178E6B2B00C8C904 /* MessageUI.framework */,
 				1F293CB21770FBC9009C8DA9 /* UIKit.framework */,
 				1F293CB41770FBC9009C8DA9 /* Foundation.framework */,
 				1F293CB61770FBC9009C8DA9 /* CoreGraphics.framework */,

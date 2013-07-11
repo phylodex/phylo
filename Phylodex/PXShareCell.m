@@ -7,15 +7,44 @@
 //
 
 #import "PXShareCell.h"
+#import <QuartzCore/QuartzCore.h>
 
 @implementation PXShareCell
+
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if (self)
+    {
+        
+        NSLog(@"MADE IT CODE");
+        self.restorationIdentifier = @"cvCell";
+        self.backgroundColor = [UIColor clearColor];
+        self.autoresizingMask = UIViewAutoresizingNone;
+        
+        CGFloat borderWidth = 3.0f;
+        UIView *bgView = [[UIView alloc] initWithFrame:CGRectZero];
+        CGFloat nRed=255.0/255.0;
+        CGFloat nGreen=214.0/255.0;
+        CGFloat nBlue=99.0/255.0;
+        UIColor *myColor=[[UIColor alloc]initWithRed:nRed green:nGreen blue:nBlue alpha:1];
+        bgView.layer.borderColor = myColor.CGColor;
+        bgView.layer.borderWidth = borderWidth;
+        self.selectedBackgroundView = bgView;
+        
+        // change to our custom selected background view
+   //     CustomCellBackground *backgroundView = [[CustomCellBackground alloc] initWithFrame:CGRectZero];
+     //   self.selectedBackgroundView = backgroundView;
+    }
+    return self;
+}
 
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-        
+       /*
          self.label = [[UILabel alloc] initWithFrame:self.contentView.bounds];
         self.label.opaque = NO;
         self.label.backgroundColor = [UIColor colorWithRed:0.6
@@ -26,6 +55,8 @@
         self.label.textAlignment = NSTextAlignmentCenter;
         //self.label.font = [[self class] defaultFont];
         [self.contentView addSubview:self.label];
+        */
+        NSLog(@"MADE IT");
         
     }
     return self;

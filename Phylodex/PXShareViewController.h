@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MessageUI/MessageUI.h>
 #import "PXDummyCollection.h"
 
 
-@interface PXShareViewController : UICollectionViewController
+@interface PXShareViewController : UICollectionViewController <MFMailComposeViewControllerDelegate>
 
 @property (nonatomic, retain)NSMutableArray *lifeforms; // list of animals
 

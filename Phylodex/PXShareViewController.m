@@ -18,9 +18,6 @@
 
 @synthesize lifeforms;
 
-
-
-
 - (id)initWithCollectionViewLayout:(UICollectionViewLayout *)layout
 {
     self = [super initWithCollectionViewLayout:layout];
@@ -48,8 +45,6 @@
 
 - (IBAction)share_button_clicked:(id)sender
 {
-
-    
     if ([MFMailComposeViewController canSendMail]){
         MFMailComposeViewController *mailController = [[MFMailComposeViewController alloc] init]; 
         if ( mailController != nil ) {
@@ -83,16 +78,30 @@
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Run Away" message:@"Fix it" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
     }
-    /*
-    NSLog(@"SHARING:");
-    
-     */
 }
 
 - (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
 {
+    switch (result){
+        case MFMailComposeResultCancelled:
+            NSLog(@"Cancelled");
+            break;
+        case MFMailComposeResultSaved:
+            NSLog(@"Saved");
+            break;
+        case MFMailComposeResultFailed:
+            NSLog(@"Failed");
+            break;
+        case MFMailComposeResultSent:
+            NSLog(@"Sent");
+            break;
+        default:
+            NSLog(@"default");
+            break;
+    }
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
+
 
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
@@ -100,12 +109,9 @@
     NSLog(@"Clicked an animal");
     // Determine the selected items by using the indexPath
     PXDummyModel *selectedAnimal = [lifeforms objectAtIndex:indexPath.row];
-   // NSString *selectedName = selectedAnimal.name;
     // Add the selected item into the array
     [_selectedAnimals addObject:selectedAnimal];
-//    [_selectedAnimals addObject:@"CAT"];
     NSLog(@"%d",[_selectedAnimals count]);
-  //  NSLog(@"%@", selectedName);
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath

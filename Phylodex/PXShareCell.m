@@ -11,17 +11,42 @@
 
 @implementation PXShareCell
 
+//called when cell made through code
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
     self = [super initWithCoder:aDecoder];
     if (self)
     {
+        //id for restore, sizing and cell colour info
+        self.restorationIdentifier = @"cvCell";
+        self.backgroundColor = [UIColor whiteColor];
+        self.autoresizingMask = UIViewAutoresizingNone;
         
-        NSLog(@"MADE IT CODE");
+        //setup for highlight box when cell is selected
+        CGFloat borderWidth = 5.0f;
+        UIView *bgView = [[UIView alloc] initWithFrame:CGRectZero];
+        CGFloat nRed=255.0/255.0;
+        CGFloat nGreen=214.0/255.0;
+        CGFloat nBlue=99.0/255.0;
+        UIColor *myColor=[[UIColor alloc]initWithRed:nRed green:nGreen blue:nBlue alpha:1];
+        bgView.layer.borderColor = myColor.CGColor;
+        bgView.layer.borderWidth = borderWidth;
+        self.selectedBackgroundView = bgView;
+    }
+    return self;
+}
+
+// called for cells from xib?
+- (id)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        // id for restore, sizing and cell colour info
         self.restorationIdentifier = @"cvCell";
         self.backgroundColor = [UIColor clearColor];
         self.autoresizingMask = UIViewAutoresizingNone;
         
+        // setup for highlight box when cell is selected
         CGFloat borderWidth = 3.0f;
         UIView *bgView = [[UIView alloc] initWithFrame:CGRectZero];
         CGFloat nRed=255.0/255.0;
@@ -31,62 +56,14 @@
         bgView.layer.borderColor = myColor.CGColor;
         bgView.layer.borderWidth = borderWidth;
         self.selectedBackgroundView = bgView;
-        
-        // change to our custom selected background view
-   //     CustomCellBackground *backgroundView = [[CustomCellBackground alloc] initWithFrame:CGRectZero];
-     //   self.selectedBackgroundView = backgroundView;
-    }
-    return self;
-}
-
-- (id)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code
-       /*
-         self.label = [[UILabel alloc] initWithFrame:self.contentView.bounds];
-        self.label.opaque = NO;
-        self.label.backgroundColor = [UIColor colorWithRed:0.6
-                                                     green:0.2
-                                                      blue:0.2
-                                                     alpha:1.0];
-        self.label.textColor = [UIColor whiteColor];
-        self.label.textAlignment = NSTextAlignmentCenter;
-        //self.label.font = [[self class] defaultFont];
-        [self.contentView addSubview:self.label];
-        */
-        NSLog(@"MADE IT");
+        NSLog(@"Made with frame somehow"); // alert in log because this probably shouldn't be happening
         
     }
     return self;
 }
 
-+ (UIFont *)defaultFont {
-    return [UIFont boldSystemFontOfSize:24];
-}
 
-+ (CGSize)sizeForContentString:(NSString *)s {
-    CGSize textSize = [s sizeWithFont:[self defaultFont]
-                    constrainedToSize:CGSizeMake(300, 1000)
-                        lineBreakMode:NSLineBreakByCharWrapping];
-    return textSize;
-}
-
-- (NSString *)text {
-    return self.label.text;
-}
-- (void)setText:(NSString *)text {
-    self.label.text = text;
-    CGRect newLabelFrame = self.label.frame;
-    CGRect newContentFrame = self.contentView.frame;
-    CGSize textSize = [[self class] sizeForContentString:text];
-    newLabelFrame.size = textSize;
-    newContentFrame.size = textSize;
-    self.label.frame = newLabelFrame;
-    self.contentView.frame = newContentFrame;
-}
-
+//name label setter
 - (void)setName:(NSString *)name
 {
     if (![name isEqualToString:_name]) {
@@ -96,24 +73,15 @@
 }
 
 
-//this version for images directly
+//this version for setting images directly
 - (void)setImage:(UIImage *)image
 {
     _image = [image copy];
     _creatureImage.image = _image;
 }
 
-/*
-//this version for paths
-- (void)setImagepath:(NSString *)imagepath
-{
-    if (![imagepath isEqualToString:_imagepath]) {
-        _imagepath = [imagepath copy];
-        _imagepathValue.image = [UIImage imageNamed:_imagepath];
-    }
-}
-*/
 
+//this version for setting images by paths
 - (void) setImagepath:(NSString *)imagepath
 {
     if (![imagepath isEqualToString:_imagepath]) {

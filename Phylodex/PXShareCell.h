@@ -10,8 +10,6 @@
 
 @interface PXShareCell : UICollectionViewCell
 
-@property (strong, nonatomic) UILabel *label;
-@property (copy, nonatomic) NSString *text;
 @property (copy, nonatomic) NSString *name;
 @property (copy, nonatomic) NSString *imagepath;
 @property (copy, nonatomic) UIImage *image;

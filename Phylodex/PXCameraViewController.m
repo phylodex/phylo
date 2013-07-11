@@ -62,25 +62,74 @@
     
     //XDummyModel *lifeform = [lifeforms objectAtIndex:indexPath.row];
     //detailViewController.model = lifeform;
+    PXAppDelegate *appDelegate = (PXAppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *managedObjectContext=appDelegate.managedObjectContext;
+    
+    
+    
     PXDummyModel *model= [[PXDummyModel alloc]init];
+    
     model.image=image;
     model.name=@"hell";
     model.species=@"hell";
+    
+    Phylodex *phylo = (Phylodex *)[NSEntityDescription insertNewObjectForEntityForName:@"Phylodex" inManagedObjectContext:managedObjectContext];
+    Photo *photo = (Photo *)[NSEntityDescription insertNewObjectForEntityForName:@"Photo" inManagedObjectContext:managedObjectContext];
+    
+    [phylo setDate:[NSDate date]]; // Should be timestamp, but this will be constant for simulator.
+    [phylo setName:model.name];
+    [phylo setHabitat:@"Earth"];
+    
+    
+    
+    
+    // Associate the photo object with the phylodex entry
+    photo.image = image;
+    
+    // Create a thumbnail version of the image for the event object.
+    CGSize size = image.size;
+    CGFloat ratio = 0;
+    if (size.width > size.height) {
+        ratio = 65.0 / size.width;
+    }
+    else {
+        ratio = 65.0 / size.height;
+    }
+    CGRect rect = CGRectMake(0.0, 0.0, ratio * size.width, ratio * size.height);
+    
+    UIGraphicsBeginImageContext(rect.size);
+    [image drawInRect:rect];
+    phylo.thumbnail = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    
     detailViewController.image = model.image;
     detailViewController.nameTextField.text = model.name;
     detailViewController.speciesTextField.text = model.species;
-    NSString *title = @"hell";
+    NSString *title = @"Creature's Name";
     detailViewController.title = title;
-    PXAppDelegate *appDelegate = (PXAppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSError *error = nil;
+	if (![managedObjectContext save:&error]) {
+		// Handle the error.
+	}
     [appDelegate.rootController setSelectedIndex:0];
     NSArray *controllers=[appDelegate.rootController viewControllers];
     UINavigationController *rootNav=[controllers objectAtIndex:0];
     [rootNav pushViewController:detailViewController animated:NO];
-    PXRootViewController *root=[[rootNav viewControllers]objectAtIndex:0];
-    [root.lifeforms addObject:model];
-   
+    //PXRootViewController *root=[rootNav.viewControllers objectAtIndex:0];
+    //[root.tableView reloadData];
+    
+    //PXRootViewController *root=[[rootNav viewControllers]objectAtIndex:0];
+    //[root.lifeforms addObject:model];
+    
     //[self.imageView setImage:image];
     //[self dismissModalViewControllerAnimated:YES];
 }
-
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    
+    [picker dismissViewControllerAnimated:NO completion:NULL];
+    PXAppDelegate *appDelegate = (PXAppDelegate *)[[UIApplication sharedApplication] delegate];
+    [appDelegate.rootController setSelectedIndex:0];
+    
+}
 @end

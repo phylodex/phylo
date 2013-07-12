@@ -59,7 +59,8 @@
 }
 
 - (void)cancelCropping {
-	[delegate imageCropperDidCancel:self]; 
+    [self dismissViewControllerAnimated:YES completion:nil];
+//	[delegate imageCropperDidCancel:self];
 }
 
 - (void)finishCropping {

@@ -178,9 +178,9 @@ static NSString *CellTableIdentifier = @"CellTableIdentifier";
     
     PXDummyModel *lifeform = [lifeforms objectAtIndex:indexPath.row];
     //detailViewController.model = lifeform;
-    detailViewController.image = lifeform.image;
+    //detailViewController.image = lifeform.image;
     //detailViewController.nameTextField.text = lifeform.name;
-    detailViewController.speciesTextField.text = lifeform.species;
+//    detailViewController.speciesTextField.text = lifeform.species;
     NSString *title = lifeform.name;
     detailViewController.title = title;
     

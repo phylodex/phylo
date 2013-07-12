@@ -34,12 +34,12 @@
 }
 
 //@property (retain, nonatomic) PXDummyModel *model;
-@property (weak, nonatomic) IBOutlet UITextField *nameTextField;
 //@property (retain, nonatomic) NSMutableArray *resultArray;
 //@property (copy, nonatomic) NSArray *attributes;
 //@property (strong, nonatomic) IBOutlet UIImageView *tableView;
 //@property (nonatomic, retain) IBOutlet ViewController *viewController;
 //@property (nonatomic, retain)NSMutableArray *lifeforms; //list of animals
+@property (weak, nonatomic) IBOutlet UITextField *nameTextField;
 @property (weak, nonatomic) IBOutlet UIButton *cropButton;
 @property (weak, nonatomic) IBOutlet UITextField *speciesTextField;
 @property (nonatomic, assign)id <PXDetailViewControllerDelegate>delegate;
@@ -52,6 +52,7 @@
 
 
 - (IBAction)cropButtonWasPressed:(id)sender;
+- (IBAction)editButton:(id)sender;
 
 @end
 

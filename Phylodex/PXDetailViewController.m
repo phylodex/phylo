@@ -17,6 +17,7 @@
 #import "ImageCropper.h"
 #import "PXHabitat.h"
 #import "PXType.h"
+#import "PXDetailEdit.h"
 
 @interface PXDetailViewController ()
 
@@ -28,10 +29,10 @@
     
 }
 
-@synthesize nameTextField;
 //@synthesize lifeforms;
-@synthesize cropButton;
 //@synthesize model;
+@synthesize nameTextField;
+@synthesize cropButton;
 @synthesize speciesTextField;
 @synthesize image;
 @synthesize imageView;
@@ -74,13 +75,6 @@
 	[button setTitle:@"Crop Image" forState:UIControlStateNormal];
     
     [[self view] addSubview:button];
-    
-    UIButton *editButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-	[editButton addTarget:self action:@selector(cropImage) forControlEvents:UIControlEventTouchUpInside];
-	[editButton setFrame:CGRectMake(170.0, 200.0, 120.0, 37.0)];
-	[editButton setTitle:@"Edit" forState:UIControlStateNormal];
-	
-    [[self view] addSubview:editButton];
     
 }
 
@@ -232,4 +226,9 @@
  }*/
 
 
+- (IBAction)editButton:(id)sender {
+       PXDetailEdit *detailEdit = [[PXDetailEdit alloc] init];
+     [self.navigationController pushViewController:detailEdit animated:YES];
+
+}
 @end

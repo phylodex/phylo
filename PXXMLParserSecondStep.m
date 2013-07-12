@@ -117,9 +117,9 @@
         }
     }
     if ([elementName isEqualToString:@"habitat"]) {
-        NSString *currentElementValueString = [[NSString alloc] initWithString:[[currentElementValue componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]] componentsJoinedByString:@""]];
+        NSString *currentElementValueString = [[NSString alloc] initWithString:[[currentElementValue componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] componentsJoinedByString:@""]];
         if (currentElementValueString != nil) {
-            if ([animalSpecies objectForKey:@"Habitat"] != nil) {
+            if ([[animalSpecies objectForKey:@"Habitat"]isEqualToString:@"Not Exist"] == false) {
                 NSString *addingHabitat = [[NSString alloc]initWithFormat:@"%@, %@",[animalSpecies objectForKey:@"Habitat"],currentElementValueString];
                 [animalSpecies setObject:addingHabitat forKey:@"Habitat"];
             }

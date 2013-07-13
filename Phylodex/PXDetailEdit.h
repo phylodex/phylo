@@ -14,7 +14,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *nameOfCreature;
 @property (strong, nonatomic) IBOutlet UITextField *habitatType;
 @property (strong, nonatomic) IBOutlet UITextField *artistInfo;
-@property (strong, nonatomic) IBOutlet NSDate *date;
+@property (strong, nonatomic) IBOutlet NSDate *date;    //weired label
 @property (strong, nonatomic) IBOutlet UILabel *displayLabel;
 @property (strong, nonatomic) PXDetailViewController *parent;
 

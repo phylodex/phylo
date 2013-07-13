@@ -9,6 +9,8 @@
 //
 
 #import "PXRootViewController.h"
+#import "PXDetailEdit.h"
+
 
 @interface PXRootViewController ()
 
@@ -31,6 +33,25 @@ static NSString *CellTableIdentifier = @"CellTableIdentifier";
     return self;
 }
 
+-(void)viewDidAppear:(BOOL)animated{
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+	NSEntityDescription *entity = [NSEntityDescription entityForName:@"Phylodex" inManagedObjectContext:managedObjectContext];
+	[request setEntity:entity];
+	
+	// Order the entries by name
+	NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+	NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
+	[request setSortDescriptors:sortDescriptors];
+	
+	// Execute the fetch -- create a mutable copy of the result.
+	NSError *error = nil;
+	NSMutableArray *mutableFetchResults = [[managedObjectContext executeFetchRequest:request error:&error] mutableCopy];
+	if (mutableFetchResults == nil) {
+		// Handle the error.
+	}
+	[self setLifeforms:mutableFetchResults];
+    [self.tableView reloadData];
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -200,6 +221,15 @@ static NSString *CellTableIdentifier = @"CellTableIdentifier";
 {
     // TO-DO: Implement a method to add a new entry
     // this should push the detail view controller or an add view controller
+    
+// ---------------------------------------------
+    //PROBLEM: there is no image added function in edit view
+    //SUGGESTION: this should push the camera mode or photo library
+    
+    PXDetailEdit *editView = [[PXDetailEdit alloc]init];
+    [self.navigationController pushViewController:editView animated:YES];
+    
+// ---------------------------------------------
     
 }
 

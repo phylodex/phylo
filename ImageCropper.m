@@ -4,6 +4,13 @@
 //
 
 #import "ImageCropper.h"
+#import "PXDetailViewController.h"
+#import "PXAppDelegate.h"
+
+@interface ImageCropper (){
+    NSManagedObjectContext *context;
+}
+@end
 
 @implementation ImageCropper
 
@@ -22,7 +29,10 @@
 		[scrollView setShowsHorizontalScrollIndicator:NO];
 		[scrollView setShowsVerticalScrollIndicator:NO];
 		[scrollView setMaximumZoomScale:2.0];
-		
+
+        PXAppDelegate *photo = [[UIApplication sharedApplication]delegate];
+        context = [photo managedObjectContext];
+        
 		imageView = [[UIImageView alloc] initWithImage:image];
 		
 		CGRect rect;
@@ -77,8 +87,22 @@
 	UIImage *cropped = [UIImage imageWithCGImage:cr];
 	
 	CGImageRelease(cr);
+    
+    
+//    -------------------------
+    
+    NSEntityDescription *entitydesc = [NSEntityDescription entityForName:@"Photo" inManagedObjectContext:context];
+    NSManagedObject *croppedImage = [[NSManagedObject alloc]initWithEntity:entitydesc insertIntoManagedObjectContext:context];
+    [croppedImage setValue:cropped forKey:@"image"];
+    
+    NSLog(@"cropped Image is %@", cropped);
+    
+//    -------------------------
+    
 	
 	[delegate imageCropper:self didFinishCroppingWithImage:cropped];
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {

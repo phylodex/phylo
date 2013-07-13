@@ -51,10 +51,13 @@
     NSEntityDescription *entitydesc = [NSEntityDescription entityForName:@"Phylodex" inManagedObjectContext:context];
     NSManagedObject *newCreature = [[NSManagedObject alloc]initWithEntity:entitydesc insertIntoManagedObjectContext:context];
     [newCreature setValue:self.nameOfCreature.text forKey:@"name"];
-    //[newCreature setValue:self.artistInfo.text forKey:@"artist"];
     [newCreature setValue:self.habitatType.text forKey:@"habitat"];
+//    [newCreature setValue:self.artistInfo.text forKey:@"artist"];
     
-    parent.nameTextField.text = self.nameOfCreature.text;
+    parent.valueArray = [NSArray arrayWithObjects:self.nameOfCreature.text, @"", self.habitatType.text/*, self.artistInfo.text*/, @"", nil];    // for valueArray in PXDetailViewController, cache
+    parent.phyloELement.name = self.nameOfCreature.text;
+    parent.phyloELement.habitat = self.habitatType.text;
+//    parent.phyloElement.artist = self.artistInfo.text;
     
     NSError *error;
     [context save:&error];
@@ -65,7 +68,7 @@
 - (IBAction)backgroundTap:(id)sender{
     [nameOfCreature resignFirstResponder];
     [habitatType resignFirstResponder];
-    //[artistInfo resignFirstResponder];
+//    [artistInfo resignFirstResponder];
 }
 
 @end

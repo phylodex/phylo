@@ -10,13 +10,8 @@
 //  Created by http://github.com/iosdeveloper
 //
 
-//#import "SSPhotoCropperDemoViewController.h"
-//#import "PXCropViewController.h"
-
 #import "PXDetailViewController.h"
 #import "ImageCropper.h"
-#import "PXHabitat.h"
-#import "PXType.h"
 #import "PXDetailEdit.h"
 
 @interface PXDetailViewController ()
@@ -30,14 +25,9 @@
     
 }
 
-//@synthesize lifeforms;
-//@synthesize model;
 
 @synthesize name, valueArray, phyloELement;
 
-@synthesize nameTextField;
-@synthesize cropButton;
-@synthesize speciesTextField;
 @synthesize image;
 @synthesize imageView;
 @synthesize tableView;
@@ -59,7 +49,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 
-    attributeArray= [NSArray arrayWithObjects:@"Name: ", @"Type: ", @"Habitat: ", @"Notes: ", nil];
+    attributeArray= [NSArray arrayWithObjects:@"Name: ", @"Date: ", @"Habitat: ", @"Artist Info: ", nil];
     valueArray = [[NSMutableArray alloc]initWithObjects:[phyloELement name], @"",[phyloELement habitat],@"", nil];
 
     imageView = [[UIImageView alloc]initWithImage:image];

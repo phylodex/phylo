@@ -7,8 +7,12 @@
 //
 
 #import "PXAppDelegate.h"
+#import "PXNetworkManager.h"
 
 @implementation PXAppDelegate
+{
+    char _networkOperationCountDummy;
+}
 
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;
@@ -16,6 +20,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    // set the observed class
+    [[PXNetworkManager sharedInstance] addObserver:self forKeyPath:@"networkOperationCount" options:NSKeyValueObservingOptionInitial context:&self->_networkOperationCountDummy];
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
@@ -252,6 +259,18 @@
 - (NSURL *)applicationDocumentsDirectory
 {
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+}
+
+#pragma mark - PXNetworkManager Key-value observer handler
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    // if there is any ongoing network connections set the network activity indicator in UI
+    if (context == &self->_networkOperationCountDummy) {
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = ([PXNetworkManager sharedInstance].networkOperationCount != 0);
+    } else {
+        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+    }
 }
 
 @end

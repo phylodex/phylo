@@ -12,16 +12,27 @@
 
 @synthesize xmlParser;
 
-- (NSMutableDictionary *) ParseSpeciesArray: (NSData *)xmldata :(NSMutableDictionary *)name {
-    
-    animalSpecies = [[NSMutableDictionary alloc]initWithDictionary:name];
+//- (NSMutableDictionary *)parseSpeciesArray:(NSData *)xmldata intoDictionary:(NSMutableDictionary *)name {
+//    
+//    animalSpecies = [[NSMutableDictionary alloc] initWithDictionary:name];
+//
+//    xmlParser = [[NSXMLParser alloc] initWithData:xmldata];
+//    xmlParser.delegate = self;
+//    [xmlParser parse];
+//    
+//    return animalSpecies;
+//}
 
-    xmlParser = [[NSXMLParser alloc]initWithData:xmldata];
+- (NSMutableDictionary *)parseSpeciesArray:(NSString *)data intoDictionary:(NSMutableDictionary *)name {
+    animalSpecies = [[NSMutableDictionary alloc] initWithDictionary:name];
+    NSData *dataString = [[NSData alloc] init];
+    dataString = [data dataUsingEncoding:NSUTF8StringEncoding];
+    xmlParser = [[NSXMLParser alloc] initWithData:dataString];
     xmlParser.delegate = self;
     [xmlParser parse];
-    
     return animalSpecies;
 }
+
 
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict {
     

@@ -12,10 +12,10 @@
 
 @synthesize animalNameArray, xmlParser;
 
-- (NSMutableArray *) ParseNameArray: (NSString *) data {
-    NSData *dataString = [[NSData alloc]init];
+- (NSMutableArray *) parseNameArray: (NSString *) data {
+    NSData *dataString = [[NSData alloc] init];
     dataString = [data dataUsingEncoding:NSUTF8StringEncoding];
-    xmlParser = [[NSXMLParser alloc]initWithData:dataString];
+    xmlParser = [[NSXMLParser alloc] initWithData:dataString];
     animalNameArray = [[NSMutableArray alloc] init];
     xmlParser.delegate = self;
     [xmlParser parse];
@@ -26,7 +26,7 @@
 
     if ([elementName isEqualToString:@"speciesSearchResult"]) {
         
-        animalName = [[NSMutableDictionary alloc]init];
+        animalName = [[NSMutableDictionary alloc] init];
         
         
         
@@ -61,7 +61,7 @@
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string {
 
     if (!currentElementValue) {
-        currentElementValue = [[NSMutableString alloc]initWithString:string];
+        currentElementValue = [[NSMutableString alloc] initWithString:string];
     }
     else {
         [currentElementValue appendString:string];

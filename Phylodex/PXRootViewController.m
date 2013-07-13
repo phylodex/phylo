@@ -172,17 +172,10 @@ static NSString *CellTableIdentifier = @"CellTableIdentifier";
     // Likely just make a property for the Phylodex object for the detail view controller
     
     detailViewController.image = phylo.photo.image;
-    detailViewController.nameTextField.text = phylo.name;
-    detailViewController.speciesTextField.text = @"Species";
-    detailViewController.title = phylo.name;
     
-    PXDummyModel *lifeform = [lifeforms objectAtIndex:indexPath.row];
-    //detailViewController.model = lifeform;
-    //detailViewController.image = lifeform.image;
-    //detailViewController.nameTextField.text = lifeform.name;
-//    detailViewController.speciesTextField.text = lifeform.species;
-    NSString *title = lifeform.name;
-    detailViewController.title = title;
+    detailViewController.name = phylo.name;
+    detailViewController.title = phylo.name;
+    detailViewController.phyloELement = phylo;
     
     [self.navigationController pushViewController:detailViewController animated:YES];
 }

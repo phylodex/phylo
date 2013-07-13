@@ -9,6 +9,7 @@
 #import "PXDetailEdit.h"
 #import "PXAppDelegate.h"
 
+
 @interface PXDetailEdit (){
     NSManagedObjectContext *context;
 }
@@ -17,6 +18,7 @@
 
 @implementation PXDetailEdit
 @synthesize parent;
+@synthesize nameOfCreature, habitatType/*, artistInfo*/;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -49,20 +51,21 @@
     NSEntityDescription *entitydesc = [NSEntityDescription entityForName:@"Phylodex" inManagedObjectContext:context];
     NSManagedObject *newCreature = [[NSManagedObject alloc]initWithEntity:entitydesc insertIntoManagedObjectContext:context];
     [newCreature setValue:self.nameOfCreature.text forKey:@"name"];
-    //[newCreature setValue:self.speciesType.text forKey:@"species"];
+    //[newCreature setValue:self.artistInfo.text forKey:@"artist"];
     [newCreature setValue:self.habitatType.text forKey:@"habitat"];
     
     parent.nameTextField.text = self.nameOfCreature.text;
     
     NSError *error;
     [context save:&error];
-    self.displayLabel.text = @"Information is successfully updated!";
+    self.displayLabel.text = @"Info is updated!";
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)backgroundTap:(id)sender{
-    [self.nameOfCreature resignFirstResponder];
-    [self.habitatType resignFirstResponder];
+    [nameOfCreature resignFirstResponder];
+    [habitatType resignFirstResponder];
+    //[artistInfo resignFirstResponder];
 }
 
 @end

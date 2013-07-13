@@ -68,9 +68,21 @@
 //        }
     }
     if ([elementName isEqualToString:@"dc:rightsHolder"]) {
-        NSString *currentElementValueString = [[NSString alloc] initWithString:[[currentElementValue componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]] componentsJoinedByString:@""]];
-        if (currentElementValueString != nil) {
-            [animalImage setObject:currentElementValueString forKey:@"CopyrightsHolder"];
+        NSString *currentElementValueString = [[NSString alloc] initWithString:[[currentElementValue componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] componentsJoinedByString:@""]];
+        if ((currentElementValueString != nil) && ([currentElementValueString isEqualToString:@"CopyrightheldbyCreator"] == false)) {
+            NSMutableString *newString = [[NSMutableString alloc]initWithString:currentElementValueString];
+            for (int i = 0; i < [newString length]; i++) {
+                NSCharacterSet *upperCaseSet = [NSCharacterSet uppercaseLetterCharacterSet];
+                if ([upperCaseSet characterIsMember:[newString characterAtIndex:i]] ) {
+                    
+                    NSRange range = [newString rangeOfComposedCharacterSequenceAtIndex:i];
+                    
+                    [newString replaceCharactersInRange:range withString:[[NSString alloc]initWithFormat:@" %c",[newString characterAtIndex:i]]];
+                    
+                    i++;
+                }
+            }
+            [animalImage setObject:newString forKey:@"CopyrightsHolder"];
         }
     }
 //******************************************************************************************************

@@ -33,7 +33,7 @@
 //SET THE INITIAL KEYS FOR THE FINAL RESULT ARRAY, ANY KEY YOU WANT YOU CAN SET HERE, FOR INITIALIZATION PURPOSE, PLEASE SET IT TO @"Not Exist" ALWAYS
 //**************************************************************************************
         [animalName setObject:@"Not Exist" forKey:@"Name"];
-        [animalName setObject:@"Not Exist" forKey:@"Food Comment"];
+        [animalName setObject:@"Not Exist" forKey:@"FoodComments"];
         [animalName setObject:@"Not Exist" forKey:@"UniqueID"];
         
         //the reason that program crashed is i set the value @"Not Exist" to a UIImage type

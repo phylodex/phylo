@@ -10,13 +10,9 @@
 //  Created by http://github.com/iosdeveloper
 //
 
-//#import "SSPhotoCropperDemoViewController.h"
-//#import "PXCropViewController.h"
-
 #import "PXDetailViewController.h"
 #import "ImageCropper.h"
-#import "PXHabitat.h"
-#import "PXType.h"
+#import "PXDetailEdit.h"
 
 @interface PXDetailViewController ()
 
@@ -25,14 +21,13 @@
 
 @implementation PXDetailViewController{
     NSArray *attributeArray;
+    NSMutableArray *valueArray;
     
 }
 
-@synthesize nameTextField;
-//@synthesize lifeforms;
-@synthesize cropButton;
-//@synthesize model;
-@synthesize speciesTextField;
+
+@synthesize name, valueArray, phyloELement;
+
 @synthesize image;
 @synthesize imageView;
 @synthesize tableView;
@@ -53,13 +48,14 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    //nameTextField.text = model.name;
-    //speciesTextField.text = model.species;
-    attributeArray= [NSArray arrayWithObjects:@"Name: ", @"Type: ", @"Habitat: ", @"Notes: ", nil];
-    //imageView.image = image;
+
+    attributeArray= [NSArray arrayWithObjects:@"Name: ", @"Date: ", @"Habitat: ", @"Artist Info: ", nil];
+    valueArray = [[NSMutableArray alloc]initWithObjects:[phyloELement name], @"",[phyloELement habitat],@"", nil];
+
+    imageView = [[UIImageView alloc]initWithImage:image];
+    
     [tableView addSubview:tableViewContro.tableView];
     [tableView setContentSize:CGSizeMake(tableView.frame.size.width, 200)];
-    //    [tableViewContro setdelegate:self];
     
     
     imageView = [[UIImageView alloc] initWithImage:self.image];
@@ -75,13 +71,6 @@
     
     [[self view] addSubview:button];
     
-    UIButton *editButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-	[editButton addTarget:self action:@selector(cropImage) forControlEvents:UIControlEventTouchUpInside];
-	[editButton setFrame:CGRectMake(170.0, 200.0, 120.0, 37.0)];
-	[editButton setTitle:@"Edit" forState:UIControlStateNormal];
-	
-    [[self view] addSubview:editButton];
-    
 }
 
 
@@ -94,7 +83,7 @@
 }
 
 - (void)imageCropper:(ImageCropper *)cropper didFinishCroppingWithImage:(UIImage *)image {
-	[imageView setImage:image];
+	[imageView setImage:imageView.image];
 	
 	[self dismissViewControllerAnimated:YES completion:nil];
 	
@@ -110,7 +99,7 @@
 
 
 
-//customize cell works. Yujie, do not change anything inside, Please!!!!!
+//customize cell works. 
 - (UITableViewCell *)tableView:(UITableView *)firstTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"firstTableView is working");
@@ -125,7 +114,7 @@
     }
     
     cell.attributeLabel.text = [attributeArray objectAtIndex:indexPath.row];
-    cell.valueLabel.text = @"Yes";
+    cell.valueLabel.text = [valueArray objectAtIndex:indexPath.row];
     
     return cell;
 }
@@ -146,90 +135,10 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
- PXHabitat *habitatView = self;
- [self.navigationController pushViewController:habitatView animated:YES];
- }*/
+- (IBAction)editButton:(id)sender {
+    PXDetailEdit *detailEdit = [[PXDetailEdit alloc] init];
+    detailEdit.parent = self;
+    [self.navigationController pushViewController:detailEdit animated:YES];
 
-//table view contents of detail view
-/*-(UITableViewCell *)tableView: (UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
- UITableViewCell *cell = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"Maincell"];
- 
- if (cell == nil) {
- cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Maicell"];
- }
- cell.textLabel.text = self.attributes[indexPath.row];
- 
- return cell;
- }*/
-
-
-//Crop Image button leads to next page
-/*   - (IBAction)CropButton:(UIButton *)sender {
- if(self.cropViewController.view.superview==nil){
- if(self.cropViewController==nil){
- PXCropViewController *crop = [[PXCropViewController alloc]initWithNibName:@"cropViewController" bundle:nil];
- self.cropViewController = crop;
- 
- }
- [firstViewController.view removeFromSuperview];
- [self.view insertSubview:cropViewController.view atIndex:0];
- }
- 
- }*/
-
-/*-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
- //PXHabitat *resultController = [[PXHabitat alloc]initWithNibName:@"PXHabitat" bundle:nil];
- //    resultController.discription = [resultArray objectAtIndex:indexPath.row];
- //[self.navigationController pushViewController:resultController animated:YES];
- 
- }*/
-
-
-
-/*- (void)imageCropper:(ImageCropper *)cropper didFinishCroppingWithImage:(UIImage *)image {
- [imageView setImage:image];
- 
- [self dismissViewControllerAnimated:YES completion:nil];
- 
- [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:YES];
- }*/
-
-/*- (void)imageCropperDidCancel:(ImageCropper *)cropper {
- [self dismissViewControllerAnimated:YES completion:nil];
- 
- [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:YES];
- }
- */
-
-
-/*- (IBAction)cropButtonWasPressed:(id)sender{
- 
- //do not try this part to switch views, it will create compling errors
- ViewController *cropImageView = [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil];
- //[cropImageView setImageView:imageView];
- [self.view addSubview:cropImageView.view];
- */
-
-/*
- //this works
- NSLog(@"Now crop image button works");
- ViewController *cropImageView=[[ViewController alloc]init];
- [self presentViewController:cropImageView animated:YES completion:nil];
- */
-
-/*NSLog(@"yes");
- SSPhotoCropperDemoViewController *cropImageView=[[SSPhotoCropperDemoViewController alloc]init];
- [self presentViewController:cropImageView animated:YES completion:nil];
- */
-
-/*
- // Yujie did not try this one, just leave it here.
- ImageCropper *cropper = [[ImageCropper alloc] initWithImage:[self.imageView image]];
- //[cropper setDelegate:self];
- 
- [self presentViewController:cropper animated:YES completion:nil];
- }*/
-
-
+}
 @end

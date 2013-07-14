@@ -4,8 +4,12 @@
 //
 
 #import <UIKit/UIKit.h>
-@protocol ImageCropperDelegate;
+#import "PXDetailViewController.h"
 
+
+@class PXDetailViewController;
+
+@protocol ImageCropperDelegate;
 
 
 @interface ImageCropper : UIViewController {
@@ -20,11 +24,16 @@
 
 @property (nonatomic, weak) id <ImageCropperDelegate> delegate;
 
+@property (strong, nonatomic) PXDetailViewController *parent;
+
+
 - (id)initWithImage:(UIImage *)image;
 
 @end
 
 @protocol ImageCropperDelegate <NSObject>
+
 - (void)imageCropper:(ImageCropper *)cropper didFinishCroppingWithImage:(UIImage *)image;
 - (void)imageCropperDidCancel:(ImageCropper *)cropper;
+
 @end

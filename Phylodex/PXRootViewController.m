@@ -9,6 +9,8 @@
 //
 
 #import "PXRootViewController.h"
+#import "PXDetailEdit.h"
+
 
 @interface PXRootViewController ()
 
@@ -30,6 +32,30 @@ static NSString *CellTableIdentifier = @"CellTableIdentifier";
     }
     return self;
 }
+
+
+//----------------------------------
+-(void)viewDidAppear:(BOOL)animated{
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+	NSEntityDescription *entity = [NSEntityDescription entityForName:@"Phylodex" inManagedObjectContext:managedObjectContext];
+	[request setEntity:entity];
+	
+	// Order the entries by name
+	NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+	NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
+	[request setSortDescriptors:sortDescriptors];
+	
+	// Execute the fetch -- create a mutable copy of the result.
+	NSError *error = nil;
+	NSMutableArray *mutableFetchResults = [[managedObjectContext executeFetchRequest:request error:&error] mutableCopy];
+	if (mutableFetchResults == nil) {
+		// Handle the error.
+	}
+//	[self setLifeforms:mutableFetchResults];    //this sentence can be used to create new card but not to edit
+    [self.tableView reloadData];
+}
+//----------------------------------
+
 
 - (void)viewDidLoad
 {
@@ -103,7 +129,7 @@ static NSString *CellTableIdentifier = @"CellTableIdentifier";
     // Get the phylodex entry for the current index path and configure table view cell
     Phylodex *phylo = (Phylodex *)[lifeforms objectAtIndex:indexPath.row];
     cell.name = phylo.name;
-    cell.species = @"Species"; // NEED TO BE IMPLEMENTED
+    cell.species = phylo.habitat;
     cell.image = phylo.thumbnail;
     
 	return cell;
@@ -172,17 +198,10 @@ static NSString *CellTableIdentifier = @"CellTableIdentifier";
     // Likely just make a property for the Phylodex object for the detail view controller
     
     detailViewController.image = phylo.photo.image;
-    detailViewController.nameTextField.text = phylo.name;
-    detailViewController.speciesTextField.text = @"Species";
-    detailViewController.title = phylo.name;
     
-    PXDummyModel *lifeform = [lifeforms objectAtIndex:indexPath.row];
-    //detailViewController.model = lifeform;
-    detailViewController.image = lifeform.image;
-    //detailViewController.nameTextField.text = lifeform.name;
-    detailViewController.speciesTextField.text = lifeform.species;
-    NSString *title = lifeform.name;
-    detailViewController.title = title;
+    detailViewController.name = phylo.name;
+    detailViewController.title = phylo.name;
+    detailViewController.phyloELement = phylo;
     
     [self.navigationController pushViewController:detailViewController animated:YES];
 }
@@ -207,6 +226,15 @@ static NSString *CellTableIdentifier = @"CellTableIdentifier";
 {
     // TO-DO: Implement a method to add a new entry
     // this should push the detail view controller or an add view controller
+    
+// ---------------------------------------------
+    //PROBLEM: there is no image added function in edit view
+    //SUGGESTION: this should push the camera mode or photo library
+    
+    PXDetailEdit *editView = [[PXDetailEdit alloc]init];
+    [self.navigationController pushViewController:editView animated:YES];
+    
+// ---------------------------------------------
     
 }
 

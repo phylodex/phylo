@@ -16,40 +16,8 @@
 
 @implementation PXShareViewController
 
-@synthesize lifeforms, managedObjectContext;
+@synthesize lifeforms;
 
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    //reset stored data
-    lifeforms = [NSMutableArray array];
-    [lifeforms removeAllObjects];
-    [_selectedAnimals removeAllObjects];
-    // Fetch existing phylodex entries.
-    // Create a fetch request, add a sort descriptor, then execute the fetch.
-    id delegate = [[UIApplication sharedApplication] delegate];
-    managedObjectContext = [[NSManagedObjectContext alloc] init];
-    self.managedObjectContext = [delegate managedObjectContext];
-	NSFetchRequest *request = [[NSFetchRequest alloc] init];
-	NSEntityDescription *entity = [NSEntityDescription entityForName:@"Phylodex" inManagedObjectContext:managedObjectContext];
-	[request setEntity:entity];
-	
-	// Order the entries by name
-	NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
-	NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
-	[request setSortDescriptors:sortDescriptors];
-	
-	// Execute the fetch -- create a mutable copy of the result.
-	NSError *error = nil;
-	NSMutableArray *mutableFetchResults = [[managedObjectContext executeFetchRequest:request error:&error] mutableCopy];
-	if (mutableFetchResults == nil) {
-		// Handle the error.
-	}
-	[self setLifeforms:mutableFetchResults];
-    //draw collection view with fresh data from model
-    [self.collectionView reloadData];
-    
-}
 
 // run when layout is created
 - (id)initWithCollectionViewLayout:(UICollectionViewLayout *)layout
@@ -89,26 +57,22 @@
         MFMailComposeViewController *mailController = [[MFMailComposeViewController alloc] init];
         //if init was successful
         if ( mailController != nil ) {
-            [mailController setMessageBody:@"flower" isHTML:NO];
             //set self as the delegate
             mailController.mailComposeDelegate = self;
             //initial subject
             [mailController setSubject:@"My Phylo Creatures"];
             //setup content of the email to preload
             NSMutableString *message_body_creatures = [[NSMutableString alloc] init];
-            [message_body_creatures setString:@""];
             //fill string with data from db
             [message_body_creatures appendString:@"<html>"];
-            for (Phylodex *phyloCreature in _selectedAnimals) {
+            for (PXDummyModel *phyloCreature in _selectedAnimals) {
                 [message_body_creatures appendString:@"<b>"];
-                [message_body_creatures appendString:(@"Species")];
+                [message_body_creatures appendString:(phyloCreature.species)];
                 [message_body_creatures appendString:@":</b><i>"];
                 [message_body_creatures appendString:(phyloCreature.name)];
                 [message_body_creatures appendString:@"</i>, <br>"];
                 //get each image and add as attachment
-                //Photo *animalPic = phyloCreature.photo;
-                //UIImage *tempImg = animalPic.image;
-                UIImage *tempImg = phyloCreature.thumbnail;
+                UIImage *tempImg = phyloCreature.image;
                 NSData *imageData = UIImageJPEGRepresentation(tempImg,0.9);
                 NSString *strFileName = [NSString stringWithFormat:@"%@-picture.jpeg",phyloCreature.name];
                 [mailController addAttachmentData:imageData mimeType:@"image/jpeg" fileName:strFileName];
@@ -120,7 +84,7 @@
             [self presentViewController:mailController animated:YES completion:NULL];
         }
     }
-    //if MFMailComposeViewController can't send for some reason (permissions?
+    //MFMailComposeViewController can't send for some reason (permissions?
     else{
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Can't Send" message:@"Please check your permissions" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
@@ -176,8 +140,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    
+    lifeforms = [NSMutableArray array];
+    PXDummyCollection *collection = [[PXDummyCollection alloc] init];
+    for (PXDummyModel *model in collection.dummyModels) {
+        [lifeforms addObject:model];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -207,11 +174,9 @@
                             forIndexPath:indexPath];
     
     // Configure the cell...
-    Phylodex *lifeform = [lifeforms objectAtIndex:indexPath.row];
+    PXDummyModel *lifeform = [lifeforms objectAtIndex:indexPath.row];
     cell.name = lifeform.name;
-    //Photo *tempPic = lifeform.photo;
-    //cell.image = tempPic.image;
-    cell.image = lifeform.thumbnail;
+    cell.image = lifeform.image;
     return cell;
 
 }

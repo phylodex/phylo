@@ -14,7 +14,7 @@
 
 @implementation ImageCropper
 
-@synthesize scrollView, imageView;
+@synthesize scrollView, imageView,delegate;
 
 @synthesize parent;
 
@@ -82,26 +82,41 @@
 	CGImageRef cr = CGImageCreateWithImageInRect([[imageView image] CGImage], rect);
 	
 	UIImage *cropped = [UIImage imageWithCGImage:cr];
+    
+    parent.photo.image = [UIImage imageWithCGImage:cr];
 	
 	CGImageRelease(cr);
     
     
 //    -------------------------
     
+    // store the cropped image into core data
+    
     NSEntityDescription *entitydesc_photo = [NSEntityDescription entityForName:@"Photo" inManagedObjectContext:context];
     NSManagedObject *croppedImage = [[NSManagedObject alloc]initWithEntity:entitydesc_photo insertIntoManagedObjectContext:context];
     
     [croppedImage setValue:cropped forKey:@"image"];
+
+    NSLog(@"cropped Image is %@", cropped);
+
+    UIImage *test = cropped;
+    NSLog(@"test = %@", test);
     
-    parent.image = cropped;
+    parent.imageView.image = test;
+    NSLog(@"parent.imageView.image = %@", parent.imageView.image);
+//    parent.photo.image = cropped;
+    NSLog(@"parent.photo.image = %@", parent.photo.image);
     
-    NSLog(@"cropped Image is %@", parent.image);    // How come it is null?
+    
+    
+//    self.imageView.image = cropped;
     
 //    -------------------------
-    
-//	[delegate imageCropper:self didFinishCroppingWithImage:cropped];
+    NSLog(@"Asdfasdf");
+	[delegate imageCropper:self didFinishCroppingWithImage:cropped];
     
     [self dismissViewControllerAnimated:YES completion:nil];
+    
 }
 
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {

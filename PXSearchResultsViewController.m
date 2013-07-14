@@ -128,19 +128,12 @@
     
     // set the title of the detail view to the name of the animal
     NSMutableDictionary *result = [searchResults objectAtIndex:indexPath.row];
-    NSString *uuid = [result objectForKey:@"UniqueID"];
-    assert(uuid != nil);
-    
-    child.uuid = uuid;
-    child.speciesData = result; // pass the dictionary of data on to child
     NSString *title = [result objectForKey:@"Name"];
     UIImage *image = [result objectForKey:@"Image"];
-    
-    // 
-//    child.title = title;
-//    child.image = image; 
-//    child.creditText = @"Photo by Fred Flintstone";
-//    child.nameText = title;
+    child.title = title;
+    child.image = image; 
+    child.creditText = @"Photo by Fred Flintstone";
+    child.nameText = title;
     [self.navigationController pushViewController:child animated:YES];
 }
 

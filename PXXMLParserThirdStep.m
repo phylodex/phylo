@@ -12,16 +12,15 @@
 
 @synthesize xmlParser;
 
-- (NSMutableDictionary *) parseImageArray: (NSString *)data {
-    animalImage = [[NSMutableDictionary alloc] init];
+- (NSMutableDictionary *) ParseImageArray: (NSData *)xmldata :(NSMutableDictionary *)name  {
+    animalImage = [[NSMutableDictionary alloc]initWithDictionary:name];
+    xmlParser = [[NSXMLParser alloc]initWithData:xmldata];
     foundImage = false;
-    NSData *dataString = [[NSData alloc] init];
-    dataString = [data dataUsingEncoding:NSUTF8StringEncoding];
-    xmlParser = [[NSXMLParser alloc] initWithData:dataString];
     xmlParser.delegate = self;
     [xmlParser parse];
     
-    //ONE THING HERE IS, PLEASE SET UP A DEFAULT IMAGE THAT IF IMAGE DOES NOT EXIST ON THE SERVER, WE CAN PUT THIS IMAGE INSTEAD    
+    
+//ONE THING HERE IS, PLEASE SET UP A DEFAULT IMAGE THAT IF IMAGE DOES NOT EXIST ON THE SERVER, WE CAN PUT THIS IMAGE INSTEAD    
     if (foundImage == false) {
         //*******************************************************************
         //please put some default image setting code here
@@ -57,32 +56,19 @@
     if ([elementName isEqualToString:@"dc:identifier"]) {
         //  get rid of whitespaces and newline characters
         NSString *currentElementValueString = [[NSString alloc] initWithString:[[currentElementValue componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] componentsJoinedByString:@""]];
-        [animalImage setObject:currentElementValueString forKey:@"ImageURL"];
         
-//        NSURL *imageURL = [NSURL URLWithString:currentElementValueString];
-//        NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
-//        UIImage *image = [UIImage imageWithData:imageData];
-//        if (image != nil) {
-//            [animalImage setObject:image forKey:@"Image"];
-//            foundImage = true;
-//        }
+        NSURL *imageURL = [NSURL URLWithString:currentElementValueString];
+        NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
+        UIImage *image = [UIImage imageWithData:imageData];
+        if (image != nil) {
+            [animalImage setObject:image forKey:@"Image"];
+            foundImage = true;
+        }
     }
     if ([elementName isEqualToString:@"dc:rightsHolder"]) {
-        NSString *currentElementValueString = [[NSString alloc] initWithString:[[currentElementValue componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] componentsJoinedByString:@""]];
-        if ((currentElementValueString != nil) && ([currentElementValueString isEqualToString:@"CopyrightheldbyCreator"] == false)) {
-            NSMutableString *newString = [[NSMutableString alloc]initWithString:currentElementValueString];
-            for (int i = 0; i < [newString length]; i++) {
-                NSCharacterSet *upperCaseSet = [NSCharacterSet uppercaseLetterCharacterSet];
-                if ([upperCaseSet characterIsMember:[newString characterAtIndex:i]] ) {
-                    
-                    NSRange range = [newString rangeOfComposedCharacterSequenceAtIndex:i];
-                    
-                    [newString replaceCharactersInRange:range withString:[[NSString alloc]initWithFormat:@" %c",[newString characterAtIndex:i]]];
-                    
-                    i++;
-                }
-            }
-            [animalImage setObject:newString forKey:@"CopyrightsHolder"];
+        NSString *currentElementValueString = [[NSString alloc] initWithString:[[currentElementValue componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]] componentsJoinedByString:@""]];
+        if (currentElementValueString != nil) {
+            [animalImage setObject:currentElementValueString forKey:@"CopyrightsHolder"];
         }
     }
 //******************************************************************************************************

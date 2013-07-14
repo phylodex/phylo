@@ -16,5 +16,5 @@
 
 @property (nonatomic, retain) NSXMLParser *xmlParser;
 
-- (NSMutableDictionary *) parseSpeciesArray:(NSString *)xmldata intoDictionary:(NSMutableDictionary *)name;
+- (NSMutableDictionary *) ParseSpeciesArray: (NSData *)xmldata :(NSMutableDictionary *)name;
 @end

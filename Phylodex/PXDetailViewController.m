@@ -13,26 +13,32 @@
 #import "PXDetailViewController.h"
 #import "ImageCropper.h"
 #import "PXDetailEdit.h"
-
+#import "Photo.h"
+#import "PXAppDelegate.h"
 @interface PXDetailViewController ()
 
 @end
 
 
-@implementation PXDetailViewController{
+@implementation PXDetailViewController {
     NSArray *attributeArray;
     NSMutableArray *valueArray;
+    
     
 }
 
 
-@synthesize name, valueArray, phyloELement;
+@synthesize name, valueArray, phyloELement, photo;
 
 @synthesize image;
 @synthesize imageView;
 @synthesize tableView;
 @synthesize tableViewContro;
 @synthesize delegate;
+
+- (void) viewWillAppear:(BOOL)animated{
+    [self.tableViewContro.tableView reloadData];
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -50,16 +56,15 @@
     // Do any additional setup after loading the view from its nib.
 
     attributeArray= [NSArray arrayWithObjects:@"Name: ", @"Date: ", @"Habitat: ", @"Artist Info: ", nil];
-    valueArray = [[NSMutableArray alloc]initWithObjects:[phyloELement name], @"",[phyloELement habitat],@"", nil];
+    valueArray = [[NSMutableArray alloc]initWithObjects:phyloELement.name, @"", phyloELement.habitat, @"", nil];
 
     imageView = [[UIImageView alloc]initWithImage:image];
     
     [tableView addSubview:tableViewContro.tableView];
     [tableView setContentSize:CGSizeMake(tableView.frame.size.width, 200)];
     
-    
     imageView = [[UIImageView alloc] initWithImage:self.image];
-	[imageView setFrame:CGRectMake(0.0, -20.0, 320.0, 200.0)];
+	[imageView setFrame:CGRectMake(0.0, 0.0, 320.0, 200.0)];
 	[imageView setContentMode:UIViewContentModeScaleAspectFit];
 	
 	[[self view] addSubview:imageView];
@@ -75,29 +80,14 @@
 
 
 - (void)cropImage {
-	ImageCropper *cropper = [[ImageCropper alloc] initWithImage:[imageView image]];
+    //Photo *p=phyloElement.photo;
+    
+	ImageCropper *cropper = [[ImageCropper alloc] initWithImage:image];
 	[cropper setDelegate:self];
 	
 	[self presentViewController:cropper animated:YES completion:nil];
 	
 }
-
-- (void)imageCropper:(ImageCropper *)cropper didFinishCroppingWithImage:(UIImage *)image {
-	[imageView setImage:imageView.image];
-	
-	[self dismissViewControllerAnimated:YES completion:nil];
-	
-	[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:YES];
-}
-
-- (void)imageCropperDidCancel:(ImageCropper *)cropper {
-	[self dismissViewControllerAnimated:YES completion:nil];
-	
-	[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:YES];
-}
-
-
-
 
 //customize cell works. 
 - (UITableViewCell *)tableView:(UITableView *)firstTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -140,5 +130,38 @@
     detailEdit.parent = self;
     [self.navigationController pushViewController:detailEdit animated:YES];
 
+}
+
+
+#pragma imageCoper delegate
+
+- (void)imageCropper:(ImageCropper *)cropper didFinishCroppingWithImage:(UIImage *)croppedImage
+{
+    NSLog(@"delegate");
+    PXAppDelegate *appDelegate = (PXAppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *context=appDelegate.managedObjectContext;
+    
+    
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Photo" inManagedObjectContext:context];
+    [request setEntity:entity];
+    
+    NSError *errorFetch = nil;
+    NSArray *array = [context executeFetchRequest:request error:&errorFetch];
+    NSLog(@"array size %d",array.count);
+    for(Photo *p in array){
+        if(p.image==self.image){
+            p.image=croppedImage;
+            NSLog(@"image saved");
+            self.imageView.image=croppedImage;
+            
+            self.phyloELement.thumbnail = croppedImage;
+        }
+    }
+    
+    NSError *error;
+    if (![context save:&error]) {
+        NSLog(@"Failed to save - error: %@", [error localizedDescription]);
+    }
 }
 @end

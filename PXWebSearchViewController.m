@@ -7,10 +7,9 @@
 //
 
 #import "PXWebSearchViewController.h"
-#import "PXXMLParserFirstStep.h"
 
 @interface PXWebSearchViewController ()
-@property (nonatomic, retain) PXDownloadManager *downloadManager;
+
 @end
 
 @implementation PXWebSearchViewController
@@ -19,9 +18,6 @@
 @synthesize searchButton;
 @synthesize searchTextField;
 @synthesize clearButton;
-@synthesize downloadManager;
-@synthesize isSearchingLabel;
-@synthesize activityIndicator;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -36,8 +32,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    activityIndicator.hidden = YES;
-    isSearchingLabel.hidden = YES;
+    // Do any additional setup after loading the view from its nib.
 }
 
 - (void)didReceiveMemoryWarning
@@ -57,7 +52,7 @@
 // may be called if forced even if shouldEndEditing returns NO (e.g. view removed from window) or endEditing:YES called
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
-    // ending editing text field
+    // ending editing text field
 }
 
 // called when clear button pressed. return NO to ignore (no notifications)
@@ -73,9 +68,25 @@
     // check to make sure the field isn't empty
     if ([searchTextField.text length] != 0)
     {
-        downloadManager = [[PXDownloadManager alloc] initWithTypeOfService:GlobalSpeciesListByName];
-        downloadManager.delegate = self;
-        [downloadManager queryWebServiceForData:searchTextField.text];
+        // TO-DO: create a new network search
+        
+        // make sure we can connect to the internet
+        PXNetworkConnection *connection = [[PXNetworkConnection alloc] init];
+        
+        // make the search result, and extract the data
+        // note: will eventually implement as a block so that the user receives feedback that the search is under way
+        NSString *searchResultXMLData = [connection queryWebServiceForData:searchTextField.text];
+        NSMutableArray *searchResultItems = [PXXMLParser extractItemsFromXMLData:searchResultXMLData];
+        
+        // push the search results child view passing the network search result
+        PXSearchResultsViewController *resultsViewController = [[PXSearchResultsViewController alloc] init];
+        resultsViewController.delegate = self;
+        resultsViewController.searchResults = searchResultItems;
+        
+        // set the title of the search view to the search string
+        NSString *query = searchTextField.text;
+        resultsViewController.title = query;
+        [self.navigationController pushViewController:resultsViewController animated:YES];
     }
 }
 
@@ -96,44 +107,6 @@
 {
     // keep a record of the previous search in case that same search is made again
     
-}
-
-#pragma mark - web search view delegate methods for updating the UI
-
-- (void)downloadDidStart
-{
-    [searchTextField resignFirstResponder];
-    activityIndicator.hidden = NO;
-    isSearchingLabel.hidden = NO;
-    [activityIndicator startAnimating];
-}
-
-- (void)updateStatus:(NSString *)statusString
-{
-    
-}
-
-- (void)downloadDidStopWithStatus:(NSString *)statusString forService:(WebServiceType)service
-{
-    [activityIndicator stopAnimating];
-    activityIndicator.hidden = YES;
-    isSearchingLabel.hidden = YES;
-    
-    // if the status is nil, it means the download was OK
-    if (statusString == nil) {
-        NSString *XMLDataString = [[NSString alloc] initWithContentsOfFile:downloadManager.filePath encoding:NSUTF8StringEncoding error:nil];
-//        NSLog(@"xml data: %@", XMLDataString);
-        
-        // parse the XML data into a mutable array
-        PXXMLParserFirstStep *parser = [[PXXMLParserFirstStep alloc] init];
-        NSMutableArray *results = [parser parseNameArray:XMLDataString];
-        
-        // push the child view controller of search results
-        childController = [[PXSearchResultsViewController alloc] init];
-        childController.searchResults = results;
-        childController.title = searchTextField.text;
-        [self.navigationController pushViewController:childController animated:YES];
-    }
 }
 
 @end

@@ -4,7 +4,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PXDetailViewController.h"
+//#import "PXDetailViewController.h"
 
 
 @class PXDetailViewController;
@@ -15,14 +15,15 @@
 @interface ImageCropper : UIViewController {
 	UIScrollView *scrollView;
 	UIImageView *imageView;
-	
+	PXDetailViewController *parent;
+    
 	id <ImageCropperDelegate> delegate;
 }
 
 @property (nonatomic, retain) UIScrollView *scrollView;
 @property (nonatomic, retain) UIImageView *imageView;
 
-@property (nonatomic, weak) id <ImageCropperDelegate> delegate;
+@property (nonatomic, retain) id <ImageCropperDelegate> delegate;
 
 @property (strong, nonatomic) PXDetailViewController *parent;
 

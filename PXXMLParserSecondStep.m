@@ -12,27 +12,16 @@
 
 @synthesize xmlParser;
 
-//- (NSMutableDictionary *)parseSpeciesArray:(NSData *)xmldata intoDictionary:(NSMutableDictionary *)name {
-//    
-//    animalSpecies = [[NSMutableDictionary alloc] initWithDictionary:name];
-//
-//    xmlParser = [[NSXMLParser alloc] initWithData:xmldata];
-//    xmlParser.delegate = self;
-//    [xmlParser parse];
-//    
-//    return animalSpecies;
-//}
+- (NSMutableDictionary *) ParseSpeciesArray: (NSData *)xmldata :(NSMutableDictionary *)name {
+    
+    animalSpecies = [[NSMutableDictionary alloc]initWithDictionary:name];
 
-- (NSMutableDictionary *)parseSpeciesArray:(NSString *)data intoDictionary:(NSMutableDictionary *)name {
-    animalSpecies = [[NSMutableDictionary alloc] initWithDictionary:name];
-    NSData *dataString = [[NSData alloc] init];
-    dataString = [data dataUsingEncoding:NSUTF8StringEncoding];
-    xmlParser = [[NSXMLParser alloc] initWithData:dataString];
+    xmlParser = [[NSXMLParser alloc]initWithData:xmldata];
     xmlParser.delegate = self;
     [xmlParser parse];
+    
     return animalSpecies;
 }
-
 
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict {
     
@@ -128,9 +117,9 @@
         }
     }
     if ([elementName isEqualToString:@"habitat"]) {
-        NSString *currentElementValueString = [[NSString alloc] initWithString:[[currentElementValue componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] componentsJoinedByString:@""]];
+        NSString *currentElementValueString = [[NSString alloc] initWithString:[[currentElementValue componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]] componentsJoinedByString:@""]];
         if (currentElementValueString != nil) {
-            if ([[animalSpecies objectForKey:@"Habitat"]isEqualToString:@"Not Exist"] == false) {
+            if ([animalSpecies objectForKey:@"Habitat"] != nil) {
                 NSString *addingHabitat = [[NSString alloc]initWithFormat:@"%@, %@",[animalSpecies objectForKey:@"Habitat"],currentElementValueString];
                 [animalSpecies setObject:addingHabitat forKey:@"Habitat"];
             }

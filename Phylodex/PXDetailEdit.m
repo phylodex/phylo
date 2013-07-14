@@ -53,23 +53,42 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)save:(id)sender {
+- (IBAction)save:(id)sender {/*
     NSEntityDescription *entitydesc = [NSEntityDescription entityForName:@"Phylodex" inManagedObjectContext:context];
     NSManagedObject *newCreature = [[NSManagedObject alloc]initWithEntity:entitydesc insertIntoManagedObjectContext:context];
-
-    [newCreature setValue:self.nameOfCreature.text forKey:@"name"];
-    [newCreature setValue:self.habitatType.text forKey:@"habitat"];
-
+*/
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Phylodex" inManagedObjectContext:context];
+    [request setEntity:entity];
+    
+    NSError *errorFetch = nil;
+    NSArray *array = [context executeFetchRequest:request error:&errorFetch];
+    NSLog(@"%d", array.count);
+    for(Phylodex *newCreature in array){
+        if(newCreature.name==[parent.valueArray objectAtIndex:0]){
+            [newCreature setValue:self.nameOfCreature.text forKey:@"name"];
+            [newCreature setValue:self.habitatType.text forKey:@"habitat"];
+        }
+        
+    }
+    
 //    [newCreature setValue:self.artistInfo.text forKey:@"artist"];
     
-//    parent.valueArray = [NSArray arrayWithObjects:self.nameOfCreature.text, @"", self.habitatType.text/*, self.artistInfo.text*/, @"", nil];    // for valueArray in PXDetailViewController, cache
+    
+    parent.valueArray = [NSArray arrayWithObjects:self.nameOfCreature.text, @"", self.habitatType.text/*, self.artistInfo.text*/, @"", nil];    // for valueArray in PXDetailViewController, cache
+    
+    NSLog(@"valueArray = %@", parent.valueArray);
+    
+    
     parent.phyloELement.name = self.nameOfCreature.text;
     parent.phyloELement.habitat = self.habitatType.text;
 //    parent.phyloElement.artist = self.artistInfo.text;
+//    parent.phyloElement.date = self.date.text;
     
     NSError *error;
     [context save:&error];
     self.displayLabel.text = @"Info is updated!";
+    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -77,6 +96,7 @@
     [nameOfCreature resignFirstResponder];
     [habitatType resignFirstResponder];
 //    [artistInfo resignFirstResponder];
+//    [date resignFirstResponder];
 }
 
 @end

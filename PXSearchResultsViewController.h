@@ -10,12 +10,11 @@
 
 #import <UIKit/UIKit.h>
 #import "PXSearchResultPhotoViewController.h"
-#import "PXDownloadManager.h"
 
 @protocol PXSearchResultsViewControllerDelegate;
 
 
-@interface PXSearchResultsViewController : UITableViewController <PXDownloadManagerDelegate>
+@interface PXSearchResultsViewController : UITableViewController
 
 @property (nonatomic, assign)id <PXSearchResultsViewControllerDelegate>delegate;
 @property (nonatomic, retain)NSMutableArray *searchResults;

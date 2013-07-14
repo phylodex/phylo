@@ -51,7 +51,7 @@ static NSString *CellTableIdentifier = @"CellTableIdentifier";
 	if (mutableFetchResults == nil) {
 		// Handle the error.
 	}
-//	[self setLifeforms:mutableFetchResults];    //this sentence can be used to create new card but not to edit
+	[self setLifeforms:mutableFetchResults];    //this sentence can be used to create new card but not to edit
     [self.tableView reloadData];
 }
 //----------------------------------

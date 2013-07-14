@@ -22,6 +22,7 @@
 		1F08DAE31777CE53005F18EF /* PXSearchResultPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F08DAE11777CE52005F18EF /* PXSearchResultPhotoViewController.m */; };
 		1F08DAE41777CE53005F18EF /* PXSearchResultPhotoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F08DAE21777CE53005F18EF /* PXSearchResultPhotoViewController.xib */; };
 		1F195647177559EA00AEB906 /* PXNetworkConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F195646177559EA00AEB906 /* PXNetworkConnection.m */; };
+		1F19564A1775687B00AEB906 /* PXXMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F1956491775687B00AEB906 /* PXXMLParser.m */; };
 		1F293CB31770FBC9009C8DA9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F293CB21770FBC9009C8DA9 /* UIKit.framework */; };
 		1F293CB51770FBC9009C8DA9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F293CB41770FBC9009C8DA9 /* Foundation.framework */; };
 		1F293CB71770FBC9009C8DA9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F293CB61770FBC9009C8DA9 /* CoreGraphics.framework */; };
@@ -47,8 +48,6 @@
 		1F377E7F1780F0EF00A770BA /* Phylodex.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F377E7E1780F0EE00A770BA /* Phylodex.m */; };
 		1FAA58F1177CB6120072CF9A /* Horse.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FAA58F0177CB6120072CF9A /* Horse.png */; };
 		1FB8C31117783E6000E51694 /* coding_standards.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1FB8C31017783E6000E51694 /* coding_standards.txt */; };
-		1FE8DCFE178A18C200ECFF13 /* PXNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE8DCFD178A18C200ECFF13 /* PXNetworkManager.m */; };
-		1FE8DD01178A1E6F00ECFF13 /* PXDownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE8DD00178A1E6F00ECFF13 /* PXDownloadManager.m */; };
 		1FEF45B51773C3C900B1E0D6 /* Lion.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FEF45B41773C3C900B1E0D6 /* Lion.png */; };
 		1FF7E89B1773ABF800215E38 /* PXDummyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF7E89A1773ABF800215E38 /* PXDummyModel.m */; };
 		1FF7E89E1773AD0100215E38 /* PXDummyCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF7E89D1773AD0100215E38 /* PXDummyCollection.m */; };
@@ -66,6 +65,8 @@
 		C8C0E2B3178A04A2007E1FE4 /* SimpleTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C8C0E2B2178A04A1007E1FE4 /* SimpleTableCell.m */; };
 		C8C0E2B4178A04DD007E1FE4 /* SimpleTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C8C0E2B2178A04A1007E1FE4 /* SimpleTableCell.m */; };
 		C8C0E2B5178A04DD007E1FE4 /* ImageCropper.m in Sources */ = {isa = PBXBuildFile; fileRef = EDEF5DDD17853D5F00ACC287 /* ImageCropper.m */; };
+		ED14473917934AAD00B764D5 /* PXCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED14473817934AAD00B764D5 /* PXCameraViewController.m */; };
+		ED14473A17934BAB00B764D5 /* PXCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED14473817934AAD00B764D5 /* PXCameraViewController.m */; };
 		ED4AB9B317905A24009096FC /* PXDetailEdit.m in Sources */ = {isa = PBXBuildFile; fileRef = ED4AB9B117905A24009096FC /* PXDetailEdit.m */; };
 		ED4AB9B517905A53009096FC /* PXDetailEdit.m in Sources */ = {isa = PBXBuildFile; fileRef = ED4AB9B117905A24009096FC /* PXDetailEdit.m */; };
 		EDB03D8117777164009B0D55 /* Capture.png in Resources */ = {isa = PBXBuildFile; fileRef = EDB03D7D17777164009B0D55 /* Capture.png */; };
@@ -110,6 +111,8 @@
 		1F08DAE21777CE53005F18EF /* PXSearchResultPhotoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PXSearchResultPhotoViewController.xib; path = ../PXSearchResultPhotoViewController.xib; sourceTree = "<group>"; };
 		1F195645177559EA00AEB906 /* PXNetworkConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PXNetworkConnection.h; path = Phylodex/PXNetworkConnection.h; sourceTree = "<group>"; };
 		1F195646177559EA00AEB906 /* PXNetworkConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PXNetworkConnection.m; path = Phylodex/PXNetworkConnection.m; sourceTree = "<group>"; };
+		1F1956481775687B00AEB906 /* PXXMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PXXMLParser.h; path = Phylodex/PXXMLParser.h; sourceTree = "<group>"; };
+		1F1956491775687B00AEB906 /* PXXMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PXXMLParser.m; path = Phylodex/PXXMLParser.m; sourceTree = "<group>"; };
 		1F293CAF1770FBC9009C8DA9 /* Phylodex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Phylodex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F293CB21770FBC9009C8DA9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		1F293CB41770FBC9009C8DA9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -143,10 +146,6 @@
 		1F377E7E1780F0EE00A770BA /* Phylodex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Phylodex.m; path = Phylodex/Phylodex.m; sourceTree = "<group>"; };
 		1FAA58F0177CB6120072CF9A /* Horse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Horse.png; sourceTree = "<group>"; };
 		1FB8C31017783E6000E51694 /* coding_standards.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = coding_standards.txt; sourceTree = "<group>"; };
-		1FE8DCFC178A18C200ECFF13 /* PXNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXNetworkManager.h; sourceTree = "<group>"; };
-		1FE8DCFD178A18C200ECFF13 /* PXNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXNetworkManager.m; sourceTree = "<group>"; };
-		1FE8DCFF178A1E6F00ECFF13 /* PXDownloadManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXDownloadManager.h; sourceTree = "<group>"; };
-		1FE8DD00178A1E6F00ECFF13 /* PXDownloadManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXDownloadManager.m; sourceTree = "<group>"; };
 		1FEF45B41773C3C900B1E0D6 /* Lion.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Lion.png; sourceTree = "<group>"; };
 		1FF7E8991773ABF800215E38 /* PXDummyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PXDummyModel.h; path = Phylodex/PXDummyModel.h; sourceTree = "<group>"; };
 		1FF7E89A1773ABF800215E38 /* PXDummyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PXDummyModel.m; path = Phylodex/PXDummyModel.m; sourceTree = "<group>"; };
@@ -170,6 +169,8 @@
 		C8C0E2AF178A048C007E1FE4 /* PXDetailTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PXDetailTableCell.xib; sourceTree = "<group>"; };
 		C8C0E2B1178A04A1007E1FE4 /* SimpleTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleTableCell.h; sourceTree = "<group>"; };
 		C8C0E2B2178A04A1007E1FE4 /* SimpleTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleTableCell.m; sourceTree = "<group>"; };
+		ED14473717934AAD00B764D5 /* PXCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXCameraViewController.h; sourceTree = "<group>"; };
+		ED14473817934AAD00B764D5 /* PXCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXCameraViewController.m; sourceTree = "<group>"; };
 		ED4AB9B017905A23009096FC /* PXDetailEdit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXDetailEdit.h; sourceTree = "<group>"; };
 		ED4AB9B117905A24009096FC /* PXDetailEdit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXDetailEdit.m; sourceTree = "<group>"; };
 		EDB03D7D17777164009B0D55 /* Capture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Capture.png; sourceTree = "<group>"; };
@@ -317,16 +318,14 @@
 		1FF7E8A41773B1E700215E38 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				1FE8DCFF178A1E6F00ECFF13 /* PXDownloadManager.h */,
-				1FE8DD00178A1E6F00ECFF13 /* PXDownloadManager.m */,
-				1FE8DCFC178A18C200ECFF13 /* PXNetworkManager.h */,
-				1FE8DCFD178A18C200ECFF13 /* PXNetworkManager.m */,
 				1F377E7D1780F0EE00A770BA /* Phylodex.h */,
 				1F377E7E1780F0EE00A770BA /* Phylodex.m */,
 				1F377E771780E9AD00A770BA /* Photo.h */,
 				1F377E781780E9AD00A770BA /* Photo.m */,
 				1F195645177559EA00AEB906 /* PXNetworkConnection.h */,
 				1F195646177559EA00AEB906 /* PXNetworkConnection.m */,
+				1F1956481775687B00AEB906 /* PXXMLParser.h */,
+				1F1956491775687B00AEB906 /* PXXMLParser.m */,
 				B6DDBA1D1783DC19002D5880 /* PXXMLParserFirstStep.h */,
 				B6DDBA1E1783DC19002D5880 /* PXXMLParserFirstStep.m */,
 				B6DDBA231784F620002D5880 /* PXXMLParserSecondStep.h */,
@@ -363,6 +362,8 @@
 				1F2F7D46177903DA002D2CB4 /* PXDetailViewController.m */,
 				ED4AB9B017905A23009096FC /* PXDetailEdit.h */,
 				ED4AB9B117905A24009096FC /* PXDetailEdit.m */,
+				ED14473717934AAD00B764D5 /* PXCameraViewController.h */,
+				ED14473817934AAD00B764D5 /* PXCameraViewController.m */,
 				C8C0E2B1178A04A1007E1FE4 /* SimpleTableCell.h */,
 				C8C0E2B2178A04A1007E1FE4 /* SimpleTableCell.m */,
 				EDEF5DE2178546D500ACC287 /* Information of DetailView */,
@@ -555,6 +556,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED14473A17934BAB00B764D5 /* PXCameraViewController.m in Sources */,
 				ED4AB9B517905A53009096FC /* PXDetailEdit.m in Sources */,
 				C8C0E2B4178A04DD007E1FE4 /* SimpleTableCell.m in Sources */,
 				C8C0E2B5178A04DD007E1FE4 /* ImageCropper.m in Sources */,
@@ -565,6 +567,7 @@
 				1FF7E89B1773ABF800215E38 /* PXDummyModel.m in Sources */,
 				1FF7E89E1773AD0100215E38 /* PXDummyCollection.m in Sources */,
 				1F195647177559EA00AEB906 /* PXNetworkConnection.m in Sources */,
+				1F19564A1775687B00AEB906 /* PXXMLParser.m in Sources */,
 				087AF3A61776E46A004034F3 /* PXNameAndImageCell.m in Sources */,
 				B6A16AAB17777D800024F0BB /* PXSearchResultsViewController.m in Sources */,
 				B6A16AAD17777D800024F0BB /* PXWebSearchViewController.m in Sources */,
@@ -577,8 +580,6 @@
 				B6DDBA1F1783DC1A002D5880 /* PXXMLParserFirstStep.m in Sources */,
 				B6DDBA251784F621002D5880 /* PXXMLParserSecondStep.m in Sources */,
 				B6DDBA281784F825002D5880 /* PXXMLParserThirdStep.m in Sources */,
-				1FE8DCFE178A18C200ECFF13 /* PXNetworkManager.m in Sources */,
-				1FE8DD01178A1E6F00ECFF13 /* PXDownloadManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -592,6 +593,7 @@
 				EDEF5DEB178546E700ACC287 /* PXType.m in Sources */,
 				C8C0E2B3178A04A2007E1FE4 /* SimpleTableCell.m in Sources */,
 				ED4AB9B317905A24009096FC /* PXDetailEdit.m in Sources */,
+				ED14473917934AAD00B764D5 /* PXCameraViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

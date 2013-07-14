@@ -23,7 +23,7 @@
     
     PXXMLParserFirstStep *nameArray = [[PXXMLParserFirstStep alloc]init];
     
-    //parser->firstStepResults = [nameArray ParseNameArray:data];
+    parser->firstStepResults = [nameArray ParseNameArray:data];
     parser->secondStepResults = [parser parseFileSecondStep:parser->firstStepResults];
     parser->thirdStepResults = [parser parseFileThirdStep:parser->secondStepResults];
     
@@ -71,7 +71,7 @@
         NSString *searchResultXMLData = [[NSString alloc]initWithString:[NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:nil]];
         NSData *dataString = [[NSData alloc]init];
         dataString = [searchResultXMLData dataUsingEncoding:NSUTF8StringEncoding];
-        [secondStepResults addObject:[speciesArray parseSpeciesArray:dataString intoDictionary:[firstStepArray objectAtIndex:i]]];
+        [secondStepResults addObject:[speciesArray ParseSpeciesArray:dataString:[firstStepArray objectAtIndex:i]]];
     }
     //****************************************************************************************************
     

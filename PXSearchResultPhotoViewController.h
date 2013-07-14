@@ -8,18 +8,15 @@
 //  Copyright (c) 2013 Phylosoft. All rights reserved.
 //
 #import <UIKit/UIKit.h>
-#import "PXDownloadManager.h"
 
-@interface PXSearchResultPhotoViewController : UIViewController <PXDownloadManagerDelegate>
+
+@interface PXSearchResultPhotoViewController : UIViewController
 
 @property (retain, nonatomic) UIImage *image;
 @property (retain, nonatomic) NSString *nameText;
 @property (retain, nonatomic) NSString *creditText;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *creditLabel;
-@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (retain, nonatomic) IBOutlet UIImageView *imageView;
-@property (nonatomic, retain) NSString *uuid;
-@property (nonatomic, retain)NSMutableDictionary *speciesData;
 
 @end

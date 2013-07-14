@@ -90,6 +90,7 @@
         [phylo setDate:[NSDate date]]; // Should be timestamp, but this will be constant for simulator.
         [phylo setName:model.name];
         [phylo setHabitat:@"Earth"];
+        [phylo setPhoto:photo];
         
         // set the image
         UIImage *selectedImage = [UIImage imageNamed:[NSString stringWithFormat:@"%@%@", model.name, @".png"]];

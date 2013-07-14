@@ -4,10 +4,19 @@
 //
 
 #import "ImageCropper.h"
+#import "PXDetailViewController.h"
+#import "PXAppDelegate.h"
+
+@interface ImageCropper (){
+    NSManagedObjectContext *context;
+}
+@end
 
 @implementation ImageCropper
 
 @synthesize scrollView, imageView;
+
+@synthesize parent;
 
 
 - (id)initWithImage:(UIImage *)image {
@@ -22,7 +31,10 @@
 		[scrollView setShowsHorizontalScrollIndicator:NO];
 		[scrollView setShowsVerticalScrollIndicator:NO];
 		[scrollView setMaximumZoomScale:2.0];
-		
+
+        PXAppDelegate *photo = [[UIApplication sharedApplication]delegate];
+        context = [photo managedObjectContext];
+        
 		imageView = [[UIImageView alloc] initWithImage:image];
 		
 		CGRect rect;
@@ -48,18 +60,14 @@
 		
 		[navigationBar setItems:[NSArray arrayWithObject:aNavigationItem]];
 		
-//		[aNavigationItem release];
-		
 		[[self view] addSubview:navigationBar];
-		
-//		[navigationBar release];
 	}
 	
 	return self;
 }
 
 - (void)cancelCropping {
-	[delegate imageCropperDidCancel:self]; 
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)finishCropping {
@@ -76,8 +84,24 @@
 	UIImage *cropped = [UIImage imageWithCGImage:cr];
 	
 	CGImageRelease(cr);
-	
-	[delegate imageCropper:self didFinishCroppingWithImage:cropped];
+    
+    
+//    -------------------------
+    
+    NSEntityDescription *entitydesc_photo = [NSEntityDescription entityForName:@"Photo" inManagedObjectContext:context];
+    NSManagedObject *croppedImage = [[NSManagedObject alloc]initWithEntity:entitydesc_photo insertIntoManagedObjectContext:context];
+    
+    [croppedImage setValue:cropped forKey:@"image"];
+    
+    parent.image = cropped;
+    
+    NSLog(@"cropped Image is %@", parent.image);    // How come it is null?
+    
+//    -------------------------
+    
+//	[delegate imageCropper:self didFinishCroppingWithImage:cropped];
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {

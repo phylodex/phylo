@@ -57,14 +57,17 @@
 		B6A16AAC17777D800024F0BB /* PXSearchResultsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6A16AA517777D800024F0BB /* PXSearchResultsViewController.xib */; };
 		B6A16AAD17777D800024F0BB /* PXWebSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6A16AA717777D800024F0BB /* PXWebSearchViewController.m */; };
 		B6A16AAE17777D800024F0BB /* PXWebSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6A16AA817777D800024F0BB /* PXWebSearchViewController.xib */; };
-		C8C0E2B0178A048C007E1FE4 /* PXDetailTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8C0E2AF178A048C007E1FE4 /* PXDetailTableCell.xib */; };
-		C8C0E2B3178A04A2007E1FE4 /* SimpleTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C8C0E2B2178A04A1007E1FE4 /* SimpleTableCell.m */; };
-		C8C0E2B4178A04DD007E1FE4 /* SimpleTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C8C0E2B2178A04A1007E1FE4 /* SimpleTableCell.m */; };
-		C8C0E2B5178A04DD007E1FE4 /* ImageCropper.m in Sources */ = {isa = PBXBuildFile; fileRef = EDEF5DDD17853D5F00ACC287 /* ImageCropper.m */; };
 		B6A33E1C177CB15A00978241 /* Frog.png in Resources */ = {isa = PBXBuildFile; fileRef = B6A33E1B177CB15A00978241 /* Frog.png */; };
 		B6DDBA1F1783DC1A002D5880 /* PXXMLParserFirstStep.m in Sources */ = {isa = PBXBuildFile; fileRef = B6DDBA1E1783DC19002D5880 /* PXXMLParserFirstStep.m */; };
 		B6DDBA251784F621002D5880 /* PXXMLParserSecondStep.m in Sources */ = {isa = PBXBuildFile; fileRef = B6DDBA241784F620002D5880 /* PXXMLParserSecondStep.m */; };
 		B6DDBA281784F825002D5880 /* PXXMLParserThirdStep.m in Sources */ = {isa = PBXBuildFile; fileRef = B6DDBA271784F825002D5880 /* PXXMLParserThirdStep.m */; };
+		C8AF5F5B1791CE6100B0E245 /* PXDetailEdit.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8AF5F5A1791CE6100B0E245 /* PXDetailEdit.xib */; };
+		C8C0E2B0178A048C007E1FE4 /* PXDetailTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8C0E2AF178A048C007E1FE4 /* PXDetailTableCell.xib */; };
+		C8C0E2B3178A04A2007E1FE4 /* SimpleTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C8C0E2B2178A04A1007E1FE4 /* SimpleTableCell.m */; };
+		C8C0E2B4178A04DD007E1FE4 /* SimpleTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C8C0E2B2178A04A1007E1FE4 /* SimpleTableCell.m */; };
+		C8C0E2B5178A04DD007E1FE4 /* ImageCropper.m in Sources */ = {isa = PBXBuildFile; fileRef = EDEF5DDD17853D5F00ACC287 /* ImageCropper.m */; };
+		ED4AB9B317905A24009096FC /* PXDetailEdit.m in Sources */ = {isa = PBXBuildFile; fileRef = ED4AB9B117905A24009096FC /* PXDetailEdit.m */; };
+		ED4AB9B517905A53009096FC /* PXDetailEdit.m in Sources */ = {isa = PBXBuildFile; fileRef = ED4AB9B117905A24009096FC /* PXDetailEdit.m */; };
 		EDB03D8117777164009B0D55 /* Capture.png in Resources */ = {isa = PBXBuildFile; fileRef = EDB03D7D17777164009B0D55 /* Capture.png */; };
 		EDB03D8217777164009B0D55 /* Share.png in Resources */ = {isa = PBXBuildFile; fileRef = EDB03D7E17777164009B0D55 /* Share.png */; };
 		EDB03D8317777164009B0D55 /* Phylodex.png in Resources */ = {isa = PBXBuildFile; fileRef = EDB03D7F17777164009B0D55 /* Phylodex.png */; };
@@ -156,9 +159,6 @@
 		B6A16AA617777D800024F0BB /* PXWebSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PXWebSearchViewController.h; path = ../PXWebSearchViewController.h; sourceTree = "<group>"; };
 		B6A16AA717777D800024F0BB /* PXWebSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PXWebSearchViewController.m; path = ../PXWebSearchViewController.m; sourceTree = "<group>"; };
 		B6A16AA817777D800024F0BB /* PXWebSearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PXWebSearchViewController.xib; path = ../PXWebSearchViewController.xib; sourceTree = "<group>"; };
-		C8C0E2AF178A048C007E1FE4 /* PXDetailTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PXDetailTableCell.xib; sourceTree = "<group>"; };
-		C8C0E2B1178A04A1007E1FE4 /* SimpleTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleTableCell.h; sourceTree = "<group>"; };
-		C8C0E2B2178A04A1007E1FE4 /* SimpleTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleTableCell.m; sourceTree = "<group>"; };
 		B6A33E1B177CB15A00978241 /* Frog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Frog.png; path = Phylodex/Frog.png; sourceTree = "<group>"; };
 		B6DDBA1D1783DC19002D5880 /* PXXMLParserFirstStep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXXMLParserFirstStep.h; sourceTree = "<group>"; };
 		B6DDBA1E1783DC19002D5880 /* PXXMLParserFirstStep.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXXMLParserFirstStep.m; sourceTree = "<group>"; };
@@ -166,6 +166,12 @@
 		B6DDBA241784F620002D5880 /* PXXMLParserSecondStep.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXXMLParserSecondStep.m; sourceTree = "<group>"; };
 		B6DDBA261784F825002D5880 /* PXXMLParserThirdStep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXXMLParserThirdStep.h; sourceTree = "<group>"; };
 		B6DDBA271784F825002D5880 /* PXXMLParserThirdStep.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXXMLParserThirdStep.m; sourceTree = "<group>"; };
+		C8AF5F5A1791CE6100B0E245 /* PXDetailEdit.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PXDetailEdit.xib; sourceTree = "<group>"; };
+		C8C0E2AF178A048C007E1FE4 /* PXDetailTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PXDetailTableCell.xib; sourceTree = "<group>"; };
+		C8C0E2B1178A04A1007E1FE4 /* SimpleTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleTableCell.h; sourceTree = "<group>"; };
+		C8C0E2B2178A04A1007E1FE4 /* SimpleTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleTableCell.m; sourceTree = "<group>"; };
+		ED4AB9B017905A23009096FC /* PXDetailEdit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXDetailEdit.h; sourceTree = "<group>"; };
+		ED4AB9B117905A24009096FC /* PXDetailEdit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXDetailEdit.m; sourceTree = "<group>"; };
 		EDB03D7D17777164009B0D55 /* Capture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Capture.png; sourceTree = "<group>"; };
 		EDB03D7E17777164009B0D55 /* Share.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Share.png; sourceTree = "<group>"; };
 		EDB03D7F17777164009B0D55 /* Phylodex.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Phylodex.png; sourceTree = "<group>"; };
@@ -355,6 +361,8 @@
 				087AF3A51776E46A004034F3 /* PXNameAndImageCell.m */,
 				1F2F7D45177903DA002D2CB4 /* PXDetailViewController.h */,
 				1F2F7D46177903DA002D2CB4 /* PXDetailViewController.m */,
+				ED4AB9B017905A23009096FC /* PXDetailEdit.h */,
+				ED4AB9B117905A24009096FC /* PXDetailEdit.m */,
 				C8C0E2B1178A04A1007E1FE4 /* SimpleTableCell.h */,
 				C8C0E2B2178A04A1007E1FE4 /* SimpleTableCell.m */,
 				EDEF5DE2178546D500ACC287 /* Information of DetailView */,
@@ -366,6 +374,7 @@
 		1FF7E8A61773B24600215E38 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C8AF5F5A1791CE6100B0E245 /* PXDetailEdit.xib */,
 				C8C0E2AF178A048C007E1FE4 /* PXDetailTableCell.xib */,
 				0891C2501786360C00F29BAD /* PXShareViewController.xib */,
 				0891C2561786646900F29BAD /* PXShareCell.xib */,
@@ -509,6 +518,7 @@
 				B6A33E1C177CB15A00978241 /* Frog.png in Resources */,
 				08A10B75177CAEAC00AB0609 /* Dog.png in Resources */,
 				1FAA58F1177CB6120072CF9A /* Horse.png in Resources */,
+				C8AF5F5B1791CE6100B0E245 /* PXDetailEdit.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -545,6 +555,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED4AB9B517905A53009096FC /* PXDetailEdit.m in Sources */,
 				C8C0E2B4178A04DD007E1FE4 /* SimpleTableCell.m in Sources */,
 				C8C0E2B5178A04DD007E1FE4 /* ImageCropper.m in Sources */,
 				1F293CC11770FBC9009C8DA9 /* main.m in Sources */,
@@ -580,6 +591,7 @@
 				EDEF5DE9178546E700ACC287 /* PXHabitat.m in Sources */,
 				EDEF5DEB178546E700ACC287 /* PXType.m in Sources */,
 				C8C0E2B3178A04A2007E1FE4 /* SimpleTableCell.m in Sources */,
+				ED4AB9B317905A24009096FC /* PXDetailEdit.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

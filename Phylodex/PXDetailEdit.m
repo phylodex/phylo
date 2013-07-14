@@ -39,6 +39,12 @@
     
     PXAppDelegate *phylo = [[UIApplication sharedApplication]delegate];
     context = [phylo managedObjectContext];
+
+    
+    // load the previous value to avoid no info typed
+    nameOfCreature.text = [parent.valueArray objectAtIndex:0];
+    habitatType.text = [parent.valueArray objectAtIndex:2];
+//    artistInfo.text = [parent.valueArray objectAtIndex:1];
 }
 
 - (void)didReceiveMemoryWarning
@@ -50,11 +56,13 @@
 - (IBAction)save:(id)sender {
     NSEntityDescription *entitydesc = [NSEntityDescription entityForName:@"Phylodex" inManagedObjectContext:context];
     NSManagedObject *newCreature = [[NSManagedObject alloc]initWithEntity:entitydesc insertIntoManagedObjectContext:context];
+
     [newCreature setValue:self.nameOfCreature.text forKey:@"name"];
     [newCreature setValue:self.habitatType.text forKey:@"habitat"];
+
 //    [newCreature setValue:self.artistInfo.text forKey:@"artist"];
     
-    parent.valueArray = [NSArray arrayWithObjects:self.nameOfCreature.text, @"", self.habitatType.text/*, self.artistInfo.text*/, @"", nil];    // for valueArray in PXDetailViewController, cache
+//    parent.valueArray = [NSArray arrayWithObjects:self.nameOfCreature.text, @"", self.habitatType.text/*, self.artistInfo.text*/, @"", nil];    // for valueArray in PXDetailViewController, cache
     parent.phyloELement.name = self.nameOfCreature.text;
     parent.phyloELement.habitat = self.habitatType.text;
 //    parent.phyloElement.artist = self.artistInfo.text;

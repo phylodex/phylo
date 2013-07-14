@@ -16,6 +16,8 @@
 
 @synthesize scrollView, imageView;
 
+@synthesize parent;
+
 
 - (id)initWithImage:(UIImage *)image {
 	self = [super init];
@@ -58,11 +60,7 @@
 		
 		[navigationBar setItems:[NSArray arrayWithObject:aNavigationItem]];
 		
-//		[aNavigationItem release];
-		
 		[[self view] addSubview:navigationBar];
-		
-//		[navigationBar release];
 	}
 	
 	return self;
@@ -70,7 +68,6 @@
 
 - (void)cancelCropping {
     [self dismissViewControllerAnimated:YES completion:nil];
-//	[delegate imageCropperDidCancel:self];
 }
 
 - (void)finishCropping {
@@ -91,16 +88,18 @@
     
 //    -------------------------
     
-    NSEntityDescription *entitydesc = [NSEntityDescription entityForName:@"Photo" inManagedObjectContext:context];
-    NSManagedObject *croppedImage = [[NSManagedObject alloc]initWithEntity:entitydesc insertIntoManagedObjectContext:context];
+    NSEntityDescription *entitydesc_photo = [NSEntityDescription entityForName:@"Photo" inManagedObjectContext:context];
+    NSManagedObject *croppedImage = [[NSManagedObject alloc]initWithEntity:entitydesc_photo insertIntoManagedObjectContext:context];
+    
     [croppedImage setValue:cropped forKey:@"image"];
     
-    NSLog(@"cropped Image is %@", cropped);
+    parent.image = cropped;
+    
+    NSLog(@"cropped Image is %@", parent.image);    // How come it is null?
     
 //    -------------------------
     
-	
-	[delegate imageCropper:self didFinishCroppingWithImage:cropped];
+//	[delegate imageCropper:self didFinishCroppingWithImage:cropped];
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }

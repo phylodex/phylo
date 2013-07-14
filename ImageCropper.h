@@ -7,6 +7,8 @@
 #import "PXDetailViewController.h"
 
 
+@class PXDetailViewController;
+
 @protocol ImageCropperDelegate;
 
 
@@ -21,6 +23,8 @@
 @property (nonatomic, retain) UIImageView *imageView;
 
 @property (nonatomic, weak) id <ImageCropperDelegate> delegate;
+
+@property (strong, nonatomic) PXDetailViewController *parent;
 
 
 - (id)initWithImage:(UIImage *)image;

@@ -33,6 +33,8 @@ static NSString *CellTableIdentifier = @"CellTableIdentifier";
     return self;
 }
 
+
+//----------------------------------
 -(void)viewDidAppear:(BOOL)animated{
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
 	NSEntityDescription *entity = [NSEntityDescription entityForName:@"Phylodex" inManagedObjectContext:managedObjectContext];
@@ -49,9 +51,12 @@ static NSString *CellTableIdentifier = @"CellTableIdentifier";
 	if (mutableFetchResults == nil) {
 		// Handle the error.
 	}
-	[self setLifeforms:mutableFetchResults];
+//	[self setLifeforms:mutableFetchResults];    //this sentence can be used to create new card but not to edit
     [self.tableView reloadData];
 }
+//----------------------------------
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -124,7 +129,7 @@ static NSString *CellTableIdentifier = @"CellTableIdentifier";
     // Get the phylodex entry for the current index path and configure table view cell
     Phylodex *phylo = (Phylodex *)[lifeforms objectAtIndex:indexPath.row];
     cell.name = phylo.name;
-    cell.species = @"Species"; // NEED TO BE IMPLEMENTED
+    cell.species = phylo.habitat;
     cell.image = phylo.thumbnail;
     
 	return cell;

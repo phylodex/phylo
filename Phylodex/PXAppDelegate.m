@@ -92,7 +92,7 @@
         [phylo setName:model.name];
         [phylo setHabitat:@"Earth"];
         [phylo setPhoto:photo];
-       // [phylo setArtist:@"Photographer"];
+        [phylo setArtist:@"Photographer"];
         
         // set the image
         UIImage *selectedImage = [UIImage imageNamed:[NSString stringWithFormat:@"%@%@", model.name, @".png"]];

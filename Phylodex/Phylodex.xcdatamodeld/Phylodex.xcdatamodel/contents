@@ -5,6 +5,7 @@
         <relationship name="phylodex" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Phylodex" inverseName="photo" inverseEntity="Phylodex" syncable="YES"/>
     </entity>
     <entity name="Phylodex" representedClassName="Phylodex" syncable="YES">
+        <attribute name="artist" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="habitat" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
@@ -12,7 +13,7 @@
         <relationship name="photo" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Photo" inverseName="phylodex" inverseEntity="Photo" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Phylodex" positionX="160" positionY="192" width="128" height="118"/>
         <element name="Photo" positionX="-63" positionY="198" width="128" height="73"/>
+        <element name="Phylodex" positionX="160" positionY="192" width="128" height="135"/>
     </elements>
 </model>

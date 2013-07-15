@@ -103,7 +103,7 @@
 //customize cell works.
 - (UITableViewCell *)tableView:(UITableView *)firstTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"firstTableView is working");
+//    NSLog(@"firstTableView is working");
     static NSString *simpleTableIdentifier = @"DetailTableCell";
     
     SimpleTableCell *cell = [firstTableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
@@ -148,7 +148,7 @@
 
 - (void)imageCropper:(ImageCropper *)cropper didFinishCroppingWithImage:(UIImage *)croppedImage
 {
-    NSLog(@"delegate");
+//    NSLog(@"delegate");
     PXAppDelegate *appDelegate = (PXAppDelegate *)[[UIApplication sharedApplication] delegate];
     NSManagedObjectContext *context=appDelegate.managedObjectContext;
     
@@ -159,11 +159,11 @@
     
     NSError *errorFetch = nil;
     NSArray *array = [context executeFetchRequest:request error:&errorFetch];
-    NSLog(@"array size %d",array.count);
+//    NSLog(@"array size %d",array.count);
     for(Photo *p in array){
         if(p.image==self.image){
             p.image=croppedImage;
-            NSLog(@"image saved");
+//            NSLog(@"image saved");
             self.imageView.image=croppedImage;
             self.phyloELement.thumbnail = croppedImage;
         }
@@ -171,7 +171,13 @@
     
     NSError *error;
     if (![context save:&error]) {
-        NSLog(@"Failed to save - error: %@", [error localizedDescription]);
+//        NSLog(@"Failed to save - error: %@", [error localizedDescription]);
     }
 }
+
+- (void)imageCropperDidCancel:(ImageCropper *)cropper
+{
+    // to do
+}
+
 @end

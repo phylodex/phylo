@@ -2,6 +2,8 @@
 //  simpleTableCell.h
 //  Phylodex
 //
+//  Description: a simple table cell
+//
 //  Created by Yujie Zeng on 7/5/13.
 //  Copyright (c) 2013 Phylosoft. All rights reserved.
 //

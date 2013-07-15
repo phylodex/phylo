@@ -2,6 +2,8 @@
 //  PXDetailEdit.h
 //  Phylodex
 //
+//  Description: Allows users to edit the details of their phylodex items
+//
 //  Created by Artha on 13-7-10.
 //  Copyright (c) 2013年 Phylosoft. All rights reserved.
 //

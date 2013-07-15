@@ -2,6 +2,8 @@
 //  PXShareViewController.h
 //  Phylodex
 //
+//  Description: Handles the sharing of user images by email
+//
 //  Created by ParkaPal on 2013-07-04.
 //  Copyright (c) 2013 Phylosoft. All rights reserved.
 //

@@ -18,7 +18,7 @@
 
 @implementation PXDetailEdit
 @synthesize parent;
-@synthesize nameOfCreature, habitatType/*, artistInfo*/;
+@synthesize nameOfCreature, habitatType, artistInfo;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -39,12 +39,13 @@
     
     PXAppDelegate *phylo = [[UIApplication sharedApplication]delegate];
     context = [phylo managedObjectContext];
-
+    
     
     // load the previous value to avoid no info typed
     nameOfCreature.text = [parent.valueArray objectAtIndex:0];
+    artistInfo.text = [parent.valueArray objectAtIndex:3];
     habitatType.text = [parent.valueArray objectAtIndex:2];
-//    artistInfo.text = [parent.valueArray objectAtIndex:1];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -54,29 +55,48 @@
 }
 
 - (IBAction)save:(id)sender {
-    NSEntityDescription *entitydesc = [NSEntityDescription entityForName:@"Phylodex" inManagedObjectContext:context];
-    NSManagedObject *newCreature = [[NSManagedObject alloc]initWithEntity:entitydesc insertIntoManagedObjectContext:context];
-
-    [newCreature setValue:self.nameOfCreature.text forKey:@"name"];
-    [newCreature setValue:self.habitatType.text forKey:@"habitat"];
-
-//    [newCreature setValue:self.artistInfo.text forKey:@"artist"];
+    /*
+     
+     // No add function for now because core data is not complemented
+     // Below is inserting new item function
+     
+     NSEntityDescription *entitydesc = [NSEntityDescription entityForName:@"Phylodex" inManagedObjectContext:context];
+     NSManagedObject *newCreature = [[NSManagedObject alloc]initWithEntity:entitydesc insertIntoManagedObjectContext:context];
+     */
     
-//    parent.valueArray = [NSArray arrayWithObjects:self.nameOfCreature.text, @"", self.habitatType.text/*, self.artistInfo.text*/, @"", nil];    // for valueArray in PXDetailViewController, cache
-    parent.phyloELement.name = self.nameOfCreature.text;
-    parent.phyloELement.habitat = self.habitatType.text;
-//    parent.phyloElement.artist = self.artistInfo.text;
+    
+    //update the current data
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Phylodex" inManagedObjectContext:context];
+    [request setEntity:entity];
+    
+    NSError *errorFetch = nil;
+    NSArray *array = [context executeFetchRequest:request error:&errorFetch];
+    NSLog(@"%d", array.count);
+    for(Phylodex *newCreature in array){
+        if(newCreature.name==[parent.valueArray objectAtIndex:0]){
+            [newCreature setValue:self.nameOfCreature.text forKey:@"name"];
+            [newCreature setValue:self.habitatType.text forKey:@"habitat"];
+            [newCreature setValue:self.artistInfo.text forKey:@"artist"];
+        }
+        
+    }
+    
+    parent.valueArray = [NSArray arrayWithObjects:self.nameOfCreature.text, @"Recent", self.habitatType.text, self.artistInfo.text, @"", nil];    // for valueArray in PXDetailViewController, cache
+    
+    NSLog(@"valueArray = %@", parent.valueArray);
     
     NSError *error;
     [context save:&error];
     self.displayLabel.text = @"Info is updated!";
+    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)backgroundTap:(id)sender{
     [nameOfCreature resignFirstResponder];
     [habitatType resignFirstResponder];
-//    [artistInfo resignFirstResponder];
+    [artistInfo resignFirstResponder];
 }
 
 @end

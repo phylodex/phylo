@@ -13,6 +13,7 @@
 #import "PXWebSearchViewController.h"
 #import "PXShareViewController.h"
 #import "Phylodex.h"
+#import "PXCameraViewController.h"
 #import "Photo.h"
 // dummy collection for development purposes
 #import "PXDummyCollection.h"

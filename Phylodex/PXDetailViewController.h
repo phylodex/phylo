@@ -14,14 +14,15 @@
 #import <UIKit/UIKit.h>
 #import "ImageCropper.h"
 #import "simpleTableCell.h"
-
+//#import "Photo.h"
 
 @class PXDetailViewController;
 @class Phylodex;
+@class Photo;
 
 @protocol PXDetailViewControllerDelegate;
 
-@interface PXDetailViewController : UIViewController<UITableViewDelegate,UITableViewDataSource/*, ImageCropperDelegate*/>{
+@interface PXDetailViewController : UIViewController<UITableViewDelegate,UITableViewDataSource, ImageCropperDelegate>{
     PXDetailViewController *detailView;
     UIImageView *imageView;
     Phylodex *phyloElement;
@@ -32,6 +33,7 @@
 @property (nonatomic, retain) NSMutableArray *valueArray;
 @property (nonatomic, retain) NSString *name;
 @property (nonatomic, retain) Phylodex *phyloELement;
+@property (nonatomic, retain) Photo *photo;
 
 @property (nonatomic, assign)id <PXDetailViewControllerDelegate>delegate;
 @property (retain, nonatomic) IBOutlet UIImage *image;
@@ -41,7 +43,6 @@
 @property (strong, nonatomic) IBOutlet UITableViewController *tableViewContro;
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 
-- (IBAction)cropButtonWasPressed:(id)sender;
 - (IBAction)editButton:(id)sender;
 
 @end

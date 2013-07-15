@@ -134,11 +134,10 @@
     child.uuid = uuid;
     child.speciesData = result; // pass the dictionary of data on to child
     NSString *title = [result objectForKey:@"Name"];
-    UIImage *image = [result objectForKey:@"Image"];
     
     // 
-//    child.title = title;
-//    child.image = image; 
+    child.title = title;
+//    child.image = image;
 //    child.creditText = @"Photo by Fred Flintstone";
 //    child.nameText = title;
     [self.navigationController pushViewController:child animated:YES];

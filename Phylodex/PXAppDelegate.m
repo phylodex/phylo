@@ -228,7 +228,11 @@
     NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"Phylodex.sqlite"];
     
     // FOR DEVELOPMENT PURPOSES: DELETES THE STORE
-    [[NSFileManager defaultManager] removeItemAtURL:storeURL error:nil];
+    // this is sometimes needed to flush out old stores, to remove conflicts, because sometimes
+    // there is a compiler error when an old store exists
+    // remember to re-comment the line and re-compile after deleting the store so its not
+    // deleted everytime the program runs from being closed
+//    [[NSFileManager defaultManager] removeItemAtURL:storeURL error:nil];
     
     NSError *error = nil;
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];

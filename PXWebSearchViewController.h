@@ -2,7 +2,7 @@
 //  PXWebSearchViewController.h
 //  Phylodex
 //
-//  Description: Used to make queries to the web service to find lifeform pictures
+//  Description: Used to make queries to the web service to find lifeform data and pictures
 //
 //  Created by Steve King on 2013-06-18.
 //  Copyright (c) 2013 Phylosoft. All rights reserved.
@@ -32,6 +32,7 @@
 
 // TO-DO: 
 // implement the UITextFieldDelegate methods to improve interaction
+
 - (IBAction)searchButtonWasPressed:(id)sender;
 - (IBAction)clearButtonWasPressed:(id)sender;
 - (IBAction)backgroundClick:(id)sender;
@@ -39,6 +40,6 @@
 // PXDownloadManagerDelegate methods
 - (void)downloadDidStart;
 - (void)updateStatus:(NSString *)statusString;
-- (void)downloadDidStopWithStatus:(NSString *)statusString;
+- (void)downloadDidStopWithStatus:(NSString *)statusString forService:(WebServiceType)service;
 
 @end

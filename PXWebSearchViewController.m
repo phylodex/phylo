@@ -94,6 +94,7 @@
 
 - (void)searchViewControllerDidEnd:(PXSearchResultsViewController *)controller
 {
+    // TO DO
     // keep a record of the previous search in case that same search is made again
     
 }
@@ -110,7 +111,7 @@
 
 - (void)updateStatus:(NSString *)statusString
 {
-    
+    return;
 }
 
 - (void)downloadDidStopWithStatus:(NSString *)statusString forService:(WebServiceType)service

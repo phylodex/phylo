@@ -34,6 +34,7 @@
     // set up the modal view controllers
     PXRootViewController *phylodex = [[PXRootViewController alloc] init];
     PXWebSearchViewController *webSearch = [[PXWebSearchViewController alloc] init];
+    PXCameraViewController *capture = [[PXCameraViewController alloc]init];
     // to-do: collection view
     //PXShareViewController *share = [[PXShareViewController alloc] init];
     UICollectionViewFlowLayout *aFlowLayout = [[UICollectionViewFlowLayout alloc] init];
@@ -47,6 +48,7 @@
     // add the modes to the controllers array
     UINavigationController *phylodexNav = [[UINavigationController alloc] initWithRootViewController:phylodex];
     [controllers addObject:phylodexNav];
+    [controllers addObject:capture];
     UINavigationController *webSearchNav = [[UINavigationController alloc] initWithRootViewController:webSearch];
     [controllers addObject:webSearchNav];
     // to-do: make a collection view object
@@ -87,10 +89,10 @@
         Phylodex *phylo = (Phylodex *)[NSEntityDescription insertNewObjectForEntityForName:@"Phylodex" inManagedObjectContext:_managedObjectContext];
         Photo *photo = (Photo *)[NSEntityDescription insertNewObjectForEntityForName:@"Photo" inManagedObjectContext:_managedObjectContext];
         
-        [phylo setDate:[NSDate date]]; // Should be timestamp, but this will be constant for simulator.
         [phylo setName:model.name];
         [phylo setHabitat:@"Earth"];
         [phylo setPhoto:photo];
+       // [phylo setArtist:@"Photographer"];
         
         // set the image
         UIImage *selectedImage = [UIImage imageNamed:[NSString stringWithFormat:@"%@%@", model.name, @".png"]];

@@ -228,6 +228,7 @@
     uuidStr = CFUUIDCreateString(NULL, uuid);
     assert(uuidStr != NULL);
     
+    // just for investigating... will remove later
 //    NSURL *tmpDirURL = [NSURL fileURLWithPath:NSTemporaryDirectory() isDirectory:YES];
 //    NSURL *fileURL = [[tmpDirURL URLByAppendingPathComponent:@"pkm"] URLByAppendingPathExtension:extension];
 //    NSLog(@"fileURL: %@", [fileURL path]);

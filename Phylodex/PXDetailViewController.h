@@ -22,7 +22,7 @@
 
 @protocol PXDetailViewControllerDelegate;
 
-@interface PXDetailViewController : UIViewController<UITableViewDelegate,UITableViewDataSource, ImageCropperDelegate>{
+@interface PXDetailViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, ImageCropperDelegate>{
     PXDetailViewController *detailView;
     UIImageView *imageView;
     Phylodex *phyloElement;

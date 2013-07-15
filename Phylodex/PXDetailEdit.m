@@ -18,7 +18,7 @@
 
 @implementation PXDetailEdit
 @synthesize parent;
-@synthesize nameOfCreature, habitatType/*, artistInfo*/;
+@synthesize nameOfCreature, habitatType, artistInfo;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -43,8 +43,9 @@
     
     // load the previous value to avoid no info typed
     nameOfCreature.text = [parent.valueArray objectAtIndex:0];
+    artistInfo.text = [parent.valueArray objectAtIndex:3];
     habitatType.text = [parent.valueArray objectAtIndex:2];
-//    artistInfo.text = [parent.valueArray objectAtIndex:1];
+ 
 }
 
 - (void)didReceiveMemoryWarning
@@ -53,10 +54,18 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)save:(id)sender {/*
+- (IBAction)save:(id)sender {
+/*
+ 
+ // No add function for now because core data is not complemented
+ // Below is inserting new item function
+ 
     NSEntityDescription *entitydesc = [NSEntityDescription entityForName:@"Phylodex" inManagedObjectContext:context];
     NSManagedObject *newCreature = [[NSManagedObject alloc]initWithEntity:entitydesc insertIntoManagedObjectContext:context];
 */
+    
+    
+    //update the current data
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Phylodex" inManagedObjectContext:context];
     [request setEntity:entity];
@@ -68,22 +77,14 @@
         if(newCreature.name==[parent.valueArray objectAtIndex:0]){
             [newCreature setValue:self.nameOfCreature.text forKey:@"name"];
             [newCreature setValue:self.habitatType.text forKey:@"habitat"];
+            [newCreature setValue:self.artistInfo.text forKey:@"artist"];
         }
         
     }
     
-//    [newCreature setValue:self.artistInfo.text forKey:@"artist"];
-    
-    
-    parent.valueArray = [NSArray arrayWithObjects:self.nameOfCreature.text, @"", self.habitatType.text/*, self.artistInfo.text*/, @"", nil];    // for valueArray in PXDetailViewController, cache
+    parent.valueArray = [NSArray arrayWithObjects:self.nameOfCreature.text, @"Recent", self.habitatType.text, self.artistInfo.text, @"", nil];    // for valueArray in PXDetailViewController, cache
     
     NSLog(@"valueArray = %@", parent.valueArray);
-    
-    
-    parent.phyloELement.name = self.nameOfCreature.text;
-    parent.phyloELement.habitat = self.habitatType.text;
-//    parent.phyloElement.artist = self.artistInfo.text;
-//    parent.phyloElement.date = self.date.text;
     
     NSError *error;
     [context save:&error];
@@ -95,8 +96,7 @@
 - (IBAction)backgroundTap:(id)sender{
     [nameOfCreature resignFirstResponder];
     [habitatType resignFirstResponder];
-//    [artistInfo resignFirstResponder];
-//    [date resignFirstResponder];
+    [artistInfo resignFirstResponder];
 }
 
 @end

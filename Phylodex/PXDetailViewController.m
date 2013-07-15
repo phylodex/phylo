@@ -54,9 +54,21 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    //--------------------------------
+    // change date into normal string, but not for now
+//    NSDate* date = phyloELement.date;    //Create the dateformatter object
+//    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];    //Set the required date format
+//    [formatter setDateFormat:@"yyyy-MM-dd"];
+//    NSString* dateStr = [formatter stringFromDate:date];    //Get the string date
+//    NSLog(dateStr);   //Display on the console
+//    valueArray = [[NSMutableArray alloc]initWithObjects:phyloELement.name, dateStr, phyloELement.habitat, @"", nil];
 
+    //--------------------------------
+    
     attributeArray= [NSArray arrayWithObjects:@"Name: ", @"Date: ", @"Habitat: ", @"Artist Info: ", nil];
-    valueArray = [[NSMutableArray alloc]initWithObjects:phyloELement.name, @"", phyloELement.habitat, @"", nil];
+    
+    valueArray = [[NSMutableArray alloc]initWithObjects:phyloELement.name, @"Recent", phyloELement.habitat, phyloELement.artist, nil];
 
     imageView = [[UIImageView alloc]initWithImage:image];
     
@@ -80,7 +92,6 @@
 
 
 - (void)cropImage {
-    //Photo *p=phyloElement.photo;
     
 	ImageCropper *cropper = [[ImageCropper alloc] initWithImage:image];
 	[cropper setDelegate:self];
@@ -154,7 +165,6 @@
             p.image=croppedImage;
             NSLog(@"image saved");
             self.imageView.image=croppedImage;
-            
             self.phyloELement.thumbnail = croppedImage;
         }
     }

@@ -231,9 +231,9 @@ static NSString *CellTableIdentifier = @"CellTableIdentifier";
     //PROBLEM: there is no image added function in edit view
     //SUGGESTION: this should push the camera mode or photo library
     
-    PXDetailEdit *editView = [[PXDetailEdit alloc]init];
-    [self.navigationController pushViewController:editView animated:YES];
-    
+//    PXDetailEdit *editView = [[PXDetailEdit alloc]init];
+//    [self.navigationController pushViewController:editView animated:YES];
+//    
 // ---------------------------------------------
     
 }

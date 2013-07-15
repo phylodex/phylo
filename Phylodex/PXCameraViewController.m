@@ -78,8 +78,8 @@
     PXDummyModel *model= [[PXDummyModel alloc]init];
     
     model.image=image;
-    model.name=@"hell";
-    model.species=@"hell";
+    model.name=@"new";
+    model.species=@"new";
     
     Phylodex *phylo = (Phylodex *)[NSEntityDescription insertNewObjectForEntityForName:@"Phylodex" inManagedObjectContext:managedObjectContext];
     Photo *photo = (Photo *)[NSEntityDescription insertNewObjectForEntityForName:@"Photo" inManagedObjectContext:managedObjectContext];
@@ -114,7 +114,7 @@
     detailViewController.image = model.image;
 //    detailViewController.nameTextField.text = model.name;
 //    detailViewController.speciesTextField.text = model.species;
-    NSString *title = @"hell";
+    NSString *title = @"New";
     detailViewController.title = title;
     NSError *error = nil;
 	if (![managedObjectContext save:&error]) {

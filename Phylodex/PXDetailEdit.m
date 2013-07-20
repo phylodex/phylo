@@ -39,13 +39,13 @@
     
     PXAppDelegate *phylo = [[UIApplication sharedApplication]delegate];
     context = [phylo managedObjectContext];
-
+    
     
     // load the previous value to avoid no info typed
     nameOfCreature.text = [parent.valueArray objectAtIndex:0];
     artistInfo.text = [parent.valueArray objectAtIndex:3];
     habitatType.text = [parent.valueArray objectAtIndex:2];
- 
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -55,14 +55,14 @@
 }
 
 - (IBAction)save:(id)sender {
-/*
- 
- // No add function for now because core data is not complemented
- // Below is inserting new item function
- 
-    NSEntityDescription *entitydesc = [NSEntityDescription entityForName:@"Phylodex" inManagedObjectContext:context];
-    NSManagedObject *newCreature = [[NSManagedObject alloc]initWithEntity:entitydesc insertIntoManagedObjectContext:context];
-*/
+    /*
+     
+     // No add function for now because core data is not complemented
+     // Below is inserting new item function
+     
+     NSEntityDescription *entitydesc = [NSEntityDescription entityForName:@"Phylodex" inManagedObjectContext:context];
+     NSManagedObject *newCreature = [[NSManagedObject alloc]initWithEntity:entitydesc insertIntoManagedObjectContext:context];
+     */
     
     
     //update the current data

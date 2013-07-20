@@ -7,8 +7,12 @@
 //
 
 #import "PXAppDelegate.h"
+#import "PXNetworkManager.h"
 
 @implementation PXAppDelegate
+{
+    char _networkOperationCountDummy;
+}
 
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;
@@ -16,6 +20,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    // set the observed class
+    [[PXNetworkManager sharedInstance] addObserver:self forKeyPath:@"networkOperationCount" options:NSKeyValueObservingOptionInitial context:&self->_networkOperationCountDummy];
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
@@ -81,8 +88,6 @@
     for (PXDummyModel *model in collection.dummyModels) {
         Phylodex *phylo = (Phylodex *)[NSEntityDescription insertNewObjectForEntityForName:@"Phylodex" inManagedObjectContext:_managedObjectContext];
         Photo *photo = (Photo *)[NSEntityDescription insertNewObjectForEntityForName:@"Photo" inManagedObjectContext:_managedObjectContext];
-        
-        [phylo setDate:[NSDate date]]; // Should be timestamp, but this will be constant for simulator.
         
         [phylo setName:model.name];
         [phylo setHabitat:@"Earth"];
@@ -223,7 +228,11 @@
     NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"Phylodex.sqlite"];
     
     // FOR DEVELOPMENT PURPOSES: DELETES THE STORE
-    [[NSFileManager defaultManager] removeItemAtURL:storeURL error:nil];
+    // this is sometimes needed to flush out old stores, to remove conflicts, because sometimes
+    // there is a compiler error when an old store exists
+    // remember to re-comment the line and re-compile after deleting the store so its not
+    // deleted everytime the program runs from being closed
+//    [[NSFileManager defaultManager] removeItemAtURL:storeURL error:nil];
     
     NSError *error = nil;
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
@@ -264,6 +273,18 @@
 - (NSURL *)applicationDocumentsDirectory
 {
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+}
+
+#pragma mark - PXNetworkManager Key-value observer handler
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    // if there is any ongoing network connections set the network activity indicator in UI
+    if (context == &self->_networkOperationCountDummy) {
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = ([PXNetworkManager sharedInstance].networkOperationCount != 0);
+    } else {
+        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+    }
 }
 
 @end

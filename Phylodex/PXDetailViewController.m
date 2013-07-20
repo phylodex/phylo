@@ -57,19 +57,19 @@
     
     //--------------------------------
     // change date into normal string, but not for now
-//    NSDate* date = phyloELement.date;    //Create the dateformatter object
-//    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];    //Set the required date format
-//    [formatter setDateFormat:@"yyyy-MM-dd"];
-//    NSString* dateStr = [formatter stringFromDate:date];    //Get the string date
-//    NSLog(dateStr);   //Display on the console
-//    valueArray = [[NSMutableArray alloc]initWithObjects:phyloELement.name, dateStr, phyloELement.habitat, @"", nil];
-
+    //    NSDate* date = phyloELement.date;    //Create the dateformatter object
+    //    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];    //Set the required date format
+    //    [formatter setDateFormat:@"yyyy-MM-dd"];
+    //    NSString* dateStr = [formatter stringFromDate:date];    //Get the string date
+    //    NSLog(dateStr);   //Display on the console
+    //    valueArray = [[NSMutableArray alloc]initWithObjects:phyloELement.name, dateStr, phyloELement.habitat, @"", nil];
+    
     //--------------------------------
     
     attributeArray= [NSArray arrayWithObjects:@"Name: ", @"Date: ", @"Habitat: ", @"Artist Info: ", nil];
     
     valueArray = [[NSMutableArray alloc]initWithObjects:phyloELement.name, @"Recent", phyloELement.habitat, phyloELement.artist, nil];
-
+    
     imageView = [[UIImageView alloc]initWithImage:image];
     
     [tableView addSubview:tableViewContro.tableView];
@@ -100,10 +100,10 @@
 	
 }
 
-//customize cell works. 
+//customize cell works.
 - (UITableViewCell *)tableView:(UITableView *)firstTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"firstTableView is working");
+//    NSLog(@"firstTableView is working");
     static NSString *simpleTableIdentifier = @"DetailTableCell";
     
     SimpleTableCell *cell = [firstTableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
@@ -140,7 +140,7 @@
     PXDetailEdit *detailEdit = [[PXDetailEdit alloc] init];
     detailEdit.parent = self;
     [self.navigationController pushViewController:detailEdit animated:YES];
-
+    
 }
 
 
@@ -148,7 +148,7 @@
 
 - (void)imageCropper:(ImageCropper *)cropper didFinishCroppingWithImage:(UIImage *)croppedImage
 {
-    NSLog(@"delegate");
+//    NSLog(@"delegate");
     PXAppDelegate *appDelegate = (PXAppDelegate *)[[UIApplication sharedApplication] delegate];
     NSManagedObjectContext *context=appDelegate.managedObjectContext;
     
@@ -159,11 +159,11 @@
     
     NSError *errorFetch = nil;
     NSArray *array = [context executeFetchRequest:request error:&errorFetch];
-    NSLog(@"array size %d",array.count);
+//    NSLog(@"array size %d",array.count);
     for(Photo *p in array){
         if(p.image==self.image){
             p.image=croppedImage;
-            NSLog(@"image saved");
+//            NSLog(@"image saved");
             self.imageView.image=croppedImage;
             self.phyloELement.thumbnail = croppedImage;
         }
@@ -171,7 +171,13 @@
     
     NSError *error;
     if (![context save:&error]) {
-        NSLog(@"Failed to save - error: %@", [error localizedDescription]);
+//        NSLog(@"Failed to save - error: %@", [error localizedDescription]);
     }
 }
+
+- (void)imageCropperDidCancel:(ImageCropper *)cropper
+{
+    // to do
+}
+
 @end

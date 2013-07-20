@@ -19,23 +19,23 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         
-      
-//        [self setSourceType:UIImagePickerControllerSourceTypeCamera];
-//        [self setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+        
+        //        [self setSourceType:UIImagePickerControllerSourceTypeCamera];
+        //        [self setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
         [self setDelegate:self];
         
         self.title = @"Capture";
         self.tabBarItem.image = [UIImage imageNamed:@"Capture"];
-
+        
     }
     return self;
 }
 
 - (void)viewDidLoad
 {
- // build error or source error, please comment out this
+    // build error or source error, please comment out this
     
-//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+    //&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
     if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
     {
         
@@ -45,7 +45,7 @@
     {
         [self setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
     }
-//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+    //&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
     
     //[self setSourceType:UIImagePickerControllerSourceTypeCamera];
     [super viewDidLoad];
@@ -112,8 +112,8 @@
     
     
     detailViewController.image = model.image;
-//    detailViewController.nameTextField.text = model.name;
-//    detailViewController.speciesTextField.text = model.species;
+    //    detailViewController.nameTextField.text = model.name;
+    //    detailViewController.speciesTextField.text = model.species;
     NSString *title = @"New";
     detailViewController.title = title;
     NSError *error = nil;

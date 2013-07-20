@@ -31,7 +31,7 @@
 		[scrollView setShowsHorizontalScrollIndicator:NO];
 		[scrollView setShowsVerticalScrollIndicator:NO];
 		[scrollView setMaximumZoomScale:2.0];
-
+        
         PXAppDelegate *photo = [[UIApplication sharedApplication]delegate];
         context = [photo managedObjectContext];
         
@@ -88,7 +88,7 @@
 	CGImageRelease(cr);
     
     
-//    -------------------------
+    //    -------------------------
     
     // store the cropped image into core data
     
@@ -96,22 +96,22 @@
     NSManagedObject *croppedImage = [[NSManagedObject alloc]initWithEntity:entitydesc_photo insertIntoManagedObjectContext:context];
     
     [croppedImage setValue:cropped forKey:@"image"];
-
+    
     NSLog(@"cropped Image is %@", cropped);
-
+    
     UIImage *test = cropped;
     NSLog(@"test = %@", test);
     
     parent.imageView.image = test;
     NSLog(@"parent.imageView.image = %@", parent.imageView.image);
-//    parent.photo.image = cropped;
+    //    parent.photo.image = cropped;
     NSLog(@"parent.photo.image = %@", parent.photo.image);
     
     
     
-//    self.imageView.image = cropped;
+    //    self.imageView.image = cropped;
     
-//    -------------------------
+    //    -------------------------
     NSLog(@"Asdfasdf");
 	[delegate imageCropper:self didFinishCroppingWithImage:cropped];
     

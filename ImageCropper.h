@@ -12,18 +12,18 @@
 @protocol ImageCropperDelegate;
 
 
-@interface ImageCropper : UIViewController {
+@interface ImageCropper : UIViewController <UIScrollViewDelegate> {
 	UIScrollView *scrollView;
 	UIImageView *imageView;
 	PXDetailViewController *parent;
     
-	id <ImageCropperDelegate> delegate;
+//	id <ImageCropperDelegate> delegate;
 }
 
 @property (nonatomic, retain) UIScrollView *scrollView;
 @property (nonatomic, retain) UIImageView *imageView;
 
-@property (nonatomic, retain) id <ImageCropperDelegate> delegate;
+@property (nonatomic, assign) id <ImageCropperDelegate> delegate;
 
 @property (strong, nonatomic) PXDetailViewController *parent;
 

@@ -51,7 +51,7 @@ static NSString *CellTableIdentifier = @"CellTableIdentifier";
 	if (mutableFetchResults == nil) {
 		// Handle the error.
 	}
-	[self setLifeforms:mutableFetchResults];    //this sentence can be used to create new card but not to edit
+//	[self setLifeforms:mutableFetchResults];    //this sentence can be used to create new card but not to edit
     [self.tableView reloadData];
 }
 //----------------------------------
@@ -231,9 +231,9 @@ static NSString *CellTableIdentifier = @"CellTableIdentifier";
     //PROBLEM: there is no image added function in edit view
     //SUGGESTION: this should push the camera mode or photo library
     
-//    PXDetailEdit *editView = [[PXDetailEdit alloc]init];
-//    [self.navigationController pushViewController:editView animated:YES];
-//    
+    PXDetailEdit *editView = [[PXDetailEdit alloc]init];
+    [self.navigationController pushViewController:editView animated:YES];
+    
 // ---------------------------------------------
     
 }

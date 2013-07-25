@@ -14,7 +14,20 @@
 @interface PXDummyModel : NSObject
 
 @property (nonatomic, retain)UIImage *image;
+
 @property (nonatomic, retain)NSString *name;
 @property (nonatomic, retain)NSString *species;
+
+@property (nonatomic, retain) NSString * kingdom;
+@property (nonatomic, retain) NSString * phylum;
+@property (nonatomic, retain) NSString * creature_class;
+
+@property (nonatomic, retain) NSString * diet;
+@property (nonatomic, retain) NSString * heirarchy;
+@property (nonatomic, retain) NSString * creature_size;
+@property (nonatomic, retain) NSString * climate;
+@property (nonatomic, retain) NSString * habitat;
+@property (nonatomic, retain) NSString * habitat2;
+@property (nonatomic, retain) NSString * habitat3;
 
 @end

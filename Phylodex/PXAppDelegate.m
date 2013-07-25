@@ -71,7 +71,7 @@
     if (![self coreDataHasEntriesForEntityName:@"Phylodex"]) {
         [self populateDummyData];
     }
-    
+
     _window.rootViewController = _rootController;
     [_window makeKeyAndVisible];
     
@@ -90,9 +90,17 @@
         Photo *photo = (Photo *)[NSEntityDescription insertNewObjectForEntityForName:@"Photo" inManagedObjectContext:_managedObjectContext];
         
         [phylo setName:model.name];
+        [phylo setScientific_name:model.species];
+        [phylo setKingdom:model.kingdom];
+        [phylo setPhylum:model.phylum];
+        [phylo setCreature_class:model.creature_class];
         [phylo setHabitat:@"Earth"];
         [phylo setPhoto:photo];
         [phylo setArtist:@"Photographer"];
+        
+        [phylo setDiet:model.diet];
+        [phylo setHeirarchy:model.heirarchy];
+        [phylo setCreature_size:model.creature_size];
         
         // set the image
         UIImage *selectedImage = [UIImage imageNamed:[NSString stringWithFormat:@"%@%@", model.name, @".png"]];

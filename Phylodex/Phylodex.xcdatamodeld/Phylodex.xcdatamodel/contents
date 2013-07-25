@@ -6,14 +6,24 @@
     </entity>
     <entity name="Phylodex" representedClassName="Phylodex" syncable="YES">
         <attribute name="artist" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="climate" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="creature_class" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="creature_size" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="diet" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="habitat" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="habitat2" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="habitat3" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="heirarchy" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="kingdom" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="phylum" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="scientific_name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="thumbnail" optional="YES" attributeType="Transformable" syncable="YES"/>
         <relationship name="photo" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Photo" inverseName="phylodex" inverseEntity="Photo" syncable="YES"/>
     </entity>
     <elements>
         <element name="Photo" positionX="-63" positionY="198" width="128" height="73"/>
-        <element name="Phylodex" positionX="160" positionY="192" width="128" height="135"/>
+        <element name="Phylodex" positionX="160" positionY="192" width="128" height="285"/>
     </elements>
 </model>

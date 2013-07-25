@@ -14,9 +14,21 @@
 
 @dynamic artist;
 @dynamic date;
-@dynamic habitat;
-@dynamic name;
 @dynamic thumbnail;
 @dynamic photo;
 
+@dynamic name;
+@dynamic scientific_name;
+
+@dynamic phylum;
+@dynamic kingdom;
+@dynamic creature_class;
+
+@dynamic diet;
+@dynamic heirarchy;
+@dynamic creature_size;
+@dynamic climate;
+@dynamic habitat;
+@dynamic habitat2;
+@dynamic habitat3;
 @end

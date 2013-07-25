@@ -105,6 +105,40 @@
                 [message_body_creatures appendString:@":</b><i>"];
                 [message_body_creatures appendString:(phyloCreature.name)];
                 [message_body_creatures appendString:@"</i>, <br>"];
+                
+                [message_body_creatures appendString:@"<b>"];
+                [message_body_creatures appendString:(@"Scientific Name")];
+                [message_body_creatures appendString:@":</b><i>"];
+                [message_body_creatures appendString:(phyloCreature.scientific_name)];
+                [message_body_creatures appendString:@"</i>, <br>"];
+                
+                [message_body_creatures appendString:@"<b>"];
+                [message_body_creatures appendString:(@"Classification")];
+                [message_body_creatures appendString:@":</b><i>"];
+                [message_body_creatures appendString:(phyloCreature.kingdom)];
+                [message_body_creatures appendString:@","];
+                [message_body_creatures appendString:(phyloCreature.phylum)];
+                [message_body_creatures appendString:@","];
+                [message_body_creatures appendString:(phyloCreature.creature_class)];
+                [message_body_creatures appendString:@"</i> <br>"];
+                
+                [message_body_creatures appendString:@"<b>"];
+                [message_body_creatures appendString:(@"Size")];
+                [message_body_creatures appendString:@":</b><i>"];
+                [message_body_creatures appendString:(phyloCreature.creature_size)];
+                [message_body_creatures appendString:@"</i>, <br>"];
+                
+                [message_body_creatures appendString:@"<b>"];
+                [message_body_creatures appendString:(@"Diet")];
+                [message_body_creatures appendString:@":</b><i>"];
+                [message_body_creatures appendString:(phyloCreature.diet)];
+                [message_body_creatures appendString:(phyloCreature.heirarchy)];
+                [message_body_creatures appendString:@"</i>, <br><br>"];
+                
+                
+                
+                //http://phylogame.org/wp-content/themes/phylomon-theme/img/generated-card-images/bg-F4F4CE-forest-forest-forest-1.png
+                
                 //get each image and add as attachment
                 //Photo *animalPic = phyloCreature.photo;
                 //UIImage *tempImg = animalPic.image;

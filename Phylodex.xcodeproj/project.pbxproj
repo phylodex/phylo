@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		081600A8178E6B2B00C8C904 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 081600A7178E6B2B00C8C904 /* MessageUI.framework */; };
-		082F898B1777763800780AA5 /* Penguin.png in Resources */ = {isa = PBXBuildFile; fileRef = 082F898A1777763800780AA5 /* Penguin.png */; };
+		082F898B1777763800780AA5 /* Gentoo Penguin.png in Resources */ = {isa = PBXBuildFile; fileRef = 082F898A1777763800780AA5 /* Gentoo Penguin.png */; };
 		082F898D177776C600780AA5 /* Housecat.png in Resources */ = {isa = PBXBuildFile; fileRef = 082F898C177776C600780AA5 /* Housecat.png */; };
 		087AF3A61776E46A004034F3 /* PXNameAndImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 087AF3A51776E46A004034F3 /* PXNameAndImageCell.m */; };
 		087AF3A81776E475004034F3 /* PXNameAndImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 087AF3A71776E475004034F3 /* PXNameAndImageCell.xib */; };
@@ -55,7 +55,7 @@
 		1FEF45B51773C3C900B1E0D6 /* Lion.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FEF45B41773C3C900B1E0D6 /* Lion.png */; };
 		1FF7E89B1773ABF800215E38 /* PXDummyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF7E89A1773ABF800215E38 /* PXDummyModel.m */; };
 		1FF7E89E1773AD0100215E38 /* PXDummyCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF7E89D1773AD0100215E38 /* PXDummyCollection.m */; };
-		1FF7E8A31773B14900215E38 /* Eagle.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FF7E8A21773B14900215E38 /* Eagle.png */; };
+		1FF7E8A31773B14900215E38 /* Bald Eagle.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FF7E8A21773B14900215E38 /* Bald Eagle.png */; };
 		B6A16AAB17777D800024F0BB /* PXSearchResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6A16AA417777D800024F0BB /* PXSearchResultsViewController.m */; };
 		B6A16AAC17777D800024F0BB /* PXSearchResultsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6A16AA517777D800024F0BB /* PXSearchResultsViewController.xib */; };
 		B6A16AAD17777D800024F0BB /* PXWebSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6A16AA717777D800024F0BB /* PXWebSearchViewController.m */; };
@@ -89,7 +89,7 @@
 
 /* Begin PBXFileReference section */
 		081600A7178E6B2B00C8C904 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
-		082F898A1777763800780AA5 /* Penguin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Penguin.png; sourceTree = "<group>"; };
+		082F898A1777763800780AA5 /* Gentoo Penguin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Gentoo Penguin.png"; sourceTree = "<group>"; };
 		082F898C177776C600780AA5 /* Housecat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Housecat.png; sourceTree = "<group>"; };
 		087AF3A41776E46A004034F3 /* PXNameAndImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXNameAndImageCell.h; sourceTree = "<group>"; };
 		087AF3A51776E46A004034F3 /* PXNameAndImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXNameAndImageCell.m; sourceTree = "<group>"; };
@@ -154,7 +154,7 @@
 		1FF7E89A1773ABF800215E38 /* PXDummyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PXDummyModel.m; path = Phylodex/PXDummyModel.m; sourceTree = "<group>"; };
 		1FF7E89C1773AD0100215E38 /* PXDummyCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PXDummyCollection.h; path = Phylodex/PXDummyCollection.h; sourceTree = "<group>"; };
 		1FF7E89D1773AD0100215E38 /* PXDummyCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PXDummyCollection.m; path = Phylodex/PXDummyCollection.m; sourceTree = "<group>"; };
-		1FF7E8A21773B14900215E38 /* Eagle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Eagle.png; sourceTree = "<group>"; };
+		1FF7E8A21773B14900215E38 /* Bald Eagle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Bald Eagle.png"; sourceTree = "<group>"; };
 		B6A16AA317777D800024F0BB /* PXSearchResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PXSearchResultsViewController.h; path = ../PXSearchResultsViewController.h; sourceTree = "<group>"; };
 		B6A16AA417777D800024F0BB /* PXSearchResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PXSearchResultsViewController.m; path = ../PXSearchResultsViewController.m; sourceTree = "<group>"; };
 		B6A16AA517777D800024F0BB /* PXSearchResultsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PXSearchResultsViewController.xib; path = ../PXSearchResultsViewController.xib; sourceTree = "<group>"; };
@@ -303,8 +303,8 @@
 				08A10B72177CAB2100AB0609 /* Gorilla.png */,
 				1FEF45B41773C3C900B1E0D6 /* Lion.png */,
 				B6A33E1B177CB15A00978241 /* Frog.png */,
-				1FF7E8A21773B14900215E38 /* Eagle.png */,
-				082F898A1777763800780AA5 /* Penguin.png */,
+				1FF7E8A21773B14900215E38 /* Bald Eagle.png */,
+				082F898A1777763800780AA5 /* Gentoo Penguin.png */,
 				082F898C177776C600780AA5 /* Housecat.png */,
 			);
 			name = Resources;
@@ -480,14 +480,14 @@
 				1F293CC91770FBC9009C8DA9 /* Default@2x.png in Resources */,
 				1F293CCB1770FBC9009C8DA9 /* Default-568h@2x.png in Resources */,
 				1F293CF1177101DC009C8DA9 /* PXRootViewController.xib in Resources */,
-				1FF7E8A31773B14900215E38 /* Eagle.png in Resources */,
+				1FF7E8A31773B14900215E38 /* Bald Eagle.png in Resources */,
 				1FEF45B51773C3C900B1E0D6 /* Lion.png in Resources */,
 				087AF3A81776E475004034F3 /* PXNameAndImageCell.xib in Resources */,
 				EDB03D8117777164009B0D55 /* Capture.png in Resources */,
 				EDB03D8217777164009B0D55 /* Share.png in Resources */,
 				EDB03D8317777164009B0D55 /* Phylodex.png in Resources */,
 				EDB03D8417777164009B0D55 /* second.png in Resources */,
-				082F898B1777763800780AA5 /* Penguin.png in Resources */,
+				082F898B1777763800780AA5 /* Gentoo Penguin.png in Resources */,
 				082F898D177776C600780AA5 /* Housecat.png in Resources */,
 				B6A16AAC17777D800024F0BB /* PXSearchResultsViewController.xib in Resources */,
 				B6A16AAE17777D800024F0BB /* PXWebSearchViewController.xib in Resources */,

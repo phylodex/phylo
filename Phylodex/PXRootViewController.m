@@ -186,6 +186,7 @@ static NSString *CellTableIdentifier = @"CellTableIdentifier";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    /*
     // set the child controller, and its delegate to the root controller
     PXDetailViewController *detailViewController = [[PXDetailViewController alloc] init];
     detailViewController.delegate = self;
@@ -204,6 +205,15 @@ static NSString *CellTableIdentifier = @"CellTableIdentifier";
     detailViewController.phyloELement = phylo;
     
     [self.navigationController pushViewController:detailViewController animated:YES];
+     */
+    
+    PXPhyloCardViewController *cardViewController = [[PXPhyloCardViewController alloc] init];
+    Phylodex *phylo = (Phylodex *)[lifeforms objectAtIndex:indexPath.row];
+    cardViewController.title = phylo.name;
+    cardViewController.phyloElement = phylo;
+    cardViewController.image = phylo.photo.image;
+    [self.navigationController pushViewController:cardViewController animated:YES];
+
 }
 
 #pragma mark - PXDetailViewControllerDelegate methods

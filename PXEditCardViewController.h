@@ -11,7 +11,9 @@
 #import "Phylodex.h"
 #import "Photo.h"
 
-@interface PXEditCardViewController : UIViewController
+@class PXPhyloCardViewController;
+
+@interface PXEditCardViewController : UIViewController <UITextFieldDelegate>
 
 @property (nonatomic, retain) Phylodex *phyloElement;
 
@@ -34,5 +36,10 @@
 @property (weak, nonatomic) IBOutlet UISegmentedControl *hab1;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *hab2;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *hab3;
+
+@property (strong, nonatomic) PXPhyloCardViewController *parent;
+
+- (IBAction)save_button_clicked:(id)sender;
+- (IBAction)backgroundClick:(id)sender;
 
 @end

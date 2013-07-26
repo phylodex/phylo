@@ -75,7 +75,7 @@
     else if([self.diet isEqualToString:@"herbivore"]){
         newPoints += 4;
     }
-    else if([self.diet isEqualToString:@"autotroph"]){
+    else if([self.diet isEqualToString:@"photosynthetic"]){
         newPoints += 2;
     }
     self.points = [NSString stringWithFormat:@"%d", newPoints];

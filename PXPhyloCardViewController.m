@@ -20,7 +20,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        //add the send button to the nav bar
+        //add the edit button to the nav bar
         UIBarButtonItem *btnEdit = [[UIBarButtonItem alloc]
                                     initWithTitle:@"Edit"
                                     style:UIBarButtonItemStyleBordered
@@ -36,7 +36,7 @@
 
 
 
-- (void)viewDidLoad
+- (void)viewWillAppear:(BOOL)animated
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
@@ -90,6 +90,11 @@
     
     [[self view] addSubview:button];
     
+    
+    //set some UI visuals
+    self.view.backgroundColor = [UIColor blackColor];
+    self.view.backgroundColor = [[UIColor scrollViewTexturedBackgroundColor] colorWithAlphaComponent:0.8];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -110,6 +115,7 @@
 - (IBAction)edit_button_clicked:(id)sender{
     PXEditCardViewController *detailEdit = [[PXEditCardViewController alloc] init];
     detailEdit.phyloElement = _phyloElement;
+    detailEdit.parent = self;
     [self.navigationController pushViewController:detailEdit animated:YES];
     
 }

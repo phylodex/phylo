@@ -2,6 +2,8 @@
 //  PXCameraViewController.h
 //  Phylodex
 //
+//  Description: Handles the taking of pictures and saving them to the user database
+//
 //  Created by MengTing Yang on 13-07-03.
 //  Copyright (c) 2013 Phylosoft. All rights reserved.
 //

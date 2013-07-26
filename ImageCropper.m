@@ -83,7 +83,7 @@
 	
 	UIImage *cropped = [UIImage imageWithCGImage:cr];
     
-    parent.photo.image = [UIImage imageWithCGImage:cr];
+    parent.image = [UIImage imageWithCGImage:cr];
 	
 	CGImageRelease(cr);
     
@@ -105,7 +105,7 @@
     parent.imageView.image = test;
     NSLog(@"parent.imageView.image = %@", parent.imageView.image);
     //    parent.photo.image = cropped;
-    NSLog(@"parent.photo.image = %@", parent.photo.image);
+    NSLog(@"parent.image = %@", parent.image);
     
     
     

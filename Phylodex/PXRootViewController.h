@@ -13,7 +13,7 @@
 
 #import <UIKit/UIKit.h>
 #import "PXDetailViewController.h"
-#import "PXDummyCollection.h"
+//#import "PXDummyCollection.h"
 #import "PXNameAndImageCell.h"
 #import "Phylodex.h"
 #import "Photo.h"

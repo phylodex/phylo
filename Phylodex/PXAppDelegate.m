@@ -6,12 +6,19 @@
 //  Copyright (c) 2013 Phylosoft. All rights reserved.
 //
 
+
+// TO-DO: get to get rid of dummyresult, and then change it into database
+// TO-DO: How to set the default item when no data inserted
+
+
 #import "PXAppDelegate.h"
 #import "PXNetworkManager.h"
+#import "PXDetailViewController.h"
 
 @implementation PXAppDelegate
 {
     char _networkOperationCountDummy;
+    NSManagedObjectContext *context_phylo;
 }
 
 @synthesize managedObjectContext = _managedObjectContext;
@@ -25,8 +32,13 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+    
+    PXDetailViewController *detailViewController = [[PXDetailViewController alloc]init];
+    [self.window setRootViewController:detailViewController];
+    
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
     
     // set up the individual controllers for each mode
     NSMutableArray *controllers = [NSMutableArray array];
@@ -52,7 +64,7 @@
     UINavigationController *webSearchNav = [[UINavigationController alloc] initWithRootViewController:webSearch];
     [controllers addObject:webSearchNav];
     // to-do: make a collection view object
-        UINavigationController *shareNav = [[UINavigationController alloc] initWithRootViewController:share];
+    UINavigationController *shareNav = [[UINavigationController alloc] initWithRootViewController:share];
     [controllers addObject:shareNav];
     
     NSManagedObjectContext *context = [self managedObjectContext];
@@ -65,6 +77,32 @@
     // set up the tab bar controller
     _rootController = [[UITabBarController alloc] init];
     _rootController.viewControllers = controllers;
+    
+    //    //default core data
+    //    NSEntityDescription *entitydesc = [NSEntityDescription entityForName:@"Phylodex" inManagedObjectContext:context_phylo];
+    //    NSFetchRequest *request = [[NSFetchRequest alloc]init];
+    //    [request setEntity:entitydesc];
+    //
+    //    NSError *error;
+    //    NSArray *matchingData = [context_phylo executeFetchRequest:request error:&error];
+    //
+    //    if (matchingData.count == 0){  //insert a new item
+    //        NSManagedObject *newcreature = [[NSManagedObject alloc]initWithEntity:entitydesc insertIntoManagedObjectContext:context_phylo];
+    //        [newcreature setValue:@"NewCreature" forKey:@"name"];
+    //        [newcreature setValue:@"4" forKey:@"scale"];
+    //        [newcreature setValue:@"Van Gogh" forKey:@"artist"];
+    //        [newcreature setValue:@"Warm" forKey:@"climate"];
+    //        [newcreature setValue:@"It is a yellow animal" forKey:@"desc"];
+    //        [newcreature setValue:@"Omnivore" forKey:@"diet"];
+    //        [newcreature setValue:@"Chordata, Mammalia" forKey:@"evolutionary"];        // animalia/plantae + evolutionary
+    //        [newcreature setValue:@"3" forKey:@"foodChain"];
+    //        [newcreature setValue:@"Earth" forKey:@"habitat"];
+    //        [newcreature setValue:@"4" forKey:@"point"];
+    //        [newcreature setValue:@"Grass, Leaves, Cities" forKey:@"terrains"];
+    //
+    //    }
+    
+    
     
     // FOR DEVELOPMENT PURPOSES: populate with dummy data
     // insert dummy data only if database is empty already
@@ -83,7 +121,6 @@
 - (void)populateDummyData
 {
     PXDummyCollection *collection = [[PXDummyCollection alloc] init];
-    
     // add each dummy entry into the user database
     for (PXDummyModel *model in collection.dummyModels) {
         Phylodex *phylo = (Phylodex *)[NSEntityDescription insertNewObjectForEntityForName:@"Phylodex" inManagedObjectContext:_managedObjectContext];
@@ -93,6 +130,11 @@
         [phylo setHabitat:@"Earth"];
         [phylo setPhoto:photo];
         [phylo setArtist:@"Photographer"];
+        [phylo setClimate:@"Warm"];
+        [phylo setDesc:@"None"];
+        [phylo setDiet:nil];
+        [phylo setEvolutionary:nil];
+        [phylo setFoodChain:nil];
         
         // set the image
         UIImage *selectedImage = [UIImage imageNamed:[NSString stringWithFormat:@"%@%@", model.name, @".png"]];
@@ -137,7 +179,7 @@
     NSError *error = nil;
     NSArray *results = [self.managedObjectContext executeFetchRequest:request error:&error];
     if (!results) {
-       // handle error
+        // handle error
     }
     if ([results count] == 0) {
         return NO;
@@ -153,7 +195,7 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
+    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
 
@@ -179,11 +221,11 @@
     NSManagedObjectContext *managedObjectContext = self.managedObjectContext;
     if (managedObjectContext != nil) {
         if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error]) {
-             // Replace this implementation with code to handle the error appropriately.
-             // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. 
+            // Replace this implementation with code to handle the error appropriately.
+            // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
             NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
             abort();
-        } 
+        }
     }
 }
 
@@ -228,7 +270,11 @@
     NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"Phylodex.sqlite"];
     
     // FOR DEVELOPMENT PURPOSES: DELETES THE STORE
-    [[NSFileManager defaultManager] removeItemAtURL:storeURL error:nil];
+    // this is sometimes needed to flush out old stores, to remove conflicts, because sometimes
+    // there is a compiler error when an old store exists
+    // remember to re-comment the line and re-compile after deleting the store so its not
+    // deleted everytime the program runs from being closed
+    //    [[NSFileManager defaultManager] removeItemAtURL:storeURL error:nil];
     
     NSError *error = nil;
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
@@ -236,7 +282,7 @@
         /*
          Replace this implementation with code to handle the error appropriately.
          
-         abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. 
+         abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
          
          Typical reasons for an error here include:
          * The persistent store is not accessible;
@@ -258,7 +304,7 @@
          */
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         abort();
-    }    
+    }
     
     return _persistentStoreCoordinator;
 }

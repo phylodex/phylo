@@ -2,8 +2,8 @@
 //  Photo.h
 //  Phylodex
 //
-//  Created by Steve King on 2013-06-30.
-//  Copyright (c) 2013 Phylosoft. All rights reserved.
+//  Created by Artha on 13-7-26.
+//  Copyright (c) 2013年 Phylosoft. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -13,7 +13,7 @@
 
 @interface Photo : NSManagedObject
 
-@property (nonatomic, retain) UIImage *image;
+@property (nonatomic, retain) id image;
 @property (nonatomic, retain) Phylodex *phylodex;
 
 @end

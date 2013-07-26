@@ -102,6 +102,17 @@
         [phylo setHeirarchy:model.heirarchy];
         [phylo setCreature_size:model.creature_size];
         
+        [phylo setCold: model.cold];
+        [phylo setCool: model.cool];
+        [phylo setWarm: model.warm];
+        [phylo setHot: model.hot];
+        
+        [phylo setHabitat:model.habitat];
+        [phylo setHabitat2:model.habitat2];
+        [phylo setHabitat3:model.habitat3];
+        
+        [phylo fixPoints];
+        
         // set the image
         UIImage *selectedImage = [UIImage imageNamed:[NSString stringWithFormat:@"%@%@", model.name, @".png"]];
         

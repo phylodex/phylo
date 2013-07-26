@@ -20,16 +20,29 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        //add the send button to the nav bar
+        UIBarButtonItem *btnEdit = [[UIBarButtonItem alloc]
+                                    initWithTitle:@"Edit"
+                                    style:UIBarButtonItemStyleBordered
+                                    target:self
+                                    action:@selector(edit_button_clicked:)];
+        self.navigationItem.rightBarButtonItem = btnEdit;
+        
+        //set some UI visuals
+
     }
     return self;
 }
+
+
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    NSLog(@"%@",_phyloElement.name);
+    
     _name_label.text = _phyloElement.name;
+    
     _sciname_label.text = _phyloElement.scientific_name;
     _phyloCardImage.image = _image;
     
@@ -76,6 +89,7 @@
 	[button setTitle:@"Crop Image" forState:UIControlStateNormal];
     
     [[self view] addSubview:button];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -91,6 +105,13 @@
 	
 	[self presentViewController:cropper animated:YES completion:nil];
 	
+}
+
+- (IBAction)edit_button_clicked:(id)sender{
+    PXEditCardViewController *detailEdit = [[PXEditCardViewController alloc] init];
+    detailEdit.phyloElement = _phyloElement;
+    [self.navigationController pushViewController:detailEdit animated:YES];
+    
 }
 
 #pragma imageCoper delegate

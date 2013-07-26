@@ -38,6 +38,8 @@
 		08BECAE11793A32C0068176C /* PXDetailEdit.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08BECAE01793A32C0068176C /* PXDetailEdit.xib */; };
 		08DDBBDD17A2240100232019 /* PXPhyloCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08DDBBDB17A2240100232019 /* PXPhyloCardViewController.m */; };
 		08DDBBDE17A2240100232019 /* PXPhyloCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08DDBBDC17A2240100232019 /* PXPhyloCardViewController.xib */; };
+		08DDBBE517A23FC900232019 /* PXEditCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08DDBBE317A23FC800232019 /* PXEditCardViewController.m */; };
+		08DDBBE617A23FC900232019 /* PXEditCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08DDBBE417A23FC900232019 /* PXEditCardViewController.xib */; };
 		1F08DAE31777CE53005F18EF /* PXSearchResultPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F08DAE11777CE52005F18EF /* PXSearchResultPhotoViewController.m */; };
 		1F08DAE41777CE53005F18EF /* PXSearchResultPhotoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F08DAE21777CE53005F18EF /* PXSearchResultPhotoViewController.xib */; };
 		1F195647177559EA00AEB906 /* PXNetworkConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F195646177559EA00AEB906 /* PXNetworkConnection.m */; };
@@ -141,6 +143,9 @@
 		08DDBBDA17A2240100232019 /* PXPhyloCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PXPhyloCardViewController.h; path = ../PXPhyloCardViewController.h; sourceTree = "<group>"; };
 		08DDBBDB17A2240100232019 /* PXPhyloCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PXPhyloCardViewController.m; path = ../PXPhyloCardViewController.m; sourceTree = "<group>"; };
 		08DDBBDC17A2240100232019 /* PXPhyloCardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PXPhyloCardViewController.xib; path = ../PXPhyloCardViewController.xib; sourceTree = "<group>"; };
+		08DDBBE217A23FC800232019 /* PXEditCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PXEditCardViewController.h; path = ../PXEditCardViewController.h; sourceTree = "<group>"; };
+		08DDBBE317A23FC800232019 /* PXEditCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PXEditCardViewController.m; path = ../PXEditCardViewController.m; sourceTree = "<group>"; };
+		08DDBBE417A23FC900232019 /* PXEditCardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PXEditCardViewController.xib; path = ../PXEditCardViewController.xib; sourceTree = "<group>"; };
 		1F08DAE01777CE51005F18EF /* PXSearchResultPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PXSearchResultPhotoViewController.h; path = ../PXSearchResultPhotoViewController.h; sourceTree = "<group>"; };
 		1F08DAE11777CE52005F18EF /* PXSearchResultPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PXSearchResultPhotoViewController.m; path = ../PXSearchResultPhotoViewController.m; sourceTree = "<group>"; };
 		1F08DAE21777CE53005F18EF /* PXSearchResultPhotoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PXSearchResultPhotoViewController.xib; path = ../PXSearchResultPhotoViewController.xib; sourceTree = "<group>"; };
@@ -407,6 +412,8 @@
 		1FF7E8A51773B20900215E38 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				08DDBBE217A23FC800232019 /* PXEditCardViewController.h */,
+				08DDBBE317A23FC800232019 /* PXEditCardViewController.m */,
 				08DDBBDA17A2240100232019 /* PXPhyloCardViewController.h */,
 				08DDBBDB17A2240100232019 /* PXPhyloCardViewController.m */,
 				08BECADD1793A29C0068176C /* PXCameraViewController.h */,
@@ -439,6 +446,7 @@
 		1FF7E8A61773B24600215E38 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				08DDBBE417A23FC900232019 /* PXEditCardViewController.xib */,
 				08DDBBDC17A2240100232019 /* PXPhyloCardViewController.xib */,
 				08BECAE01793A32C0068176C /* PXDetailEdit.xib */,
 				C8C0E2AF178A048C007E1FE4 /* PXDetailTableCell.xib */,
@@ -589,6 +597,7 @@
 				0823FAFB17A20F0600EE4900 /* 3.png in Resources */,
 				0823FAFD17A2109000EE4900 /* creative-commons.png in Resources */,
 				08DDBBDE17A2240100232019 /* PXPhyloCardViewController.xib in Resources */,
+				08DDBBE617A23FC900232019 /* PXEditCardViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -649,6 +658,7 @@
 				1FE8DD01178A1E6F00ECFF13 /* PXDownloadManager.m in Sources */,
 				08BECADF1793A29C0068176C /* PXCameraViewController.m in Sources */,
 				08DDBBDD17A2240100232019 /* PXPhyloCardViewController.m in Sources */,
+				08DDBBE517A23FC900232019 /* PXEditCardViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,8 +10,9 @@
 #import "ImageCropper.h"
 #import "Phylodex.h"
 #import "Photo.h"
+#import "PXEditCardViewController.h"
 
-@interface PXPhyloCardViewController : UIViewController<ImageCropperDelegate>
+@interface PXPhyloCardViewController : UIViewController<UIGestureRecognizerDelegate, ImageCropperDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *name_label;
 @property (weak, nonatomic) IBOutlet UILabel *sciname_label;
@@ -27,4 +28,6 @@
 
 
 @property (nonatomic, retain) Phylodex *phyloElement;
+
+
 @end

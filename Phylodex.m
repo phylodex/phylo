@@ -2,7 +2,7 @@
 //  Phylodex.m
 //  Phylodex
 //
-//  Created by Artha on 13-7-14.
+//  Created by Artha on 13-7-27.
 //  Copyright (c) 2013年 Phylosoft. All rights reserved.
 //
 
@@ -13,9 +13,16 @@
 @implementation Phylodex
 
 @dynamic artist;
-@dynamic date;
+@dynamic climate;
+@dynamic desc;
+@dynamic diet;
+@dynamic evolutionary;
+@dynamic foodChain;
 @dynamic habitat;
 @dynamic name;
+@dynamic point;
+@dynamic scale;
+@dynamic terrains;
 @dynamic thumbnail;
 @dynamic photo;
 

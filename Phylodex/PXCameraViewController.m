@@ -84,7 +84,6 @@
     Phylodex *phylo = (Phylodex *)[NSEntityDescription insertNewObjectForEntityForName:@"Phylodex" inManagedObjectContext:managedObjectContext];
     Photo *photo = (Photo *)[NSEntityDescription insertNewObjectForEntityForName:@"Photo" inManagedObjectContext:managedObjectContext];
     
-    [phylo setDate:[NSDate date]]; // Should be timestamp, but this will be constant for simulator.
     [phylo setName:model.name];
     [phylo setHabitat:@"Earth"];
     

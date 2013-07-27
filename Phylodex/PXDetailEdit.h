@@ -20,10 +20,8 @@
 @property (strong, nonatomic) IBOutlet UITextField *artistInfo;
 @property (strong, nonatomic) IBOutlet UILabel *displayLabel;
 @property (strong, nonatomic) PXDetailViewController *parent;
-@property (nonatomic, retain) UIBarButtonItem *saveButton;
 
-
-
+- (IBAction)save:(id)sender;
 - (IBAction)backgroundTap:(id)sender;
 
 

@@ -19,9 +19,6 @@
 @implementation PXDetailEdit
 @synthesize parent;
 @synthesize nameOfCreature, habitatType, artistInfo;
-
-@synthesize saveButton;
-
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -35,12 +32,6 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
-    self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    saveButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(save)];
-    saveButton.enabled = YES;
-    self.navigationItem.rightBarButtonItem = saveButton;
-    
     
     [[self nameOfCreature]setDelegate:self];
     //  [[self speciesType]setDelegate:self];
@@ -63,7 +54,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)save {
+- (IBAction)save:(id)sender {
     /*
      
      // No add function for now because core data is not complemented

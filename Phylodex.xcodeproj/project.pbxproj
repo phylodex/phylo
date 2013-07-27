@@ -50,6 +50,9 @@
 		B6A16AAD17777D800024F0BB /* PXWebSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6A16AA717777D800024F0BB /* PXWebSearchViewController.m */; };
 		B6A16AAE17777D800024F0BB /* PXWebSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6A16AA817777D800024F0BB /* PXWebSearchViewController.xib */; };
 		B6A33E1C177CB15A00978241 /* Frog.png in Resources */ = {isa = PBXBuildFile; fileRef = B6A33E1B177CB15A00978241 /* Frog.png */; };
+		B6C7B48217A3490700563BF3 /* PXNameAndContentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6C7B48117A3490700563BF3 /* PXNameAndContentCell.xib */; };
+		B6C7B48D17A350AC00563BF3 /* PXNameAndContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B6C7B48C17A350AC00563BF3 /* PXNameAndContentCell.m */; };
+		B6C7B48F17A367A200563BF3 /* noimage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B6C7B48E17A367A200563BF3 /* noimage.jpg */; };
 		B6DDBA1F1783DC1A002D5880 /* PXXMLParserFirstStep.m in Sources */ = {isa = PBXBuildFile; fileRef = B6DDBA1E1783DC19002D5880 /* PXXMLParserFirstStep.m */; };
 		B6DDBA251784F621002D5880 /* PXXMLParserSecondStep.m in Sources */ = {isa = PBXBuildFile; fileRef = B6DDBA241784F620002D5880 /* PXXMLParserSecondStep.m */; };
 		B6DDBA281784F825002D5880 /* PXXMLParserThirdStep.m in Sources */ = {isa = PBXBuildFile; fileRef = B6DDBA271784F825002D5880 /* PXXMLParserThirdStep.m */; };
@@ -128,6 +131,10 @@
 		B6A16AA717777D800024F0BB /* PXWebSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PXWebSearchViewController.m; path = ../PXWebSearchViewController.m; sourceTree = "<group>"; };
 		B6A16AA817777D800024F0BB /* PXWebSearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PXWebSearchViewController.xib; path = ../PXWebSearchViewController.xib; sourceTree = "<group>"; };
 		B6A33E1B177CB15A00978241 /* Frog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Frog.png; path = Phylodex/Frog.png; sourceTree = "<group>"; };
+		B6C7B48117A3490700563BF3 /* PXNameAndContentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PXNameAndContentCell.xib; path = ../PXNameAndContentCell.xib; sourceTree = "<group>"; };
+		B6C7B48B17A350AC00563BF3 /* PXNameAndContentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXNameAndContentCell.h; sourceTree = "<group>"; };
+		B6C7B48C17A350AC00563BF3 /* PXNameAndContentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXNameAndContentCell.m; sourceTree = "<group>"; };
+		B6C7B48E17A367A200563BF3 /* noimage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = noimage.jpg; path = Phylodex/noimage.jpg; sourceTree = "<group>"; };
 		B6DDBA1D1783DC19002D5880 /* PXXMLParserFirstStep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXXMLParserFirstStep.h; sourceTree = "<group>"; };
 		B6DDBA1E1783DC19002D5880 /* PXXMLParserFirstStep.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXXMLParserFirstStep.m; sourceTree = "<group>"; };
 		B6DDBA231784F620002D5880 /* PXXMLParserSecondStep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXXMLParserSecondStep.h; sourceTree = "<group>"; };
@@ -258,6 +265,7 @@
 				1FEF45B41773C3C900B1E0D6 /* Lion.png */,
 				B6A33E1B177CB15A00978241 /* Frog.png */,
 				1FF7E8A21773B14900215E38 /* Eagle.png */,
+				B6C7B48E17A367A200563BF3 /* noimage.jpg */,
 				082F898A1777763800780AA5 /* Penguin.png */,
 				082F898C177776C600780AA5 /* Housecat.png */,
 			);
@@ -301,6 +309,8 @@
 				1F293CEE177101DC009C8DA9 /* PXRootViewController.m */,
 				087AF3A41776E46A004034F3 /* PXNameAndImageCell.h */,
 				087AF3A51776E46A004034F3 /* PXNameAndImageCell.m */,
+				B6C7B48B17A350AC00563BF3 /* PXNameAndContentCell.h */,
+				B6C7B48C17A350AC00563BF3 /* PXNameAndContentCell.m */,
 				1F2F7D45177903DA002D2CB4 /* PXDetailViewController.h */,
 				1F2F7D46177903DA002D2CB4 /* PXDetailViewController.m */,
 			);
@@ -314,6 +324,7 @@
 				1F08DAE21777CE53005F18EF /* PXSearchResultPhotoViewController.xib */,
 				B6A16AA517777D800024F0BB /* PXSearchResultsViewController.xib */,
 				B6A16AA817777D800024F0BB /* PXWebSearchViewController.xib */,
+				B6C7B48117A3490700563BF3 /* PXNameAndContentCell.xib */,
 				087AF3A71776E475004034F3 /* PXNameAndImageCell.xib */,
 				1F293CF917710670009C8DA9 /* PXShareViewController.xib */,
 				1F293CEF177101DC009C8DA9 /* PXRootViewController.xib */,
@@ -416,6 +427,8 @@
 				08A10B73177CAB2100AB0609 /* Gorilla.png in Resources */,
 				B6A33E1C177CB15A00978241 /* Frog.png in Resources */,
 				08A10B75177CAEAC00AB0609 /* Dog.png in Resources */,
+				B6C7B48217A3490700563BF3 /* PXNameAndContentCell.xib in Resources */,
+				B6C7B48F17A367A200563BF3 /* noimage.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -467,6 +480,7 @@
 				B6DDBA1F1783DC1A002D5880 /* PXXMLParserFirstStep.m in Sources */,
 				B6DDBA251784F621002D5880 /* PXXMLParserSecondStep.m in Sources */,
 				B6DDBA281784F825002D5880 /* PXXMLParserThirdStep.m in Sources */,
+				B6C7B48D17A350AC00563BF3 /* PXNameAndContentCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

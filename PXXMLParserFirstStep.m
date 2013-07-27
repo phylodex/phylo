@@ -39,6 +39,7 @@
         //the reason that program crashed is i set the value @"Not Exist" to a UIImage type
         [animalName setObject:@"Not Exist" forKey:@"Image"];
         
+        [animalName setObject:@"Not Exist" forKey:@"Latin Name"];
         [animalName setObject:@"Not Exist" forKey:@"Kingdom"];
         [animalName setObject:@"Not Exist" forKey:@"Phylum"];
         [animalName setObject:@"Not Exist" forKey:@"Class"];
@@ -97,11 +98,14 @@
         }
 
     }
-    else if ([elementName isEqualToString:@"globalSpeciesUid"]) {
+    if ([elementName isEqualToString:@"globalSpeciesUid"]) {
         if (currentElementValueString != nil) {
             [animalName setObject:currentElementValueString forKey:@"UniqueID"];
         }
     
+    }
+    if ([elementName isEqualToString:@"jurisdictionScientificName"]) {
+        [animalName setObject:currentElementValueString forKey:@"Latin Name"];
     }
     if ([elementName isEqualToString:@"speciesSearchResult"]) {
         [animalNameArray addObject:animalName];

@@ -23,6 +23,7 @@
     if (![name isEqualToString:_name]) {
         _name = [name copy];
         _nameValue.text = _name;
+       
     }
 }
 

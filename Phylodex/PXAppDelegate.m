@@ -58,7 +58,7 @@
     UINavigationController *webSearchNav = [[UINavigationController alloc] initWithRootViewController:webSearch];
     [controllers addObject:webSearchNav];
     // to-do: make a collection view object
-    UINavigationController *shareNav = [[UINavigationController alloc] initWithRootViewController:share];
+        UINavigationController *shareNav = [[UINavigationController alloc] initWithRootViewController:share];
     [controllers addObject:shareNav];
     
     NSManagedObjectContext *context = [self managedObjectContext];
@@ -71,7 +71,7 @@
     // set up the tab bar controller
     _rootController = [[UITabBarController alloc] init];
     _rootController.viewControllers = controllers;
-    
+       
     // FOR DEVELOPMENT PURPOSES: populate with dummy data
     // insert dummy data only if database is empty already
     if (![self coreDataHasEntriesForEntityName:@"Phylodex"]) {
@@ -104,7 +104,7 @@
         [phylo setDiet:@"Omnivore"];
         [phylo setEvolutionary:@"Animalia"];
         [phylo setFoodChain:@"0"];
-        
+
         // set the image
         UIImage *selectedImage = [UIImage imageNamed:[NSString stringWithFormat:@"%@%@", model.name, @".png"]];
         
@@ -148,7 +148,7 @@
     NSError *error = nil;
     NSArray *results = [self.managedObjectContext executeFetchRequest:request error:&error];
     if (!results) {
-        // handle error
+       // handle error
     }
     if ([results count] == 0) {
         return NO;
@@ -164,7 +164,7 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
+    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
 
@@ -190,11 +190,11 @@
     NSManagedObjectContext *managedObjectContext = self.managedObjectContext;
     if (managedObjectContext != nil) {
         if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error]) {
-            // Replace this implementation with code to handle the error appropriately.
-            // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+             // Replace this implementation with code to handle the error appropriately.
+             // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. 
             NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
             abort();
-        }
+        } 
     }
 }
 
@@ -243,7 +243,7 @@
     // there is a compiler error when an old store exists
     // remember to re-comment the line and re-compile after deleting the store so its not
     // deleted everytime the program runs from being closed
-    //    [[NSFileManager defaultManager] removeItemAtURL:storeURL error:nil];
+//    [[NSFileManager defaultManager] removeItemAtURL:storeURL error:nil];
     
     NSError *error = nil;
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
@@ -251,7 +251,7 @@
         /*
          Replace this implementation with code to handle the error appropriately.
          
-         abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+         abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. 
          
          Typical reasons for an error here include:
          * The persistent store is not accessible;
@@ -273,7 +273,7 @@
          */
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         abort();
-    }
+    }    
     
     return _persistentStoreCoordinator;
 }

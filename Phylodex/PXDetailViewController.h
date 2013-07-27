@@ -13,6 +13,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ImageCropper.h"
+#import "IZValueSelectorView.h"
 
 @class PXDetailViewController;
 @class Phylodex;
@@ -20,7 +21,7 @@
 
 @protocol PXDetailViewControllerDelegate;
 
-@interface PXDetailViewController : UIViewController<UITextFieldDelegate, UITextViewDelegate,ImageCropperDelegate>{
+@interface PXDetailViewController : UIViewController<UITextFieldDelegate, UITextViewDelegate,ImageCropperDelegate, IZValueSelectorViewDataSource,IZValueSelectorViewDelegate>{
     IBOutlet UIScrollView *scroller;
     IBOutlet UIScrollView *scrollerView;
     UIImageView *imageView;
@@ -53,16 +54,24 @@
 @property (strong, nonatomic) IBOutlet UIImageView *pointColor;
 
 - (IBAction)toggleControls:(UISegmentedControl *)sender;
-- (IBAction)numberSliderChanged:(UISlider *)sender;
+- (IBAction)toggleControls2:(UISegmentedControl *)sender;
+- (IBAction)toggleControls3:(UISegmentedControl *)sender;
+//- (IBAction)numberSliderChanged:(UISlider *)sender;
 - (IBAction)colorSliderChanged:(UISlider *)sender;
 - (IBAction)scaleSliderChanged:(UISlider *)sender;
 
 @property (strong, nonatomic) IBOutlet UIScrollView *scroller;
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollerView;
 
-
 - (IBAction)cropImage:(id)sender;
 - (IBAction)backgroundTap:(id)sender;
+
+// Picker Library Part
+@property (weak, nonatomic) IBOutlet IZValueSelectorView *selectorVertical1;
+@property (weak, nonatomic) IBOutlet IZValueSelectorView *selectorVertical2;
+@property (weak, nonatomic) IBOutlet IZValueSelectorView *selectorVertical3;
+////////////////////////
+
 
 @end
 

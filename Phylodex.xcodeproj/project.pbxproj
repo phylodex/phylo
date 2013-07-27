@@ -34,6 +34,7 @@
 		1F293CC71770FBC9009C8DA9 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F293CC61770FBC9009C8DA9 /* Default.png */; };
 		1F293CC91770FBC9009C8DA9 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F293CC81770FBC9009C8DA9 /* Default@2x.png */; };
 		1F293CCB1770FBC9009C8DA9 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F293CCA1770FBC9009C8DA9 /* Default-568h@2x.png */; };
+		1F293CCE1770FBC9009C8DA9 /* Phylodex.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1F293CCC1770FBC9009C8DA9 /* Phylodex.xcdatamodeld */; };
 		1F293CD61770FBC9009C8DA9 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F293CD51770FBC9009C8DA9 /* SenTestingKit.framework */; };
 		1F293CD71770FBC9009C8DA9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F293CB21770FBC9009C8DA9 /* UIKit.framework */; };
 		1F293CD81770FBC9009C8DA9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F293CB41770FBC9009C8DA9 /* Foundation.framework */; };
@@ -43,13 +44,12 @@
 		1F293CF0177101DC009C8DA9 /* PXRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F293CEE177101DC009C8DA9 /* PXRootViewController.m */; };
 		1F293CF1177101DC009C8DA9 /* PXRootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F293CEF177101DC009C8DA9 /* PXRootViewController.xib */; };
 		1F2F7D48177903DA002D2CB4 /* PXDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F2F7D46177903DA002D2CB4 /* PXDetailViewController.m */; };
+		1F2F7D49177903DA002D2CB4 /* PXDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F2F7D47177903DA002D2CB4 /* PXDetailViewController.xib */; };
 		1FAA58F1177CB6120072CF9A /* Horse.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FAA58F0177CB6120072CF9A /* Horse.png */; };
 		1FB8C31117783E6000E51694 /* coding_standards.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1FB8C31017783E6000E51694 /* coding_standards.txt */; };
 		1FE8DCFE178A18C200ECFF13 /* PXNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE8DCFD178A18C200ECFF13 /* PXNetworkManager.m */; };
 		1FE8DD01178A1E6F00ECFF13 /* PXDownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE8DD00178A1E6F00ECFF13 /* PXDownloadManager.m */; };
 		1FEF45B51773C3C900B1E0D6 /* Lion.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FEF45B41773C3C900B1E0D6 /* Lion.png */; };
-		1FF7E89B1773ABF800215E38 /* PXDummyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF7E89A1773ABF800215E38 /* PXDummyModel.m */; };
-		1FF7E89E1773AD0100215E38 /* PXDummyCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF7E89D1773AD0100215E38 /* PXDummyCollection.m */; };
 		1FF7E8A31773B14900215E38 /* Eagle.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FF7E8A21773B14900215E38 /* Eagle.png */; };
 		B6A16AAB17777D800024F0BB /* PXSearchResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6A16AA417777D800024F0BB /* PXSearchResultsViewController.m */; };
 		B6A16AAC17777D800024F0BB /* PXSearchResultsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6A16AA517777D800024F0BB /* PXSearchResultsViewController.xib */; };
@@ -59,15 +59,17 @@
 		B6DDBA1F1783DC1A002D5880 /* PXXMLParserFirstStep.m in Sources */ = {isa = PBXBuildFile; fileRef = B6DDBA1E1783DC19002D5880 /* PXXMLParserFirstStep.m */; };
 		B6DDBA251784F621002D5880 /* PXXMLParserSecondStep.m in Sources */ = {isa = PBXBuildFile; fileRef = B6DDBA241784F620002D5880 /* PXXMLParserSecondStep.m */; };
 		B6DDBA281784F825002D5880 /* PXXMLParserThirdStep.m in Sources */ = {isa = PBXBuildFile; fileRef = B6DDBA271784F825002D5880 /* PXXMLParserThirdStep.m */; };
+		C824E60917A2105400B7B3DD /* PXDummyCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = C824E60617A2105400B7B3DD /* PXDummyCollection.m */; };
+		C824E60A17A2105400B7B3DD /* PXDummyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C824E60817A2105400B7B3DD /* PXDummyModel.m */; };
 		C8C0E2B5178A04DD007E1FE4 /* ImageCropper.m in Sources */ = {isa = PBXBuildFile; fileRef = EDEF5DDD17853D5F00ACC287 /* ImageCropper.m */; };
-		ED7E37FE17A3A55100F936E7 /* PXDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED7E37FD17A3A55100F936E7 /* PXDetailViewController.xib */; };
-		ED7E380017A3A73700F936E7 /* Phylodex.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = ED7E37FF17A3A73700F936E7 /* Phylodex.xcdatamodel */; };
-		ED7E380317A3A76600F936E7 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = ED7E380217A3A76600F936E7 /* Photo.m */; };
-		ED7E380617A3A77B00F936E7 /* Phylodex.m in Sources */ = {isa = PBXBuildFile; fileRef = ED7E380517A3A77B00F936E7 /* Phylodex.m */; };
+		ED7E37F617A33CE000F936E7 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = ED7E37F517A33CE000F936E7 /* Photo.m */; };
+		ED7E37F917A33D0800F936E7 /* Phylodex.m in Sources */ = {isa = PBXBuildFile; fileRef = ED7E37F817A33D0800F936E7 /* Phylodex.m */; };
+		ED7E37FC17A356D200F936E7 /* card_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = ED7E37FB17A356D200F936E7 /* card_bg.png */; };
 		EDB03D8117777164009B0D55 /* Capture.png in Resources */ = {isa = PBXBuildFile; fileRef = EDB03D7D17777164009B0D55 /* Capture.png */; };
 		EDB03D8217777164009B0D55 /* Share.png in Resources */ = {isa = PBXBuildFile; fileRef = EDB03D7E17777164009B0D55 /* Share.png */; };
 		EDB03D8317777164009B0D55 /* Phylodex.png in Resources */ = {isa = PBXBuildFile; fileRef = EDB03D7F17777164009B0D55 /* Phylodex.png */; };
 		EDB03D8417777164009B0D55 /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = EDB03D8017777164009B0D55 /* second.png */; };
+		EDD3BA1717A4592E00974B1A /* IZValueSelectorView.m in Sources */ = {isa = PBXBuildFile; fileRef = EDD3BA1617A4592E00974B1A /* IZValueSelectorView.m */; };
 		EDEF5DDE17853D5F00ACC287 /* ImageCropper.m in Sources */ = {isa = PBXBuildFile; fileRef = EDEF5DDD17853D5F00ACC287 /* ImageCropper.m */; };
 /* End PBXBuildFile section */
 
@@ -119,6 +121,7 @@
 		1F293CC61770FBC9009C8DA9 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		1F293CC81770FBC9009C8DA9 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		1F293CCA1770FBC9009C8DA9 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		1F293CCD1770FBC9009C8DA9 /* Phylodex.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Phylodex.xcdatamodel; sourceTree = "<group>"; };
 		1F293CD41770FBC9009C8DA9 /* PhylodexTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhylodexTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F293CD51770FBC9009C8DA9 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		1F293CDE1770FBC9009C8DA9 /* PhylodexTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PhylodexTests-Info.plist"; sourceTree = "<group>"; };
@@ -130,17 +133,13 @@
 		1F293CEF177101DC009C8DA9 /* PXRootViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PXRootViewController.xib; sourceTree = "<group>"; };
 		1F2F7D45177903DA002D2CB4 /* PXDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXDetailViewController.h; sourceTree = "<group>"; };
 		1F2F7D46177903DA002D2CB4 /* PXDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXDetailViewController.m; sourceTree = "<group>"; };
+		1F2F7D47177903DA002D2CB4 /* PXDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PXDetailViewController.xib; sourceTree = "<group>"; };
 		1FAA58F0177CB6120072CF9A /* Horse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Horse.png; sourceTree = "<group>"; };
 		1FB8C31017783E6000E51694 /* coding_standards.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = coding_standards.txt; sourceTree = "<group>"; };
 		1FE8DCFC178A18C200ECFF13 /* PXNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXNetworkManager.h; sourceTree = "<group>"; };
 		1FE8DCFD178A18C200ECFF13 /* PXNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXNetworkManager.m; sourceTree = "<group>"; };
-		1FE8DCFF178A1E6F00ECFF13 /* PXDownloadManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXDownloadManager.h; sourceTree = "<group>"; };
 		1FE8DD00178A1E6F00ECFF13 /* PXDownloadManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXDownloadManager.m; sourceTree = "<group>"; };
 		1FEF45B41773C3C900B1E0D6 /* Lion.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Lion.png; sourceTree = "<group>"; };
-		1FF7E8991773ABF800215E38 /* PXDummyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PXDummyModel.h; path = Phylodex/PXDummyModel.h; sourceTree = "<group>"; };
-		1FF7E89A1773ABF800215E38 /* PXDummyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PXDummyModel.m; path = Phylodex/PXDummyModel.m; sourceTree = "<group>"; };
-		1FF7E89C1773AD0100215E38 /* PXDummyCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PXDummyCollection.h; path = Phylodex/PXDummyCollection.h; sourceTree = "<group>"; };
-		1FF7E89D1773AD0100215E38 /* PXDummyCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PXDummyCollection.m; path = Phylodex/PXDummyCollection.m; sourceTree = "<group>"; };
 		1FF7E8A21773B14900215E38 /* Eagle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Eagle.png; sourceTree = "<group>"; };
 		B6A16AA317777D800024F0BB /* PXSearchResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PXSearchResultsViewController.h; path = ../PXSearchResultsViewController.h; sourceTree = "<group>"; };
 		B6A16AA417777D800024F0BB /* PXSearchResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PXSearchResultsViewController.m; path = ../PXSearchResultsViewController.m; sourceTree = "<group>"; };
@@ -155,16 +154,22 @@
 		B6DDBA241784F620002D5880 /* PXXMLParserSecondStep.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXXMLParserSecondStep.m; sourceTree = "<group>"; };
 		B6DDBA261784F825002D5880 /* PXXMLParserThirdStep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXXMLParserThirdStep.h; sourceTree = "<group>"; };
 		B6DDBA271784F825002D5880 /* PXXMLParserThirdStep.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXXMLParserThirdStep.m; sourceTree = "<group>"; };
-		ED7E37FD17A3A55100F936E7 /* PXDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PXDetailViewController.xib; sourceTree = "<group>"; };
-		ED7E37FF17A3A73700F936E7 /* Phylodex.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Phylodex.xcdatamodel; sourceTree = "<group>"; };
-		ED7E380117A3A76600F936E7 /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photo.h; sourceTree = "<group>"; };
-		ED7E380217A3A76600F936E7 /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photo.m; sourceTree = "<group>"; };
-		ED7E380417A3A77B00F936E7 /* Phylodex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Phylodex.h; sourceTree = "<group>"; };
-		ED7E380517A3A77B00F936E7 /* Phylodex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Phylodex.m; sourceTree = "<group>"; };
+		C824E60517A2105400B7B3DD /* PXDummyCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXDummyCollection.h; sourceTree = "<group>"; };
+		C824E60617A2105400B7B3DD /* PXDummyCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXDummyCollection.m; sourceTree = "<group>"; };
+		C824E60717A2105400B7B3DD /* PXDummyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXDummyModel.h; sourceTree = "<group>"; };
+		C824E60817A2105400B7B3DD /* PXDummyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXDummyModel.m; sourceTree = "<group>"; };
+		ED7E37F417A33CE000F936E7 /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Photo.h; path = Phylodex/Photo.h; sourceTree = "<group>"; };
+		ED7E37F517A33CE000F936E7 /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Photo.m; path = Phylodex/Photo.m; sourceTree = "<group>"; };
+		ED7E37F717A33D0800F936E7 /* Phylodex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Phylodex.h; path = Phylodex/Phylodex.h; sourceTree = "<group>"; };
+		ED7E37F817A33D0800F936E7 /* Phylodex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Phylodex.m; path = Phylodex/Phylodex.m; sourceTree = "<group>"; };
+		ED7E37FA17A33D7D00F936E7 /* PXDownloadManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXDownloadManager.h; sourceTree = "<group>"; };
+		ED7E37FB17A356D200F936E7 /* card_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = card_bg.png; sourceTree = "<group>"; };
 		EDB03D7D17777164009B0D55 /* Capture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Capture.png; sourceTree = "<group>"; };
 		EDB03D7E17777164009B0D55 /* Share.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Share.png; sourceTree = "<group>"; };
 		EDB03D7F17777164009B0D55 /* Phylodex.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Phylodex.png; sourceTree = "<group>"; };
 		EDB03D8017777164009B0D55 /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
+		EDD3BA1517A4592E00974B1A /* IZValueSelectorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IZValueSelectorView.h; sourceTree = "<group>"; };
+		EDD3BA1617A4592E00974B1A /* IZValueSelectorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IZValueSelectorView.m; sourceTree = "<group>"; };
 		EDEF5DDC17853D5F00ACC287 /* ImageCropper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCropper.h; sourceTree = "<group>"; };
 		EDEF5DDD17853D5F00ACC287 /* ImageCropper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCropper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -201,7 +206,6 @@
 			children = (
 				1FF7E89F1773B0EC00215E38 /* Resources */,
 				1F293CBA1770FBC9009C8DA9 /* Phylodex */,
-				ED7E37FF17A3A73700F936E7 /* Phylodex.xcdatamodel */,
 				1F293CDC1770FBC9009C8DA9 /* PhylodexTests */,
 				1F293CB11770FBC9009C8DA9 /* Frameworks */,
 				1F293CB01770FBC9009C8DA9 /* Products */,
@@ -240,6 +244,7 @@
 				1FF7E8A61773B24600215E38 /* Views */,
 				1FF7E8A51773B20900215E38 /* Controllers */,
 				1FF7E8A41773B1E700215E38 /* Models */,
+				1F293CCC1770FBC9009C8DA9 /* Phylodex.xcdatamodeld */,
 				1F293CBB1770FBC9009C8DA9 /* Supporting Files */,
 			);
 			path = Phylodex;
@@ -286,6 +291,7 @@
 		1FF7E89F1773B0EC00215E38 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				ED7E37FB17A356D200F936E7 /* card_bg.png */,
 				08A10B74177CAEAC00AB0609 /* Dog.png */,
 				1FAA58F0177CB6120072CF9A /* Horse.png */,
 				08A10B72177CAB2100AB0609 /* Gorilla.png */,
@@ -301,11 +307,11 @@
 		1FF7E8A41773B1E700215E38 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				ED7E380417A3A77B00F936E7 /* Phylodex.h */,
-				ED7E380517A3A77B00F936E7 /* Phylodex.m */,
-				ED7E380117A3A76600F936E7 /* Photo.h */,
-				ED7E380217A3A76600F936E7 /* Photo.m */,
-				1FE8DCFF178A1E6F00ECFF13 /* PXDownloadManager.h */,
+				ED7E37F717A33D0800F936E7 /* Phylodex.h */,
+				ED7E37F817A33D0800F936E7 /* Phylodex.m */,
+				ED7E37F417A33CE000F936E7 /* Photo.h */,
+				ED7E37F517A33CE000F936E7 /* Photo.m */,
+				ED7E37FA17A33D7D00F936E7 /* PXDownloadManager.h */,
 				1FE8DD00178A1E6F00ECFF13 /* PXDownloadManager.m */,
 				1FE8DCFC178A18C200ECFF13 /* PXNetworkManager.h */,
 				1FE8DCFD178A18C200ECFF13 /* PXNetworkManager.m */,
@@ -317,10 +323,6 @@
 				B6DDBA241784F620002D5880 /* PXXMLParserSecondStep.m */,
 				B6DDBA261784F825002D5880 /* PXXMLParserThirdStep.h */,
 				B6DDBA271784F825002D5880 /* PXXMLParserThirdStep.m */,
-				1FF7E8991773ABF800215E38 /* PXDummyModel.h */,
-				1FF7E89C1773AD0100215E38 /* PXDummyCollection.h */,
-				1FF7E89D1773AD0100215E38 /* PXDummyCollection.m */,
-				1FF7E89A1773ABF800215E38 /* PXDummyModel.m */,
 			);
 			name = Models;
 			path = ..;
@@ -329,6 +331,10 @@
 		1FF7E8A51773B20900215E38 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				C824E60517A2105400B7B3DD /* PXDummyCollection.h */,
+				C824E60617A2105400B7B3DD /* PXDummyCollection.m */,
+				C824E60717A2105400B7B3DD /* PXDummyModel.h */,
+				C824E60817A2105400B7B3DD /* PXDummyModel.m */,
 				08BECADD1793A29C0068176C /* PXCameraViewController.h */,
 				08BECADE1793A29C0068176C /* PXCameraViewController.m */,
 				0891C24E1786360C00F29BAD /* PXShareViewController.h */,
@@ -357,7 +363,7 @@
 			children = (
 				0891C2501786360C00F29BAD /* PXShareViewController.xib */,
 				0891C2561786646900F29BAD /* PXShareCell.xib */,
-				ED7E37FD17A3A55100F936E7 /* PXDetailViewController.xib */,
+				1F2F7D47177903DA002D2CB4 /* PXDetailViewController.xib */,
 				1F08DAE21777CE53005F18EF /* PXSearchResultPhotoViewController.xib */,
 				B6A16AA517777D800024F0BB /* PXSearchResultsViewController.xib */,
 				B6A16AA817777D800024F0BB /* PXWebSearchViewController.xib */,
@@ -367,22 +373,32 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
+		EDD3BA1417A4591B00974B1A /* PickerClasses */ = {
+			isa = PBXGroup;
+			children = (
+				EDD3BA1517A4592E00974B1A /* IZValueSelectorView.h */,
+				EDD3BA1617A4592E00974B1A /* IZValueSelectorView.m */,
+			);
+			name = PickerClasses;
+			sourceTree = "<group>";
+		};
 		EDEF5DD417853D1A00ACC287 /* Library of Crop Image */ = {
 			isa = PBXGroup;
 			children = (
-				EDEF5DE017853D8100ACC287 /* Classes */,
+				EDD3BA1417A4591B00974B1A /* PickerClasses */,
+				EDEF5DE017853D8100ACC287 /* CropClasses */,
 			);
 			name = "Library of Crop Image";
 			path = ..;
 			sourceTree = "<group>";
 		};
-		EDEF5DE017853D8100ACC287 /* Classes */ = {
+		EDEF5DE017853D8100ACC287 /* CropClasses */ = {
 			isa = PBXGroup;
 			children = (
 				EDEF5DDC17853D5F00ACC287 /* ImageCropper.h */,
 				EDEF5DDD17853D5F00ACC287 /* ImageCropper.m */,
 			);
-			name = Classes;
+			name = CropClasses;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -475,6 +491,7 @@
 				B6A16AAE17777D800024F0BB /* PXWebSearchViewController.xib in Resources */,
 				1F08DAE41777CE53005F18EF /* PXSearchResultPhotoViewController.xib in Resources */,
 				1FB8C31117783E6000E51694 /* coding_standards.txt in Resources */,
+				1F2F7D49177903DA002D2CB4 /* PXDetailViewController.xib in Resources */,
 				08A10B73177CAB2100AB0609 /* Gorilla.png in Resources */,
 				08834CC91785F723003472D5 /* Search.png in Resources */,
 				0891C2521786360C00F29BAD /* PXShareViewController.xib in Resources */,
@@ -483,7 +500,7 @@
 				08A10B75177CAEAC00AB0609 /* Dog.png in Resources */,
 				1FAA58F1177CB6120072CF9A /* Horse.png in Resources */,
 				1F2740F91793D31800D7D110 /* readme.txt in Resources */,
-				ED7E37FE17A3A55100F936E7 /* PXDetailViewController.xib in Resources */,
+				ED7E37FC17A356D200F936E7 /* card_bg.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -521,9 +538,8 @@
 				C8C0E2B5178A04DD007E1FE4 /* ImageCropper.m in Sources */,
 				1F293CC11770FBC9009C8DA9 /* main.m in Sources */,
 				1F293CC51770FBC9009C8DA9 /* PXAppDelegate.m in Sources */,
+				1F293CCE1770FBC9009C8DA9 /* Phylodex.xcdatamodeld in Sources */,
 				1F293CF0177101DC009C8DA9 /* PXRootViewController.m in Sources */,
-				1FF7E89B1773ABF800215E38 /* PXDummyModel.m in Sources */,
-				1FF7E89E1773AD0100215E38 /* PXDummyCollection.m in Sources */,
 				1F195647177559EA00AEB906 /* PXNetworkConnection.m in Sources */,
 				087AF3A61776E46A004034F3 /* PXNameAndImageCell.m in Sources */,
 				B6A16AAB17777D800024F0BB /* PXSearchResultsViewController.m in Sources */,
@@ -538,9 +554,10 @@
 				1FE8DCFE178A18C200ECFF13 /* PXNetworkManager.m in Sources */,
 				1FE8DD01178A1E6F00ECFF13 /* PXDownloadManager.m in Sources */,
 				08BECADF1793A29C0068176C /* PXCameraViewController.m in Sources */,
-				ED7E380017A3A73700F936E7 /* Phylodex.xcdatamodel in Sources */,
-				ED7E380317A3A76600F936E7 /* Photo.m in Sources */,
-				ED7E380617A3A77B00F936E7 /* Phylodex.m in Sources */,
+				C824E60917A2105400B7B3DD /* PXDummyCollection.m in Sources */,
+				C824E60A17A2105400B7B3DD /* PXDummyModel.m in Sources */,
+				ED7E37F617A33CE000F936E7 /* Photo.m in Sources */,
+				ED7E37F917A33D0800F936E7 /* Phylodex.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -550,6 +567,7 @@
 			files = (
 				1F293CE41770FBC9009C8DA9 /* PhylodexTests.m in Sources */,
 				EDEF5DDE17853D5F00ACC287 /* ImageCropper.m in Sources */,
+				EDD3BA1717A4592E00974B1A /* IZValueSelectorView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -726,6 +744,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		1F293CCC1770FBC9009C8DA9 /* Phylodex.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				1F293CCD1770FBC9009C8DA9 /* Phylodex.xcdatamodel */,
+			);
+			currentVersion = 1F293CCD1770FBC9009C8DA9 /* Phylodex.xcdatamodel */;
+			path = Phylodex.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 1F293CA71770FBC9009C8DA9 /* Project object */;
 }

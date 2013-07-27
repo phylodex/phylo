@@ -25,8 +25,8 @@
 	if (self) {
 		[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent animated:YES];
 		
-		scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0.0, 40.0, 320.0, 480.0)];
-		[scrollView setBackgroundColor:[UIColor blackColor]];
+		scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0.0, 120.0, 320.0, 480.0)];
+		[scrollView setBackgroundColor:[UIColor whiteColor]];
 		[scrollView setDelegate:self];
 		[scrollView setShowsHorizontalScrollIndicator:NO];
 		[scrollView setShowsVerticalScrollIndicator:NO];

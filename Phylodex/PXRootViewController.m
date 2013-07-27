@@ -62,9 +62,9 @@ static NSString *CellTableIdentifier = @"CellTableIdentifier";
     // set edit and add buttons in navigation controller
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
     //Insertion should come from the capture mode
-    //    addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addPhylo)];
-    //	addButton.enabled = YES;
-    //    self.navigationItem.rightBarButtonItem = addButton;
+//    addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addPhylo)];
+//	addButton.enabled = YES;
+//    self.navigationItem.rightBarButtonItem = addButton;
 	
     // Fetch existing phylodex entries.
     // Create a fetch request, add a sort descriptor, then execute the fetch.
@@ -135,13 +135,13 @@ static NSString *CellTableIdentifier = @"CellTableIdentifier";
 }
 
 /*
- // Override to support conditional editing of the table view.
- - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
- {
- // Return NO if you do not want the specified item to be editable.
- return YES;
- }
- */
+// Override to support conditional editing of the table view.
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Return NO if you do not want the specified item to be editable.
+    return YES;
+}
+*/
 
 // handle deleting of phylodex entries
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -166,20 +166,20 @@ static NSString *CellTableIdentifier = @"CellTableIdentifier";
 
 
 /*
- // Override to support rearranging the table view.
- - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
- {
- }
- */
+// Override to support rearranging the table view.
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
+{
+}
+*/
 
 /*
- // Override to support conditional rearranging of the table view.
- - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
- {
- // Return NO if you do not want the item to be re-orderable.
- return YES;
- }
- */
+// Override to support conditional rearranging of the table view.
+- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Return NO if you do not want the item to be re-orderable.
+    return YES;
+}
+*/
 
 #pragma mark - Table view delegate
 
@@ -188,7 +188,7 @@ static NSString *CellTableIdentifier = @"CellTableIdentifier";
     // set the child controller, and its delegate to the root controller
     PXDetailViewController *detailViewController = [[PXDetailViewController alloc] init];
     detailViewController.delegate = self;
-    
+
     // Get the phylodex entry for the current index path and set the values for the child controller
     Phylodex *phylo = (Phylodex *)[lifeforms objectAtIndex:indexPath.row];
     
@@ -226,14 +226,14 @@ static NSString *CellTableIdentifier = @"CellTableIdentifier";
     // TO-DO: Implement a method to add a new entry
     // this should push the detail view controller or an add view controller
     
-    // ---------------------------------------------
+// ---------------------------------------------
     //PROBLEM: there is no image added function in edit view
     //SUGGESTION: this should push the camera mode or photo library
-    //
+//    
     PXDetailViewController *detailViewController = [[PXDetailViewController alloc]init];
     [self.navigationController pushViewController:detailViewController animated:YES];
     
-    // ---------------------------------------------
+// ---------------------------------------------
     
 }
 

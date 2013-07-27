@@ -34,6 +34,8 @@
 		0891C2571786646900F29BAD /* PXShareCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0891C2561786646900F29BAD /* PXShareCell.xib */; };
 		08A10B73177CAB2100AB0609 /* Gorilla.png in Resources */ = {isa = PBXBuildFile; fileRef = 08A10B72177CAB2100AB0609 /* Gorilla.png */; };
 		08A10B75177CAEAC00AB0609 /* Dog.png in Resources */ = {isa = PBXBuildFile; fileRef = 08A10B74177CAEAC00AB0609 /* Dog.png */; };
+		08A7A71E17A3A49100EFF0CE /* scale_guide_pt2.png in Resources */ = {isa = PBXBuildFile; fileRef = 08A7A71C17A3A49100EFF0CE /* scale_guide_pt2.png */; };
+		08A7A71F17A3A49100EFF0CE /* scale_guide_pt1.png in Resources */ = {isa = PBXBuildFile; fileRef = 08A7A71D17A3A49100EFF0CE /* scale_guide_pt1.png */; };
 		08BECADF1793A29C0068176C /* PXCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08BECADE1793A29C0068176C /* PXCameraViewController.m */; };
 		08BECAE11793A32C0068176C /* PXDetailEdit.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08BECAE01793A32C0068176C /* PXDetailEdit.xib */; };
 		08DDBBDD17A2240100232019 /* PXPhyloCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08DDBBDB17A2240100232019 /* PXPhyloCardViewController.m */; };
@@ -137,6 +139,8 @@
 		0891C2561786646900F29BAD /* PXShareCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PXShareCell.xib; sourceTree = "<group>"; };
 		08A10B72177CAB2100AB0609 /* Gorilla.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Gorilla.png; sourceTree = "<group>"; };
 		08A10B74177CAEAC00AB0609 /* Dog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Dog.png; sourceTree = "<group>"; };
+		08A7A71C17A3A49100EFF0CE /* scale_guide_pt2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scale_guide_pt2.png; sourceTree = "<group>"; };
+		08A7A71D17A3A49100EFF0CE /* scale_guide_pt1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scale_guide_pt1.png; sourceTree = "<group>"; };
 		08BECADD1793A29C0068176C /* PXCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXCameraViewController.h; sourceTree = "<group>"; };
 		08BECADE1793A29C0068176C /* PXCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXCameraViewController.m; sourceTree = "<group>"; };
 		08BECAE01793A32C0068176C /* PXDetailEdit.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PXDetailEdit.xib; sourceTree = "<group>"; };
@@ -251,6 +255,8 @@
 		0823FAE017A20DF300EE4900 /* Sizes */ = {
 			isa = PBXGroup;
 			children = (
+				08A7A71C17A3A49100EFF0CE /* scale_guide_pt2.png */,
+				08A7A71D17A3A49100EFF0CE /* scale_guide_pt1.png */,
 				0823FAEA17A20F0600EE4900 /* 1.png */,
 				0823FAEB17A20F0600EE4900 /* 2.png */,
 				0823FAF217A20F0600EE4900 /* 3.png */,
@@ -598,6 +604,8 @@
 				0823FAFD17A2109000EE4900 /* creative-commons.png in Resources */,
 				08DDBBDE17A2240100232019 /* PXPhyloCardViewController.xib in Resources */,
 				08DDBBE617A23FC900232019 /* PXEditCardViewController.xib in Resources */,
+				08A7A71E17A3A49100EFF0CE /* scale_guide_pt2.png in Resources */,
+				08A7A71F17A3A49100EFF0CE /* scale_guide_pt1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

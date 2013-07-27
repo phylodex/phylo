@@ -19,7 +19,7 @@
 @synthesize lifeforms, managedObjectContext;
 
 
-- (void)viewWillAppear:(BOOL)animated
+- (void)viewWillAppear:(BOOL)animated //run this whenever the view comes up on screen
 {
     //reset stored data
     lifeforms = [NSMutableArray array];
@@ -104,24 +104,24 @@
             
             for (Phylodex *phyloCreature in _selectedAnimals) {
                 
-                UIImage *tempImg = phyloCreature.photo.image;
-                NSData *imageData = UIImageJPEGRepresentation(tempImg,0.9);
-                NSString *strFileName = [NSString stringWithFormat:@"%@-picture.jpeg",phyloCreature.name];
-                [mailController addAttachmentData:imageData mimeType:@"image/jpeg" fileName:strFileName];
+                UIImage *tempImg = phyloCreature.photo.image;   //grab the image
+                NSData *imageData = UIImageJPEGRepresentation(tempImg,0.9); //convert to smaller filesize jpeg
+                NSString *strFileName = [NSString stringWithFormat:@"%@-picture.jpeg",phyloCreature.name]; //make a filename
+                [mailController addAttachmentData:imageData mimeType:@"image/jpeg" fileName:strFileName]; //add the attachment
                 
                 [shareHtmlBody appendString:@" <div class=\"card count \" id=\""]; //card outside
                 [shareHtmlBody appendString:(phyloCreature.name)]; //card id
-                [shareHtmlBody appendString:@"\">        <img src=\"http://phylogame.org/wp-content/themes/phylomon-theme/img/generated-card-images/bg-F4F4CE-forest-forest-forest-1.png\" class=\"card-background\" alt=\"card-name-15888\"><h2 class=\"card-name  smaller-12 \" id=\"card-name-15888\">"]; //for now every card gets a forest background since we cant generate new ones
+                [shareHtmlBody appendString:@"\">        <img src=\"http://phylogame.org/wp-content/themes/phylomon-theme/img/generated-card-images/bg-F4F4CE-forest-forest-forest-1.png\" class=\"card-background\" alt=\"card-name-15888\"><h2 class=\"card-name  smaller-12 \" id=\"card-name-15888\">"]; //for now every card gets a forest background since we can't generate new ones
                 [shareHtmlBody appendString:(phyloCreature.name)]; //card title
                 
                 [shareHtmlBody appendString:@"</h2> <span class=\"latin-name\">" ];
                 [shareHtmlBody appendString:(phyloCreature.scientific_name)]; //latin name if it exists
                 [shareHtmlBody appendString:@"</span>  <div class=\"num-values\"> <img src=\"http://phylogame.org/wp-content/themes/phylomon-theme/img/num/"];
-                [shareHtmlBody appendString:phyloCreature.creature_size];
+                [shareHtmlBody appendString:phyloCreature.creature_size]; //use the size for determining image
                 [shareHtmlBody appendString:@".png\" alt=\"" ];
                 [shareHtmlBody appendString:phyloCreature.creature_size ];
                 [shareHtmlBody appendString:@"\"> <img src=\"http://phylogame.org/wp-content/themes/phylomon-theme/img/num/" ];
-                [shareHtmlBody appendString:phyloCreature.diet ];
+                [shareHtmlBody appendString:phyloCreature.diet ]; //use diet and heirarchy to determine image
                 [shareHtmlBody appendString:phyloCreature.heirarchy];
                 [shareHtmlBody appendString:@".png\" alt=\"" ];
                 [shareHtmlBody appendString:phyloCreature.diet ];
@@ -135,26 +135,24 @@
                 
                 //Kingdom+Phylum+Class
                 [shareHtmlBody appendString:@"<div class=\"card-classification\">  <a href=\"http://phylogame.org/classification/"];
-                [shareHtmlBody appendString:phyloCreature.kingdom];
+                [shareHtmlBody appendString:phyloCreature.kingdom]; //kingdom
                 [shareHtmlBody appendString:@"/\" rel=\"tag\">" ];
                 [shareHtmlBody appendString:phyloCreature.kingdom];
                 [shareHtmlBody appendString:@"</a>,<a href=\"http://phylogame.org/classification/"];
-                 [shareHtmlBody appendString:phyloCreature.phylum];
+                 [shareHtmlBody appendString:phyloCreature.phylum]; //phylum
                  [shareHtmlBody appendString:@"/\" rel=\"tag\">"];
                  [shareHtmlBody appendString:phyloCreature.phylum];
                  [shareHtmlBody appendString:@"</a>,<a href=\"http://phylogame.org/classification/"];
-                 [shareHtmlBody appendString:phyloCreature.creature_class];
+                 [shareHtmlBody appendString:phyloCreature.creature_class]; //class (this section pretty straightforward)
                  [shareHtmlBody appendString:@"/\" rel=\"tag\">"];
                  [shareHtmlBody appendString:phyloCreature.creature_class];
                  [shareHtmlBody appendString:@"</a>  </div> <div class=\"creative-commons\">  <a href=\"http://creativecommons.org/licenses/by-nc-nd/2.0/deed.en_CA\" target=\"_blank\"><img src=\"http://phylogame.org/wp-content/themes/phylomon-theme/img/creative-commons.png\" alt=\"Creative Commons Attribution-Noncommercial-No Derivatives Works 2.0\"></a>  </div>"];
                 
-                //everything is flying squirrel stats on the test
                 [shareHtmlBody appendString:@"<div class=\"card-text\">        <p style=\"text-align: right;\"><strong>"];
-                [shareHtmlBody appendString:phyloCreature.points];
-                //[shareHtmlBody appendString:[NSString stringWithFormat:@"%d",phyloCreature.points]];
+                [shareHtmlBody appendString:phyloCreature.points]; //insert generated points
                 [shareHtmlBody appendString:@" POINTS</strong></p><br> </div>"];
                 
-                [shareHtmlBody appendString:@" <div class=\"card-temperature\"> " ];
+                [shareHtmlBody appendString:@" <div class=\"card-temperature\"> " ]; //only insert the climates flagged true
                 if ([phyloCreature.cold isEqualToNumber:[NSNumber numberWithInt:1]]){
                     [shareHtmlBody appendString:@"Cold, "];
                 }
@@ -168,66 +166,13 @@
                     [shareHtmlBody appendString:@"Hot "];
                 }
                  [shareHtmlBody appendString:@"</div> <div class=\"card-credit\"> <div class=\"graphic\"> <!-- GRAPHIC -->  <span>Image by <em>"];
-                [shareHtmlBody appendString:@"Some Photographer"];
+                [shareHtmlBody appendString:@"Some Photographer"]; //this should be the photographer. 
                 [shareHtmlBody appendString:@"</em></span>         </div>        </div>    	</div>    	</div>        </div>"];
                 
             }
             [shareHtmlBody appendString:@"</div></body></html>"];
             
-            /*
-            NSMutableString *message_body_creatures = [[NSMutableString alloc] init];
-            [message_body_creatures setString:@""];
-            //fill string with data from db
-            [message_body_creatures appendString:@"<html>"];
-            for (Phylodex *phyloCreature in _selectedAnimals) {
-                [message_body_creatures appendString:@"<b>"];
-                [message_body_creatures appendString:(@"Species")];
-                [message_body_creatures appendString:@":</b><i>"];
-                [message_body_creatures appendString:(phyloCreature.name)];
-                [message_body_creatures appendString:@"</i>, <br>"];
-                
-                [message_body_creatures appendString:@"<b>"];
-                [message_body_creatures appendString:(@"Scientific Name")];
-                [message_body_creatures appendString:@":</b><i>"];
-                [message_body_creatures appendString:(phyloCreature.scientific_name)];
-                [message_body_creatures appendString:@"</i>, <br>"];
-                
-                [message_body_creatures appendString:@"<b>"];
-                [message_body_creatures appendString:(@"Classification")];
-                [message_body_creatures appendString:@":</b><i>"];
-                [message_body_creatures appendString:(phyloCreature.kingdom)];
-                [message_body_creatures appendString:@","];
-                [message_body_creatures appendString:(phyloCreature.phylum)];
-                [message_body_creatures appendString:@","];
-                [message_body_creatures appendString:(phyloCreature.creature_class)];
-                [message_body_creatures appendString:@"</i> <br>"];
-                
-                [message_body_creatures appendString:@"<b>"];
-                [message_body_creatures appendString:(@"Size")];
-                [message_body_creatures appendString:@":</b><i>"];
-                [message_body_creatures appendString:(phyloCreature.creature_size)];
-                [message_body_creatures appendString:@"</i>, <br>"];
-                
-                [message_body_creatures appendString:@"<b>"];
-                [message_body_creatures appendString:(@"Diet")];
-                [message_body_creatures appendString:@":</b><i>"];
-                [message_body_creatures appendString:(phyloCreature.diet)];
-                [message_body_creatures appendString:(phyloCreature.heirarchy)];
-                [message_body_creatures appendString:@"</i>, <br><br>"];
-                
-                
-                
-                //
-                
-                //get each image and add as attachment
-                //Photo *animalPic = phyloCreature.photo;
-                //UIImage *tempImg = animalPic.image;
-                UIImage *tempImg = phyloCreature.thumbnail;
-                NSData *imageData = UIImageJPEGRepresentation(tempImg,0.9);
-                NSString *strFileName = [NSString stringWithFormat:@"%@-picture.jpeg",phyloCreature.name];
-                [mailController addAttachmentData:imageData mimeType:@"image/jpeg" fileName:strFileName];
-            }
-             */
+            //set that whole big chunk as body of an html video
             [mailController setMessageBody:shareHtmlBody isHTML:YES];
             
             //set how to present and bring it up
@@ -307,6 +252,7 @@
     return 1;
 }
 
+
 - (NSInteger)collectionView:(UICollectionView *)collectionView
      numberOfItemsInSection:(NSInteger)section {
     
@@ -324,8 +270,6 @@
     // Configure the cell...
     Phylodex *lifeform = [lifeforms objectAtIndex:indexPath.row];
     cell.name = lifeform.name;
-    //Photo *tempPic = lifeform.photo;
-    //cell.image = tempPic.image;
     cell.image = lifeform.thumbnail;
     return cell;
 

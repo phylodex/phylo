@@ -15,6 +15,7 @@
 
 @implementation PXPhyloCardViewController
 
+//only run on first init
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -27,39 +28,44 @@
                                     target:self
                                     action:@selector(edit_button_clicked:)];
         self.navigationItem.rightBarButtonItem = btnEdit;
-        
-        //set some UI visuals
-
     }
     return self;
 }
 
 
-
+//run whenever card view appears
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    //update strings in various labels
     _name_label.text = _phyloElement.name;
-    
     _sciname_label.text = _phyloElement.scientific_name;
+    //update image
     _phyloCardImage.image = _image;
     
+    //create the string name for the size image
     NSMutableString *sizeIMGpath = [[NSMutableString alloc]init];
     [sizeIMGpath appendString:_phyloElement.creature_size];
     [sizeIMGpath appendString:@".png"];
+    //assign the image at the right filepath
     _size_img.image = [UIImage imageNamed:sizeIMGpath];
 
-    
+    //create the string name for the diet image
     NSMutableString *dietIMGpath = [[NSMutableString alloc]init];
     [dietIMGpath appendString:_phyloElement.diet];
     [dietIMGpath appendString:_phyloElement.heirarchy];
     [dietIMGpath appendString:@".png"];
+    //assign the image at the right filepath
     _diet_img.image = [UIImage imageNamed:dietIMGpath];
     
+    //update the points label
     _points_label.text = [NSString stringWithFormat:@"%@ Points", _phyloElement.points];
     
+    //description to be inserted here
+    
+    //update label to include active climates names
     NSMutableString *climateList = [[NSMutableString alloc]init];
     if ([_phyloElement.cold isEqualToNumber:[NSNumber numberWithInt:1]]){
         [climateList appendString:@"Cold, "];
@@ -75,6 +81,7 @@
     }
     _climates_label.text = climateList;
     
+    //update the evolutionary tree label
     NSMutableString *creature_classification = [[NSMutableString alloc]init];
     [creature_classification appendString:_phyloElement.kingdom];
     [creature_classification appendString:@", "];
@@ -83,13 +90,12 @@
     [creature_classification appendString:_phyloElement.creature_class];
     _classification_label.text = creature_classification;
     
+    //add a crop button in the lower left
     UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
 	[button addTarget:self action:@selector(cropImage) forControlEvents:UIControlEventTouchUpInside];
 	[button setFrame:CGRectMake(15.0, 320.0, 100.0, 37.0)];
 	[button setTitle:@"Crop Image" forState:UIControlStateNormal];
-    
     [[self view] addSubview:button];
-    
     
     //set some UI visuals
     self.view.backgroundColor = [UIColor blackColor];
@@ -104,16 +110,17 @@
 }
 
 - (void)cropImage {
-    
+    //use the cropper class when that button is hit
 	ImageCropper *cropper = [[ImageCropper alloc] initWithImage:_phyloCardImage.image];
 	[cropper setDelegate:self];
-	
 	[self presentViewController:cropper animated:YES completion:nil];
 	
 }
 
 - (IBAction)edit_button_clicked:(id)sender{
+    //generate and run a card edit view when edit button is hit
     PXEditCardViewController *detailEdit = [[PXEditCardViewController alloc] init];
+    //pass values to the new view
     detailEdit.phyloElement = _phyloElement;
     detailEdit.parent = self;
     [self.navigationController pushViewController:detailEdit animated:YES];
@@ -127,7 +134,6 @@
     //    NSLog(@"delegate");
     PXAppDelegate *appDelegate = (PXAppDelegate *)[[UIApplication sharedApplication] delegate];
     NSManagedObjectContext *context=appDelegate.managedObjectContext;
-    
     
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Photo" inManagedObjectContext:context];

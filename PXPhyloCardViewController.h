@@ -16,10 +16,11 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *name_label;
 @property (weak, nonatomic) IBOutlet UILabel *sciname_label;
+
 @property (weak, nonatomic) IBOutlet UIImageView *size_img;
 @property (weak, nonatomic) IBOutlet UIImageView *diet_img;
 
-@property (copy, nonatomic) UIImage *image;
+@property (copy, nonatomic) UIImage *image; //temp image storage to fix crop refresh lag
 @property (strong, nonatomic) IBOutlet UIImageView *phyloCardImage;
 
 @property (weak, nonatomic) IBOutlet UILabel *points_label;

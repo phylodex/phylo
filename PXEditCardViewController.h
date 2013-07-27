@@ -15,10 +15,13 @@
 
 @interface PXEditCardViewController : UIViewController <UITextFieldDelegate>
 
+@property (weak, nonatomic) IBOutlet UIScrollView *scroller;
+
 @property (nonatomic, retain) Phylodex *phyloElement;
 
 @property (weak, nonatomic) IBOutlet UITextField *creature_name;
 @property (weak, nonatomic) IBOutlet UITextField *creature_sciname;
+@property (weak, nonatomic) IBOutlet UITextField *creature_photog;
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *creature_size;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *creature_diet;
@@ -38,6 +41,9 @@
 @property (weak, nonatomic) IBOutlet UISegmentedControl *hab3;
 
 @property (strong, nonatomic) PXPhyloCardViewController *parent;
+
+@property(strong, nonatomic) UITextField * activeField;
+
 
 - (IBAction)save_button_clicked:(id)sender;
 - (IBAction)backgroundClick:(id)sender;

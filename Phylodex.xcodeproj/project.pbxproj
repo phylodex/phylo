@@ -69,6 +69,9 @@
 		1FF7E89B1773ABF800215E38 /* PXDummyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF7E89A1773ABF800215E38 /* PXDummyModel.m */; };
 		1FF7E89E1773AD0100215E38 /* PXDummyCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF7E89D1773AD0100215E38 /* PXDummyCollection.m */; };
 		1FF7E8A31773B14900215E38 /* Eagle.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FF7E8A21773B14900215E38 /* Eagle.png */; };
+		B6563CE617A5AEE9004E988C /* PXNameAndContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B6563CE517A5AEE9004E988C /* PXNameAndContentCell.m */; };
+		B6563CE817A5AF14004E988C /* PXNameAndContentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6563CE717A5AF14004E988C /* PXNameAndContentCell.xib */; };
+		B6563CEA17A5B135004E988C /* noimage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B6563CE917A5B135004E988C /* noimage.jpg */; };
 		B6A16AAB17777D800024F0BB /* PXSearchResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6A16AA417777D800024F0BB /* PXSearchResultsViewController.m */; };
 		B6A16AAC17777D800024F0BB /* PXSearchResultsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6A16AA517777D800024F0BB /* PXSearchResultsViewController.xib */; };
 		B6A16AAD17777D800024F0BB /* PXWebSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6A16AA717777D800024F0BB /* PXWebSearchViewController.m */; };
@@ -190,6 +193,10 @@
 		1FF7E89C1773AD0100215E38 /* PXDummyCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PXDummyCollection.h; path = Phylodex/PXDummyCollection.h; sourceTree = "<group>"; };
 		1FF7E89D1773AD0100215E38 /* PXDummyCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PXDummyCollection.m; path = Phylodex/PXDummyCollection.m; sourceTree = "<group>"; };
 		1FF7E8A21773B14900215E38 /* Eagle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Eagle.png; sourceTree = "<group>"; };
+		B6563CE417A5AEE9004E988C /* PXNameAndContentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PXNameAndContentCell.h; path = ../PXNameAndContentCell.h; sourceTree = "<group>"; };
+		B6563CE517A5AEE9004E988C /* PXNameAndContentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PXNameAndContentCell.m; path = ../PXNameAndContentCell.m; sourceTree = "<group>"; };
+		B6563CE717A5AF14004E988C /* PXNameAndContentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PXNameAndContentCell.xib; sourceTree = "<group>"; };
+		B6563CE917A5B135004E988C /* noimage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = noimage.jpg; path = ../../../noimage.jpg; sourceTree = "<group>"; };
 		B6A16AA317777D800024F0BB /* PXSearchResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PXSearchResultsViewController.h; path = ../PXSearchResultsViewController.h; sourceTree = "<group>"; };
 		B6A16AA417777D800024F0BB /* PXSearchResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PXSearchResultsViewController.m; path = ../PXSearchResultsViewController.m; sourceTree = "<group>"; };
 		B6A16AA517777D800024F0BB /* PXSearchResultsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PXSearchResultsViewController.xib; path = ../PXSearchResultsViewController.xib; sourceTree = "<group>"; };
@@ -333,6 +340,7 @@
 		1FF7E89F1773B0EC00215E38 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B6563CE917A5B135004E988C /* noimage.jpg */,
 				08A10B74177CAEAC00AB0609 /* Dog.png */,
 				1FAA58F0177CB6120072CF9A /* Horse.png */,
 				08A10B72177CAB2100AB0609 /* Gorilla.png */,
@@ -382,6 +390,8 @@
 		1FF7E8A51773B20900215E38 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				B6563CE417A5AEE9004E988C /* PXNameAndContentCell.h */,
+				B6563CE517A5AEE9004E988C /* PXNameAndContentCell.m */,
 				1FEC8ABA17A4F3E700D00B5B /* PXEditUserViewController.h */,
 				1FEC8ABB17A4F3E700D00B5B /* PXEditUserViewController.m */,
 				1FEC8AAE17A4B72100D00B5B /* PXNewUserViewController.h */,
@@ -438,6 +448,7 @@
 				B6A16AA817777D800024F0BB /* PXWebSearchViewController.xib */,
 				087AF3A71776E475004034F3 /* PXNameAndImageCell.xib */,
 				1F293CEF177101DC009C8DA9 /* PXRootViewController.xib */,
+				B6563CE717A5AF14004E988C /* PXNameAndContentCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -565,6 +576,8 @@
 				1FEC8AAA17A480AE00D00B5B /* PXUserSpaceViewController.xib in Resources */,
 				1FEC8AB217A4B72100D00B5B /* PXNewUserViewController.xib in Resources */,
 				1FEC8ABE17A4F3E800D00B5B /* PXEditUserViewController.xib in Resources */,
+				B6563CE817A5AF14004E988C /* PXNameAndContentCell.xib in Resources */,
+				B6563CEA17A5B135004E988C /* noimage.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -633,6 +646,7 @@
 				1FEC8AAD17A4ACAE00D00B5B /* PXManageUsersViewController.m in Sources */,
 				1FEC8AB117A4B72100D00B5B /* PXNewUserViewController.m in Sources */,
 				1FEC8ABD17A4F3E800D00B5B /* PXEditUserViewController.m in Sources */,
+				B6563CE617A5AEE9004E988C /* PXNameAndContentCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

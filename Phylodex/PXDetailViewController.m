@@ -40,14 +40,10 @@
 @synthesize scrollerView;
 @synthesize pointColor;
 
-//Library part
-@synthesize selectorVertical1 = _selectorVertical1;
-@synthesize selectorVertical2 = _selectorVertical2;
-@synthesize selectorVertical3 = _selectorVertical3;
-////////////////////
+@synthesize creature_class, creature_kingdom, creature_phylum;
 
 //textFiled
-@synthesize nameOfCreature, habitatType, artistInfo, climate, terrain, desc, evolutionary;
+@synthesize nameOfCreature, habitatType, artistInfo, climate, climate2, climate3, terrain, terrain2, desc;
 
 //UILable
 @synthesize displayLabel, pointValue, foodChain, scaleNumber;
@@ -61,6 +57,22 @@
     if (self) {
         // Custom initialization
         
+        [[self nameOfCreature]setDelegate:self];
+        [[self habitatType]setDelegate:self];
+        [[self artistInfo]setDelegate:self];
+        [[self climate]setDelegate:self];
+        [[self terrain]setDelegate:self];
+        [[self desc]setDelegate:self];
+        
+        PXAppDelegate *appledelegate = [[UIApplication sharedApplication]delegate];
+        context_phylo = [appledelegate managedObjectContext];
+        
+        //add save navigation bar item
+        self.navigationItem.rightBarButtonItem = self.editButtonItem;
+        saveButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(save)];
+        saveButton.enabled = YES;
+        self.navigationItem.rightBarButtonItem = saveButton;
+                
     }
     return self;
 }
@@ -70,81 +82,46 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    //add save navigation bar item
-    self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    saveButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(save)];
-	saveButton.enabled = YES;
-    self.navigationItem.rightBarButtonItem = saveButton;
-    
     //scroll view
     [scroller setScrollEnabled:YES];
-    [scroller setContentSize:CGSizeMake(320, 2400)];
+    [scroller setContentSize:CGSizeMake(320, 1200)];
     [scroller addSubview:scrollerView];
     
-    //Library part
     
-    [super viewDidLoad];
-    //self.wantHorizontal = YES;
-    
-    
-    //YOU CAN ALSO ASSIGN THE DATA SOURCE AND THE DELEGATE IN CODE (IT'S ALREADY DONE IN NIB, BUT DO AS YOU PREFER)
-    self.selectorVertical1.dataSource = self;
-    self.selectorVertical1.delegate = self;
-    self.selectorVertical1.shouldBeTransparent = YES;
-    self.selectorVertical1.horizontalScrolling = NO;
-    
-    //You can toggle Debug mode on selectors to see the layout
-    self.selectorVertical1.debugEnabled = NO;
-    
-    
-    
-    //YOU CAN ALSO ASSIGN THE DATA SOURCE AND THE DELEGATE IN CODE (IT'S ALREADY DONE IN NIB, BUT DO AS YOU PREFER)
-    self.selectorVertical2.dataSource = self;
-    self.selectorVertical2.delegate = self;
-    self.selectorVertical2.shouldBeTransparent = YES;
-    self.selectorVertical2.horizontalScrolling = NO;
-    
-    //You can toggle Debug mode on selectors to see the layout
-    self.selectorVertical2.debugEnabled = NO;
-    
-    
-    //YOU CAN ALSO ASSIGN THE DATA SOURCE AND THE DELEGATE IN CODE (IT'S ALREADY DONE IN NIB, BUT DO AS YOU PREFER)
-    self.selectorVertical3.dataSource = self;
-    self.selectorVertical3.delegate = self;
-    self.selectorVertical3.shouldBeTransparent = YES;
-    self.selectorVertical3.horizontalScrolling = NO;
-    
-    //You can toggle Debug mode on selectors to see the layout
-    self.selectorVertical3.debugEnabled = NO;
-    
-    
-    
-    habitatArea = [NSArray arrayWithObjects:@"Desert", @"Forest", @"Water", @"Plain", @"Ocean", @"Thundra", @"Urban", nil];
+    NSString *evol = [[NSString alloc]initWithFormat:@"%@", phyloElement.evolutionary];
+    NSLog(@"The original evolutionary in core data is: %@", phyloElement.evolutionary);
+    NSLog(@"The tranfered string evol is: %@", evol);
+    NSArray *arr = [evol componentsSeparatedByString:@","];// HOW TO SEPARATE 
+    for (NSString *i in arr) {
+        NSLog(@"the value in evolutionary tree is: %@", i);
+        //set default value to UISegmentControl
+        //From Ethan's code
+        if ([i isEqualToString: @"Animalia"]){ creature_kingdom.selectedSegmentIndex = 0;}
+        if ([i isEqualToString:@"Plantae"]){ creature_kingdom.selectedSegmentIndex = 1;}
+        if ([i isEqualToString:@"Fungi"]){ creature_kingdom.selectedSegmentIndex = 2;}
+        if ([i isEqualToString:@"Protista"]) { creature_kingdom.selectedSegmentIndex = 3;}
+        if ([i isEqualToString:@"Chordata"]){ creature_phylum.selectedSegmentIndex = 0;}
+        if ([i isEqualToString:@"Arthropoda"]){ creature_phylum.selectedSegmentIndex = 1;}
+        if ([i isEqualToString:@"Annelida"]){ creature_phylum.selectedSegmentIndex = 2;}
+        if ([i isEqualToString:@"Others"]){ creature_phylum.selectedSegmentIndex = 3;}
+        if ([i isEqualToString:@"Aves"]){ creature_class.selectedSegmentIndex = 0;}
+        if ([i isEqualToString:@"Amphibia"]){ creature_class.selectedSegmentIndex = 1;}
+        if ([i isEqualToString:@"Mammalia"]){ creature_class.selectedSegmentIndex = 2;}
+        if ([i isEqualToString:@"Reptilia"]){ creature_class.selectedSegmentIndex = 3;}
+        if ([i isEqualToString:@"Others"]) { creature_class.selectedSegmentIndex = 4;}
+        ///////////////////
+    }
 
-    ////////////////////////
-    
     //creature images
     imageView.image = self.image;
-    
+    //load data
     self.nameOfCreature.text = phyloELement.name;
     self.habitatType.text = phyloELement.habitat;
     self.terrain.text = phyloELement.terrains;   //terrain = habitat
-    self.climate.text = phyloELement.climate;
+    self.climate.text = phyloElement.climate;    
     self.artistInfo.text = phyloELement.artist;
-    self.evolutionary.text = phyloELement.evolutionary;
+    self.displayLabel.text = phyloELement.evolutionary;
     self.desc.text = phyloELement.desc;
-    
-    [[self nameOfCreature]setDelegate:self];
-    [[self habitatType]setDelegate:self];
-    [[self artistInfo]setDelegate:self];
-    [[self climate]setDelegate:self];
-    [[self terrain]setDelegate:self];
-    [[self evolutionary]setDelegate:self];
-    [[self desc]setDelegate:self];
-    
-    PXAppDelegate *appledelegate = [[UIApplication sharedApplication]delegate];
-    context_phylo = [appledelegate managedObjectContext];
-    
 }
 
 - (IBAction)cropImage:(id)sender {
@@ -186,58 +163,6 @@
 
 - (void)imageCropperDidCancel:(ImageCropper *)cropper{}
 
-#pragma UISegmented Control
-- (IBAction)toggleControls:(UISegmentedControl *)sender {
-    if (sender.selectedSegmentIndex == 0){
-        Kingdom = [NSString stringWithFormat:@"Animallia"];
-    }
-    else if (sender.selectedSegmentIndex == 1){
-        Kingdom = [NSString stringWithFormat:@"Plantae"];
-    }
-    else if (sender.selectedSegmentIndex == 2){
-        Kingdom = [NSString stringWithFormat:@"Fungi"];
-    }
-    else{
-        Kingdom = [NSString stringWithFormat:@"Protista"];
-    }
-    NSLog(@"Kingdom is %@", Kingdom);
-}
-
-- (IBAction)toggleControls2:(UISegmentedControl *)sender {
-    if (sender.selectedSegmentIndex == 0){
-        Phylum = [NSString stringWithFormat:@"Chordata"];
-    }
-    else if (sender.selectedSegmentIndex == 1){
-        Phylum = [NSString stringWithFormat:@"Arthropoda"];
-    }
-    else if (sender.selectedSegmentIndex == 2){
-        Phylum = [NSString stringWithFormat:@"Annelida"];
-    }
-    else{
-        Phylum = [NSString stringWithFormat:@"Others"];
-    }
-    NSLog(@"Phylum is %@", Phylum);
-}
-
-- (IBAction)toggleControls3:(UISegmentedControl *)sender {
-    if (sender.selectedSegmentIndex == 0){
-        classType = [NSString stringWithFormat:@"Aves"];
-    }
-    else if (sender.selectedSegmentIndex == 1){
-        classType = [NSString stringWithFormat:@"Amphbia"];
-    }
-    else if (sender.selectedSegmentIndex == 2){
-        classType = [NSString stringWithFormat:@"Mammalia"];
-    }
-    else if (sender.selectedSegmentIndex == 3){
-        classType = [NSString stringWithFormat:@"Reptilia"];
-    }
-    else{
-        classType = [NSString stringWithFormat:@"Others"];
-    }
-    NSLog(@"classType is %@", classType);
-}
-
 #pragma color&food chain number
 - (IBAction)colorSliderChanged:(UISlider *)sender{
     pointColor.backgroundColor = [UIColor yellowColor];
@@ -250,8 +175,7 @@
     else if (process == 3){ pointValueFoodChain = 3; }
     else if (process == 2){ pointValueFoodChain = 4; }
     else{ pointValueFoodChain = 2; }
-    
-    self.pointValue.text = [NSString stringWithFormat:@"%i", pointValueFoodChain];
+
 }
 
 #pragma scale
@@ -287,26 +211,56 @@
         for (Phylodex *p in array) {
             NSLog(@"p is %@", p);
 
-                p.name = self.nameOfCreature.text;
-                NSLog(@"p.name = %@", p.name);
-                p.scale = self.scaleNumber.text;
-                p.artist = self.artistInfo.text;
-                p.climate = self.climate.text;
-                p.desc = self.desc.text;
-                p.evolutionary = [NSString stringWithFormat:@"%@,%@,%@", Kingdom, Phylum, classType];
-                NSLog(@"p.name = %@", p.evolutionary);
-                p.terrains = self.terrain.text;
+            p.name = self.nameOfCreature.text;
+            NSLog(@"p.name = %@", p.name);
+            p.scale = self.scaleNumber.text;
+            p.artist = self.artistInfo.text;
+            p.climate = [NSString stringWithFormat:@"%@, %@, %@", self.climate.text, self.climate2.text, self.climate3.text];
+            NSLog(@"%@", p.climate);
+            
+            p.habitat = self.habitatType.text;
+            p.terrains = [NSString stringWithFormat:@"%@, %@", self.terrain.text, self.terrain2.text];
+
+            NSLog(@"the terrains are %@, %@", self.terrain.text, self.terrain2.text);
+            
+            p.desc = self.desc.text;
+            
+            // From Ethan Code
+            if(self.creature_kingdom.selectedSegmentIndex == 0){Kingdom = @"Animalia";}
+            else if(self.creature_kingdom.selectedSegmentIndex == 1){Kingdom = @"Plantae";}
+            else if(self.creature_kingdom.selectedSegmentIndex == 2){Kingdom = @"Fungi";}
+            else {Kingdom = @"Protista";}
+            
+            if(self.creature_phylum.selectedSegmentIndex == 0){Phylum = @"Chordata";}
+            else if(self.creature_phylum.selectedSegmentIndex == 1){Phylum = @"Anthropoda";}
+            else if(self.creature_phylum.selectedSegmentIndex == 2){Phylum = @"Annelida";}
+            else {Phylum = @"Others";}
+            
+            if(self.creature_class.selectedSegmentIndex == 0){classType = @"Aves";}
+            else if(self.creature_class.selectedSegmentIndex == 1){classType = @"Amphbia";}
+            else if(self.creature_class.selectedSegmentIndex == 2){classType = @"Mammalia";}
+            else if(self.creature_class.selectedSegmentIndex == 3){classType = @"Reptilia";}
+            else {classType = @"Others";}
+            ////////////////////
+            
+            p.evolutionary = [NSString stringWithFormat:@"%@, %@, %@", Kingdom, Phylum, classType];
+            self.displayLabel.text = p.evolutionary;
+            
+            NSLog(@"p.evolutionaryTree = %@", p.evolutionary);
         }
 
         if(![context save:&errorFetch])
         {
-            //        NSLog(@"Failed to save - error: %@", [error localizedDescription]);
+            //NSLog(@"Failed to save - error: %@", [error localizedDescription]);
         }
+        
+        
+        self.pointValue.text = [NSString stringWithFormat:@"%i", pointValueFoodChain];
         
     }
     else
     {
-        NSLog(@"error in id");
+        NSLog(@"error in name");
     }
 
 }
@@ -319,70 +273,13 @@
 - (IBAction)backgroundTap:(id)sender{
     [nameOfCreature resignFirstResponder];
     [habitatType resignFirstResponder];
-    [artistInfo resignFirstResponder];
-    [evolutionary resignFirstResponder];
-    [climate resignFirstResponder];
     [terrain resignFirstResponder];
+    [terrain2 resignFirstResponder];
+    [artistInfo resignFirstResponder];
+    [climate resignFirstResponder];
+    [climate2 resignFirstResponder];
+    [climate3 resignFirstResponder];
     [desc resignFirstResponder];
 }
-
-// Library part
-#pragma IZValueSelector dataSource
-- (NSInteger)numberOfRowsInSelector:(IZValueSelectorView *)valueSelector {
-    return 7;
-}
-
-
-
-//ONLY ONE OF THESE WILL GET CALLED (DEPENDING ON the horizontalScrolling property Value)
-- (CGFloat)rowHeightInSelector:(IZValueSelectorView *)valueSelector {
-    return 30.0;
-}
-
-- (CGFloat)rowWidthInSelector:(IZValueSelectorView *)valueSelector {
-    return 90.0;
-}
-
-
-- (UIView *)selector:(IZValueSelectorView *)valueSelector viewForRowAtIndex:(NSInteger)index {
-    UILabel * label = nil;
-    if (valueSelector == self.selectorVertical1)
-    {
-        label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.selectorVertical1.frame.size.width, 30)];
-    }
-    else if (valueSelector == self.selectorVertical2)
-    {
-        label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.selectorVertical2.frame.size.width, 30)];
-    }
-    else if (valueSelector == self.selectorVertical3)
-    {
-        label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.selectorVertical3.frame.size.width, 30)];
-    }
-    label.text = [NSString stringWithFormat:@"%@", [habitatArea objectAtIndex:index]];
-    label.textAlignment =  NSTextAlignmentCenter;
-    label.backgroundColor = [UIColor clearColor];
-    return label;
-}
-
-- (CGRect)rectForSelectionInSelector:(IZValueSelectorView *)valueSelector {
-    if (valueSelector == self.selectorVertical1) {
-        return CGRectMake(0.0, self.selectorVertical1.frame.size.height/2 - 35.0, 71.0, 30.0);
-    }
-    else if (valueSelector == self.selectorVertical2) {
-        return CGRectMake(0.0, self.selectorVertical2.frame.size.height/2 - 35.0, 71.0, 30.0);
-    }
-    else{
-        return CGRectMake(0.0, self.selectorVertical3.frame.size.height/2 - 35.0, 71.0, 30.0);
-    }
-    
-}
-
-#pragma IZValueSelector delegate
-- (void)selector:(IZValueSelectorView *)valueSelector didSelectRowAtIndex:(NSInteger)index {
-    
-    NSLog(@"Selected index %@", [habitatArea objectAtIndex:index]);
-}
-///////////////////////////////////////////////
-
 
 @end

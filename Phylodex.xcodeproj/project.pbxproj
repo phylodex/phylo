@@ -69,7 +69,6 @@
 		EDB03D8217777164009B0D55 /* Share.png in Resources */ = {isa = PBXBuildFile; fileRef = EDB03D7E17777164009B0D55 /* Share.png */; };
 		EDB03D8317777164009B0D55 /* Phylodex.png in Resources */ = {isa = PBXBuildFile; fileRef = EDB03D7F17777164009B0D55 /* Phylodex.png */; };
 		EDB03D8417777164009B0D55 /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = EDB03D8017777164009B0D55 /* second.png */; };
-		EDD3BA1717A4592E00974B1A /* IZValueSelectorView.m in Sources */ = {isa = PBXBuildFile; fileRef = EDD3BA1617A4592E00974B1A /* IZValueSelectorView.m */; };
 		EDEF5DDE17853D5F00ACC287 /* ImageCropper.m in Sources */ = {isa = PBXBuildFile; fileRef = EDEF5DDD17853D5F00ACC287 /* ImageCropper.m */; };
 /* End PBXBuildFile section */
 
@@ -168,8 +167,6 @@
 		EDB03D7E17777164009B0D55 /* Share.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Share.png; sourceTree = "<group>"; };
 		EDB03D7F17777164009B0D55 /* Phylodex.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Phylodex.png; sourceTree = "<group>"; };
 		EDB03D8017777164009B0D55 /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
-		EDD3BA1517A4592E00974B1A /* IZValueSelectorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IZValueSelectorView.h; sourceTree = "<group>"; };
-		EDD3BA1617A4592E00974B1A /* IZValueSelectorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IZValueSelectorView.m; sourceTree = "<group>"; };
 		EDEF5DDC17853D5F00ACC287 /* ImageCropper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCropper.h; sourceTree = "<group>"; };
 		EDEF5DDD17853D5F00ACC287 /* ImageCropper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCropper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -373,19 +370,9 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
-		EDD3BA1417A4591B00974B1A /* PickerClasses */ = {
-			isa = PBXGroup;
-			children = (
-				EDD3BA1517A4592E00974B1A /* IZValueSelectorView.h */,
-				EDD3BA1617A4592E00974B1A /* IZValueSelectorView.m */,
-			);
-			name = PickerClasses;
-			sourceTree = "<group>";
-		};
 		EDEF5DD417853D1A00ACC287 /* Library of Crop Image */ = {
 			isa = PBXGroup;
 			children = (
-				EDD3BA1417A4591B00974B1A /* PickerClasses */,
 				EDEF5DE017853D8100ACC287 /* CropClasses */,
 			);
 			name = "Library of Crop Image";
@@ -567,7 +554,6 @@
 			files = (
 				1F293CE41770FBC9009C8DA9 /* PhylodexTests.m in Sources */,
 				EDEF5DDE17853D5F00ACC287 /* ImageCropper.m in Sources */,
-				EDD3BA1717A4592E00974B1A /* IZValueSelectorView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -13,7 +13,6 @@
 
 #import <UIKit/UIKit.h>
 #import "ImageCropper.h"
-#import "IZValueSelectorView.h"
 
 @class PXDetailViewController;
 @class Phylodex;
@@ -21,7 +20,7 @@
 
 @protocol PXDetailViewControllerDelegate;
 
-@interface PXDetailViewController : UIViewController<UITextFieldDelegate, UITextViewDelegate,ImageCropperDelegate, IZValueSelectorViewDataSource,IZValueSelectorViewDelegate>{
+@interface PXDetailViewController : UIViewController<UITextFieldDelegate, UITextViewDelegate,ImageCropperDelegate>{
     IBOutlet UIScrollView *scroller;
     IBOutlet UIScrollView *scrollerView;
     UIImageView *imageView;
@@ -42,10 +41,11 @@
 @property (strong, nonatomic) IBOutlet UITextField *habitatType;
 @property (strong, nonatomic) IBOutlet UITextField *artistInfo;
 @property (strong, nonatomic) IBOutlet UITextField *climate;
+@property (strong, nonatomic) IBOutlet UITextField *climate2;
+@property (strong, nonatomic) IBOutlet UITextField *climate3;
 @property (strong, nonatomic) IBOutlet UITextField *terrain;
-@property (strong, nonatomic) IBOutlet UITextField *evolutionary;
+@property (strong, nonatomic) IBOutlet UITextField *terrain2;
 @property (strong, nonatomic) IBOutlet UITextView *desc;
-
 
 @property (strong, nonatomic) IBOutlet UILabel *displayLabel;
 @property (strong, nonatomic) IBOutlet UILabel *pointValue;
@@ -53,10 +53,10 @@
 @property (strong, nonatomic) IBOutlet UILabel *scaleNumber;
 @property (strong, nonatomic) IBOutlet UIImageView *pointColor;
 
-- (IBAction)toggleControls:(UISegmentedControl *)sender;
-- (IBAction)toggleControls2:(UISegmentedControl *)sender;
-- (IBAction)toggleControls3:(UISegmentedControl *)sender;
-//- (IBAction)numberSliderChanged:(UISlider *)sender;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *creature_kingdom;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *creature_phylum;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *creature_class;
+
 - (IBAction)colorSliderChanged:(UISlider *)sender;
 - (IBAction)scaleSliderChanged:(UISlider *)sender;
 
@@ -65,12 +65,6 @@
 
 - (IBAction)cropImage:(id)sender;
 - (IBAction)backgroundTap:(id)sender;
-
-// Picker Library Part
-@property (weak, nonatomic) IBOutlet IZValueSelectorView *selectorVertical1;
-@property (weak, nonatomic) IBOutlet IZValueSelectorView *selectorVertical2;
-@property (weak, nonatomic) IBOutlet IZValueSelectorView *selectorVertical3;
-////////////////////////
 
 
 @end

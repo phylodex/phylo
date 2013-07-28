@@ -99,10 +99,10 @@
         [phylo setTerrains:@"Earth"];
         [phylo setPhoto:photo];
         [phylo setArtist:@"Photographer"];
-        [phylo setClimate:@"Warm"];
+        [phylo setClimate:@"Warm, Cold, Hot"];
         [phylo setDesc:@"None"];
         [phylo setDiet:@"Omnivore"];
-        [phylo setEvolutionary:@"Animalia"];
+        [phylo setEvolutionary:@"Animalia, Chordata, Aves"];
         [phylo setFoodChain:@"0"];
 
         // set the image

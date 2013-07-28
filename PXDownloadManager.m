@@ -73,6 +73,13 @@
     }
 }
 
+- (void)terminateConnection
+{
+    [connection cancel];
+    [delegate downloadWasTerminated];
+    [[PXNetworkManager sharedInstance] didStopNetworkOperation];
+}
+
 - (void)receiveDidStopWithStatus:(NSString *)statusString forService:(WebServiceType)service
 {
     // inform the delegate about the data being received

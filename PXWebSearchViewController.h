@@ -41,5 +41,6 @@
 - (void)downloadDidStart;
 - (void)updateStatus:(NSString *)statusString;
 - (void)downloadDidStopWithStatus:(NSString *)statusString forService:(WebServiceType)service;
+- (void)downloadWasTerminated;
 
 @end

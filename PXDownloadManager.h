@@ -27,6 +27,7 @@ typedef NS_ENUM(NSInteger, WebServiceType) {
 
 - (id)initWithTypeOfService:(WebServiceType) service;
 - (void)queryWebServiceForData:(NSString *) searchTerm;
+- (void)terminateConnection; // stop the current nsurlconnection
 
 @end
 
@@ -34,5 +35,6 @@ typedef NS_ENUM(NSInteger, WebServiceType) {
 - (void)downloadDidStart;
 - (void)updateStatus:(NSString *)statusString;
 - (void)downloadDidStopWithStatus:(NSString *)statusString forService:(WebServiceType)service;
+- (void)downloadWasTerminated;
 @end
 

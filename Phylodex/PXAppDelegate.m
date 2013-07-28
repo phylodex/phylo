@@ -8,10 +8,12 @@
 
 #import "PXAppDelegate.h"
 #import "PXNetworkManager.h"
+#import "PXDetailViewController.h"
 
 @implementation PXAppDelegate
 {
     char _networkOperationCountDummy;
+    NSManagedObjectContext *context_phylo;
 }
 
 @synthesize managedObjectContext = _managedObjectContext;
@@ -25,6 +27,10 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+    
+    PXDetailViewController *detailViewController = [[PXDetailViewController alloc]init];
+    [self.window setRootViewController:detailViewController];
+    
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
@@ -68,7 +74,7 @@
     // set up the tab bar controller
     _rootController = [[UITabBarController alloc] init];
     _rootController.viewControllers = controllers;
-    
+       
     // FOR DEVELOPMENT PURPOSES: populate with dummy data
     // insert dummy data only if database is empty already
     if (![self coreDataHasEntriesForEntityName:@"Phylodex"]) {
@@ -86,7 +92,6 @@
 - (void)populateDummyData
 {
     PXDummyCollection *collection = [[PXDummyCollection alloc] init];
-    
     // add each dummy entry into the user database
     for (PXDummyModel *model in collection.dummyModels) {
         Phylodex *phylo = (Phylodex *)[NSEntityDescription insertNewObjectForEntityForName:@"Phylodex" inManagedObjectContext:_managedObjectContext];
@@ -94,9 +99,14 @@
         
         [phylo setName:model.name];
         [phylo setHabitat:@"Earth"];
+        [phylo setTerrains:@"Earth, Earth"];
         [phylo setPhoto:photo];
         [phylo setArtist:@"Photographer"];
-        
+        [phylo setClimate:@"Warm, Cold, Hot"];
+        [phylo setDesc:@"None"];
+        [phylo setDiet:@"Omnivore"];
+        [phylo setEvolutionary:@"Animalia, Chordata, Aves"];
+        [phylo setFoodChain:@"0"];
         // set the image
         UIImage *selectedImage = [UIImage imageNamed:[NSString stringWithFormat:@"%@%@", model.name, @".png"]];
         

@@ -15,4 +15,6 @@
 
 @interface PXCameraViewController : UIImagePickerController<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
+
+@property (strong, nonatomic) UIButton *libraryButton;
 @end

@@ -13,8 +13,6 @@
 
 #import <UIKit/UIKit.h>
 #import "ImageCropper.h"
-#import "simpleTableCell.h"
-//#import "Photo.h"
 
 @class PXDetailViewController;
 @class Phylodex;
@@ -22,31 +20,58 @@
 
 @protocol PXDetailViewControllerDelegate;
 
-@interface PXDetailViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, ImageCropperDelegate>{
-    PXDetailViewController *detailView;
+@interface PXDetailViewController : UIViewController<UITextFieldDelegate, UITextViewDelegate,ImageCropperDelegate>{
+    IBOutlet UIScrollView *scroller;
+    IBOutlet UIScrollView *scrollerView;
     UIImageView *imageView;
     Phylodex *phyloElement;
-    
+    Photo *photoElement;
 }
 
-
-@property (nonatomic, retain) NSMutableArray *valueArray;
-@property (nonatomic, retain) NSString *name;
-@property (nonatomic, retain) Phylodex *phyloELement;
-@property (nonatomic, retain) Photo *photo;
-
 @property (nonatomic, assign)id <PXDetailViewControllerDelegate>delegate;
-@property (retain, nonatomic) IBOutlet UIImage *image;
-@property (strong, nonatomic) IBOutlet UIImageView *imageView;
-@property (retain, nonatomic) UITableView *table;
-@property (strong, nonatomic) IBOutlet UIScrollView *tableView;
-@property (strong, nonatomic) IBOutlet UITableViewController *tableViewContro;
-@property (nonatomic, retain) IBOutlet UIWindow *window;
 
-- (IBAction)editButton:(id)sender;
+@property (strong, nonatomic) UIWindow *window;
+
+@property (nonatomic, retain) IBOutlet UIImageView *imageView;
+@property (retain, nonatomic) IBOutlet UIImage *image;
+@property (nonatomic, retain) UIBarButtonItem *saveButton;
+
+@property (nonatomic, retain) Phylodex *phyloELement;
+@property (nonatomic, retain) Photo *photoElement;
+
+@property (strong, nonatomic) IBOutlet UITextField *nameOfCreature;
+@property (strong, nonatomic) IBOutlet UITextField *habitatType;
+@property (strong, nonatomic) IBOutlet UITextField *artistInfo;
+@property (strong, nonatomic) IBOutlet UITextField *climate;
+@property (strong, nonatomic) IBOutlet UITextField *climate2;
+@property (strong, nonatomic) IBOutlet UITextField *climate3;
+@property (strong, nonatomic) IBOutlet UITextField *terrain;
+@property (strong, nonatomic) IBOutlet UITextField *terrain2;
+@property (strong, nonatomic) IBOutlet UITextView *desc;
+
+@property (strong, nonatomic) IBOutlet UILabel *displayLabel;
+@property (strong, nonatomic) IBOutlet UILabel *pointValue;
+@property (strong, nonatomic) IBOutlet UILabel *foodChain;
+@property (strong, nonatomic) IBOutlet UILabel *scaleNumber;
+@property (strong, nonatomic) IBOutlet UIImageView *pointColor;
+
+@property (weak, nonatomic) IBOutlet UISegmentedControl *creature_kingdom;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *creature_phylum;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *creature_class;
+
+@property (weak, nonatomic) IBOutlet UISlider *foodChainSlider;
+@property (weak, nonatomic) IBOutlet UISlider *scaleSlider;
+
+- (IBAction)colorSliderChanged:(UISlider *)sender;
+- (IBAction)scaleSliderChanged:(UISlider *)sender;
+
+@property (strong, nonatomic) IBOutlet UIScrollView *scroller;
+@property (strong, nonatomic) IBOutlet UIScrollView *scrollerView;
+
+- (IBAction)cropImage:(id)sender;
+- (IBAction)backgroundTap:(id)sender;
 
 @end
-
 
 @protocol PXDetailViewControllerDelegate
 -(void)detailViewControllerDidSave:(PXDetailViewController *)controller;

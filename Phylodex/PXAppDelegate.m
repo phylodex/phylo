@@ -107,6 +107,8 @@
         [phylo setDiet:@"Omnivore"];
         [phylo setEvolutionary:@"Animalia, Chordata, Aves"];
         [phylo setFoodChain:@"0"];
+        [phylo setScale:@"0"];
+        [phylo setPoint:@"0"];
         // set the image
         UIImage *selectedImage = [UIImage imageNamed:[NSString stringWithFormat:@"%@%@", model.name, @".png"]];
         

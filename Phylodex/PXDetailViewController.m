@@ -58,7 +58,6 @@
 - (void) viewWillAppear:(BOOL)animated{
 }
 
-
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -95,7 +94,7 @@
 
     //scroll view
     [scroller setScrollEnabled:YES];
-    [scroller setContentSize:CGSizeMake(320, 1000)];
+    [scroller setContentSize:CGSizeMake(320, 1100)];
     [scroller addSubview:scrollerView];
     
     //separate the habitat part
@@ -172,7 +171,7 @@
     self.scaleNumber.text = phyloELement.scale;
     self.pointValue.text = phyloELement.point;
     
-    colorArray = [NSArray arrayWithObjects:[UIColor yellowColor], [UIColor blackColor], [UIColor greenColor], [UIColor brownColor], [UIColor redColor], nil];
+    colorArray = [NSArray arrayWithObjects:[UIColor yellowColor], [UIColor blackColor], [UIColor greenColor], [UIColor brownColor], [UIColor redColor], nil];   
     self.pointColor.backgroundColor = [colorArray objectAtIndex:[phyloELement.foodChain integerValue]];
     self.foodChain.text = phyloELement.foodChain;
     foodChainSlider.value = [phyloELement.foodChain integerValue];
@@ -227,12 +226,6 @@
     int process = lrint(sender.value);
     pointColor.backgroundColor = [colorArray objectAtIndex:process];
     self.foodChain.text = [NSString stringWithFormat:@"%d", process];
-    // set the value for point to calculate
-    if (process == 4){ pointValueFoodChain = 7; }
-    else if (process == 3){ pointValueFoodChain = 3; }
-    else if (process == 2){ pointValueFoodChain = 4; }
-    else{ pointValueFoodChain = 2; }
-
 }
 
 #pragma scale
@@ -306,6 +299,12 @@
             
             NSLog(@"p.evolutionaryTree = %@", p.evolutionary);
             
+            
+            // set the value for point to calculate
+            if ([self.foodChain.text isEqualToString:@"4"]){ pointValueFoodChain = 7; }
+            else if ([self.foodChain.text isEqualToString:@"3"]){ pointValueFoodChain = 3; }
+            else if ([self.foodChain.text isEqualToString:@"2"]){ pointValueFoodChain = 4; }
+            else{ pointValueFoodChain = 2; }
             //calculate the points of the point value
             if ([habitatType.text length] > 0 && [terrain.text length] > 0 && [terrain2.text length] > 0)
             {   // no empty textfields
@@ -321,36 +320,32 @@
             else if ([habitatType.text length] == 0 && [terrain.text length] == 0 && [terrain2.text length] == 0)
             {   // all textfields are empty. don't count this part
             }
-            else if ([habitatType.text length] > 0 && [terrain2.text length] == 0 && [terrain.text length] == 0)
+            else if ([habitatType.text length] == 0 && [terrain2.text length] != [terrain.text length])
             {
-                //only one empty textfield
-                pointValueFoodChain += 1;
+                //only one empty textfield && 2 different textfields
             }
-            else if ([terrain.text length] > 0 && [terrain2.text length] == 0 && [habitatType.text length] == 0)
+            else if ([terrain.text length] == 0 && [terrain2.text length] != [habitatType.text length])
             {
-                //only one empty textfield
-                pointValueFoodChain += 1;
+                //only one empty textfield && 2 different textfields
             }
-            else if ([terrain2.text length] > 0 && [habitatType.text length] == 0 && [terrain.text length] == 0)
+            else if ([terrain2.text length] == 0 && [habitatType.text length] !=[terrain.text length])
             {
-                //only one empty textfield
-                pointValueFoodChain += 1;
+                //only one empty textfield && 2 different textfields == 0
             }
             else
             {   // 2 empty textfields
                 if (habitatType.text == terrain.text || habitatType.text == terrain2.text || terrain.text == terrain2.text)
-                {
-                    //1 empty textfield and 2 used textfields which are the same = 0
+                {   //1 empty textfield and 2 used textfields which are the same = 0
                     pointValueFoodChain += 1;
                 }
             }
             
-            if ([habitatType.text length] > 0 && [terrain.text length] > 0 && [terrain2.text length] > 0)
+            if ([climate.text length] > 0 && [climate2.text length] > 0 && [climate3.text length] > 0)
             {   // no empty textfields
-                if (habitatType.text == terrain.text && terrain.text == terrain2.text) {    //all habitats are the same
+                if (climate.text == climate2.text && climate2.text == climate3.text) {    //all habitats are the same
                     pointValueFoodChain += 1;
                 }
-                else if (habitatType.text != terrain.text && habitatType.text != terrain2.text && terrain.text != terrain2.text)
+                else if (climate.text != climate2.text && climate.text != climate3.text && climate2.text != climate3.text)
                 {   // 3 different textfields
                     pointValueFoodChain -= 1;
                 }
@@ -359,20 +354,17 @@
             else if ([climate.text length] == 0 && [climate2.text length] == 0 && [climate3.text length] == 0)
             {   // all textfields are empty. don't count this part
             }
-            else if ([climate.text length] > 0 && [climate2.text length] == 0 && [climate3.text length] == 0)
+            else if ([climate2.text length] == 0 && [climate3.text length] != [climate2.text length])
             {
-                //only one empty textfield
-                pointValueFoodChain += 1;
+                //only one empty textfield && 2 different textfields
             }
-            else if ([climate2.text length] > 0 && [climate.text length] == 0 && [climate3.text length] == 0)
+            else if ([climate3.text length] == 0 && [climate.text length] != [climate2.text length])
             {
-                //only one empty textfield
-                pointValueFoodChain += 1;
+                //only one empty textfield && 2 different textfields
             }
-            else if ([climate3.text length] > 0 && [climate2.text length] == 0 && [climate.text length] == 0)
+            else if ([climate.text length] == 0 && [climate2.text length] != [climate3.text length])
             {
-                //only one empty textfield
-                pointValueFoodChain += 1;
+                //only one empty textfield && 2 different textfields == 0
             }
             else
             {   // 2 empty textfields
@@ -403,7 +395,6 @@
 {
     return [textField resignFirstResponder];
 }
-
 
 - (IBAction)backgroundTap:(id)sender{
     [nameOfCreature resignFirstResponder];

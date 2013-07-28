@@ -82,6 +82,7 @@
 		EDB03D8217777164009B0D55 /* Share.png in Resources */ = {isa = PBXBuildFile; fileRef = EDB03D7E17777164009B0D55 /* Share.png */; };
 		EDB03D8317777164009B0D55 /* Phylodex.png in Resources */ = {isa = PBXBuildFile; fileRef = EDB03D7F17777164009B0D55 /* Phylodex.png */; };
 		EDB03D8417777164009B0D55 /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = EDB03D8017777164009B0D55 /* second.png */; };
+		EDDE42EF17A5BC2900A6DE3A /* Users.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDE42EE17A5BC2900A6DE3A /* Users.m */; };
 		EDEF5DDE17853D5F00ACC287 /* ImageCropper.m in Sources */ = {isa = PBXBuildFile; fileRef = EDEF5DDD17853D5F00ACC287 /* ImageCropper.m */; };
 /* End PBXBuildFile section */
 
@@ -202,6 +203,8 @@
 		EDB03D7E17777164009B0D55 /* Share.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Share.png; sourceTree = "<group>"; };
 		EDB03D7F17777164009B0D55 /* Phylodex.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Phylodex.png; sourceTree = "<group>"; };
 		EDB03D8017777164009B0D55 /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
+		EDDE42ED17A5BC2900A6DE3A /* Users.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Users.h; path = Phylodex/Users.h; sourceTree = "<group>"; };
+		EDDE42EE17A5BC2900A6DE3A /* Users.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Users.m; path = Phylodex/Users.m; sourceTree = "<group>"; };
 		EDEF5DDC17853D5F00ACC287 /* ImageCropper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCropper.h; sourceTree = "<group>"; };
 		EDEF5DDD17853D5F00ACC287 /* ImageCropper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCropper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -339,6 +342,8 @@
 		1FF7E8A41773B1E700215E38 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				EDDE42ED17A5BC2900A6DE3A /* Users.h */,
+				EDDE42EE17A5BC2900A6DE3A /* Users.m */,
 				1F54A6A217A1DB690044AEF6 /* PXDummyUserDatabase.h */,
 				1F54A6A317A1DB6A0044AEF6 /* PXDummyUserDatabase.m */,
 				1F54A69F17A1D6850044AEF6 /* PXDummyUser.h */,
@@ -616,6 +621,7 @@
 				C824E60A17A2105400B7B3DD /* PXDummyModel.m in Sources */,
 				ED7E37F617A33CE000F936E7 /* Photo.m in Sources */,
 				ED7E37F917A33D0800F936E7 /* Phylodex.m in Sources */,
+				EDDE42EF17A5BC2900A6DE3A /* Users.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

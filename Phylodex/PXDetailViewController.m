@@ -23,6 +23,7 @@
     
     int pointValueFoodChain;
     NSArray *habitatArea;
+    NSArray *colorArray;
 }
 @property (nonatomic,assign) BOOL wantHorizontal;
 
@@ -41,6 +42,9 @@
 @synthesize scroller;
 @synthesize scrollerView;
 @synthesize pointColor;
+
+//food chain slider
+@synthesize foodChainSlider, scaleSlider;
 
 //select segment
 @synthesize creature_class, creature_kingdom, creature_phylum;
@@ -167,7 +171,11 @@
     self.scaleNumber.text = phyloELement.scale;
     self.pointValue.text = phyloELement.point;
     
+    colorArray = [NSArray arrayWithObjects:[UIColor yellowColor], [UIColor blackColor], [UIColor greenColor], [UIColor brownColor], [UIColor redColor], nil];
+    self.pointColor.backgroundColor = [colorArray objectAtIndex:[phyloELement.foodChain integerValue]];
     self.foodChain.text = phyloELement.foodChain;
+    foodChainSlider.value = [phyloELement.foodChain integerValue];
+    scaleSlider.value = [phyloELement.scale integerValue];
     
 //    self.displayLabel.hidden = TRUE;    //Please don't delete the displayLabel. If it is not in need, just hide it.
 }
@@ -214,7 +222,7 @@
 #pragma color&food chain number
 - (IBAction)colorSliderChanged:(UISlider *)sender{
     pointColor.backgroundColor = [UIColor yellowColor];
-    NSArray *colorArray = [NSArray arrayWithObjects:[UIColor yellowColor], [UIColor blackColor], [UIColor greenColor], [UIColor brownColor], [UIColor redColor], nil];
+    
     int process = lrint(sender.value);
     pointColor.backgroundColor = [colorArray objectAtIndex:process];
     self.foodChain.text = [NSString stringWithFormat:@"%d", process];

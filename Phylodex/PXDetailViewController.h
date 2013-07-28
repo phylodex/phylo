@@ -59,6 +59,8 @@
 @property (weak, nonatomic) IBOutlet UISegmentedControl *creature_phylum;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *creature_class;
 
+@property (weak, nonatomic) IBOutlet UISlider *foodChainSlider;
+@property (weak, nonatomic) IBOutlet UISlider *scaleSlider;
 
 - (IBAction)colorSliderChanged:(UISlider *)sender;
 - (IBAction)scaleSliderChanged:(UISlider *)sender;

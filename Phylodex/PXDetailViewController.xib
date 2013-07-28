@@ -49,6 +49,7 @@
 						<string key="NSFrameSize">{320, 455}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<bool key="IBUIMultipleTouchEnabled">YES</bool>
@@ -1018,6 +1019,22 @@
 						<reference key="destination" ref="569473241"/>
 					</object>
 					<int key="connectionID">1573</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">foodChainSlider</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="722244403"/>
+					</object>
+					<int key="connectionID">1670</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">scaleSlider</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="53382977"/>
+					</object>
+					<int key="connectionID">1671</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
@@ -3444,7 +3461,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">1669</int>
+			<int key="maxID">1671</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -3485,7 +3502,6 @@
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="artistInfo">UITextField</string>
-						<string key="chain">UISegmentedControl</string>
 						<string key="climate">UITextField</string>
 						<string key="climate2">UITextField</string>
 						<string key="climate3">UITextField</string>
@@ -3495,6 +3511,7 @@
 						<string key="desc">UITextView</string>
 						<string key="displayLabel">UILabel</string>
 						<string key="foodChain">UILabel</string>
+						<string key="foodChainSlider">UISlider</string>
 						<string key="habitatType">UITextField</string>
 						<string key="image">UIImage</string>
 						<string key="imageView">UIImageView</string>
@@ -3502,6 +3519,7 @@
 						<string key="pointColor">UIImageView</string>
 						<string key="pointValue">UILabel</string>
 						<string key="scaleNumber">UILabel</string>
+						<string key="scaleSlider">UISlider</string>
 						<string key="scroller">UIScrollView</string>
 						<string key="scrollerView">UIScrollView</string>
 						<string key="terrain">UITextField</string>
@@ -3511,10 +3529,6 @@
 						<object class="IBToOneOutletInfo" key="artistInfo">
 							<string key="name">artistInfo</string>
 							<string key="candidateClassName">UITextField</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="chain">
-							<string key="name">chain</string>
-							<string key="candidateClassName">UISegmentedControl</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="climate">
 							<string key="name">climate</string>
@@ -3552,6 +3566,10 @@
 							<string key="name">foodChain</string>
 							<string key="candidateClassName">UILabel</string>
 						</object>
+						<object class="IBToOneOutletInfo" key="foodChainSlider">
+							<string key="name">foodChainSlider</string>
+							<string key="candidateClassName">UISlider</string>
+						</object>
 						<object class="IBToOneOutletInfo" key="habitatType">
 							<string key="name">habitatType</string>
 							<string key="candidateClassName">UITextField</string>
@@ -3579,6 +3597,10 @@
 						<object class="IBToOneOutletInfo" key="scaleNumber">
 							<string key="name">scaleNumber</string>
 							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="scaleSlider">
+							<string key="name">scaleSlider</string>
+							<string key="candidateClassName">UISlider</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="scroller">
 							<string key="name">scroller</string>

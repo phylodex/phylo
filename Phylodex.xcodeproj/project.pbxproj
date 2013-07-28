@@ -10,6 +10,7 @@
 		081600A8178E6B2B00C8C904 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 081600A7178E6B2B00C8C904 /* MessageUI.framework */; };
 		082F898B1777763800780AA5 /* Penguin.png in Resources */ = {isa = PBXBuildFile; fileRef = 082F898A1777763800780AA5 /* Penguin.png */; };
 		082F898D177776C600780AA5 /* Housecat.png in Resources */ = {isa = PBXBuildFile; fileRef = 082F898C177776C600780AA5 /* Housecat.png */; };
+		08484D7817A5E763004296A0 /* Accounts.png in Resources */ = {isa = PBXBuildFile; fileRef = 08484D7717A5E763004296A0 /* Accounts.png */; };
 		087AF3A61776E46A004034F3 /* PXNameAndImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 087AF3A51776E46A004034F3 /* PXNameAndImageCell.m */; };
 		087AF3A81776E475004034F3 /* PXNameAndImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 087AF3A71776E475004034F3 /* PXNameAndImageCell.xib */; };
 		08834CC91785F723003472D5 /* Search.png in Resources */ = {isa = PBXBuildFile; fileRef = 08834CC81785F723003472D5 /* Search.png */; };
@@ -100,6 +101,7 @@
 		081600A7178E6B2B00C8C904 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		082F898A1777763800780AA5 /* Penguin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Penguin.png; sourceTree = "<group>"; };
 		082F898C177776C600780AA5 /* Housecat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Housecat.png; sourceTree = "<group>"; };
+		08484D7717A5E763004296A0 /* Accounts.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Accounts.png; sourceTree = "<group>"; };
 		087AF3A41776E46A004034F3 /* PXNameAndImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXNameAndImageCell.h; sourceTree = "<group>"; };
 		087AF3A51776E46A004034F3 /* PXNameAndImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXNameAndImageCell.m; sourceTree = "<group>"; };
 		087AF3A71776E475004034F3 /* PXNameAndImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PXNameAndImageCell.xib; sourceTree = "<group>"; };
@@ -288,6 +290,7 @@
 		1F293CBB1770FBC9009C8DA9 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				08484D7717A5E763004296A0 /* Accounts.png */,
 				EDB03D7D17777164009B0D55 /* Capture.png */,
 				EDB03D7E17777164009B0D55 /* Share.png */,
 				08834CC81785F723003472D5 /* Search.png */,
@@ -555,6 +558,7 @@
 				1FEC8ABE17A4F3E800D00B5B /* PXEditUserViewController.xib in Resources */,
 				1F2740F91793D31800D7D110 /* readme.txt in Resources */,
 				ED7E37FC17A356D200F936E7 /* card_bg.png in Resources */,
+				08484D7817A5E763004296A0 /* Accounts.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

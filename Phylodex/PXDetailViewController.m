@@ -94,7 +94,7 @@
 
     //scroll view
     [scroller setScrollEnabled:YES];
-    [scroller setContentSize:CGSizeMake(320, 1000)];
+    [scroller setContentSize:CGSizeMake(320, 1100)];
     [scroller addSubview:scrollerView];
     
     //separate the habitat part
@@ -171,7 +171,7 @@
     self.scaleNumber.text = phyloELement.scale;
     self.pointValue.text = phyloELement.point;
     
-    colorArray = [NSArray arrayWithObjects:[UIColor yellowColor], [UIColor blackColor], [UIColor greenColor], [UIColor brownColor], [UIColor redColor], nil];
+    colorArray = [NSArray arrayWithObjects:[UIColor yellowColor], [UIColor blackColor], [UIColor greenColor], [UIColor brownColor], [UIColor redColor], nil];   
     self.pointColor.backgroundColor = [colorArray objectAtIndex:[phyloELement.foodChain integerValue]];
     self.foodChain.text = phyloELement.foodChain;
     foodChainSlider.value = [phyloELement.foodChain integerValue];

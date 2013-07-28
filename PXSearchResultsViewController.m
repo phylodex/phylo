@@ -134,6 +134,8 @@
     child.uuid = uuid;
     child.speciesData = result; // pass the dictionary of data on to child
     NSString *title = [result objectForKey:@"Name"];
+//    UIImage *image = [result objectForKey:@"Image"];
+    child.resultDictionary = result;
     
     // 
     child.title = title;

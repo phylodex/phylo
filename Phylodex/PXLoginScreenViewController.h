@@ -25,7 +25,7 @@
 
 - (IBAction)loginButtonWasPressed:(id)sender;
 
-- (void)login;
+//- (void)login;
 
 @end
 

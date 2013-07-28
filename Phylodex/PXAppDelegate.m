@@ -96,7 +96,7 @@
         
         [phylo setName:model.name];
         [phylo setHabitat:@"Earth"];
-        [phylo setTerrains:@"Earth"];
+        [phylo setTerrains:@"Earth, Earth"];
         [phylo setPhoto:photo];
         [phylo setArtist:@"Photographer"];
         [phylo setClimate:@"Warm, Cold, Hot"];

@@ -84,18 +84,57 @@
     
     //scroll view
     [scroller setScrollEnabled:YES];
-    [scroller setContentSize:CGSizeMake(320, 1200)];
+    [scroller setContentSize:CGSizeMake(320, 1000)];
     [scroller addSubview:scrollerView];
     
+    //separate the habitat part
+    self.displayLabel.text = phyloELement.terrains;   //terrains contains 2 parts
+    NSString *hab = [[NSString alloc]initWithFormat:@"%@", self.displayLabel.text];
+    NSLog(@"The original terrain in core data is: %@", self.displayLabel.text);
+    NSLog(@"The tranfered string hab is: %@", hab);
+    NSArray *ha = [hab componentsSeparatedByString:@","];
+    self.habitatType.text = phyloELement.habitat;
+    int counter = 0;
+    for (NSString *i in ha) {   //load habitat and terrain data
+        if (counter == 0) {
+            self.terrain.text = [ha objectAtIndex: 0];
+        }
+        else if (counter == 1) {
+            self.terrain2.text = [ha objectAtIndex: 1];
+        }
+        counter ++;
+    }
     
-    NSString *evol = [[NSString alloc]initWithFormat:@"%@", phyloElement.evolutionary];
-    NSLog(@"The original evolutionary in core data is: %@", phyloElement.evolutionary);
+    //separate the climate part
+    self.displayLabel.text = phyloELement.climate;   //terrains contains 2 parts
+    NSString *clim = [[NSString alloc]initWithFormat:@"%@", self.displayLabel.text];
+    NSLog(@"The original climate in core data is: %@", self.displayLabel.text);
+    NSLog(@"The tranfered string hab is: %@", clim);
+    NSArray *cl = [clim componentsSeparatedByString:@","];
+    counter = 0;
+    for (NSString *s in cl) {   //load the climate data
+        if (counter == 0) {
+            self.climate.text = [cl objectAtIndex: 0];
+        }
+        if (counter == 1) {
+            self.climate2.text = [cl objectAtIndex: 1];
+        }
+        if (counter == 2) {
+            self.climate3.text = [cl objectAtIndex: 2];
+        }
+        counter ++;
+    }
+    
+    //separate the evolutionary string
+    self.displayLabel.text = phyloELement.evolutionary;
+    NSString *evol = [[NSString alloc]initWithFormat:@"%@", self.displayLabel.text];
+    NSLog(@"The original evolutionary in core data is: %@", self.displayLabel.text);
     NSLog(@"The tranfered string evol is: %@", evol);
-    NSArray *arr = [evol componentsSeparatedByString:@","];// HOW TO SEPARATE 
+    NSArray *arr = [evol componentsSeparatedByString:@","];
     for (NSString *i in arr) {
         NSLog(@"the value in evolutionary tree is: %@", i);
         //set default value to UISegmentControl
-        //From Ethan's code
+        // I just copy  Ethan's code and delete the first line of variables. I don't know why it does not work
         if ([i isEqualToString: @"Animalia"]){ creature_kingdom.selectedSegmentIndex = 0;}
         if ([i isEqualToString:@"Plantae"]){ creature_kingdom.selectedSegmentIndex = 1;}
         if ([i isEqualToString:@"Fungi"]){ creature_kingdom.selectedSegmentIndex = 2;}
@@ -115,10 +154,7 @@
     //creature images
     imageView.image = self.image;
     //load data
-    self.nameOfCreature.text = phyloELement.name;
-    self.habitatType.text = phyloELement.habitat;
-    self.terrain.text = phyloELement.terrains;   //terrain = habitat
-    self.climate.text = phyloElement.climate;    
+    self.nameOfCreature.text = phyloELement.name; 
     self.artistInfo.text = phyloELement.artist;
     self.displayLabel.text = phyloELement.evolutionary;
     self.desc.text = phyloELement.desc;

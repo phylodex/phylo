@@ -247,16 +247,92 @@
             self.displayLabel.text = p.evolutionary;
             
             NSLog(@"p.evolutionaryTree = %@", p.evolutionary);
+            
+            //calculate the points of the point value
+            if ([habitatType.text length] > 0 && [terrain.text length] > 0 && [terrain2.text length] > 0)
+            {   // no empty textfields
+                if (habitatType.text == terrain.text && terrain.text == terrain2.text) {    //all habitats are the same
+                    pointValueFoodChain += 1;
+                }
+                else if (habitatType.text != terrain.text && habitatType.text != terrain2.text && terrain.text != terrain2.text)
+                {   // 3 different textfields
+                    pointValueFoodChain -= 1;
+                }
+
+            }
+            else if ([habitatType.text length] == 0 && [terrain.text length] == 0 && [terrain2.text length] == 0)
+            {   // all textfields are empty. don't count this part
+            }
+            else if ([habitatType.text length] > 0 && [terrain2.text length] == 0 && [terrain.text length] == 0)
+            {
+                //only one empty textfield
+                pointValueFoodChain += 1;
+            }
+            else if ([terrain.text length] > 0 && [terrain2.text length] == 0 && [habitatType.text length] == 0)
+            {
+                //only one empty textfield
+                pointValueFoodChain += 1;
+            }
+            else if ([terrain2.text length] > 0 && [habitatType.text length] == 0 && [terrain.text length] == 0)
+            {
+                //only one empty textfield
+                pointValueFoodChain += 1;
+            }
+            else
+            {   // 2 empty textfields
+                if (habitatType.text == terrain.text || habitatType.text == terrain2.text || terrain.text == terrain2.text)
+                {
+                    //1 empty textfield and 2 used textfields which are the same = 0
+                    pointValueFoodChain += 1;
+                }
+            }
+            
+            if ([habitatType.text length] > 0 && [terrain.text length] > 0 && [terrain2.text length] > 0)
+            {   // no empty textfields
+                if (habitatType.text == terrain.text && terrain.text == terrain2.text) {    //all habitats are the same
+                    pointValueFoodChain += 1;
+                }
+                else if (habitatType.text != terrain.text && habitatType.text != terrain2.text && terrain.text != terrain2.text)
+                {   // 3 different textfields
+                    pointValueFoodChain -= 1;
+                }
+                
+            }
+            else if ([climate.text length] == 0 && [climate2.text length] == 0 && [climate3.text length] == 0)
+            {   // all textfields are empty. don't count this part
+            }
+            else if ([climate.text length] > 0 && [climate2.text length] == 0 && [climate3.text length] == 0)
+            {
+                //only one empty textfield
+                pointValueFoodChain += 1;
+            }
+            else if ([climate2.text length] > 0 && [climate.text length] == 0 && [climate3.text length] == 0)
+            {
+                //only one empty textfield
+                pointValueFoodChain += 1;
+            }
+            else if ([climate3.text length] > 0 && [climate2.text length] == 0 && [climate.text length] == 0)
+            {
+                //only one empty textfield
+                pointValueFoodChain += 1;
+            }
+            else
+            {   // 2 empty textfields
+                if (climate.text == climate2.text || climate3.text == climate2.text || climate.text == climate3.text)
+                {
+                    //1 empty textfield and 2 used textfields which are the same = 0
+                    pointValueFoodChain += 1;
+                }
+            }
+            
+            self.pointValue.text = [NSString stringWithFormat:@"%i", pointValueFoodChain];
+            p.point = self.pointValue.text;
         }
 
         if(![context save:&errorFetch])
         {
             //NSLog(@"Failed to save - error: %@", [error localizedDescription]);
         }
-        
-        
-        self.pointValue.text = [NSString stringWithFormat:@"%i", pointValueFoodChain];
-        
     }
     else
     {

@@ -13,29 +13,46 @@
 @end
 
 @implementation PXCameraViewController
-
+@synthesize libraryButton;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         
         
-        //        [self setSourceType:UIImagePickerControllerSourceTypeCamera];
+        //  [self setSourceType:UIImagePickerControllerSourceTypeCamera];
         //        [self setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
         [self setDelegate:self];
         
         self.title = @"Capture";
         self.tabBarItem.image = [UIImage imageNamed:@"Capture"];
         
+        
+        
     }
     return self;
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    if (self.sourceType == UIImagePickerControllerSourceTypeCamera)
+    {
+        
+        libraryButton.hidden = NO;
+    }
+    if(self.sourceType == UIImagePickerControllerSourceTypePhotoLibrary){
+        if(libraryButton!=nil)
+            libraryButton.hidden = YES;
+    }
+    
+    
+}
 - (void)viewDidLoad
 {
     // build error or source error, please comment out this
     
     //&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+    
     if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
     {
         
@@ -45,12 +62,26 @@
     {
         [self setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
     }
+    
     //&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
     
     //[self setSourceType:UIImagePickerControllerSourceTypeCamera];
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    libraryButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [libraryButton addTarget:self
+                      action:@selector(showLibaray:)
+            forControlEvents:UIControlEventTouchDown];
+    [libraryButton setTitle:@"Library" forState:UIControlStateNormal];
+    libraryButton.frame = CGRectMake(10, 10, 80, 40.0);
+    [self.view addSubview:libraryButton];
+    
+    
+}
+
+-(void) showCamera{
+    [self setSourceType:UIImagePickerControllerSourceTypeCamera];
     
 }
 
@@ -84,7 +115,7 @@
     Phylodex *phylo = (Phylodex *)[NSEntityDescription insertNewObjectForEntityForName:@"Phylodex" inManagedObjectContext:managedObjectContext];
     Photo *photo = (Photo *)[NSEntityDescription insertNewObjectForEntityForName:@"Photo" inManagedObjectContext:managedObjectContext];
     
-//    [phylo setDate:[NSDate date]]; // Should be timestamp, but this will be constant for simulator.
+    //    [phylo setDate:[NSDate date]]; // Should be timestamp, but this will be constant for simulator.
     [phylo setName:model.name];
     [phylo setHabitat:@"Earth"];
     
@@ -113,7 +144,7 @@
     
     detailViewController.image = model.image;
     //    detailViewController.nameTextField.text = model.name;
-
+    
     NSString *title = @"New";
     detailViewController.title = title;
     NSError *error = nil;
@@ -136,8 +167,16 @@
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
     
     [picker dismissViewControllerAnimated:NO completion:NULL];
+    [self setSourceType:UIImagePickerControllerSourceTypeCamera];
     PXAppDelegate *appDelegate = (PXAppDelegate *)[[UIApplication sharedApplication] delegate];
     [appDelegate.rootController setSelectedIndex:0];
     
+}
+
+
+
+- (void)showLibaray:(id)sender {
+    [self setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+    [libraryButton setHidden:YES];
 }
 @end

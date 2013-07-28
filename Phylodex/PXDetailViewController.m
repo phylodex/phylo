@@ -32,6 +32,8 @@
 
 @synthesize phyloELement, photoElement;
 
+@synthesize window;
+
 @synthesize saveButton;
 @synthesize imageView;
 @synthesize image;
@@ -82,6 +84,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    //set background
+    scroller.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"card_bg.png"]];
+    //TO-DO: IMPROVE THE BACKGROUND
+    //TO-DO: CHANGE THE PHOTO OF POINTS AND FOOD CHAIN
+    //TO-DO: BACKGROUND TAP
+    
     //scroll view
     [scroller setScrollEnabled:YES];
     [scroller setContentSize:CGSizeMake(320, 1000)];
@@ -92,7 +100,7 @@
     NSString *hab = [[NSString alloc]initWithFormat:@"%@", self.displayLabel.text];
     NSLog(@"The original terrain in core data is: %@", self.displayLabel.text);
     NSLog(@"The tranfered string hab is: %@", hab);
-    NSArray *ha = [hab componentsSeparatedByString:@","];
+    NSArray *ha = [hab componentsSeparatedByString:@", "];
     self.habitatType.text = phyloELement.habitat;
     int counter = 0;
     for (NSString *i in ha) {   //load habitat and terrain data
@@ -110,7 +118,7 @@
     NSString *clim = [[NSString alloc]initWithFormat:@"%@", self.displayLabel.text];
     NSLog(@"The original climate in core data is: %@", self.displayLabel.text);
     NSLog(@"The tranfered string hab is: %@", clim);
-    NSArray *cl = [clim componentsSeparatedByString:@","];
+    NSArray *cl = [clim componentsSeparatedByString:@", "];
     counter = 0;
     for (NSString *s in cl) {   //load the climate data
         if (counter == 0) {
@@ -130,11 +138,11 @@
     NSString *evol = [[NSString alloc]initWithFormat:@"%@", self.displayLabel.text];
     NSLog(@"The original evolutionary in core data is: %@", self.displayLabel.text);
     NSLog(@"The tranfered string evol is: %@", evol);
-    NSArray *arr = [evol componentsSeparatedByString:@","];
+    NSArray *arr = [evol componentsSeparatedByString:@", "];
     for (NSString *i in arr) {
         NSLog(@"the value in evolutionary tree is: %@", i);
         //set default value to UISegmentControl
-        // I just copy  Ethan's code and delete the first line of variables. I don't know why it does not work
+        // From Ethan's code
         if ([i isEqualToString: @"Animalia"]){ creature_kingdom.selectedSegmentIndex = 0;}
         if ([i isEqualToString:@"Plantae"]){ creature_kingdom.selectedSegmentIndex = 1;}
         if ([i isEqualToString:@"Fungi"]){ creature_kingdom.selectedSegmentIndex = 2;}
@@ -158,6 +166,9 @@
     self.artistInfo.text = phyloELement.artist;
     self.displayLabel.text = phyloELement.evolutionary;
     self.desc.text = phyloELement.desc;
+    self.scaleNumber.text = phyloELement.scale;
+    self.pointValue.text = phyloELement.point;
+//    self.displayLabel.hidden = TRUE;    //Please don't delete the displayLabel. If it is not in need, just hide it.
 }
 
 - (IBAction)cropImage:(id)sender {

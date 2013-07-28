@@ -30,6 +30,8 @@
 
 @property (nonatomic, assign)id <PXDetailViewControllerDelegate>delegate;
 
+@property (strong, nonatomic) UIWindow *window;
+
 @property (nonatomic, retain) IBOutlet UIImageView *imageView;
 @property (retain, nonatomic) IBOutlet UIImage *image;
 @property (nonatomic, retain) UIBarButtonItem *saveButton;

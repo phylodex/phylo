@@ -48,6 +48,8 @@
 						<int key="NSvFlags">274</int>
 						<string key="NSFrameSize">{320, 455}</string>
 						<reference key="NSSuperview" ref="191373211"/>
+						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<bool key="IBUIMultipleTouchEnabled">YES</bool>
@@ -56,8 +58,9 @@
 				</array>
 				<string key="NSFrame">{{0, 64}, {320, 455}}</string>
 				<reference key="NSSuperview"/>
+				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="972403552"/>
-				<object class="NSColor" key="IBUIBackgroundColor" id="825984885">
+				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">3</int>
 					<bytes key="NSWhite">MC42NjY2NjY2NjY3AA</bytes>
 				</object>
@@ -95,7 +98,7 @@
 						<string key="NSFrame">{{14, 49}, {132, 30}}</string>
 						<reference key="NSSuperview" ref="373620333"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="172717840"/>
+						<reference key="NSNextKeyView" ref="756814544"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -220,6 +223,7 @@
 						<string key="NSFrame">{{19, 918}, {280, 44}}</string>
 						<reference key="NSSuperview" ref="373620333"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -267,7 +271,7 @@
 						<string key="NSFrame">{{20, 20}, {51, 21}}</string>
 						<reference key="NSSuperview" ref="373620333"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="756814544"/>
+						<reference key="NSNextKeyView" ref="172717840"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -545,7 +549,7 @@
 						<string key="NSFrame">{{275, 20}, {10, 21}}</string>
 						<reference key="NSSuperview" ref="373620333"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="797284941"/>
+						<reference key="NSNextKeyView" ref="734035069"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -607,7 +611,7 @@
 						<string key="NSFrame">{{225, 52}, {83, 23}}</string>
 						<reference key="NSSuperview" ref="373620333"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="734035069"/>
+						<reference key="NSNextKeyView" ref="797284941"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -841,7 +845,6 @@
 				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="54057453"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
-				<reference key="IBUIBackgroundColor" ref="825984885"/>
 				<bool key="IBUIClipsSubviews">YES</bool>
 				<bool key="IBUIMultipleTouchEnabled">YES</bool>
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -3085,16 +3088,6 @@
 						<reference key="parent" ref="373620333"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">1612</int>
-						<reference key="object" ref="908759584"/>
-						<reference key="parent" ref="373620333"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">1514</int>
-						<reference key="object" ref="366161113"/>
-						<reference key="parent" ref="599167756"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">1433</int>
 						<reference key="object" ref="901943099"/>
 						<reference key="parent" ref="895480947"/>
@@ -3120,11 +3113,6 @@
 						<reference key="parent" ref="373620333"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">1510</int>
-						<reference key="object" ref="431468545"/>
-						<reference key="parent" ref="373620333"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">1624</int>
 						<reference key="object" ref="320689845"/>
 						<reference key="parent" ref="373620333"/>
@@ -3145,13 +3133,28 @@
 						<reference key="parent" ref="373620333"/>
 					</object>
 					<object class="IBObjectRecord">
+						<int key="objectID">1630</int>
+						<reference key="object" ref="301603111"/>
+						<reference key="parent" ref="373620333"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">1514</int>
+						<reference key="object" ref="366161113"/>
+						<reference key="parent" ref="599167756"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">1510</int>
+						<reference key="object" ref="431468545"/>
+						<reference key="parent" ref="373620333"/>
+					</object>
+					<object class="IBObjectRecord">
 						<int key="objectID">1629</int>
 						<reference key="object" ref="478235953"/>
 						<reference key="parent" ref="373620333"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">1630</int>
-						<reference key="object" ref="301603111"/>
+						<int key="objectID">1612</int>
+						<reference key="object" ref="908759584"/>
 						<reference key="parent" ref="373620333"/>
 					</object>
 				</array>
@@ -3442,7 +3445,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">1630</int>
+			<int key="maxID">1658</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -3483,6 +3486,7 @@
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="artistInfo">UITextField</string>
+						<string key="chainNum">UISegmentedControl</string>
 						<string key="climate">UITextField</string>
 						<string key="climate2">UITextField</string>
 						<string key="climate3">UITextField</string>
@@ -3508,6 +3512,10 @@
 						<object class="IBToOneOutletInfo" key="artistInfo">
 							<string key="name">artistInfo</string>
 							<string key="candidateClassName">UITextField</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="chainNum">
+							<string key="name">chainNum</string>
+							<string key="candidateClassName">UISegmentedControl</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="climate">
 							<string key="name">climate</string>

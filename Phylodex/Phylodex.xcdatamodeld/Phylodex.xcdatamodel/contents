@@ -18,9 +18,19 @@
         <attribute name="terrains" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="thumbnail" optional="YES" attributeType="Transformable" syncable="YES"/>
         <relationship name="photo" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Photo" inverseName="phylodex" inverseEntity="Photo" syncable="YES"/>
+        <relationship name="user" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Users" inverseName="phylodex" inverseEntity="Users" syncable="YES"/>
+    </entity>
+    <entity name="Users" representedClassName="Users" syncable="YES">
+        <attribute name="fullName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="role" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userID" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="userName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="phylodex" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Phylodex" inverseName="user" inverseEntity="Phylodex" syncable="YES"/>
     </entity>
     <elements>
         <element name="Photo" positionX="387" positionY="264" width="128" height="75"/>
-        <element name="Phylodex" positionX="160" positionY="192" width="128" height="240"/>
+        <element name="Phylodex" positionX="160" positionY="192" width="128" height="255"/>
+        <element name="Users" positionX="-45" positionY="198" width="128" height="135"/>
     </elements>
 </model>

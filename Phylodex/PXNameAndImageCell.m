@@ -69,7 +69,7 @@
         // !!! It's important to have this BEFORE just showing the Edit Control because the edit control applies to both cases.!!!
         // Do something...
         NSLog(@"Need to indent the ");
-        NSLog(_nameValue.text);
+        NSLog(@"%@", _nameValue.text);
         _imageSpacer.constant = -80;
         
     } else if (state & UITableViewCellStateShowingEditControlMask) {
@@ -78,7 +78,7 @@
         // When the cell goes into edit mode and Shows-the-Edit-Control (-)
         // Do something...
         NSLog(@"Need to indent the ");
-        NSLog(_nameValue.text);
+        NSLog(@"%@", _nameValue.text);
         _nameSpacer.constant = 40;
         _speciesSpacer.constant = 40;
         _imageSpacer.constant = 0;

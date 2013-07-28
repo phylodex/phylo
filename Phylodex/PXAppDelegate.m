@@ -7,8 +7,12 @@
 //
 
 #import "PXAppDelegate.h"
+#import "PXNetworkManager.h"
 
 @implementation PXAppDelegate
+{
+    char _networkOperationCountDummy;
+}
 
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;
@@ -16,6 +20,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    // set the observed class
+    [[PXNetworkManager sharedInstance] addObserver:self forKeyPath:@"networkOperationCount" options:NSKeyValueObservingOptionInitial context:&self->_networkOperationCountDummy];
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
@@ -27,14 +34,29 @@
     // set up the modal view controllers
     PXRootViewController *phylodex = [[PXRootViewController alloc] init];
     PXWebSearchViewController *webSearch = [[PXWebSearchViewController alloc] init];
+    PXCameraViewController *capture = [[PXCameraViewController alloc]init];
+    PXLoginAreaViewController *user = [[PXLoginAreaViewController alloc] init];
     // to-do: collection view
     //PXShareViewController *share = [[PXShareViewController alloc] init];
+    UICollectionViewFlowLayout *aFlowLayout = [[UICollectionViewFlowLayout alloc] init];
+    [aFlowLayout setItemSize:CGSizeMake(90, 90)];
+    [aFlowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
+    aFlowLayout.sectionInset = UIEdgeInsetsMake(10.0,10.0,10.0,10.0);
+    PXShareViewController *share = [[PXShareViewController alloc]initWithCollectionViewLayout:aFlowLayout];
+    
+    
     
     // add the modes to the controllers array
     UINavigationController *phylodexNav = [[UINavigationController alloc] initWithRootViewController:phylodex];
     [controllers addObject:phylodexNav];
+    [controllers addObject:capture];
     UINavigationController *webSearchNav = [[UINavigationController alloc] initWithRootViewController:webSearch];
     [controllers addObject:webSearchNav];
+    // to-do: make a collection view object
+    UINavigationController *shareNav = [[UINavigationController alloc] initWithRootViewController:share];
+    [controllers addObject:shareNav];
+    UINavigationController *userNav = [[UINavigationController alloc] initWithRootViewController:user];
+    [controllers addObject:userNav];
     
     NSManagedObjectContext *context = [self managedObjectContext];
 	if (!context) {
@@ -42,9 +64,6 @@
 	}
 	phylodex.managedObjectContext = context;
     
-//    to-do: make a collection view object
-//    UINavigationController *shareNav = [[UINavigationController alloc] initWithRootViewController:share];
-//    [controllers addObject:shareNav];
     
     // set up the tab bar controller
     _rootController = [[UITabBarController alloc] init];
@@ -73,9 +92,10 @@
         Phylodex *phylo = (Phylodex *)[NSEntityDescription insertNewObjectForEntityForName:@"Phylodex" inManagedObjectContext:_managedObjectContext];
         Photo *photo = (Photo *)[NSEntityDescription insertNewObjectForEntityForName:@"Photo" inManagedObjectContext:_managedObjectContext];
         
-        [phylo setDate:[NSDate date]]; // Should be timestamp, but this will be constant for simulator.
         [phylo setName:model.name];
         [phylo setHabitat:@"Earth"];
+        [phylo setPhoto:photo];
+        [phylo setArtist:@"Photographer"];
         
         // set the image
         UIImage *selectedImage = [UIImage imageNamed:[NSString stringWithFormat:@"%@%@", model.name, @".png"]];
@@ -211,7 +231,11 @@
     NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"Phylodex.sqlite"];
     
     // FOR DEVELOPMENT PURPOSES: DELETES THE STORE
-    [[NSFileManager defaultManager] removeItemAtURL:storeURL error:nil];
+    // this is sometimes needed to flush out old stores, to remove conflicts, because sometimes
+    // there is a compiler error when an old store exists
+    // remember to re-comment the line and re-compile after deleting the store so its not
+    // deleted everytime the program runs from being closed
+//    [[NSFileManager defaultManager] removeItemAtURL:storeURL error:nil];
     
     NSError *error = nil;
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
@@ -252,6 +276,18 @@
 - (NSURL *)applicationDocumentsDirectory
 {
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+}
+
+#pragma mark - PXNetworkManager Key-value observer handler
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    // if there is any ongoing network connections set the network activity indicator in UI
+    if (context == &self->_networkOperationCountDummy) {
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = ([PXNetworkManager sharedInstance].networkOperationCount != 0);
+    } else {
+        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+    }
 }
 
 @end

@@ -2,14 +2,26 @@
 //  PXShareViewController.h
 //  Phylodex
 //
-//  Description: Share view to share images (stub now, and not used)
+//  Description: Handles the sharing of user images by email
 //
-//  Created by Steve King on 2013-06-18.
+//  Created by ParkaPal on 2013-07-04.
 //  Copyright (c) 2013 Phylosoft. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
+#import <MessageUI/MessageUI.h>
+#import "PXDummyCollection.h"
+#import "Phylodex.h"
+#import "Photo.h"
 
-@interface PXShareViewController : UICollectionViewController
+
+@interface PXShareViewController : UICollectionViewController <MFMailComposeViewControllerDelegate>
+{
+    NSManagedObjectContext *managedObjectContext;
+}
+
+@property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
+
+@property (nonatomic, retain)NSMutableArray *lifeforms; // list of animals
 
 @end

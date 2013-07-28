@@ -8,13 +8,37 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Phylodex/PXAppDelegate.m"
-         timestampString = "394352251.48575"
+         timestampString = "396485967.861246"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "59"
-         endingLineNumber = "59"
+         startingLineNumber = "69"
+         endingLineNumber = "69"
          landmarkName = "-application:didFinishLaunchingWithOptions:"
          landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "PXDownloadManager.m"
+         timestampString = "395561838.17023"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "346"
+         endingLineNumber = "346"
+         landmarkName = "-connection:didFailWithError:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Phylodex/PXUserSpaceViewController.m"
+         timestampString = "396684657.032214"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "96"
+         endingLineNumber = "96">
       </FileBreakpoint>
    </FileBreakpoints>
 </Bucket>

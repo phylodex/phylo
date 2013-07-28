@@ -45,8 +45,6 @@
 		1F293CF1177101DC009C8DA9 /* PXRootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F293CEF177101DC009C8DA9 /* PXRootViewController.xib */; };
 		1F2F7D48177903DA002D2CB4 /* PXDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F2F7D46177903DA002D2CB4 /* PXDetailViewController.m */; };
 		1F2F7D49177903DA002D2CB4 /* PXDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F2F7D47177903DA002D2CB4 /* PXDetailViewController.xib */; };
-		1F377E791780E9AD00A770BA /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F377E781780E9AD00A770BA /* Photo.m */; };
-		1F377E7F1780F0EF00A770BA /* Phylodex.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F377E7E1780F0EE00A770BA /* Phylodex.m */; };
 		1F54A69E17A1D5790044AEF6 /* PXUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F54A69D17A1D5790044AEF6 /* PXUserManager.m */; };
 		1F54A6A117A1D6850044AEF6 /* PXDummyUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F54A6A017A1D6850044AEF6 /* PXDummyUser.m */; };
 		1F54A6A417A1DB6A0044AEF6 /* PXDummyUserDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F54A6A317A1DB6A0044AEF6 /* PXDummyUserDatabase.m */; };
@@ -148,10 +146,6 @@
 		1F2F7D45177903DA002D2CB4 /* PXDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXDetailViewController.h; sourceTree = "<group>"; };
 		1F2F7D46177903DA002D2CB4 /* PXDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXDetailViewController.m; sourceTree = "<group>"; };
 		1F2F7D47177903DA002D2CB4 /* PXDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PXDetailViewController.xib; sourceTree = "<group>"; };
-		1F377E771780E9AD00A770BA /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Photo.h; path = Phylodex/Photo.h; sourceTree = "<group>"; };
-		1F377E781780E9AD00A770BA /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Photo.m; path = Phylodex/Photo.m; sourceTree = "<group>"; };
-		1F377E7D1780F0EE00A770BA /* Phylodex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Phylodex.h; path = Phylodex/Phylodex.h; sourceTree = "<group>"; };
-		1F377E7E1780F0EE00A770BA /* Phylodex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Phylodex.m; path = Phylodex/Phylodex.m; sourceTree = "<group>"; };
 		1F54A69C17A1D5790044AEF6 /* PXUserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXUserManager.h; sourceTree = "<group>"; };
 		1F54A69D17A1D5790044AEF6 /* PXUserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXUserManager.m; sourceTree = "<group>"; };
 		1F54A69F17A1D6850044AEF6 /* PXDummyUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXDummyUser.h; sourceTree = "<group>"; };
@@ -351,7 +345,6 @@
 				1F54A6A017A1D6850044AEF6 /* PXDummyUser.m */,
 				1F54A69C17A1D5790044AEF6 /* PXUserManager.h */,
 				1F54A69D17A1D5790044AEF6 /* PXUserManager.m */,
-				1FE8DCFF178A1E6F00ECFF13 /* PXDownloadManager.h */,
 				ED7E37F717A33D0800F936E7 /* Phylodex.h */,
 				ED7E37F817A33D0800F936E7 /* Phylodex.m */,
 				ED7E37F417A33CE000F936E7 /* Photo.h */,
@@ -550,7 +543,6 @@
 				B6A33E1C177CB15A00978241 /* Frog.png in Resources */,
 				08A10B75177CAEAC00AB0609 /* Dog.png in Resources */,
 				1FAA58F1177CB6120072CF9A /* Horse.png in Resources */,
-				08BECAE11793A32C0068176C /* PXDetailEdit.xib in Resources */,
 				1F2740F91793D31800D7D110 /* readme.txt in Resources */,
 				1F54A6AC17A1EF410044AEF6 /* PXLoginScreenViewController.xib in Resources */,
 				1FEC8AAA17A480AE00D00B5B /* PXUserSpaceViewController.xib in Resources */,

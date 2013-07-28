@@ -48,10 +48,23 @@
 		1F2F7D49177903DA002D2CB4 /* PXDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F2F7D47177903DA002D2CB4 /* PXDetailViewController.xib */; };
 		1F377E791780E9AD00A770BA /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F377E781780E9AD00A770BA /* Photo.m */; };
 		1F377E7F1780F0EF00A770BA /* Phylodex.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F377E7E1780F0EE00A770BA /* Phylodex.m */; };
+		1F54A69E17A1D5790044AEF6 /* PXUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F54A69D17A1D5790044AEF6 /* PXUserManager.m */; };
+		1F54A6A117A1D6850044AEF6 /* PXDummyUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F54A6A017A1D6850044AEF6 /* PXDummyUser.m */; };
+		1F54A6A417A1DB6A0044AEF6 /* PXDummyUserDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F54A6A317A1DB6A0044AEF6 /* PXDummyUserDatabase.m */; };
+		1F54A6A717A1DF340044AEF6 /* PXLoginAreaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F54A6A617A1DF340044AEF6 /* PXLoginAreaViewController.m */; };
+		1F54A6AB17A1EF410044AEF6 /* PXLoginScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F54A6A917A1EF400044AEF6 /* PXLoginScreenViewController.m */; };
+		1F54A6AC17A1EF410044AEF6 /* PXLoginScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F54A6AA17A1EF400044AEF6 /* PXLoginScreenViewController.xib */; };
 		1FAA58F1177CB6120072CF9A /* Horse.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FAA58F0177CB6120072CF9A /* Horse.png */; };
 		1FB8C31117783E6000E51694 /* coding_standards.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1FB8C31017783E6000E51694 /* coding_standards.txt */; };
 		1FE8DCFE178A18C200ECFF13 /* PXNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE8DCFD178A18C200ECFF13 /* PXNetworkManager.m */; };
 		1FE8DD01178A1E6F00ECFF13 /* PXDownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE8DD00178A1E6F00ECFF13 /* PXDownloadManager.m */; };
+		1FEC8AA917A480AE00D00B5B /* PXUserSpaceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FEC8AA717A480AD00D00B5B /* PXUserSpaceViewController.m */; };
+		1FEC8AAA17A480AE00D00B5B /* PXUserSpaceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FEC8AA817A480AD00D00B5B /* PXUserSpaceViewController.xib */; };
+		1FEC8AAD17A4ACAE00D00B5B /* PXManageUsersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FEC8AAC17A4ACAE00D00B5B /* PXManageUsersViewController.m */; };
+		1FEC8AB117A4B72100D00B5B /* PXNewUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FEC8AAF17A4B72100D00B5B /* PXNewUserViewController.m */; };
+		1FEC8AB217A4B72100D00B5B /* PXNewUserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FEC8AB017A4B72100D00B5B /* PXNewUserViewController.xib */; };
+		1FEC8ABD17A4F3E800D00B5B /* PXEditUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FEC8ABB17A4F3E700D00B5B /* PXEditUserViewController.m */; };
+		1FEC8ABE17A4F3E800D00B5B /* PXEditUserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FEC8ABC17A4F3E800D00B5B /* PXEditUserViewController.xib */; };
 		1FEF45B51773C3C900B1E0D6 /* Lion.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FEF45B41773C3C900B1E0D6 /* Lion.png */; };
 		1FF7E89B1773ABF800215E38 /* PXDummyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF7E89A1773ABF800215E38 /* PXDummyModel.m */; };
 		1FF7E89E1773AD0100215E38 /* PXDummyCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF7E89D1773AD0100215E38 /* PXDummyCollection.m */; };
@@ -143,12 +156,34 @@
 		1F377E781780E9AD00A770BA /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Photo.m; path = Phylodex/Photo.m; sourceTree = "<group>"; };
 		1F377E7D1780F0EE00A770BA /* Phylodex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Phylodex.h; path = Phylodex/Phylodex.h; sourceTree = "<group>"; };
 		1F377E7E1780F0EE00A770BA /* Phylodex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Phylodex.m; path = Phylodex/Phylodex.m; sourceTree = "<group>"; };
+		1F54A69C17A1D5790044AEF6 /* PXUserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXUserManager.h; sourceTree = "<group>"; };
+		1F54A69D17A1D5790044AEF6 /* PXUserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXUserManager.m; sourceTree = "<group>"; };
+		1F54A69F17A1D6850044AEF6 /* PXDummyUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXDummyUser.h; sourceTree = "<group>"; };
+		1F54A6A017A1D6850044AEF6 /* PXDummyUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXDummyUser.m; sourceTree = "<group>"; };
+		1F54A6A217A1DB690044AEF6 /* PXDummyUserDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXDummyUserDatabase.h; sourceTree = "<group>"; };
+		1F54A6A317A1DB6A0044AEF6 /* PXDummyUserDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXDummyUserDatabase.m; sourceTree = "<group>"; };
+		1F54A6A517A1DF340044AEF6 /* PXLoginAreaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXLoginAreaViewController.h; sourceTree = "<group>"; };
+		1F54A6A617A1DF340044AEF6 /* PXLoginAreaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXLoginAreaViewController.m; sourceTree = "<group>"; };
+		1F54A6A817A1EF400044AEF6 /* PXLoginScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXLoginScreenViewController.h; sourceTree = "<group>"; };
+		1F54A6A917A1EF400044AEF6 /* PXLoginScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXLoginScreenViewController.m; sourceTree = "<group>"; };
+		1F54A6AA17A1EF400044AEF6 /* PXLoginScreenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PXLoginScreenViewController.xib; sourceTree = "<group>"; };
 		1FAA58F0177CB6120072CF9A /* Horse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Horse.png; sourceTree = "<group>"; };
 		1FB8C31017783E6000E51694 /* coding_standards.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = coding_standards.txt; sourceTree = "<group>"; };
 		1FE8DCFC178A18C200ECFF13 /* PXNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXNetworkManager.h; sourceTree = "<group>"; };
 		1FE8DCFD178A18C200ECFF13 /* PXNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXNetworkManager.m; sourceTree = "<group>"; };
 		1FE8DCFF178A1E6F00ECFF13 /* PXDownloadManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXDownloadManager.h; sourceTree = "<group>"; };
 		1FE8DD00178A1E6F00ECFF13 /* PXDownloadManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXDownloadManager.m; sourceTree = "<group>"; };
+		1FEC8AA617A480AD00D00B5B /* PXUserSpaceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXUserSpaceViewController.h; sourceTree = "<group>"; };
+		1FEC8AA717A480AD00D00B5B /* PXUserSpaceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXUserSpaceViewController.m; sourceTree = "<group>"; };
+		1FEC8AA817A480AD00D00B5B /* PXUserSpaceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PXUserSpaceViewController.xib; sourceTree = "<group>"; };
+		1FEC8AAB17A4ACAD00D00B5B /* PXManageUsersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXManageUsersViewController.h; sourceTree = "<group>"; };
+		1FEC8AAC17A4ACAE00D00B5B /* PXManageUsersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXManageUsersViewController.m; sourceTree = "<group>"; };
+		1FEC8AAE17A4B72100D00B5B /* PXNewUserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXNewUserViewController.h; sourceTree = "<group>"; };
+		1FEC8AAF17A4B72100D00B5B /* PXNewUserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXNewUserViewController.m; sourceTree = "<group>"; };
+		1FEC8AB017A4B72100D00B5B /* PXNewUserViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PXNewUserViewController.xib; sourceTree = "<group>"; };
+		1FEC8ABA17A4F3E700D00B5B /* PXEditUserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXEditUserViewController.h; sourceTree = "<group>"; };
+		1FEC8ABB17A4F3E700D00B5B /* PXEditUserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXEditUserViewController.m; sourceTree = "<group>"; };
+		1FEC8ABC17A4F3E800D00B5B /* PXEditUserViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PXEditUserViewController.xib; sourceTree = "<group>"; };
 		1FEF45B41773C3C900B1E0D6 /* Lion.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Lion.png; sourceTree = "<group>"; };
 		1FF7E8991773ABF800215E38 /* PXDummyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PXDummyModel.h; path = Phylodex/PXDummyModel.h; sourceTree = "<group>"; };
 		1FF7E89A1773ABF800215E38 /* PXDummyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PXDummyModel.m; path = Phylodex/PXDummyModel.m; sourceTree = "<group>"; };
@@ -313,6 +348,12 @@
 		1FF7E8A41773B1E700215E38 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				1F54A6A217A1DB690044AEF6 /* PXDummyUserDatabase.h */,
+				1F54A6A317A1DB6A0044AEF6 /* PXDummyUserDatabase.m */,
+				1F54A69F17A1D6850044AEF6 /* PXDummyUser.h */,
+				1F54A6A017A1D6850044AEF6 /* PXDummyUser.m */,
+				1F54A69C17A1D5790044AEF6 /* PXUserManager.h */,
+				1F54A69D17A1D5790044AEF6 /* PXUserManager.m */,
 				1FE8DCFF178A1E6F00ECFF13 /* PXDownloadManager.h */,
 				1FE8DD00178A1E6F00ECFF13 /* PXDownloadManager.m */,
 				1FE8DCFC178A18C200ECFF13 /* PXNetworkManager.h */,
@@ -341,6 +382,18 @@
 		1FF7E8A51773B20900215E38 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				1FEC8ABA17A4F3E700D00B5B /* PXEditUserViewController.h */,
+				1FEC8ABB17A4F3E700D00B5B /* PXEditUserViewController.m */,
+				1FEC8AAE17A4B72100D00B5B /* PXNewUserViewController.h */,
+				1FEC8AAF17A4B72100D00B5B /* PXNewUserViewController.m */,
+				1FEC8AAB17A4ACAD00D00B5B /* PXManageUsersViewController.h */,
+				1FEC8AAC17A4ACAE00D00B5B /* PXManageUsersViewController.m */,
+				1FEC8AA617A480AD00D00B5B /* PXUserSpaceViewController.h */,
+				1FEC8AA717A480AD00D00B5B /* PXUserSpaceViewController.m */,
+				1F54A6A817A1EF400044AEF6 /* PXLoginScreenViewController.h */,
+				1F54A6A917A1EF400044AEF6 /* PXLoginScreenViewController.m */,
+				1F54A6A517A1DF340044AEF6 /* PXLoginAreaViewController.h */,
+				1F54A6A617A1DF340044AEF6 /* PXLoginAreaViewController.m */,
 				08BECADD1793A29C0068176C /* PXCameraViewController.h */,
 				08BECADE1793A29C0068176C /* PXCameraViewController.m */,
 				0891C24E1786360C00F29BAD /* PXShareViewController.h */,
@@ -371,6 +424,10 @@
 		1FF7E8A61773B24600215E38 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1FEC8ABC17A4F3E800D00B5B /* PXEditUserViewController.xib */,
+				1FEC8AB017A4B72100D00B5B /* PXNewUserViewController.xib */,
+				1FEC8AA817A480AD00D00B5B /* PXUserSpaceViewController.xib */,
+				1F54A6AA17A1EF400044AEF6 /* PXLoginScreenViewController.xib */,
 				08BECAE01793A32C0068176C /* PXDetailEdit.xib */,
 				C8C0E2AF178A048C007E1FE4 /* PXDetailTableCell.xib */,
 				0891C2501786360C00F29BAD /* PXShareViewController.xib */,
@@ -504,6 +561,10 @@
 				1FAA58F1177CB6120072CF9A /* Horse.png in Resources */,
 				08BECAE11793A32C0068176C /* PXDetailEdit.xib in Resources */,
 				1F2740F91793D31800D7D110 /* readme.txt in Resources */,
+				1F54A6AC17A1EF410044AEF6 /* PXLoginScreenViewController.xib in Resources */,
+				1FEC8AAA17A480AE00D00B5B /* PXUserSpaceViewController.xib in Resources */,
+				1FEC8AB217A4B72100D00B5B /* PXNewUserViewController.xib in Resources */,
+				1FEC8ABE17A4F3E800D00B5B /* PXEditUserViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -563,6 +624,15 @@
 				1FE8DCFE178A18C200ECFF13 /* PXNetworkManager.m in Sources */,
 				1FE8DD01178A1E6F00ECFF13 /* PXDownloadManager.m in Sources */,
 				08BECADF1793A29C0068176C /* PXCameraViewController.m in Sources */,
+				1F54A69E17A1D5790044AEF6 /* PXUserManager.m in Sources */,
+				1F54A6A117A1D6850044AEF6 /* PXDummyUser.m in Sources */,
+				1F54A6A417A1DB6A0044AEF6 /* PXDummyUserDatabase.m in Sources */,
+				1F54A6A717A1DF340044AEF6 /* PXLoginAreaViewController.m in Sources */,
+				1F54A6AB17A1EF410044AEF6 /* PXLoginScreenViewController.m in Sources */,
+				1FEC8AA917A480AE00D00B5B /* PXUserSpaceViewController.m in Sources */,
+				1FEC8AAD17A4ACAE00D00B5B /* PXManageUsersViewController.m in Sources */,
+				1FEC8AB117A4B72100D00B5B /* PXNewUserViewController.m in Sources */,
+				1FEC8ABD17A4F3E800D00B5B /* PXEditUserViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

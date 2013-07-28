@@ -178,6 +178,26 @@
     foodChainSlider.value = [phyloELement.foodChain integerValue];
     scaleSlider.value = [phyloELement.scale integerValue];
     
+    
+    nameOfCreature.delegate = self;
+    habitatType.delegate = self;
+    artistInfo.delegate = self;
+    climate.delegate = self;
+    climate2.delegate = self;
+    climate3.delegate = self;
+    terrain.delegate = self;
+    terrain2.delegate = self;
+    desc.delegate = self;
+    nameOfCreature.returnKeyType = UIReturnKeyDone;
+    habitatType.returnKeyType = UIReturnKeyDone;
+    artistInfo.returnKeyType = UIReturnKeyDone;
+    climate.returnKeyType = UIReturnKeyDone;
+    climate2.returnKeyType = UIReturnKeyDone;
+    climate3.returnKeyType = UIReturnKeyDone;
+    terrain.returnKeyType = UIReturnKeyDone;
+    terrain2.returnKeyType = UIReturnKeyDone;
+    desc.returnKeyType = UIReturnKeyDone;
+    
 //    self.displayLabel.hidden = TRUE;    //Please don't delete the displayLabel. If it is not in need, just hide it.
 }
 
@@ -228,6 +248,7 @@
     pointColor.backgroundColor = [colorArray objectAtIndex:process];
     self.foodChain.text = [NSString stringWithFormat:@"%d", process];
     // set the value for point to calculate
+    
     if (process == 4){ pointValueFoodChain = 7; }
     else if (process == 3){ pointValueFoodChain = 3; }
     else if (process == 2){ pointValueFoodChain = 4; }
@@ -316,11 +337,12 @@
                 {   // 3 different textfields
                     pointValueFoodChain -= 1;
                 }
-
             }
+            
             else if ([habitatType.text length] == 0 && [terrain.text length] == 0 && [terrain2.text length] == 0)
             {   // all textfields are empty. don't count this part
             }
+            
             else if ([habitatType.text length] > 0 && [terrain2.text length] == 0 && [terrain.text length] == 0)
             {
                 //only one empty textfield
@@ -401,7 +423,8 @@
 
 -(BOOL) textFieldShouldReturn:(UITextField *)textField
 {
-    return [textField resignFirstResponder];
+    [textField resignFirstResponder];
+    return NO;
 }
 
 

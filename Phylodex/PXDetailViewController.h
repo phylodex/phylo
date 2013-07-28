@@ -59,6 +59,7 @@
 @property (weak, nonatomic) IBOutlet UISegmentedControl *creature_phylum;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *creature_class;
 
+
 - (IBAction)colorSliderChanged:(UISlider *)sender;
 - (IBAction)scaleSliderChanged:(UISlider *)sender;
 
@@ -68,9 +69,7 @@
 - (IBAction)cropImage:(id)sender;
 - (IBAction)backgroundTap:(id)sender;
 
-
 @end
-
 
 @protocol PXDetailViewControllerDelegate
 -(void)detailViewControllerDidSave:(PXDetailViewController *)controller;

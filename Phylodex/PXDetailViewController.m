@@ -42,6 +42,7 @@
 @synthesize scrollerView;
 @synthesize pointColor;
 
+//select segment
 @synthesize creature_class, creature_kingdom, creature_phylum;
 
 //textFiled
@@ -86,10 +87,7 @@
     
     //set background
     scroller.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"card_bg.png"]];
-    //TO-DO: IMPROVE THE BACKGROUND
-    //TO-DO: CHANGE THE PHOTO OF POINTS AND FOOD CHAIN
-    //TO-DO: BACKGROUND TAP
-    
+
     //scroll view
     [scroller setScrollEnabled:YES];
     [scroller setContentSize:CGSizeMake(320, 1000)];
@@ -168,6 +166,9 @@
     self.desc.text = phyloELement.desc;
     self.scaleNumber.text = phyloELement.scale;
     self.pointValue.text = phyloELement.point;
+    
+    self.foodChain.text = phyloELement.foodChain;
+    
 //    self.displayLabel.hidden = TRUE;    //Please don't delete the displayLabel. If it is not in need, just hide it.
 }
 
@@ -261,6 +262,7 @@
             p.name = self.nameOfCreature.text;
             NSLog(@"p.name = %@", p.name);
             p.scale = self.scaleNumber.text;
+            p.foodChain = self.foodChain.text;
             p.artist = self.artistInfo.text;
             p.climate = [NSString stringWithFormat:@"%@, %@, %@", self.climate.text, self.climate2.text, self.climate3.text];
             NSLog(@"%@", p.climate);

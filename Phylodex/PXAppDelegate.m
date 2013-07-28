@@ -35,6 +35,7 @@
     PXRootViewController *phylodex = [[PXRootViewController alloc] init];
     PXWebSearchViewController *webSearch = [[PXWebSearchViewController alloc] init];
     PXCameraViewController *capture = [[PXCameraViewController alloc]init];
+    PXLoginAreaViewController *user = [[PXLoginAreaViewController alloc] init];
     // to-do: collection view
     //PXShareViewController *share = [[PXShareViewController alloc] init];
     UICollectionViewFlowLayout *aFlowLayout = [[UICollectionViewFlowLayout alloc] init];
@@ -52,8 +53,10 @@
     UINavigationController *webSearchNav = [[UINavigationController alloc] initWithRootViewController:webSearch];
     [controllers addObject:webSearchNav];
     // to-do: make a collection view object
-        UINavigationController *shareNav = [[UINavigationController alloc] initWithRootViewController:share];
+    UINavigationController *shareNav = [[UINavigationController alloc] initWithRootViewController:share];
     [controllers addObject:shareNav];
+    UINavigationController *userNav = [[UINavigationController alloc] initWithRootViewController:user];
+    [controllers addObject:userNav];
     
     NSManagedObjectContext *context = [self managedObjectContext];
 	if (!context) {

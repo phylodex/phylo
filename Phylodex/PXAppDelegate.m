@@ -98,17 +98,35 @@
         Photo *photo = (Photo *)[NSEntityDescription insertNewObjectForEntityForName:@"Photo" inManagedObjectContext:_managedObjectContext];
         
         [phylo setName:model.name];
-        [phylo setHabitat:@"Earth"];
-        [phylo setTerrains:@"Earth, Earth"];
+        [phylo setHabitat:model.habitat];
+        [phylo setTerrains:[NSString stringWithFormat:@"%@, %@", model.habitat2, model.habitat3]];
         [phylo setPhoto:photo];
         [phylo setArtist:@"Photographer"];
-        [phylo setClimate:@"Warm, Cold, Hot"];
-        [phylo setDesc:@"None"];
-        [phylo setDiet:@"Omnivore"];
-        [phylo setEvolutionary:@"Animalia, Chordata, Aves"];
-        [phylo setFoodChain:@"0"];
-        [phylo setScale:@"0"];
-        [phylo setPoint:@"0"];
+        [phylo setScale:@"6"];
+        NSMutableString *climate_string = [[NSMutableString alloc]init];
+        if ([model.cold isEqualToNumber:[NSNumber numberWithInt:1]]){
+            [climate_string appendString:@"Cold"];
+        }
+        else{
+            [climate_string appendString:@"Hot"];
+        }
+        
+        [phylo setClimate:climate_string];
+        [phylo setDesc:@"..."];
+        [phylo setEvolutionary:[NSString stringWithFormat:@"%@, %@, %@", model.kingdom, model.phylum, model.creature_class]];
+        [phylo setDiet:model.diet];
+        if([model.diet isEqualToString:@"carnivore"]){
+            [phylo setFoodChain:@"4"];
+        }
+        else if([model.diet isEqualToString:@"omnivore"]){
+            [phylo setFoodChain:@"3"];
+        }
+        else if([model.diet isEqualToString:@"herbivore"]){
+            [phylo setFoodChain:@"2"];
+        }
+        else if([model.diet isEqualToString:@"photosynthetic"]){
+            [phylo setFoodChain:@"1"];
+        }
         // set the image
         UIImage *selectedImage = [UIImage imageNamed:[NSString stringWithFormat:@"%@%@", model.name, @".png"]];
         

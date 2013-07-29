@@ -14,10 +14,13 @@
         <attribute name="evolutionary" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="foodChain" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="habitat" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="habitat2" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="habitat3" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="hot" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="point" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="scale" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="scientific_name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="terrains" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="thumbnail" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="warm" optional="YES" attributeType="Boolean" syncable="YES"/>
@@ -34,7 +37,7 @@
     </entity>
     <elements>
         <element name="Photo" positionX="387" positionY="264" width="128" height="75"/>
-        <element name="Phylodex" positionX="160" positionY="192" width="128" height="315"/>
+        <element name="Phylodex" positionX="160" positionY="192" width="128" height="360"/>
         <element name="Users" positionX="-45" positionY="198" width="128" height="135"/>
     </elements>
 </model>

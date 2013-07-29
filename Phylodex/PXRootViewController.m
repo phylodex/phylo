@@ -128,7 +128,7 @@ static NSString *CellTableIdentifier = @"CellTableIdentifier";
     // Get the phylodex entry for the current index path and configure table view cell
     Phylodex *phylo = (Phylodex *)[lifeforms objectAtIndex:indexPath.row];
     cell.name = phylo.name;
-    cell.species = phylo.habitat;
+    cell.species = phylo.scientific_name;
     cell.image = phylo.thumbnail;
     
 	return cell;

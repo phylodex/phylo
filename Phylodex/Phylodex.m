@@ -13,73 +13,72 @@
 @implementation Phylodex
 
 @dynamic artist;
-@dynamic climate;
 @dynamic desc;
 @dynamic diet;
 @dynamic evolutionary;
 @dynamic foodChain;
-@dynamic habitat;
 @dynamic name;
+@dynamic scientific_name;
 @dynamic point;
 @dynamic scale;
 @dynamic terrains;
 @dynamic thumbnail;
 @dynamic photo;
 
+@dynamic climate;
+@dynamic cold;
+@dynamic cool;
+@dynamic warm;
+@dynamic hot;
 
+@dynamic habitat;
+@dynamic habitat2;
+@dynamic habitat3;
+
+/*
+-(void) fixPoints{
+    
+    if ([self.habitat isEqualToString:self.habitat2]){
+        if([self.habitat isEqualToString:self.habitat3]){
+            newPoints++; //total_habitat_count = 1
+        }
+    }
+    else if(![self.habitat isEqualToString:self.habitat3]){
+        if (![self.habitat2 isEqualToString:self.habitat3]){
+            newPoints--; //total_habitat_count = 3
+        }
+    }
+    
+    if ([self.diet isEqualToString:@"carnivore"]){
+        newPoints += 7;
+    }
+    else if([self.diet isEqualToString:@"omnivore"]){
+        newPoints += 3;
+    }
+    else if([self.diet isEqualToString:@"herbivore"]){
+        newPoints += 4;
+    }
+    else if([self.diet isEqualToString:@"photosynthetic"]){
+        newPoints += 2;
+    }
+    self.points = [NSString stringWithFormat:@"%d", newPoints];
+}
+*/
 -(void) fixPoints{
     
     int total_climate_count = 0;
     int total_habitat_count = 1;
     int newPoints = 0;
 
-    //separate the climate part
-    NSString *clim = self.climate;
-    NSString *clim1 = [[NSString alloc] init];
-    NSString *clim2 = [[NSString alloc] init];
-    NSString *clim3 = [[NSString alloc] init];
-    NSArray *cl = [clim componentsSeparatedByString:@", "];
-    int counter = 0;
-    for (NSString *s in cl) {   //load the climate data
-        if (counter == 0) {
-            clim1 = [cl objectAtIndex: 0];
-        }
-        if (counter == 1) {
-            clim2 = [cl objectAtIndex: 1];
-        }
-        if (counter == 2) {
-            clim3 = [cl objectAtIndex: 2];
-        }
-        counter ++;
+    total_climate_count += [self.cold intValue];
+    total_climate_count += [self.cool intValue];
+    total_climate_count += [self.warm intValue];
+    total_climate_count += [self.hot intValue];
+    if(total_climate_count >2){
+        newPoints--;
     }
-    NSLog(@"%@ %@ %@", clim1,clim2,clim3);
-    total_climate_count += counter;
-    if(total_climate_count  == 3){
-        if ([clim1 isEqualToString:clim2]){
-            if([clim1 isEqualToString:clim3]){
-                newPoints++; //total 1 climate
-                NSLog(@"Had 1 climate, +1");
-            }
-            else NSLog((@"had 2 climates A"));
-        }
-        else if(![clim1 isEqualToString:clim3]){
-            if (![clim2 isEqualToString:clim3]){
-                newPoints--; //total 3 climates
-                NSLog(@"Had 3 climates, -1");
-            }
-            else NSLog((@"had 2 climates B"));
-        }
-    }
-    else if(total_climate_count == 2){
-        if([clim1 isEqualToString:clim2]){
-            newPoints++; //total 1 climate
-            NSLog(@"Had 1 climate, +1");
-        }
-        else  NSLog((@"had 2 climates C"));
-    }
-    else{
-        newPoints++; //total 1 climate
-        NSLog(@"Had 1 climate, +1");
+    else if(total_climate_count < 2){
+        newPoints++;
     }
     
     //separate the climate part

@@ -40,7 +40,6 @@
 @property (nonatomic, retain) Photo *photoElement;
 
 @property (strong, nonatomic) IBOutlet UITextField *nameOfCreature;
-
 @property (weak, nonatomic) IBOutlet UITextField *sci_name;
 
 @property (strong, nonatomic) IBOutlet UITextField *habitatType;
@@ -66,6 +65,10 @@
 
 //@property (weak, nonatomic) IBOutlet UISlider *foodChainSlider;
 //@property (weak, nonatomic) IBOutlet UISlider *scaleSlider;
+@property (weak, nonatomic) IBOutlet UISwitch *cold_switch;
+@property (weak, nonatomic) IBOutlet UISwitch *cool_switch;
+@property (weak, nonatomic) IBOutlet UISwitch *warm_switch;
+@property (weak, nonatomic) IBOutlet UISwitch *hot_switch;
 
 
 - (IBAction)size_changed:(id)sender;

@@ -51,7 +51,9 @@
 @synthesize creature_class, creature_kingdom, creature_phylum;
 
 //textFiled
-@synthesize nameOfCreature, sci_name, habitatType, artistInfo, climate, climate2, climate3, terrain, terrain2, desc;
+@synthesize nameOfCreature, sci_name, habitatType, artistInfo;
+//climate, climate2, climate3,
+@synthesize terrain, terrain2, desc;
 
 //UILable
 @synthesize displayLabel, pointValue, foodChain, scaleNumber;
@@ -68,7 +70,6 @@
         [[self nameOfCreature]setDelegate:self];
         [[self habitatType]setDelegate:self];
         [[self artistInfo]setDelegate:self];
-        [[self climate]setDelegate:self];
         [[self terrain]setDelegate:self];
         [[self desc]setDelegate:self];
         
@@ -116,25 +117,102 @@
         counter ++;
     }
     
-    //separate the climate part
-    self.displayLabel.text = phyloELement.climate;   //terrains contains 2 parts
-    NSString *clim = [[NSString alloc]initWithFormat:@"%@", self.displayLabel.text];
-    //NSLog(@"The original climate in core data is: %@", self.displayLabel.text);
-    //NSLog(@"The tranfered string hab is: %@", clim);
-    NSArray *cl = [clim componentsSeparatedByString:@", "];
-    counter = 0;
-    for (NSString *s in cl) {   //load the climate data
-        if (counter == 0) {
-            self.climate.text = [cl objectAtIndex: 0];
-        }
-        if (counter == 1) {
-            self.climate2.text = [cl objectAtIndex: 1];
-        }
-        if (counter == 2) {
-            self.climate3.text = [cl objectAtIndex: 2];
-        }
-        counter ++;
+    
+    
+    //set switch state for climates
+    if ([phyloELement.cold isEqualToNumber:[NSNumber numberWithInt:1]]){
+        _cold_switch.on = YES;
     }
+    else{
+        _cold_switch.on = NO;
+    }
+    if ([phyloELement.cool isEqualToNumber:[NSNumber numberWithInt:1]]){
+        _cool_switch.on = YES;
+    }
+    else{
+        _cool_switch.on = NO;
+    }
+    if ([phyloELement.warm isEqualToNumber:[NSNumber numberWithInt:1]]){
+        _warm_switch.on = YES;
+    }
+    else{
+        _warm_switch.on = NO;
+    }
+    if ([phyloELement.hot isEqualToNumber:[NSNumber numberWithInt:1]]){
+        _hot_switch.on = YES;
+    }
+    else{
+        _hot_switch.on = NO;
+    }
+    
+    /*
+    //convert habitats to index selections
+    if([_phyloElement.habitat isEqualToString:@"desert"]){
+        _hab1.selectedSegmentIndex = 0;
+    }
+    else if([_phyloElement.habitat isEqualToString:@"forest"]){
+        _hab1.selectedSegmentIndex = 1;
+    }
+    else if([_phyloElement.habitat isEqualToString:@"freshwater"]){
+        _hab1.selectedSegmentIndex = 2;
+    }
+    else if([_phyloElement.habitat isEqualToString:@"grasslands"]){
+        _hab1.selectedSegmentIndex = 3;
+    }
+    else if([_phyloElement.habitat isEqualToString:@"ocean"]){
+        _hab1.selectedSegmentIndex = 4;
+    }
+    else if([_phyloElement.habitat isEqualToString:@"tundra"]){
+        _hab1.selectedSegmentIndex = 5;
+    }
+    else if([_phyloElement.habitat isEqualToString:@"urban"]){
+        _hab1.selectedSegmentIndex = 6;
+    }
+    
+    if([_phyloElement.habitat2 isEqualToString:@"desert"]){
+        _hab2.selectedSegmentIndex = 0;
+    }
+    else if([_phyloElement.habitat2 isEqualToString:@"forest"]){
+        _hab2.selectedSegmentIndex = 1;
+    }
+    else if([_phyloElement.habitat2 isEqualToString:@"freshwater"]){
+        _hab2.selectedSegmentIndex = 2;
+    }
+    else if([_phyloElement.habitat2 isEqualToString:@"grasslands"]){
+        _hab2.selectedSegmentIndex = 3;
+    }
+    else if([_phyloElement.habitat2 isEqualToString:@"ocean"]){
+        _hab2.selectedSegmentIndex = 4;
+    }
+    else if([_phyloElement.habitat2 isEqualToString:@"tundra"]){
+        _hab2.selectedSegmentIndex = 5;
+    }
+    else if([_phyloElement.habitat2 isEqualToString:@"urban"]){
+        _hab2.selectedSegmentIndex = 6;
+    }
+    
+    if([_phyloElement.habitat3 isEqualToString:@"desert"]){
+        _hab3.selectedSegmentIndex = 0;
+    }
+    else if([_phyloElement.habitat3 isEqualToString:@"forest"]){
+        _hab3.selectedSegmentIndex = 1;
+    }
+    else if([_phyloElement.habitat3 isEqualToString:@"freshwater"]){
+        _hab3.selectedSegmentIndex = 2;
+    }
+    else if([_phyloElement.habitat3 isEqualToString:@"grasslands"]){
+        _hab3.selectedSegmentIndex = 3;
+    }
+    else if([_phyloElement.habitat3 isEqualToString:@"ocean"]){
+        _hab3.selectedSegmentIndex = 4;
+    }
+    else if([_phyloElement.habitat3 isEqualToString:@"tundra"]){
+        _hab3.selectedSegmentIndex = 5;
+    }
+    else if([_phyloElement.habitat3 isEqualToString:@"urban"]){
+        _hab3.selectedSegmentIndex = 6;
+    }
+    */
     
     //separate the evolutionary string
     self.displayLabel.text = phyloELement.evolutionary;
@@ -171,6 +249,7 @@
     self.desc.text = phyloELement.desc;
    // self.scaleNumber.text = phyloELement.scale;
     self.pointValue.text = phyloELement.point;
+    self.sci_name.text = phyloELement.scientific_name;
     
     colorArray = [NSArray arrayWithObjects:[UIColor yellowColor], [UIColor blackColor], [UIColor greenColor], [UIColor brownColor], [UIColor redColor], nil];   
   //  self.pointColor.backgroundColor = [colorArray objectAtIndex:[phyloELement.foodChain integerValue]];
@@ -188,9 +267,9 @@
     sci_name.delegate = self;
     habitatType.delegate = self;
     artistInfo.delegate = self;
-    climate.delegate = self;
-    climate2.delegate = self;
-    climate3.delegate = self;
+   // climate.delegate = self;
+   // climate2.delegate = self;
+   // climate3.delegate = self;
     terrain.delegate = self;
     terrain2.delegate = self;
     desc.delegate = self;
@@ -198,9 +277,9 @@
     sci_name.returnKeyType = UIReturnKeyDone;
     habitatType.returnKeyType = UIReturnKeyDone;
     artistInfo.returnKeyType = UIReturnKeyDone;
-    climate.returnKeyType = UIReturnKeyDone;
-    climate2.returnKeyType = UIReturnKeyDone;
-    climate3.returnKeyType = UIReturnKeyDone;
+   // climate.returnKeyType = UIReturnKeyDone;
+   // climate2.returnKeyType = UIReturnKeyDone;
+   // climate3.returnKeyType = UIReturnKeyDone;
     terrain.returnKeyType = UIReturnKeyDone;
     terrain2.returnKeyType = UIReturnKeyDone;
     desc.returnKeyType = UIReturnKeyDone;
@@ -269,23 +348,6 @@
     }
 }
 
-/*
-#pragma color&food chain number
-- (IBAction)colorSliderChanged:(UISlider *)sender{
-    pointColor.backgroundColor = [UIColor yellowColor];
-    
-    int process = lrint(sender.value);
-    pointColor.backgroundColor = [colorArray objectAtIndex:process];
-    self.foodChain.text = [NSString stringWithFormat:@"%d", process];
-}
-
-#pragma scale
-- (IBAction)scaleSliderChanged:(UISlider *)sender {
-    int process = lrint(sender.value);
-    self.scaleNumber.text = [NSString stringWithFormat:@"%d", process];
-}
-*/
-
 #pragma save navigation bar button
 - (void)save {
     
@@ -314,13 +376,19 @@
             //NSLog(@"p is %@", p);
 
             p.name = self.nameOfCreature.text;
+            p.scientific_name = self.sci_name.text;
             //NSLog(@"p.name = %@", p.name);
             p.scale = phyloELement.scale;
             p.foodChain = phyloELement.foodChain;
             p.diet = phyloELement.diet;
             p.artist = self.artistInfo.text;
-            p.climate = [NSString stringWithFormat:@"%@, %@, %@", self.climate.text, self.climate2.text, self.climate3.text];
+           // p.climate = [NSString stringWithFormat:@"%@, %@, %@", self.climate.text, self.climate2.text, self.climate3.text];
             //NSLog(@"%@", p.climate);
+            [p setValue:[NSNumber numberWithBool:self.cold_switch.on] forKey:@"cold"];
+            [p setValue:[NSNumber numberWithBool:self.cool_switch.on] forKey:@"cool"];
+            [p setValue:[NSNumber numberWithBool:self.warm_switch.on] forKey:@"warm"];
+            [p setValue:[NSNumber numberWithBool:self.hot_switch.on] forKey:@"hot"];
+            
             
             p.habitat = self.habitatType.text;
             p.terrains = [NSString stringWithFormat:@"%@, %@", self.terrain.text, self.terrain2.text];
@@ -353,85 +421,6 @@
             //NSLog(@"p.evolutionaryTree = %@", p.evolutionary);
             
             
-            /*
-            // set the value for point to calculate
-            if ([self.foodChain.text isEqualToString:@"4"]){ pointValueFoodChain = 7; }
-            else if ([self.foodChain.text isEqualToString:@"3"]){ pointValueFoodChain = 3; }
-            else if ([self.foodChain.text isEqualToString:@"2"]){ pointValueFoodChain = 4; }
-            else{ pointValueFoodChain = 2; }
-            //calculate the points of the point value
-            if ([habitatType.text length] > 0 && [terrain.text length] > 0 && [terrain2.text length] > 0)
-            {   // no empty textfields
-                if (habitatType.text == terrain.text && terrain.text == terrain2.text) {    //all habitats are the same
-                    pointValueFoodChain += 1;
-                }
-                else if (habitatType.text != terrain.text && habitatType.text != terrain2.text && terrain.text != terrain2.text)
-                {   // 3 different textfields
-                    pointValueFoodChain -= 1;
-                }
-            }
-            
-            else if ([habitatType.text length] == 0 && [terrain.text length] == 0 && [terrain2.text length] == 0)
-            {   // all textfields are empty. don't count this part
-            }
-            else if ([habitatType.text length] == 0 && [terrain2.text length] != [terrain.text length])
-            {
-                //only one empty textfield && 2 different textfields
-            }
-            else if ([terrain.text length] == 0 && [terrain2.text length] != [habitatType.text length])
-            {
-                //only one empty textfield && 2 different textfields
-            }
-            else if ([terrain2.text length] == 0 && [habitatType.text length] !=[terrain.text length])
-            {
-                //only one empty textfield && 2 different textfields == 0
-            }
-            else
-            {   // 2 empty textfields
-                if (habitatType.text == terrain.text || habitatType.text == terrain2.text || terrain.text == terrain2.text)
-                {   //1 empty textfield and 2 used textfields which are the same = 0
-                    pointValueFoodChain += 1;
-                }
-            }
-            
-            if ([climate.text length] > 0 && [climate2.text length] > 0 && [climate3.text length] > 0)
-            {   // no empty textfields
-                if (climate.text == climate2.text && climate2.text == climate3.text) {    //all habitats are the same
-                    pointValueFoodChain += 1;
-                }
-                else if (climate.text != climate2.text && climate.text != climate3.text && climate2.text != climate3.text)
-                {   // 3 different textfields
-                    pointValueFoodChain -= 1;
-                }
-                
-            }
-            else if ([climate.text length] == 0 && [climate2.text length] == 0 && [climate3.text length] == 0)
-            {   // all textfields are empty. don't count this part
-            }
-            else if ([climate2.text length] == 0 && [climate3.text length] != [climate2.text length])
-            {
-                //only one empty textfield && 2 different textfields
-            }
-            else if ([climate3.text length] == 0 && [climate.text length] != [climate2.text length])
-            {
-                //only one empty textfield && 2 different textfields
-            }
-            else if ([climate.text length] == 0 && [climate2.text length] != [climate3.text length])
-            {
-                //only one empty textfield && 2 different textfields == 0
-            }
-            else
-            {   // 2 empty textfields
-                if (climate.text == climate2.text || climate3.text == climate2.text || climate.text == climate3.text)
-                {
-                    //1 empty textfield and 2 used textfields which are the same = 0
-                    pointValueFoodChain += 1;
-                }
-            }
-            
-            self.pointValue.text = [NSString stringWithFormat:@"%i", pointValueFoodChain];
-            p.point = self.pointValue.text;
-            */
             [p fixPoints];
             self.pointValue.text = p.point;
         }
@@ -440,6 +429,12 @@
         {
             //NSLog(@"Failed to save - error: %@", [error localizedDescription]);
         }
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Save success!"
+                                                         message:@"Your creature info has been updated."
+                                                        delegate:nil
+                                               cancelButtonTitle:@"OK"
+                                               otherButtonTitles:nil];
+        [alert show];
     }
     else
     {
@@ -456,13 +451,14 @@
 
 - (IBAction)backgroundTap:(id)sender{
     [nameOfCreature resignFirstResponder];
+    [sci_name resignFirstResponder];
     [habitatType resignFirstResponder];
     [terrain resignFirstResponder];
     [terrain2 resignFirstResponder];
     [artistInfo resignFirstResponder];
-    [climate resignFirstResponder];
-    [climate2 resignFirstResponder];
-    [climate3 resignFirstResponder];
+   // [climate resignFirstResponder];
+   // [climate2 resignFirstResponder];
+   // [climate3 resignFirstResponder];
     [desc resignFirstResponder];
 }
 

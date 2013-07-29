@@ -98,35 +98,23 @@
         Photo *photo = (Photo *)[NSEntityDescription insertNewObjectForEntityForName:@"Photo" inManagedObjectContext:_managedObjectContext];
         
         [phylo setName:model.name];
-        [phylo setHabitat:model.habitat];
-        [phylo setTerrains:[NSString stringWithFormat:@"%@, %@", model.habitat2, model.habitat3]];
+        [phylo setScientific_name:model.species];
         [phylo setPhoto:photo];
         [phylo setArtist:@"Photographer"];
         [phylo setScale:model.creature_size];
-        NSMutableString *climate_string = [[NSMutableString alloc]init];
-        if ([model.cold isEqualToNumber:[NSNumber numberWithInt:1]]){
-            [climate_string appendString:@"Cold"];
-        }
-        if ([model.cool isEqualToNumber:[NSNumber numberWithInt:1]]){
-            if([climate_string length] > 0){
-                [climate_string appendString:@" "];
-            }
-            [climate_string appendString:@"Cool"];
-        }
-        if ([model.warm isEqualToNumber:[NSNumber numberWithInt:1]]){
-            if([climate_string length] > 0){
-                [climate_string appendString:@" "];
-            }
-            [climate_string appendString:@"Warm"];
-        }
-        if ([model.hot isEqualToNumber:[NSNumber numberWithInt:1]]){
-            if([climate_string length] > 0){
-                [climate_string appendString:@" "];
-            }
-            [climate_string appendString:@"Hot"];
-        }
         
-        [phylo setClimate:climate_string];
+        [phylo setCold: model.cold];
+        [phylo setCool: model.cool];
+        [phylo setWarm: model.warm];
+        [phylo setHot: model.hot];
+        
+        [phylo setHabitat:model.habitat];
+        [phylo setHabitat2:model.habitat2];
+        [phylo setHabitat3:model.habitat3];
+        [phylo setTerrains:[NSString stringWithFormat:@"%@, %@", model.habitat2, model.habitat3]];
+        
+       
+        
         [phylo setDesc:@"..."];
         [phylo setEvolutionary:[NSString stringWithFormat:@"%@, %@, %@", model.kingdom, model.phylum, model.creature_class]];
         [phylo setDiet:model.diet];

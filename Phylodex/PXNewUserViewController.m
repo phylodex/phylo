@@ -14,7 +14,7 @@
 
 @implementation PXNewUserViewController
 
-@synthesize delegate, userID, userNameTextField, fullNameTextField, revertButton, passwordTextField;
+@synthesize delegate, userID, userNameTextField, fullNameTextField, passwordTextField;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -39,8 +39,6 @@
 
 - (IBAction)createUserButtonWasPressed:(id)sender
 {
-    // TO-DO: add the new user to the database
-    
     // inform delegate that user was added
     [delegate newUserWasCreated:self];
 }

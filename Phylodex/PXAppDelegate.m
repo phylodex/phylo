@@ -91,11 +91,33 @@
 // Populate the user data base with some items if they aren't there yet
 - (void)populateDummyData
 {
+    // create the admin user
+    Users *adminUser = (Users *)[NSEntityDescription insertNewObjectForEntityForName:@"Users" inManagedObjectContext:_managedObjectContext];
+    [adminUser setFullName:@"Fred Flintstone"];
+    [adminUser setUserID:[NSNumber numberWithInt:0]]; // admin is the zero user
+    [adminUser setUserName:@"Admin"];
+    [adminUser setRole:@"admin"];
+    [adminUser setPassword:@""]; // empty password
+    
+    Users *user = (Users *)[NSEntityDescription insertNewObjectForEntityForName:@"Users" inManagedObjectContext:_managedObjectContext];
+    [user setFullName:@"Buzz Alder"];
+    [user setUserID:[NSNumber numberWithInt:1]];
+    [user setUserName:@"buzz"];
+    [user setRole:@"user"];
+    [user setPassword:@"secret"];
+    
     PXDummyCollection *collection = [[PXDummyCollection alloc] init];
+    int i = 1; // user to alternate between assigning to user and admin
     // add each dummy entry into the user database
     for (PXDummyModel *model in collection.dummyModels) {
+       
         Phylodex *phylo = (Phylodex *)[NSEntityDescription insertNewObjectForEntityForName:@"Phylodex" inManagedObjectContext:_managedObjectContext];
         Photo *photo = (Photo *)[NSEntityDescription insertNewObjectForEntityForName:@"Photo" inManagedObjectContext:_managedObjectContext];
+        
+        if (i % 2 == 0)
+            [phylo setUser:adminUser];
+        else
+            [phylo setUser:user];
         
         [phylo setName:model.name];
         [phylo setHabitat:model.habitat];

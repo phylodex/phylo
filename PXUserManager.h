@@ -11,8 +11,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "PXDummyUser.h"
-#import "PXDummyUserDatabase.h"
+//#import "PXDummyUser.h"
+//#import "PXDummyUserDatabase.h"
+#import "Users.h"
 
 @interface PXUserManager : NSObject
 
@@ -22,20 +23,22 @@
 - (NSArray *)getUsers;
 
 // return true if password is correct, false otherwise
-- (BOOL)loginUserByUserID:(NSString *)userID withPassword:(NSString *)password;
+- (BOOL)loginUserByUserID:(NSNumber *)userID withPassword:(NSString *)password;
 
 // update a user in the database
-- (void)updateUserWithUserID:(NSString *)userID withPassword:(NSString *)password withUserName:(NSString *)userName withFullName:(NSString *) fullName;
+- (void)updateUserWithUserID:(NSNumber *)userID withPassword:(NSString *)password withUserName:(NSString *)userName withFullName:(NSString *) fullName;
 
 // logout current user and set current user to nil
 - (void)logout;
 
 // add a new user to the database of users
-- (void)addUser:(PXDummyUser *)user;
+- (void)addUserWithUserName:(NSString *)userName andPassword:(NSString *)password andFullName:(NSString *)fullName;
 
 // remove a user from the database
-- (void)removeUser:(PXDummyUser *)user;
+- (void)removeUser:(Users *)user;
 
-@property (nonatomic, retain) PXDummyUser *currentUser;
+@property (nonatomic, retain) Users *currentUser;
+@property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, retain) NSArray *users;
 
 @end

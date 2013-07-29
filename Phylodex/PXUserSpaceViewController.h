@@ -18,7 +18,7 @@
 }
 
 @property (nonatomic, assign)id <PXUserSpaceViewControllerDelegate> delegate;
-@property (nonatomic, retain)NSString *userID;
+@property (nonatomic, retain)NSNumber *userID;
 
 @property (strong, nonatomic) IBOutlet UITextField *userNameTextField;
 @property (strong, nonatomic) IBOutlet UITextField *fullNameTextField;

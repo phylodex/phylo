@@ -2,8 +2,8 @@
 //  Users.m
 //  Phylodex
 //
-//  Created by Artha on 13-7-28.
-//  Copyright (c) 2013年 Phylosoft. All rights reserved.
+//  Created by Steve King on 2013-07-28.
+//  Copyright (c) 2013 Phylosoft. All rights reserved.
 //
 
 #import "Users.h"
@@ -12,11 +12,11 @@
 
 @implementation Users
 
+@dynamic fullName;
+@dynamic password;
+@dynamic role;
 @dynamic userID;
 @dynamic userName;
-@dynamic fullName;
-@dynamic role;
-@dynamic password;
 @dynamic phylodex;
 
 @end

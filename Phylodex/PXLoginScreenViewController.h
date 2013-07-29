@@ -20,7 +20,7 @@
 
 @property (nonatomic, retain) UIButton *loginButton;
 @property (nonatomic, retain) UITextField *passwordTextField;
-@property (nonatomic, retain) NSString *userID; // id of user trying to log in
+@property (nonatomic, retain) NSNumber *userID; // id of user trying to log in
 @property (nonatomic, assign)id <PXLoginScreenViewControllerDelegate> delegate;
 
 - (IBAction)loginButtonWasPressed:(id)sender;

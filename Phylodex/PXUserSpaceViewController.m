@@ -11,7 +11,7 @@
 
 @interface PXUserSpaceViewController ()
 
-@property (nonatomic, retain)PXDummyUser *user;
+@property (nonatomic, retain)Users *user;
 
 @end
 

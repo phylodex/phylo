@@ -2,14 +2,14 @@
 //  Phylodex.h
 //  Phylodex
 //
-//  Created by Artha on 13-7-26.
-//  Copyright (c) 2013年 Phylosoft. All rights reserved.
+//  Created by Steve King on 2013-07-28.
+//  Copyright (c) 2013 Phylosoft. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Photo;
+@class Photo, Users;
 
 @interface Phylodex : NSManagedObject
 
@@ -26,6 +26,6 @@
 @property (nonatomic, retain) NSString * terrains;
 @property (nonatomic, retain) id thumbnail;
 @property (nonatomic, retain) Photo *photo;
+@property (nonatomic, retain) Users *user;
 
-// in progress  - (void) fixPoints;
 @end

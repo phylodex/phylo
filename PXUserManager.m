@@ -7,10 +7,11 @@
 //
 
 #import "PXUserManager.h"
+#import "PXAppDelegate.h"
 
 @implementation PXUserManager
 
-@synthesize currentUser;
+@synthesize currentUser, managedObjectContext, users;
 
 - (id)init
 {
@@ -36,21 +37,40 @@
 
 - (NSArray *)getUsers
 {
-    // return some dummy users for now
-    // TO-DO: database integration
-    PXDummyUserDatabase *users = [[PXDummyUserDatabase alloc] init];
+    [self refreshUsers];
+    return users;
+}
+
+- (void)refreshUsers
+{
+    PXAppDelegate *appDelegate = (PXAppDelegate *)[[UIApplication sharedApplication] delegate];
+    managedObjectContext = [appDelegate managedObjectContext];
     
-    return users.users;
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+	NSEntityDescription *entity = [NSEntityDescription entityForName:@"Users" inManagedObjectContext:managedObjectContext];
+	[request setEntity:entity];
+	
+	// Order the entries by name
+	NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"userID" ascending:YES];
+	NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
+	[request setSortDescriptors:sortDescriptors];
+	
+	// Execute the fetch -- create a mutable copy of the result.
+	NSError *error = nil;
+	NSMutableArray *mutableFetchResults = [[managedObjectContext executeFetchRequest:request error:&error] mutableCopy];
+	if (mutableFetchResults == nil) {
+		// Handle the error.
+	}
+	users = mutableFetchResults;
 }
 
 // verify a password for a user and
-- (BOOL)loginUserByUserID:(NSString *)userID withPassword:(NSString *)password
+- (BOOL)loginUserByUserID:(NSNumber *)userID withPassword:(NSString *)password
 {
-    // TO-DO: database integration
-    PXDummyUserDatabase *users = [[PXDummyUserDatabase alloc] init];
+    [self refreshUsers];
     
-    for (PXDummyUser *aUser in users.users) {
-        if ( [aUser.userID isEqualToString:userID]) {
+    for (Users *aUser in users) {
+        if ( [aUser.userID isEqualToNumber:userID] ) {
             if ( [aUser.password isEqualToString:password] ) {
                 // login correct
                 currentUser = aUser; // set the found user to login
@@ -70,19 +90,79 @@
     currentUser = nil;
 }
 
-- (void)addUser:(PXDummyUser *)user
+- (void)addUserWithUserName:(NSString *)userName andPassword:(NSString *)password andFullName:(NSString *)fullName
 {
-    // TO-DO: Database integration
+    [self refreshUsers];
+    
+    NSNumber *largestUserID = [self getLargestUserID];
+    int value = [largestUserID intValue];
+    NSNumber *newUserID = [NSNumber numberWithInt:value + 1];
+    
+    Users *newUser = (Users *)[NSEntityDescription insertNewObjectForEntityForName:@"Users" inManagedObjectContext:managedObjectContext];
+    [newUser setFullName:fullName];
+    [newUser setUserID:newUserID];
+    [newUser setUserName:userName];
+    [newUser setRole:@"user"];
+    [newUser setPassword:password];
+    
+    // Commit the change.
+	NSError *error = nil;
+	if (![managedObjectContext save:&error]) {
+		// Handle the error.
+	}
 }
 
-- (void)removeUser:(PXDummyUser *)user
+- (void)removeUser:(Users *)user
 {
-    // TO-DO: Database integration
+    // Delete the managed object at the given index path.
+    NSManagedObject *eventToDelete = (NSManagedObject *)user;
+    [managedObjectContext deleteObject:eventToDelete];
+    
+    // Commit the change.
+    NSError *error = nil;
+    if (![managedObjectContext save:&error]) {
+        // Handle the error.
+    }
+    
 }
 
-- (void)updateUserWithUserID:(NSString *)userID withPassword:(NSString *)password withUserName:(NSString *)userName withFullName:(NSString *) fullName
+- (void)updateUserWithUserID:(NSNumber *)userID withPassword:(NSString *)password withUserName:(NSString *)userName withFullName:(NSString *)fullName
 {
-    // TO-DO: Database integration
+    [self refreshUsers];
+    
+    NSEntityDescription *entitydesc = [NSEntityDescription entityForName:@"Users" inManagedObjectContext:managedObjectContext];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entitydesc];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"userID=%@", userID];
+    [request setPredicate:predicate];
+    
+    NSError *errorFetch;
+    NSArray *array = [managedObjectContext executeFetchRequest:request error:&errorFetch];
+    
+    Users *editUser = [array objectAtIndex:0];
+    [editUser setPassword:password];
+    [editUser setUserName:userName];
+    [editUser setFullName:fullName];
+    
+    // Commit the change.
+	NSError *error = nil;
+	if (![managedObjectContext save:&error]) {
+		// Handle the error.
+	}
+    
+}
+
+- (NSNumber *)getLargestUserID
+{
+    NSNumber *largest = [[NSNumber alloc] initWithInt:0];
+    
+    for (Users *aUser in users) {
+        if ( [largest compare:aUser.userID] == NSOrderedAscending ) {
+            largest = aUser.userID;
+        }
+    }
+    return largest;
 }
 
 

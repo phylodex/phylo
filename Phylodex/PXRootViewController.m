@@ -32,7 +32,6 @@ static NSString *CellTableIdentifier = @"CellTableIdentifier";
 }
 
 
-//----------------------------------
 -(void)viewDidAppear:(BOOL)animated{
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
 	NSEntityDescription *entity = [NSEntityDescription entityForName:@"Phylodex" inManagedObjectContext:managedObjectContext];
@@ -52,8 +51,6 @@ static NSString *CellTableIdentifier = @"CellTableIdentifier";
 	[self setLifeforms:mutableFetchResults];    //this sentence can be used to create new card but not to edit
     [self.tableView reloadData];
 }
-//----------------------------------
-
 
 - (void)viewDidLoad
 {

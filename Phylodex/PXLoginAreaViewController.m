@@ -7,20 +7,11 @@
 //
 
 #import "PXLoginAreaViewController.h"
+#import "Users.h"
 
 @interface PXLoginAreaViewController ()
-@property (nonatomic, retain)PXDummyUser *loggedInUser;
+@property (nonatomic, retain)Users *loggedInUser;
 @property (nonatomic, retain)UINavigationController *navController;
-//@property (nonatomic, retain)NSMutableArray *navigationControllers;
-//@property (nonatomic, assign)BOOL shouldRefreshDisplay;
-
-//// enum to define what web service is currently being queried
-//typedef NS_ENUM(NSInteger, NavigationControllerType) {
-//    RootView = 0,
-//    LoginScreenView = 1,
-//    UserSpaceView = 2
-//};
-//#define kNumberOfViewControllers 4
 
 @end
 
@@ -60,7 +51,8 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    
+    [self refreshUserDatabase];
+    [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning
@@ -93,7 +85,7 @@
 	}
     
     // Configure the cell...
-    PXDummyUser *currentUser = [users objectAtIndex:indexPath.row];
+    Users *currentUser = [users objectAtIndex:indexPath.row];
     cell.textLabel.text = currentUser.userName;
     cell.detailTextLabel.text = currentUser.role;
     
@@ -152,7 +144,7 @@
      */
     
     // get the selected user
-    PXDummyUser *currentUser = [users objectAtIndex:indexPath.row];
+    Users *currentUser = [users objectAtIndex:indexPath.row];
     
     // get the child controller login screen and push it onto navigation stack
     PXLoginScreenViewController *loginScreenController = [[PXLoginScreenViewController alloc] init];
@@ -173,14 +165,7 @@
 // called when the user successfully logs in, and the login screen disappears
 - (void) userDidLogin
 {
-//    [self.navigationController popToRootViewControllerAnimated:NO];
-//    if (loggedInUser != nil) {
-//        if (navController == self.navigationController) {
-//    PXUserSpaceViewController *userSpaceController = [navigationControllers objectAtIndex:UserSpaceView];
-//    userSpaceController.delegate = self;
-//    [self.navigationController pushViewController:userSpaceController animated:YES];
-//        }
-//    }
+
 }
 
 #pragma mark - PXUserSpaceViewControllerDelegate methods
@@ -188,40 +173,6 @@
 - (void) userDidLogout:(PXUserSpaceViewController *)sender
 {
     
-    
-//    [[self.navigationControllers objectAtIndex:2] popViewControllerAnimated:NO];
-//    [[navigationControllers objectAtIndex:1] popViewControllerAnimated:NO];
-    
-    
-//    NSArray *conts = self.navigationControllers;
-//    
-////    [sender.navigationController popViewControllerAnimated:NO];
-////    [sender.navigationController popToViewController:[self.navigationControllers objectAtIndex:0] animated:YES];
-////    assert(navController == self.navigationController);
-////    [userSpaceController.navigationController popViewControllerAnimated:YES];
-////    userSpaceController = nil;
-//    
-//    /* Get the current array of View Controllers */
-//    NSArray *currentControllers = self.navigationControllers;
-//    
-//    /* Create a mutable array out of this array */
-//    NSMutableArray *newControllers = [NSMutableArray arrayWithObject:[currentControllers objectAtIndex:0]];
-   
-//    [sender.navigationController popToRootViewControllerAnimated:YES];
-//    
-//    /* Get the current array of View Controllers */
-//    NSArray *currentControllers = self.navigationControllers;
-//    
-//    /* Create a mutable array out of this array */
-//    NSMutableArray *newControllers = [NSMutableArray arrayWithObject:[currentControllers objectAtIndex:0]];
-//    
-//    /* Assign this array to the Navigation Controller */
-//    self.navigationControllers = newControllers;
-
-    
-    
-    /* Assign this array to the Navigation Controller */
-//    self.navigationControllers = newControllers;
 }
 
 @end

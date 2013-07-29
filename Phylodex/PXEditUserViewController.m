@@ -11,8 +11,6 @@
 
 @interface PXEditUserViewController ()
 
-@property (nonatomic, retain)PXDummyUser *user;
-
 @end
 
 @implementation PXEditUserViewController
@@ -24,7 +22,6 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // return the user
-        
     }
     return self;
 }
@@ -47,9 +44,6 @@
 
 - (void)refreshUserData
 {
-    // get the latest user info from database
-    user = [PXUserManager sharedInstance].currentUser;
-    
     passwordTextField.text = user.password;
     userNameTextField.text = user.userName;
     fullNameTextField.text = user.fullName;
@@ -64,7 +58,7 @@
     
     PXUserManager *userManager = [PXUserManager sharedInstance];
     
-    [userManager updateUserWithUserID:userID withPassword:newPassword withUserName:newUserName withFullName:newFullName];
+    [userManager updateUserWithUserID:user.userID withPassword:newPassword withUserName:newUserName withFullName:newFullName];
 }
 
 - (void)didReceiveMemoryWarning

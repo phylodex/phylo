@@ -18,12 +18,12 @@
 }
 
 @property (nonatomic, assign)id <PXNewUserViewControllerDelegate> delegate;
-@property (nonatomic, retain)NSString *userID;
+@property (nonatomic, retain)NSNumber *userID;
 
 @property (strong, nonatomic) IBOutlet UITextField *userNameTextField;
 @property (strong, nonatomic) IBOutlet UITextField *fullNameTextField;
 @property (strong, nonatomic) IBOutlet UITextField *passwordTextField;
-@property (strong, nonatomic) IBOutlet UIButton *revertButton;
+//@property (strong, nonatomic) IBOutlet UIButton *revertButton;
 
 - (IBAction)createUserButtonWasPressed:(id)sender;
 

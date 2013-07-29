@@ -64,7 +64,7 @@
 -(void)didAttemptLoginWithPassword:(NSString *)password
 {
     
-    PXDummyUser *loginUser = nil;
+    Users *loginUser = nil;
 
     // check if the user password is correct, and log them in
     if ( [[PXUserManager sharedInstance] loginUserByUserID:userID withPassword:password] ) {
@@ -76,6 +76,7 @@
         if ([loginUser.role isEqualToString:@"user"]) {
             PXUserSpaceViewController *userSpaceController = [[PXUserSpaceViewController alloc] initWithNibName:@"PXUserSpaceViewController" bundle:nil];
             userSpaceController.delegate = self;
+            userSpaceController.userID = loginUser.userID;
             [self.navigationController pushViewController:userSpaceController animated:YES];
         }
         else if ([loginUser.role isEqualToString:@"admin"]) {

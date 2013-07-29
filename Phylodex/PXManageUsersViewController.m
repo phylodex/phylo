@@ -7,6 +7,7 @@
 //
 
 #import "PXManageUsersViewController.h"
+#import "PXAppDelegate.h"
 
 @interface PXManageUsersViewController ()
 
@@ -109,13 +110,12 @@
 	}
     
     // Configure the cell...
-    PXDummyUser *currentUser = [users objectAtIndex:indexPath.row];
+    Users *currentUser = [users objectAtIndex:indexPath.row];
     cell.textLabel.text = currentUser.userName;
     cell.detailTextLabel.text = currentUser.role;
     
     return cell;
 }
-
 
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
@@ -124,18 +124,18 @@
     return YES;
 }
 
-
-
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        // TO-DO
+        
         
         // Update the array and table view.
         NSUInteger row = indexPath.row;
-        [users removeObjectAtIndex:row];
+        Users *userToRemove = [users objectAtIndex:row];
+        [users removeObjectAtIndex:indexPath.row];
+        // Delete the row from the data source
+        [[PXUserManager sharedInstance] removeUser:userToRemove];
 //        [tableView reloadData];
         [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }
@@ -143,7 +143,6 @@
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
-
 
 /*
 // Override to support rearranging the table view.
@@ -165,20 +164,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
-    // get the selected user
-    PXDummyUser *currentUser = [users objectAtIndex:indexPath.row];
+    Users *currentUser = [users objectAtIndex:indexPath.row];
     
     // get the child controller login screen and push it onto navigation stack
     PXEditUserViewController *editScreenController = [[PXEditUserViewController alloc] initWithNibName:@"PXEditUserViewController" bundle:nil];
-    editScreenController.title = currentUser.userName;
-    editScreenController.userID = currentUser.userID;
+    editScreenController.user = currentUser;
     [self.navigationController pushViewController:editScreenController animated:YES];
 }
 
@@ -191,6 +181,15 @@
 
 - (void)newUserWasCreated:(UIViewController *)controller
 {
+    PXNewUserViewController *child = (PXNewUserViewController *)controller;
+    
+    // add the user to the database
+    NSString *newUserName = child.userNameTextField.text;
+    NSString *newUserPassword = child.passwordTextField.text;
+    NSString *newFullName = child.fullNameTextField.text;
+    
+    [[PXUserManager sharedInstance] addUserWithUserName:newUserName andPassword:newUserPassword andFullName:newFullName];
+    
     [controller.navigationController popViewControllerAnimated:YES];
     
     // update the manage user table

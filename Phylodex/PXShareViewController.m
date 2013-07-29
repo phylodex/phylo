@@ -95,25 +95,137 @@
             //initial subject
             [mailController setSubject:@"My Phylo Creatures"];
             //setup content of the email to preload
-            NSMutableString *message_body_creatures = [[NSMutableString alloc] init];
-            [message_body_creatures setString:@""];
-            //fill string with data from db
-            [message_body_creatures appendString:@"<html>"];
+            
+            
+            //setup content of the email to preload
+            NSMutableString *shareHtmlBody = [[NSMutableString alloc] init];
+            [shareHtmlBody setString:@""];
+            [shareHtmlBody appendString:@"<html>     <head>     <link rel=\"stylesheet\" type=\"text/css\" media=\"print\" href=\"http://phylogame.org/wp-content/themes/phylomon-theme/print.css\">     <link rel=\"stylesheet\" type=\"text/css\" href=\"http://phylogame.org/wp-content/themes/phylomon-theme/style.css\">     </head>     <body>     <div class=\"card-container\">"];
+            
             for (Phylodex *phyloCreature in _selectedAnimals) {
-                [message_body_creatures appendString:@"<b>"];
-                [message_body_creatures appendString:(@"Species")];
-                [message_body_creatures appendString:@":</b><i>"];
-                [message_body_creatures appendString:(phyloCreature.name)];
-                [message_body_creatures appendString:@"</i>, <br>"];
-                //get each image and add as attachment
-                //Photo *animalPic = phyloCreature.photo;
-                //UIImage *tempImg = animalPic.image;
-                UIImage *tempImg = phyloCreature.thumbnail;
-                NSData *imageData = UIImageJPEGRepresentation(tempImg,0.9);
-                NSString *strFileName = [NSString stringWithFormat:@"%@-picture.jpeg",phyloCreature.name];
-                [mailController addAttachmentData:imageData mimeType:@"image/jpeg" fileName:strFileName];
+                
+                UIImage *tempImg = phyloCreature.photo.image;   //grab the image
+                NSData *imageData = UIImageJPEGRepresentation(tempImg,0.9); //convert to smaller filesize jpeg
+                NSString *strFileName = [NSString stringWithFormat:@"%@-picture.jpeg",phyloCreature.name]; //make a filename
+                [mailController addAttachmentData:imageData mimeType:@"image/jpeg" fileName:strFileName]; //add the attachment
+                
+                [shareHtmlBody appendString:@" <div class=\"card count \" id=\""]; //card outside
+                [shareHtmlBody appendString:(phyloCreature.name)]; //card id
+                
+                [shareHtmlBody appendString:@"\">        <img src=\"http://phylogame.org/wp-content/themes/phylomon-theme/img/generated-card-images/bg-F4F4CE-forest-forest-forest-1.png\" class=\"card-background\" alt=\"card-name-15888\"><h2 class=\"card-name  smaller-12 \" id=\"card-name-15888\">"]; //for now every card gets a forest background since we can't generate new ones
+                
+                [shareHtmlBody appendString:(phyloCreature.name)]; //card title
+                
+                [shareHtmlBody appendString:@"</h2> <span class=\"latin-name\">" ];
+                //SCIENTIFIC NAME GOES HERE
+                [shareHtmlBody appendString:@"Scientific name here"];
+                ///////////////////////////
+                //[shareHtmlBody appendString:(phyloCreature.scientific_name)]; //latin name if it exists
+                [shareHtmlBody appendString:@"</span>  <div class=\"num-values\"> <img src=\"http://phylogame.org/wp-content/themes/phylomon-theme/img/num/"];
+                [shareHtmlBody appendString:phyloCreature.scale]; //use the size for determining image
+                [shareHtmlBody appendString:@".png\" alt=\"" ];
+                [shareHtmlBody appendString:phyloCreature.scale ];
+                [shareHtmlBody appendString:@"\"> <img src=\"http://phylogame.org/wp-content/themes/phylomon-theme/img/num/" ];
+                
+                /***********************************************
+                 NEED TO FIX FOOD CHAIN POINTS FOR NOW THIS IS AN UGLY SOLVE
+                 *************/
+                if ([phyloCreature.foodChain isEqualToString:@"4"]){
+                    [shareHtmlBody appendString:@"carnivore3"];
+                }
+                else if ([phyloCreature.foodChain isEqualToString:@"3"]){
+                    [shareHtmlBody appendString:@"omnivore3"];
+                }
+                else if ([phyloCreature.foodChain isEqualToString:@"2"]){
+                    [shareHtmlBody appendString:@"herbivore2"];
+                }
+                else {
+                    [shareHtmlBody appendString:@"photosynthetic1"];
+                }
+                ////////////////
+                //[shareHtmlBody appendString:phyloCreature.diet ]; //use diet and heirarchy to determine image
+                //[shareHtmlBody appendString:phyloCreature.foodChain];
+                [shareHtmlBody appendString:@".png\" alt=\"" ];
+                
+                
+                
+                /***********************************************
+                 NEED TO FIX FOOD CHAIN POINTS FOR NOW THIS IS AN UGLY SOLVE
+                 *************/
+                if ([phyloCreature.foodChain isEqualToString:@"4"]){
+                    [shareHtmlBody appendString:@"carnivore3"];
+                }
+                else if ([phyloCreature.foodChain isEqualToString:@"3"]){
+                    [shareHtmlBody appendString:@"omnivore3"];
+                }
+                else if ([phyloCreature.foodChain isEqualToString:@"2"]){
+                    [shareHtmlBody appendString:@"herbivore2"];
+                }
+                else {
+                    [shareHtmlBody appendString:@"photosynthetic1"];
+                }
+                ////////////////
+                //[shareHtmlBody appendString:phyloCreature.diet ]; //use diet and heirarchy to determine image
+                //[shareHtmlBody appendString:phyloCreature.foodChain];
+                [shareHtmlBody appendString:@"\">  </div>   <div class=\"card-image\">  <!-- GRAPHIC -->  <div class=\"graphic\"><img src=\""];
+                
+                
+                
+                [shareHtmlBody appendString:(strFileName)]; //for image path
+                [shareHtmlBody appendString:@"\"></div> <div class=\"photo empty\">        <strong>Sorry, there is no photo available.  If you have one, please submit <a href=\"http://www.flickr.com/groups/1293102@N24/\">here</a>.</strong>   </div>  </div>" ];
+                
+                //Kingdom+Phylum+Class
+                //HAVE TO FIX ALL OF THIS
+                [shareHtmlBody appendString:@"<div class=\"card-classification\">"];
+                [shareHtmlBody appendString:phyloCreature.evolutionary];
+                [shareHtmlBody appendString:@" </div> <div class=\"creative-commons\">  <a href=\"http://creativecommons.org/licenses/by-nc-nd/2.0/deed.en_CA\" target=\"_blank\"><img src=\"http://phylogame.org/wp-content/themes/phylomon-theme/img/creative-commons.png\" alt=\"Creative Commons Attribution-Noncommercial-No Derivatives Works 2.0\"></a>  </div>"];
+                /*[shareHtmlBody appendString:@"<div class=\"card-classification\">  <a href=\"http://phylogame.org/classification/"];
+                [shareHtmlBody appendString:phyloCreature.kingdom]; //kingdom
+                [shareHtmlBody appendString:@"/\" rel=\"tag\">" ];
+                [shareHtmlBody appendString:phyloCreature.kingdom];
+                [shareHtmlBody appendString:@"</a>,<a href=\"http://phylogame.org/classification/"];
+                [shareHtmlBody appendString:phyloCreature.phylum]; //phylum
+                [shareHtmlBody appendString:@"/\" rel=\"tag\">"];
+                [shareHtmlBody appendString:phyloCreature.phylum];
+                [shareHtmlBody appendString:@"</a>,<a href=\"http://phylogame.org/classification/"];
+                [shareHtmlBody appendString:phyloCreature.creature_class]; //class (this section pretty straightforward)
+                [shareHtmlBody appendString:@"/\" rel=\"tag\">"];
+                [shareHtmlBody appendString:phyloCreature.creature_class];
+                */
+                
+                //[shareHtmlBody appendString:@"</a>  </div> <div class=\"creative-commons\">  <a href=\"http://creativecommons.org/licenses/by-nc-nd/2.0/deed.en_CA\" target=\"_blank\"><img src=\"http://phylogame.org/wp-content/themes/phylomon-theme/img/creative-commons.png\" alt=\"Creative Commons Attribution-Noncommercial-No Derivatives Works 2.0\"></a>  </div>"];
+                
+                [shareHtmlBody appendString:@"<div class=\"card-text\">        <p style=\"text-align: right;\"><strong>"];
+                [shareHtmlBody appendString:phyloCreature.point]; //insert generated points
+                [shareHtmlBody appendString:@" POINTS</strong></p><br> </div>"];
+                
+                [shareHtmlBody appendString:@" <div class=\"card-temperature\"> " ]; //only insert the climates flagged true
+                
+                //CLIMATES NO LONGER INDEPENDENT
+                [shareHtmlBody appendString:phyloCreature.climate]; //insert generated points
+                
+                /*if ([phyloCreature.cold isEqualToNumber:[NSNumber numberWithInt:1]]){
+                    [shareHtmlBody appendString:@"Cold, "];
+                }
+                if ([phyloCreature.cool isEqualToNumber:[NSNumber numberWithInt:1]]){
+                    [shareHtmlBody appendString:@"Cool, "];
+                }
+                if ([phyloCreature.warm isEqualToNumber:[NSNumber numberWithInt:1]]){
+                    [shareHtmlBody appendString:@"Warm, "];
+                }
+                if ([phyloCreature.hot isEqualToNumber:[NSNumber numberWithInt:1]]){
+                    [shareHtmlBody appendString:@"Hot "];
+                }*/
+                
+                [shareHtmlBody appendString:@"</div> <div class=\"card-credit\"> <div class=\"graphic\"> <!-- GRAPHIC -->  <span>Image by <em>"];
+                [shareHtmlBody appendString:@"Some Photographer"]; //this should be the photographer.
+                [shareHtmlBody appendString:@"</em></span>         </div>        </div>    	</div>    	</div>        </div>"];
+                
             }
-            [mailController setMessageBody:message_body_creatures isHTML:YES];
+            [shareHtmlBody appendString:@"</div></body></html>"];
+            
+            //set that whole big chunk as body of an html video
+            [mailController setMessageBody:shareHtmlBody isHTML:YES];
             
             //set how to present and bring it up
             mailController.modalPresentationStyle = UIModalPresentationPageSheet;

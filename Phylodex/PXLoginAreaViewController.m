@@ -34,7 +34,7 @@
     if (self) {
         // Custom initialization
         self.title = @"Users";
-        self.tabBarItem.image = [UIImage imageNamed:@"Phylodex"];
+        self.tabBarItem.image = [UIImage imageNamed:@"Accounts"];
         [self refreshUserDatabase];
     }
     return self;

@@ -10,6 +10,7 @@
 		081600A8178E6B2B00C8C904 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 081600A7178E6B2B00C8C904 /* MessageUI.framework */; };
 		082F898B1777763800780AA5 /* Penguin.png in Resources */ = {isa = PBXBuildFile; fileRef = 082F898A1777763800780AA5 /* Penguin.png */; };
 		082F898D177776C600780AA5 /* Housecat.png in Resources */ = {isa = PBXBuildFile; fileRef = 082F898C177776C600780AA5 /* Housecat.png */; };
+		08484D7817A5E763004296A0 /* Accounts.png in Resources */ = {isa = PBXBuildFile; fileRef = 08484D7717A5E763004296A0 /* Accounts.png */; };
 		087AF3A61776E46A004034F3 /* PXNameAndImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 087AF3A51776E46A004034F3 /* PXNameAndImageCell.m */; };
 		087AF3A81776E475004034F3 /* PXNameAndImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 087AF3A71776E475004034F3 /* PXNameAndImageCell.xib */; };
 		08834CC91785F723003472D5 /* Search.png in Resources */ = {isa = PBXBuildFile; fileRef = 08834CC81785F723003472D5 /* Search.png */; };
@@ -100,6 +101,7 @@
 		081600A7178E6B2B00C8C904 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		082F898A1777763800780AA5 /* Penguin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Penguin.png; sourceTree = "<group>"; };
 		082F898C177776C600780AA5 /* Housecat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Housecat.png; sourceTree = "<group>"; };
+		08484D7717A5E763004296A0 /* Accounts.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Accounts.png; sourceTree = "<group>"; };
 		087AF3A41776E46A004034F3 /* PXNameAndImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXNameAndImageCell.h; sourceTree = "<group>"; };
 		087AF3A51776E46A004034F3 /* PXNameAndImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXNameAndImageCell.m; sourceTree = "<group>"; };
 		087AF3A71776E475004034F3 /* PXNameAndImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PXNameAndImageCell.xib; sourceTree = "<group>"; };
@@ -189,10 +191,10 @@
 		B6DDBA241784F620002D5880 /* PXXMLParserSecondStep.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXXMLParserSecondStep.m; sourceTree = "<group>"; };
 		B6DDBA261784F825002D5880 /* PXXMLParserThirdStep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXXMLParserThirdStep.h; sourceTree = "<group>"; };
 		B6DDBA271784F825002D5880 /* PXXMLParserThirdStep.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXXMLParserThirdStep.m; sourceTree = "<group>"; };
-		C824E60517A2105400B7B3DD /* PXDummyCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXDummyCollection.h; sourceTree = "<group>"; };
-		C824E60617A2105400B7B3DD /* PXDummyCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXDummyCollection.m; sourceTree = "<group>"; };
-		C824E60717A2105400B7B3DD /* PXDummyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXDummyModel.h; sourceTree = "<group>"; };
-		C824E60817A2105400B7B3DD /* PXDummyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXDummyModel.m; sourceTree = "<group>"; };
+		C824E60517A2105400B7B3DD /* PXDummyCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PXDummyCollection.h; path = Phylodex/PXDummyCollection.h; sourceTree = "<group>"; };
+		C824E60617A2105400B7B3DD /* PXDummyCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PXDummyCollection.m; path = Phylodex/PXDummyCollection.m; sourceTree = "<group>"; };
+		C824E60717A2105400B7B3DD /* PXDummyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PXDummyModel.h; path = Phylodex/PXDummyModel.h; sourceTree = "<group>"; };
+		C824E60817A2105400B7B3DD /* PXDummyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PXDummyModel.m; path = Phylodex/PXDummyModel.m; sourceTree = "<group>"; };
 		ED7E37F417A33CE000F936E7 /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Photo.h; path = Phylodex/Photo.h; sourceTree = "<group>"; };
 		ED7E37F517A33CE000F936E7 /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Photo.m; path = Phylodex/Photo.m; sourceTree = "<group>"; };
 		ED7E37F717A33D0800F936E7 /* Phylodex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Phylodex.h; path = Phylodex/Phylodex.h; sourceTree = "<group>"; };
@@ -288,6 +290,7 @@
 		1F293CBB1770FBC9009C8DA9 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				08484D7717A5E763004296A0 /* Accounts.png */,
 				EDB03D7D17777164009B0D55 /* Capture.png */,
 				EDB03D7E17777164009B0D55 /* Share.png */,
 				08834CC81785F723003472D5 /* Search.png */,
@@ -342,6 +345,10 @@
 		1FF7E8A41773B1E700215E38 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				C824E60717A2105400B7B3DD /* PXDummyModel.h */,
+				C824E60817A2105400B7B3DD /* PXDummyModel.m */,
+				C824E60517A2105400B7B3DD /* PXDummyCollection.h */,
+				C824E60617A2105400B7B3DD /* PXDummyCollection.m */,
 				EDDE42ED17A5BC2900A6DE3A /* Users.h */,
 				EDDE42EE17A5BC2900A6DE3A /* Users.m */,
 				1F54A6A217A1DB690044AEF6 /* PXDummyUserDatabase.h */,
@@ -386,10 +393,6 @@
 				1F54A6A917A1EF400044AEF6 /* PXLoginScreenViewController.m */,
 				1F54A6A517A1DF340044AEF6 /* PXLoginAreaViewController.h */,
 				1F54A6A617A1DF340044AEF6 /* PXLoginAreaViewController.m */,
-				C824E60517A2105400B7B3DD /* PXDummyCollection.h */,
-				C824E60617A2105400B7B3DD /* PXDummyCollection.m */,
-				C824E60717A2105400B7B3DD /* PXDummyModel.h */,
-				C824E60817A2105400B7B3DD /* PXDummyModel.m */,
 				08BECADD1793A29C0068176C /* PXCameraViewController.h */,
 				08BECADE1793A29C0068176C /* PXCameraViewController.m */,
 				0891C24E1786360C00F29BAD /* PXShareViewController.h */,
@@ -555,6 +558,7 @@
 				1FEC8ABE17A4F3E800D00B5B /* PXEditUserViewController.xib in Resources */,
 				1F2740F91793D31800D7D110 /* readme.txt in Resources */,
 				ED7E37FC17A356D200F936E7 /* card_bg.png in Resources */,
+				08484D7817A5E763004296A0 /* Accounts.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

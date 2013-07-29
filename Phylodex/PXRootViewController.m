@@ -33,6 +33,15 @@ static NSString *CellTableIdentifier = @"CellTableIdentifier";
 
 
 -(void)viewDidAppear:(BOOL)animated{
+    // set the predicate for the current logged in user
+    Users *currentUser = [PXUserManager sharedInstance].currentUser;
+    //    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"user=%@", currentUser];
+    //    [request setPredicate:predicate];
+    
+	    
+   
+//
+//    
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
 	NSEntityDescription *entity = [NSEntityDescription entityForName:@"Phylodex" inManagedObjectContext:managedObjectContext];
 	[request setEntity:entity];
@@ -43,12 +52,35 @@ static NSString *CellTableIdentifier = @"CellTableIdentifier";
 	[request setSortDescriptors:sortDescriptors];
 	
 	// Execute the fetch -- create a mutable copy of the result.
+//	NSError *error = nil;
+//	NSMutableArray *mutableFetchResults = [[managedObjectContext executeFetchRequest:request error:&error] mutableCopy];
+//	if (mutableFetchResults == nil) {
+//		// Handle the error.
+//	}
+    
+    // Execute the fetch -- create a mutable copy of the result.
 	NSError *error = nil;
 	NSMutableArray *mutableFetchResults = [[managedObjectContext executeFetchRequest:request error:&error] mutableCopy];
 	if (mutableFetchResults == nil) {
 		// Handle the error.
 	}
-	[self setLifeforms:mutableFetchResults];    //this sentence can be used to create new card but not to edit
+
+    NSMutableArray *filteredResults = [NSMutableArray array];
+    
+    // only use the entries for the current user
+
+    for (Phylodex *phy in mutableFetchResults) {
+        if (currentUser == nil) {
+            if (phy.user == nil) {
+                [filteredResults addObject:phy];
+            }
+        }
+        else if ( [phy.user.userID isEqualToNumber:currentUser.userID] ) {
+                [filteredResults addObject:phy];
+        }
+    }
+    
+	[self setLifeforms:filteredResults];    //this sentence can be used to create new card but not to edit
     [self.tableView reloadData];
 }
 
@@ -58,30 +90,7 @@ static NSString *CellTableIdentifier = @"CellTableIdentifier";
     
     // set edit and add buttons in navigation controller
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
-    //Insertion should come from the capture mode
-//    addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addPhylo)];
-//	addButton.enabled = YES;
-//    self.navigationItem.rightBarButtonItem = addButton;
 	
-    // Fetch existing phylodex entries.
-    // Create a fetch request, add a sort descriptor, then execute the fetch.
-	NSFetchRequest *request = [[NSFetchRequest alloc] init];
-	NSEntityDescription *entity = [NSEntityDescription entityForName:@"Phylodex" inManagedObjectContext:managedObjectContext];
-	[request setEntity:entity];
-	
-	// Order the entries by name
-	NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
-	NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
-	[request setSortDescriptors:sortDescriptors];
-	
-	// Execute the fetch -- create a mutable copy of the result.
-	NSError *error = nil;
-	NSMutableArray *mutableFetchResults = [[managedObjectContext executeFetchRequest:request error:&error] mutableCopy];
-	if (mutableFetchResults == nil) {
-		// Handle the error.
-	}
-	[self setLifeforms:mutableFetchResults];
-    
     //get the right table
     UITableView *tableView = (id)[self.view viewWithTag:1];
     //set the height of the cells

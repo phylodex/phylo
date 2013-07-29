@@ -17,6 +17,8 @@
 #import "PXNameAndImageCell.h"
 #import "Phylodex.h"
 #import "Photo.h"
+#import "PXUserManager.h"
+#import "Users.h"
 
 #define kTableRowHeight 65
 #define kTitle @"Phylodex"

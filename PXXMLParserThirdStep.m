@@ -26,7 +26,8 @@
         //*******************************************************************
         //please put some default image setting code here
         //this code will be helpful:
-        //[animalImage setObject:@"put default image here" forKey:@"Image"]
+//        UIImage *image = [UIImage imageNamed:@"noimage.jpg"];
+//        [animalImage setObject:image forKey:@"Image"];
         //*******************************************************************
     }
     

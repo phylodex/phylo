@@ -79,7 +79,7 @@ static NSString *CellTableIdentifier = @"PXNameAndContentCell";
     scroller.delegate = self;
     [scroller addSubview:table];
     
-    NSLog(@"speciesData is %@", speciesData);
+//    NSLog(@"speciesData is %@", speciesData);
 }
 
 
@@ -168,7 +168,7 @@ static NSString *CellTableIdentifier = @"PXNameAndContentCell";
     }
     if (showData.lastObject != nil) {
         cell.contentLabel.text = [showData objectAtIndex:indexPath.row];
-        NSLog(@"%@",cell.contentLabel.text);
+//        NSLog(@"%@",cell.contentLabel.text);
     }
     
     return cell;

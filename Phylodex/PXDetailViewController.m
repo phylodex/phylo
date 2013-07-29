@@ -174,8 +174,8 @@
     //creature images
     imageView.image = self.image;
     //load data
-    self.nameOfCreature.text = phyloELement.name; 
-    self.artistInfo.text = phyloELement.artist;
+    self.nameOfCreature.text = phyloELement.name;
+    self.artistInfo.text = phyloELement.user.fullName;
     self.displayLabel.text = phyloELement.evolutionary;
     self.desc.text = phyloELement.desc;
    // self.scaleNumber.text = phyloELement.scale;
@@ -302,7 +302,7 @@
             p.scale = phyloELement.scale;
             p.foodChain = phyloELement.foodChain;
             p.diet = phyloELement.diet;
-            p.artist = self.artistInfo.text;
+//            p.artist = self.artistInfo.text;
            // p.climate = [NSString stringWithFormat:@"%@, %@, %@", self.climate.text, self.climate2.text, self.climate3.text];
             //NSLog(@"%@", p.climate);
             [p setValue:[NSNumber numberWithBool:self.cold_switch.on] forKey:@"cold"];

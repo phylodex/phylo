@@ -2,9 +2,9 @@
 CMPT 275 GROUP 11: Phylodex
 
 Author: Steve King
-Data: June 23, 2013
+Data: July 29, 2013
 
-Readme: Version 2
+Readme: Version 3
 ==========================================================================================
 
 If you are running this on the simulator, the capture mode will not work. Also, It might
@@ -27,3 +27,6 @@ http://www.natureserve.org/imagerepository/GetImage?SRC=2&BATCH=10&FMT=jpg&RES=7
 We did test the function before the server error, and images can be downloaded from the web service.
 Not all animals will return images. Known searches with images include: Sea Otter, Mallard, American
 Black Bear, Golden Eagle.
+
+There is a minor bug with search results photo view. Some of the data does not load right away, and 
+refreshes only after scrolling the screen.

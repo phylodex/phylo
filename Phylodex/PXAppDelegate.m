@@ -93,16 +93,16 @@
 {
     // create the admin user
     Users *adminUser = (Users *)[NSEntityDescription insertNewObjectForEntityForName:@"Users" inManagedObjectContext:_managedObjectContext];
-    [adminUser setFullName:@"Fred Flintstone"];
+    [adminUser setFullName:@"Charles Darwin"];
     [adminUser setUserID:[NSNumber numberWithInt:0]]; // admin is the zero user
     [adminUser setUserName:@"Admin"];
     [adminUser setRole:@"admin"];
     [adminUser setPassword:@""]; // empty password
     
     Users *user = (Users *)[NSEntityDescription insertNewObjectForEntityForName:@"Users" inManagedObjectContext:_managedObjectContext];
-    [user setFullName:@"Buzz Alder"];
+    [user setFullName:@"Jane Goodall"];
     [user setUserID:[NSNumber numberWithInt:1]];
-    [user setUserName:@"buzz"];
+    [user setUserName:@"eagle1"];
     [user setRole:@"user"];
     [user setPassword:@"secret"];
     

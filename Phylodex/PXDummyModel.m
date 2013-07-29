@@ -14,4 +14,22 @@
 @synthesize name;
 @synthesize species;
 
+@synthesize phylum;
+@synthesize kingdom;
+@synthesize creature_class;
+
+@synthesize diet;
+@synthesize heirarchy;
+@synthesize creature_size;
+
+@synthesize climate;
+@synthesize cold;
+@synthesize cool;
+@synthesize warm;
+@synthesize hot;
+
+@synthesize habitat;
+@synthesize habitat2;
+@synthesize habitat3;
+
 @end

@@ -114,7 +114,7 @@
     
     //    [phylo setDate:[NSDate date]]; // Should be timestamp, but this will be constant for simulator.
     [phylo setName:model.name];
-    [phylo setHabitat:@"Earth"];
+    [phylo setHabitat:@"forest"];
     
     
     

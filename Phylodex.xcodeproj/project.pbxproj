@@ -18,6 +18,21 @@
 		0891C2521786360C00F29BAD /* PXShareViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0891C2501786360C00F29BAD /* PXShareViewController.xib */; };
 		0891C2551786519300F29BAD /* PXShareCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0891C2541786519300F29BAD /* PXShareCell.m */; };
 		0891C2571786646900F29BAD /* PXShareCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0891C2561786646900F29BAD /* PXShareCell.xib */; };
+		0896594217A60D81005372BF /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 0896593717A60D81005372BF /* 1.png */; };
+		0896594317A60D81005372BF /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 0896593817A60D81005372BF /* 2.png */; };
+		0896594417A60D81005372BF /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = 0896593917A60D81005372BF /* 3.png */; };
+		0896594517A60D81005372BF /* 4.png in Resources */ = {isa = PBXBuildFile; fileRef = 0896593A17A60D81005372BF /* 4.png */; };
+		0896594617A60D81005372BF /* 5.png in Resources */ = {isa = PBXBuildFile; fileRef = 0896593B17A60D81005372BF /* 5.png */; };
+		0896594717A60D81005372BF /* 6.png in Resources */ = {isa = PBXBuildFile; fileRef = 0896593C17A60D81005372BF /* 6.png */; };
+		0896594817A60D81005372BF /* 7.png in Resources */ = {isa = PBXBuildFile; fileRef = 0896593D17A60D81005372BF /* 7.png */; };
+		0896594917A60D81005372BF /* 8.png in Resources */ = {isa = PBXBuildFile; fileRef = 0896593E17A60D81005372BF /* 8.png */; };
+		0896594A17A60D81005372BF /* 9.png in Resources */ = {isa = PBXBuildFile; fileRef = 0896593F17A60D81005372BF /* 9.png */; };
+		0896594B17A60D81005372BF /* scale_guide_pt1.png in Resources */ = {isa = PBXBuildFile; fileRef = 0896594017A60D81005372BF /* scale_guide_pt1.png */; };
+		0896594C17A60D81005372BF /* scale_guide_pt2.png in Resources */ = {isa = PBXBuildFile; fileRef = 0896594117A60D81005372BF /* scale_guide_pt2.png */; };
+		0896595117A60D8F005372BF /* carnivore3.png in Resources */ = {isa = PBXBuildFile; fileRef = 0896594D17A60D8F005372BF /* carnivore3.png */; };
+		0896595217A60D8F005372BF /* herbivore2.png in Resources */ = {isa = PBXBuildFile; fileRef = 0896594E17A60D8F005372BF /* herbivore2.png */; };
+		0896595317A60D8F005372BF /* omnivore3.png in Resources */ = {isa = PBXBuildFile; fileRef = 0896594F17A60D8F005372BF /* omnivore3.png */; };
+		0896595417A60D8F005372BF /* photosynthetic1.png in Resources */ = {isa = PBXBuildFile; fileRef = 0896595017A60D8F005372BF /* photosynthetic1.png */; };
 		08A10B73177CAB2100AB0609 /* Gorilla.png in Resources */ = {isa = PBXBuildFile; fileRef = 08A10B72177CAB2100AB0609 /* Gorilla.png */; };
 		08A10B75177CAEAC00AB0609 /* Dog.png in Resources */ = {isa = PBXBuildFile; fileRef = 08A10B74177CAEAC00AB0609 /* Dog.png */; };
 		08BECADF1793A29C0068176C /* PXCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08BECADE1793A29C0068176C /* PXCameraViewController.m */; };
@@ -112,6 +127,21 @@
 		0891C2531786519300F29BAD /* PXShareCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXShareCell.h; sourceTree = "<group>"; };
 		0891C2541786519300F29BAD /* PXShareCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXShareCell.m; sourceTree = "<group>"; };
 		0891C2561786646900F29BAD /* PXShareCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PXShareCell.xib; sourceTree = "<group>"; };
+		0896593717A60D81005372BF /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
+		0896593817A60D81005372BF /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
+		0896593917A60D81005372BF /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.png; sourceTree = "<group>"; };
+		0896593A17A60D81005372BF /* 4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 4.png; sourceTree = "<group>"; };
+		0896593B17A60D81005372BF /* 5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 5.png; sourceTree = "<group>"; };
+		0896593C17A60D81005372BF /* 6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 6.png; sourceTree = "<group>"; };
+		0896593D17A60D81005372BF /* 7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 7.png; sourceTree = "<group>"; };
+		0896593E17A60D81005372BF /* 8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 8.png; sourceTree = "<group>"; };
+		0896593F17A60D81005372BF /* 9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 9.png; sourceTree = "<group>"; };
+		0896594017A60D81005372BF /* scale_guide_pt1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scale_guide_pt1.png; sourceTree = "<group>"; };
+		0896594117A60D81005372BF /* scale_guide_pt2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scale_guide_pt2.png; sourceTree = "<group>"; };
+		0896594D17A60D8F005372BF /* carnivore3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = carnivore3.png; sourceTree = "<group>"; };
+		0896594E17A60D8F005372BF /* herbivore2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = herbivore2.png; sourceTree = "<group>"; };
+		0896594F17A60D8F005372BF /* omnivore3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = omnivore3.png; sourceTree = "<group>"; };
+		0896595017A60D8F005372BF /* photosynthetic1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = photosynthetic1.png; sourceTree = "<group>"; };
 		08A10B72177CAB2100AB0609 /* Gorilla.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Gorilla.png; sourceTree = "<group>"; };
 		08A10B74177CAEAC00AB0609 /* Dog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Dog.png; sourceTree = "<group>"; };
 		08BECADD1793A29C0068176C /* PXCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXCameraViewController.h; sourceTree = "<group>"; };
@@ -238,6 +268,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0896593517A60D61005372BF /* Sizes */ = {
+			isa = PBXGroup;
+			children = (
+				0896593717A60D81005372BF /* 1.png */,
+				0896593817A60D81005372BF /* 2.png */,
+				0896593917A60D81005372BF /* 3.png */,
+				0896593A17A60D81005372BF /* 4.png */,
+				0896593B17A60D81005372BF /* 5.png */,
+				0896593C17A60D81005372BF /* 6.png */,
+				0896593D17A60D81005372BF /* 7.png */,
+				0896593E17A60D81005372BF /* 8.png */,
+				0896593F17A60D81005372BF /* 9.png */,
+				0896594017A60D81005372BF /* scale_guide_pt1.png */,
+				0896594117A60D81005372BF /* scale_guide_pt2.png */,
+			);
+			name = Sizes;
+			sourceTree = "<group>";
+		};
+		0896593617A60D6D005372BF /* Diet */ = {
+			isa = PBXGroup;
+			children = (
+				0896594D17A60D8F005372BF /* carnivore3.png */,
+				0896594E17A60D8F005372BF /* herbivore2.png */,
+				0896594F17A60D8F005372BF /* omnivore3.png */,
+				0896595017A60D8F005372BF /* photosynthetic1.png */,
+			);
+			name = Diet;
+			sourceTree = "<group>";
+		};
 		1F293CA61770FBC9009C8DA9 = {
 			isa = PBXGroup;
 			children = (
@@ -329,6 +388,8 @@
 		1FF7E89F1773B0EC00215E38 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0896593617A60D6D005372BF /* Diet */,
+				0896593517A60D61005372BF /* Sizes */,
 				ED7E37FB17A356D200F936E7 /* card_bg.png */,
 				08A10B74177CAEAC00AB0609 /* Dog.png */,
 				1FAA58F0177CB6120072CF9A /* Horse.png */,
@@ -559,6 +620,21 @@
 				1F2740F91793D31800D7D110 /* readme.txt in Resources */,
 				ED7E37FC17A356D200F936E7 /* card_bg.png in Resources */,
 				08484D7817A5E763004296A0 /* Accounts.png in Resources */,
+				0896594217A60D81005372BF /* 1.png in Resources */,
+				0896594317A60D81005372BF /* 2.png in Resources */,
+				0896594417A60D81005372BF /* 3.png in Resources */,
+				0896594517A60D81005372BF /* 4.png in Resources */,
+				0896594617A60D81005372BF /* 5.png in Resources */,
+				0896594717A60D81005372BF /* 6.png in Resources */,
+				0896594817A60D81005372BF /* 7.png in Resources */,
+				0896594917A60D81005372BF /* 8.png in Resources */,
+				0896594A17A60D81005372BF /* 9.png in Resources */,
+				0896594B17A60D81005372BF /* scale_guide_pt1.png in Resources */,
+				0896594C17A60D81005372BF /* scale_guide_pt2.png in Resources */,
+				0896595117A60D8F005372BF /* carnivore3.png in Resources */,
+				0896595217A60D8F005372BF /* herbivore2.png in Resources */,
+				0896595317A60D8F005372BF /* omnivore3.png in Resources */,
+				0896595417A60D8F005372BF /* photosynthetic1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -26,31 +26,106 @@
 @dynamic thumbnail;
 @dynamic photo;
 
-/* IN PROGRESS
+
 -(void) fixPoints{
     
     int total_climate_count = 0;
-    total_climate_count += [self.cold intValue];
-    total_climate_count += [self.cool intValue];
-    total_climate_count += [self.warm intValue];
-    total_climate_count += [self.hot intValue];
+    int total_habitat_count = 1;
     int newPoints = 0;
-    if(total_climate_count >2){
-        newPoints--;
+
+    //separate the climate part
+    NSString *clim = self.climate;
+    NSString *clim1 = [[NSString alloc] init];
+    NSString *clim2 = [[NSString alloc] init];
+    NSString *clim3 = [[NSString alloc] init];
+    NSArray *cl = [clim componentsSeparatedByString:@", "];
+    int counter = 0;
+    for (NSString *s in cl) {   //load the climate data
+        if (counter == 0) {
+            clim1 = [cl objectAtIndex: 0];
+        }
+        if (counter == 1) {
+            clim2 = [cl objectAtIndex: 1];
+        }
+        if (counter == 2) {
+            clim3 = [cl objectAtIndex: 2];
+        }
+        counter ++;
     }
-    else if(total_climate_count < 2){
-        newPoints++;
+    NSLog(@"%@ %@ %@", clim1,clim2,clim3);
+    total_climate_count += counter;
+    if(total_climate_count  == 3){
+        if ([clim1 isEqualToString:clim2]){
+            if([clim1 isEqualToString:clim3]){
+                newPoints++; //total 1 climate
+                NSLog(@"Had 1 climate, +1");
+            }
+            else NSLog((@"had 2 climates A"));
+        }
+        else if(![clim1 isEqualToString:clim3]){
+            if (![clim2 isEqualToString:clim3]){
+                newPoints--; //total 3 climates
+                NSLog(@"Had 3 climates, -1");
+            }
+            else NSLog((@"had 2 climates B"));
+        }
+    }
+    else if(total_climate_count == 2){
+        if([clim1 isEqualToString:clim2]){
+            newPoints++; //total 1 climate
+            NSLog(@"Had 1 climate, +1");
+        }
+        else  NSLog((@"had 2 climates C"));
+    }
+    else{
+        newPoints++; //total 1 climate
+        NSLog(@"Had 1 climate, +1");
     }
     
-    if ([self.habitat isEqualToString:self.habitat2]){
-        if([self.habitat isEqualToString:self.habitat3]){
-            newPoints++; //total_habitat_count = 1
+    //separate the climate part
+    NSString *hab1 = self.habitat;
+    NSString *hab2 = [[NSString alloc] init];
+    NSString *hab3 = [[NSString alloc] init];
+    NSString *hab = self.terrains;
+    NSArray *habs = [hab componentsSeparatedByString:@", "];
+    int counter2 = 0;
+    for (NSString *s in habs) {   //load the habitat data
+        if (counter2 == 0) {
+            hab2 = [habs objectAtIndex: 0];
+        }
+        if (counter2 == 1) {
+            hab3 = [habs objectAtIndex: 1];
+        }
+        counter2 ++;
+    }
+    NSLog(@"%@ %@ %@", hab1,hab2,hab3);
+    total_habitat_count += counter2;
+    if(total_habitat_count  == 3){
+        if ([hab1 isEqualToString:hab2]){
+            if([hab1 isEqualToString:hab3]){
+                newPoints++; //total 1 habitat
+                NSLog(@"Had 1 habitat, +1");
+            }
+            else NSLog((@"had 2 habitats A"));
+        }
+        else if(![hab1 isEqualToString:hab3]){
+            if (![hab2 isEqualToString:hab3]){
+                newPoints--; //total 3 habitat
+                NSLog(@"Had 3 habitats, -1");
+            }
+            else NSLog((@"had 2 habitats B"));
         }
     }
-    else if(![self.habitat isEqualToString:self.habitat3]){
-        if (![self.habitat2 isEqualToString:self.habitat3]){
-            newPoints--; //total_habitat_count = 3
+    else if(total_habitat_count == 2){
+        if([hab1 isEqualToString:hab2]){
+            newPoints++; //total 1 habitat
+            NSLog(@"Had 1 habitat, +1");
         }
+        else NSLog((@"had 2 habitats C"));
+    }
+    else{
+        newPoints++; //total 1 habitat
+        NSLog(@"Had 1 habitat, +1");
     }
     
     if ([self.diet isEqualToString:@"carnivore"]){
@@ -65,8 +140,8 @@
     else if([self.diet isEqualToString:@"photosynthetic"]){
         newPoints += 2;
     }
-    self.points = [NSString stringWithFormat:@"%d", newPoints];
+    self.point = [NSString stringWithFormat:@"%d", newPoints];
 }
- */
+ 
 
 @end

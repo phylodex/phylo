@@ -102,12 +102,27 @@
         [phylo setTerrains:[NSString stringWithFormat:@"%@, %@", model.habitat2, model.habitat3]];
         [phylo setPhoto:photo];
         [phylo setArtist:@"Photographer"];
-        [phylo setScale:@"6"];
+        [phylo setScale:model.creature_size];
         NSMutableString *climate_string = [[NSMutableString alloc]init];
         if ([model.cold isEqualToNumber:[NSNumber numberWithInt:1]]){
             [climate_string appendString:@"Cold"];
         }
-        else{
+        if ([model.cool isEqualToNumber:[NSNumber numberWithInt:1]]){
+            if([climate_string length] > 0){
+                [climate_string appendString:@" "];
+            }
+            [climate_string appendString:@"Cool"];
+        }
+        if ([model.warm isEqualToNumber:[NSNumber numberWithInt:1]]){
+            if([climate_string length] > 0){
+                [climate_string appendString:@" "];
+            }
+            [climate_string appendString:@"Warm"];
+        }
+        if ([model.hot isEqualToNumber:[NSNumber numberWithInt:1]]){
+            if([climate_string length] > 0){
+                [climate_string appendString:@" "];
+            }
             [climate_string appendString:@"Hot"];
         }
         

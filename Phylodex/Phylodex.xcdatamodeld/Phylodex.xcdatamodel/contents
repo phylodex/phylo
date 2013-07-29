@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2061" systemVersion="11G63" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2061" systemVersion="12E55" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Photo" representedClassName="Photo" syncable="YES">
         <attribute name="image" optional="YES" attributeType="Transformable" syncable="YES"/>
         <relationship name="phylodex" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Phylodex" inverseName="photo" inverseEntity="Phylodex" syncable="YES"/>
@@ -7,16 +7,20 @@
     <entity name="Phylodex" representedClassName="Phylodex" syncable="YES">
         <attribute name="artist" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="climate" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cold" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="cool" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="desc" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="diet" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="evolutionary" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="foodChain" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="habitat" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="hot" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="point" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="scale" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="terrains" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="thumbnail" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="warm" optional="YES" attributeType="Boolean" syncable="YES"/>
         <relationship name="photo" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Photo" inverseName="phylodex" inverseEntity="Photo" syncable="YES"/>
         <relationship name="user" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Users" inverseName="phylodex" inverseEntity="Users" syncable="YES"/>
     </entity>
@@ -30,7 +34,7 @@
     </entity>
     <elements>
         <element name="Photo" positionX="387" positionY="264" width="128" height="75"/>
-        <element name="Phylodex" positionX="160" positionY="192" width="128" height="255"/>
+        <element name="Phylodex" positionX="160" positionY="192" width="128" height="315"/>
         <element name="Users" positionX="-45" positionY="198" width="128" height="135"/>
     </elements>
 </model>

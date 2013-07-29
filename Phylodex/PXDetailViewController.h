@@ -40,6 +40,9 @@
 @property (nonatomic, retain) Photo *photoElement;
 
 @property (strong, nonatomic) IBOutlet UITextField *nameOfCreature;
+
+@property (weak, nonatomic) IBOutlet UITextField *sci_name;
+
 @property (strong, nonatomic) IBOutlet UITextField *habitatType;
 @property (strong, nonatomic) IBOutlet UITextField *artistInfo;
 @property (strong, nonatomic) IBOutlet UITextField *climate;
@@ -54,16 +57,22 @@
 @property (strong, nonatomic) IBOutlet UILabel *foodChain;
 @property (strong, nonatomic) IBOutlet UILabel *scaleNumber;
 @property (strong, nonatomic) IBOutlet UIImageView *pointColor;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *size_bar;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *diet_selection;
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *creature_kingdom;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *creature_phylum;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *creature_class;
 
-@property (weak, nonatomic) IBOutlet UISlider *foodChainSlider;
-@property (weak, nonatomic) IBOutlet UISlider *scaleSlider;
+//@property (weak, nonatomic) IBOutlet UISlider *foodChainSlider;
+//@property (weak, nonatomic) IBOutlet UISlider *scaleSlider;
 
-- (IBAction)colorSliderChanged:(UISlider *)sender;
-- (IBAction)scaleSliderChanged:(UISlider *)sender;
+
+- (IBAction)size_changed:(id)sender;
+- (IBAction)diet_changed:(id)sender;
+
+//- (IBAction)colorSliderChanged:(UISlider *)sender;
+//- (IBAction)scaleSliderChanged:(UISlider *)sender;
 
 @property (strong, nonatomic) IBOutlet UIScrollView *scroller;
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollerView;

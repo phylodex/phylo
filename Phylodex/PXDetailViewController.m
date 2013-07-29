@@ -44,13 +44,14 @@
 @synthesize pointColor;
 
 //food chain slider
-@synthesize foodChainSlider, scaleSlider;
+//@synthesize foodChainSlider, scaleSlider;
+@synthesize diet_selection, size_bar;
 
 //select segment
 @synthesize creature_class, creature_kingdom, creature_phylum;
 
 //textFiled
-@synthesize nameOfCreature, habitatType, artistInfo, climate, climate2, climate3, terrain, terrain2, desc;
+@synthesize nameOfCreature, sci_name, habitatType, artistInfo, climate, climate2, climate3, terrain, terrain2, desc;
 
 //UILable
 @synthesize displayLabel, pointValue, foodChain, scaleNumber;
@@ -100,8 +101,8 @@
     //separate the habitat part
     self.displayLabel.text = phyloELement.terrains;   //terrains contains 2 parts
     NSString *hab = [[NSString alloc]initWithFormat:@"%@", self.displayLabel.text];
-    NSLog(@"The original terrain in core data is: %@", self.displayLabel.text);
-    NSLog(@"The tranfered string hab is: %@", hab);
+    //NSLog(@"The original terrain in core data is: %@", self.displayLabel.text);
+    //NSLog(@"The tranfered string hab is: %@", hab);
     NSArray *ha = [hab componentsSeparatedByString:@", "];
     self.habitatType.text = phyloELement.habitat;
     int counter = 0;
@@ -118,8 +119,8 @@
     //separate the climate part
     self.displayLabel.text = phyloELement.climate;   //terrains contains 2 parts
     NSString *clim = [[NSString alloc]initWithFormat:@"%@", self.displayLabel.text];
-    NSLog(@"The original climate in core data is: %@", self.displayLabel.text);
-    NSLog(@"The tranfered string hab is: %@", clim);
+    //NSLog(@"The original climate in core data is: %@", self.displayLabel.text);
+    //NSLog(@"The tranfered string hab is: %@", clim);
     NSArray *cl = [clim componentsSeparatedByString:@", "];
     counter = 0;
     for (NSString *s in cl) {   //load the climate data
@@ -138,11 +139,11 @@
     //separate the evolutionary string
     self.displayLabel.text = phyloELement.evolutionary;
     NSString *evol = [[NSString alloc]initWithFormat:@"%@", self.displayLabel.text];
-    NSLog(@"The original evolutionary in core data is: %@", self.displayLabel.text);
-    NSLog(@"The tranfered string evol is: %@", evol);
+    //NSLog(@"The original evolutionary in core data is: %@", self.displayLabel.text);
+    //NSLog(@"The tranfered string evol is: %@", evol);
     NSArray *arr = [evol componentsSeparatedByString:@", "];
     for (NSString *i in arr) {
-        NSLog(@"the value in evolutionary tree is: %@", i);
+        //NSLog(@"the value in evolutionary tree is: %@", i);
         //set default value to UISegmentControl
         // From Ethan's code
         if ([i isEqualToString: @"Animalia"]){ creature_kingdom.selectedSegmentIndex = 0;}
@@ -168,17 +169,23 @@
     self.artistInfo.text = phyloELement.artist;
     self.displayLabel.text = phyloELement.evolutionary;
     self.desc.text = phyloELement.desc;
-    self.scaleNumber.text = phyloELement.scale;
+   // self.scaleNumber.text = phyloELement.scale;
     self.pointValue.text = phyloELement.point;
     
     colorArray = [NSArray arrayWithObjects:[UIColor yellowColor], [UIColor blackColor], [UIColor greenColor], [UIColor brownColor], [UIColor redColor], nil];   
-    self.pointColor.backgroundColor = [colorArray objectAtIndex:[phyloELement.foodChain integerValue]];
-    self.foodChain.text = phyloELement.foodChain;
-    foodChainSlider.value = [phyloELement.foodChain integerValue];
-    scaleSlider.value = [phyloELement.scale integerValue];
+  //  self.pointColor.backgroundColor = [colorArray objectAtIndex:[phyloELement.foodChain integerValue]];
+  //  self.foodChain.text = phyloELement.foodChain;
+  //  foodChainSlider.value = [phyloELement.foodChain integerValue];
+  //  scaleSlider.value = [phyloELement.scale integerValue];
+    diet_selection.selectedSegmentIndex = [phyloELement.foodChain integerValue] - 1;
+    if ([phyloELement.diet isEqualToString:@"carnivore"]){
+        diet_selection.selectedSegmentIndex = 3;
+    }
+    size_bar.selectedSegmentIndex = [phyloELement.scale integerValue] - 1;
     
     
     nameOfCreature.delegate = self;
+    sci_name.delegate = self;
     habitatType.delegate = self;
     artistInfo.delegate = self;
     climate.delegate = self;
@@ -188,6 +195,7 @@
     terrain2.delegate = self;
     desc.delegate = self;
     nameOfCreature.returnKeyType = UIReturnKeyDone;
+    sci_name.returnKeyType = UIReturnKeyDone;
     habitatType.returnKeyType = UIReturnKeyDone;
     artistInfo.returnKeyType = UIReturnKeyDone;
     climate.returnKeyType = UIReturnKeyDone;
@@ -239,6 +247,29 @@
 
 - (void)imageCropperDidCancel:(ImageCropper *)cropper{}
 
+#pragma size value
+- (IBAction)size_changed:(UISegmentedControl *)sender{
+    phyloELement.scale = [NSString stringWithFormat:@"%d", (size_bar.selectedSegmentIndex +1)];
+}
+
+#pragma diet value
+- (IBAction)diet_changed:(UISegmentedControl *)sender {
+    phyloELement.foodChain = [NSString stringWithFormat:@"%d", diet_selection.selectedSegmentIndex];
+    if(diet_selection.selectedSegmentIndex == 3){
+        phyloELement.diet = @"carnivore";
+    }
+    else if(diet_selection.selectedSegmentIndex == 2){
+        phyloELement.diet = @"omnivore";
+    }
+    else if(diet_selection.selectedSegmentIndex == 1){
+        phyloELement.diet = @"herbivore";
+    }
+    else {
+        phyloELement.diet = @"photosynthetic";
+    }
+}
+
+/*
 #pragma color&food chain number
 - (IBAction)colorSliderChanged:(UISlider *)sender{
     pointColor.backgroundColor = [UIColor yellowColor];
@@ -253,6 +284,7 @@
     int process = lrint(sender.value);
     self.scaleNumber.text = [NSString stringWithFormat:@"%d", process];
 }
+*/
 
 #pragma save navigation bar button
 - (void)save {
@@ -270,29 +302,30 @@
     NSPredicate *predictate = [NSPredicate predicateWithFormat:@"name like %@", phyloELement.name];
     [request setPredicate:predictate];
     
-    NSLog(@"predictate is %@", predictate);
+    //NSLog(@"predictate is %@", predictate);
     
     NSError *errorFetch;
     NSArray *array = [context executeFetchRequest:request error:&errorFetch];
     
     if(array.count == 1) // update data
     {
-        NSLog(@"%d is found", array.count);
+        //NSLog(@"%d is found", array.count);
         for (Phylodex *p in array) {
-            NSLog(@"p is %@", p);
+            //NSLog(@"p is %@", p);
 
             p.name = self.nameOfCreature.text;
-            NSLog(@"p.name = %@", p.name);
-            p.scale = self.scaleNumber.text;
-            p.foodChain = self.foodChain.text;
+            //NSLog(@"p.name = %@", p.name);
+            p.scale = phyloELement.scale;
+            p.foodChain = phyloELement.foodChain;
+            p.diet = phyloELement.diet;
             p.artist = self.artistInfo.text;
             p.climate = [NSString stringWithFormat:@"%@, %@, %@", self.climate.text, self.climate2.text, self.climate3.text];
-            NSLog(@"%@", p.climate);
+            //NSLog(@"%@", p.climate);
             
             p.habitat = self.habitatType.text;
             p.terrains = [NSString stringWithFormat:@"%@, %@", self.terrain.text, self.terrain2.text];
 
-            NSLog(@"the terrains are %@, %@", self.terrain.text, self.terrain2.text);
+            //NSLog(@"the terrains are %@, %@", self.terrain.text, self.terrain2.text);
             
             p.desc = self.desc.text;
             
@@ -317,9 +350,10 @@
             p.evolutionary = [NSString stringWithFormat:@"%@, %@, %@", Kingdom, Phylum, classType];
             self.displayLabel.text = p.evolutionary;
             
-            NSLog(@"p.evolutionaryTree = %@", p.evolutionary);
+            //NSLog(@"p.evolutionaryTree = %@", p.evolutionary);
             
             
+            /*
             // set the value for point to calculate
             if ([self.foodChain.text isEqualToString:@"4"]){ pointValueFoodChain = 7; }
             else if ([self.foodChain.text isEqualToString:@"3"]){ pointValueFoodChain = 3; }
@@ -397,6 +431,9 @@
             
             self.pointValue.text = [NSString stringWithFormat:@"%i", pointValueFoodChain];
             p.point = self.pointValue.text;
+            */
+            [p fixPoints];
+            self.pointValue.text = p.point;
         }
 
         if(![context save:&errorFetch])

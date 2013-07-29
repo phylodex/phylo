@@ -117,56 +117,31 @@
                 [shareHtmlBody appendString:(phyloCreature.name)]; //card title
                 
                 [shareHtmlBody appendString:@"</h2> <span class=\"latin-name\">" ];
-                //SCIENTIFIC NAME GOES HERE
-                [shareHtmlBody appendString:@"Scientific name here"];
-                ///////////////////////////
-                //[shareHtmlBody appendString:(phyloCreature.scientific_name)]; //latin name if it exists
+                [shareHtmlBody appendString:phyloCreature.scientific_name]; //scientific name
                 [shareHtmlBody appendString:@"</span>  <div class=\"num-values\"> <img src=\"http://phylogame.org/wp-content/themes/phylomon-theme/img/num/"];
                 [shareHtmlBody appendString:phyloCreature.scale]; //use the size for determining image
                 [shareHtmlBody appendString:@".png\" alt=\"" ];
                 [shareHtmlBody appendString:phyloCreature.scale ];
                 [shareHtmlBody appendString:@"\"> <img src=\"http://phylogame.org/wp-content/themes/phylomon-theme/img/num/" ];
                 
-                /***********************************************
-                 NEED TO FIX FOOD CHAIN POINTS FOR NOW THIS IS AN UGLY SOLVE
-                 *************/
-                if ([phyloCreature.foodChain isEqualToString:@"4"]){
-                    [shareHtmlBody appendString:@"carnivore3"];
-                }
-                else if ([phyloCreature.foodChain isEqualToString:@"3"]){
-                    [shareHtmlBody appendString:@"omnivore3"];
-                }
-                else if ([phyloCreature.foodChain isEqualToString:@"2"]){
-                    [shareHtmlBody appendString:@"herbivore2"];
+                [shareHtmlBody appendString:phyloCreature.diet ]; //use diet and heirarchy to determine image
+                if ([phyloCreature.foodChain integerValue] == 4){
+                    [shareHtmlBody appendString:@"3"];
                 }
                 else {
-                    [shareHtmlBody appendString:@"photosynthetic1"];
+                    [shareHtmlBody appendString:phyloCreature.foodChain];
                 }
-                ////////////////
-                //[shareHtmlBody appendString:phyloCreature.diet ]; //use diet and heirarchy to determine image
-                //[shareHtmlBody appendString:phyloCreature.foodChain];
                 [shareHtmlBody appendString:@".png\" alt=\"" ];
                 
                 
                 
-                /***********************************************
-                 NEED TO FIX FOOD CHAIN POINTS FOR NOW THIS IS AN UGLY SOLVE
-                 *************/
-                if ([phyloCreature.foodChain isEqualToString:@"4"]){
-                    [shareHtmlBody appendString:@"carnivore3"];
-                }
-                else if ([phyloCreature.foodChain isEqualToString:@"3"]){
-                    [shareHtmlBody appendString:@"omnivore3"];
-                }
-                else if ([phyloCreature.foodChain isEqualToString:@"2"]){
-                    [shareHtmlBody appendString:@"herbivore2"];
+                [shareHtmlBody appendString:phyloCreature.diet ]; //use diet and heirarchy to determine image
+                if ([phyloCreature.foodChain integerValue] == 4){
+                    [shareHtmlBody appendString:@"3"];
                 }
                 else {
-                    [shareHtmlBody appendString:@"photosynthetic1"];
+                    [shareHtmlBody appendString:phyloCreature.foodChain];
                 }
-                ////////////////
-                //[shareHtmlBody appendString:phyloCreature.diet ]; //use diet and heirarchy to determine image
-                //[shareHtmlBody appendString:phyloCreature.foodChain];
                 [shareHtmlBody appendString:@"\">  </div>   <div class=\"card-image\">  <!-- GRAPHIC -->  <div class=\"graphic\"><img src=\""];
                 
                 
@@ -175,11 +150,7 @@
                 [shareHtmlBody appendString:@"\"></div> <div class=\"photo empty\">        <strong>Sorry, there is no photo available.  If you have one, please submit <a href=\"http://www.flickr.com/groups/1293102@N24/\">here</a>.</strong>   </div>  </div>" ];
                 
                 //Kingdom+Phylum+Class
-                //HAVE TO FIX ALL OF THIS
-                [shareHtmlBody appendString:@"<div class=\"card-classification\">"];
-                [shareHtmlBody appendString:phyloCreature.evolutionary];
-                [shareHtmlBody appendString:@" </div> <div class=\"creative-commons\">  <a href=\"http://creativecommons.org/licenses/by-nc-nd/2.0/deed.en_CA\" target=\"_blank\"><img src=\"http://phylogame.org/wp-content/themes/phylomon-theme/img/creative-commons.png\" alt=\"Creative Commons Attribution-Noncommercial-No Derivatives Works 2.0\"></a>  </div>"];
-                /*[shareHtmlBody appendString:@"<div class=\"card-classification\">  <a href=\"http://phylogame.org/classification/"];
+                [shareHtmlBody appendString:@"<div class=\"card-classification\">  <a href=\"http://phylogame.org/classification/"];
                 [shareHtmlBody appendString:phyloCreature.kingdom]; //kingdom
                 [shareHtmlBody appendString:@"/\" rel=\"tag\">" ];
                 [shareHtmlBody appendString:phyloCreature.kingdom];
@@ -191,20 +162,19 @@
                 [shareHtmlBody appendString:phyloCreature.creature_class]; //class (this section pretty straightforward)
                 [shareHtmlBody appendString:@"/\" rel=\"tag\">"];
                 [shareHtmlBody appendString:phyloCreature.creature_class];
-                */
                 
-                //[shareHtmlBody appendString:@"</a>  </div> <div class=\"creative-commons\">  <a href=\"http://creativecommons.org/licenses/by-nc-nd/2.0/deed.en_CA\" target=\"_blank\"><img src=\"http://phylogame.org/wp-content/themes/phylomon-theme/img/creative-commons.png\" alt=\"Creative Commons Attribution-Noncommercial-No Derivatives Works 2.0\"></a>  </div>"];
+                
+                [shareHtmlBody appendString:@"</a>  </div> <div class=\"creative-commons\">  <a href=\"http://creativecommons.org/licenses/by-nc-nd/2.0/deed.en_CA\" target=\"_blank\"><img src=\"http://phylogame.org/wp-content/themes/phylomon-theme/img/creative-commons.png\" alt=\"Creative Commons Attribution-Noncommercial-No Derivatives Works 2.0\"></a>  </div>"];
                 
                 [shareHtmlBody appendString:@"<div class=\"card-text\">        <p style=\"text-align: right;\"><strong>"];
                 [shareHtmlBody appendString:phyloCreature.point]; //insert generated points
-                [shareHtmlBody appendString:@" POINTS</strong></p><br> </div>"];
+                [shareHtmlBody appendString:@" POINTS</strong></p><br> <p style=\"text-align: left;\">"];
+                [shareHtmlBody appendString:phyloCreature.desc];
+                [shareHtmlBody appendString:@"</p></div>"];
                 
                 [shareHtmlBody appendString:@" <div class=\"card-temperature\"> " ]; //only insert the climates flagged true
                 
-                //CLIMATES NO LONGER INDEPENDENT
-                [shareHtmlBody appendString:phyloCreature.climate]; //insert generated points
-                
-                /*if ([phyloCreature.cold isEqualToNumber:[NSNumber numberWithInt:1]]){
+                if ([phyloCreature.cold isEqualToNumber:[NSNumber numberWithInt:1]]){
                     [shareHtmlBody appendString:@"Cold, "];
                 }
                 if ([phyloCreature.cool isEqualToNumber:[NSNumber numberWithInt:1]]){
@@ -215,8 +185,7 @@
                 }
                 if ([phyloCreature.hot isEqualToNumber:[NSNumber numberWithInt:1]]){
                     [shareHtmlBody appendString:@"Hot "];
-                }*/
-                
+                }
                 [shareHtmlBody appendString:@"</div> <div class=\"card-credit\"> <div class=\"graphic\"> <!-- GRAPHIC -->  <span>Image by <em>"];
                 [shareHtmlBody appendString:@"Some Photographer"]; //this should be the photographer.
                 [shareHtmlBody appendString:@"</em></span>         </div>        </div>    	</div>    	</div>        </div>"];

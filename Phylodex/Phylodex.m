@@ -35,6 +35,10 @@
 @dynamic habitat2;
 @dynamic habitat3;
 
+@dynamic kingdom;
+@dynamic phylum;
+@dynamic creature_class;
+
 /*
 -(void) fixPoints{
     
@@ -97,34 +101,31 @@
         }
         counter2 ++;
     }
-    NSLog(@"%@ %@ %@", hab1,hab2,hab3);
+    //NSLog(@"%@ %@ %@", hab1,hab2,hab3);
     total_habitat_count += counter2;
     if(total_habitat_count  == 3){
         if ([hab1 isEqualToString:hab2]){
             if([hab1 isEqualToString:hab3]){
                 newPoints++; //total 1 habitat
-                NSLog(@"Had 1 habitat, +1");
+               // NSLog(@"Had 1 habitat, +1");
             }
-            else NSLog((@"had 2 habitats A"));
         }
         else if(![hab1 isEqualToString:hab3]){
             if (![hab2 isEqualToString:hab3]){
                 newPoints--; //total 3 habitat
-                NSLog(@"Had 3 habitats, -1");
+      //          NSLog(@"Had 3 habitats, -1");
             }
-            else NSLog((@"had 2 habitats B"));
         }
     }
     else if(total_habitat_count == 2){
         if([hab1 isEqualToString:hab2]){
             newPoints++; //total 1 habitat
-            NSLog(@"Had 1 habitat, +1");
+        //    NSLog(@"Had 1 habitat, +1");
         }
-        else NSLog((@"had 2 habitats C"));
     }
     else{
         newPoints++; //total 1 habitat
-        NSLog(@"Had 1 habitat, +1");
+    //    NSLog(@"Had 1 habitat, +1");
     }
     
     if ([self.diet isEqualToString:@"carnivore"]){

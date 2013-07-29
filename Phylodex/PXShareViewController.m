@@ -117,10 +117,7 @@
                 [shareHtmlBody appendString:(phyloCreature.name)]; //card title
                 
                 [shareHtmlBody appendString:@"</h2> <span class=\"latin-name\">" ];
-                //SCIENTIFIC NAME GOES HERE
-                [shareHtmlBody appendString:@"Scientific name here"];
-                ///////////////////////////
-                //[shareHtmlBody appendString:(phyloCreature.scientific_name)]; //latin name if it exists
+                [shareHtmlBody appendString:phyloCreature.scientific_name]; //scientific name
                 [shareHtmlBody appendString:@"</span>  <div class=\"num-values\"> <img src=\"http://phylogame.org/wp-content/themes/phylomon-theme/img/num/"];
                 [shareHtmlBody appendString:phyloCreature.scale]; //use the size for determining image
                 [shareHtmlBody appendString:@".png\" alt=\"" ];
@@ -129,7 +126,7 @@
                 
                 /***********************************************
                  NEED TO FIX FOOD CHAIN POINTS FOR NOW THIS IS AN UGLY SOLVE
-                 *************/
+                 *************
                 if ([phyloCreature.foodChain isEqualToString:@"4"]){
                     [shareHtmlBody appendString:@"carnivore3"];
                 }
@@ -142,16 +139,16 @@
                 else {
                     [shareHtmlBody appendString:@"photosynthetic1"];
                 }
-                ////////////////
-                //[shareHtmlBody appendString:phyloCreature.diet ]; //use diet and heirarchy to determine image
-                //[shareHtmlBody appendString:phyloCreature.foodChain];
+                *////////////////
+                [shareHtmlBody appendString:phyloCreature.diet ]; //use diet and heirarchy to determine image
+                [shareHtmlBody appendString:phyloCreature.foodChain];
                 [shareHtmlBody appendString:@".png\" alt=\"" ];
                 
                 
                 
                 /***********************************************
                  NEED TO FIX FOOD CHAIN POINTS FOR NOW THIS IS AN UGLY SOLVE
-                 *************/
+                 *************
                 if ([phyloCreature.foodChain isEqualToString:@"4"]){
                     [shareHtmlBody appendString:@"carnivore3"];
                 }
@@ -164,9 +161,9 @@
                 else {
                     [shareHtmlBody appendString:@"photosynthetic1"];
                 }
-                ////////////////
-                //[shareHtmlBody appendString:phyloCreature.diet ]; //use diet and heirarchy to determine image
-                //[shareHtmlBody appendString:phyloCreature.foodChain];
+                *////////////////
+                [shareHtmlBody appendString:phyloCreature.diet ]; //use diet and heirarchy to determine image
+                [shareHtmlBody appendString:phyloCreature.foodChain];
                 [shareHtmlBody appendString:@"\">  </div>   <div class=\"card-image\">  <!-- GRAPHIC -->  <div class=\"graphic\"><img src=\""];
                 
                 
@@ -201,10 +198,7 @@
                 
                 [shareHtmlBody appendString:@" <div class=\"card-temperature\"> " ]; //only insert the climates flagged true
                 
-                //CLIMATES NO LONGER INDEPENDENT
-                [shareHtmlBody appendString:phyloCreature.climate]; //insert generated points
-                
-                /*if ([phyloCreature.cold isEqualToNumber:[NSNumber numberWithInt:1]]){
+                if ([phyloCreature.cold isEqualToNumber:[NSNumber numberWithInt:1]]){
                     [shareHtmlBody appendString:@"Cold, "];
                 }
                 if ([phyloCreature.cool isEqualToNumber:[NSNumber numberWithInt:1]]){
@@ -215,8 +209,7 @@
                 }
                 if ([phyloCreature.hot isEqualToNumber:[NSNumber numberWithInt:1]]){
                     [shareHtmlBody appendString:@"Hot "];
-                }*/
-                
+                }
                 [shareHtmlBody appendString:@"</div> <div class=\"card-credit\"> <div class=\"graphic\"> <!-- GRAPHIC -->  <span>Image by <em>"];
                 [shareHtmlBody appendString:@"Some Photographer"]; //this should be the photographer.
                 [shareHtmlBody appendString:@"</em></span>         </div>        </div>    	</div>    	</div>        </div>"];

@@ -37,5 +37,9 @@
 @property (nonatomic, retain) NSNumber * warm;
 @property (nonatomic, retain) NSNumber * hot;
 
+@property (nonatomic, retain) NSString * kingdom;
+@property (nonatomic, retain) NSString * phylum;
+@property (nonatomic, retain) NSString * creature_class;
+
 - (void) fixPoints;
 @end

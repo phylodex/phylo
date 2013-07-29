@@ -117,6 +117,9 @@
         
         [phylo setDesc:@"..."];
         [phylo setEvolutionary:[NSString stringWithFormat:@"%@, %@, %@", model.kingdom, model.phylum, model.creature_class]];
+        [phylo setKingdom:model.kingdom];
+        [phylo setPhylum:model.phylum];
+        [phylo setCreature_class:model.creature_class];
         [phylo setDiet:model.diet];
         if([model.diet isEqualToString:@"carnivore"]){
             [phylo setFoodChain:@"4"];
@@ -130,6 +133,7 @@
         else if([model.diet isEqualToString:@"photosynthetic"]){
             [phylo setFoodChain:@"1"];
         }
+        [phylo fixPoints];
         // set the image
         UIImage *selectedImage = [UIImage imageNamed:[NSString stringWithFormat:@"%@%@", model.name, @".png"]];
         

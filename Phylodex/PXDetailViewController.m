@@ -144,76 +144,7 @@
     else{
         _hot_switch.on = NO;
     }
-    
-    /*
-    //convert habitats to index selections
-    if([_phyloElement.habitat isEqualToString:@"desert"]){
-        _hab1.selectedSegmentIndex = 0;
-    }
-    else if([_phyloElement.habitat isEqualToString:@"forest"]){
-        _hab1.selectedSegmentIndex = 1;
-    }
-    else if([_phyloElement.habitat isEqualToString:@"freshwater"]){
-        _hab1.selectedSegmentIndex = 2;
-    }
-    else if([_phyloElement.habitat isEqualToString:@"grasslands"]){
-        _hab1.selectedSegmentIndex = 3;
-    }
-    else if([_phyloElement.habitat isEqualToString:@"ocean"]){
-        _hab1.selectedSegmentIndex = 4;
-    }
-    else if([_phyloElement.habitat isEqualToString:@"tundra"]){
-        _hab1.selectedSegmentIndex = 5;
-    }
-    else if([_phyloElement.habitat isEqualToString:@"urban"]){
-        _hab1.selectedSegmentIndex = 6;
-    }
-    
-    if([_phyloElement.habitat2 isEqualToString:@"desert"]){
-        _hab2.selectedSegmentIndex = 0;
-    }
-    else if([_phyloElement.habitat2 isEqualToString:@"forest"]){
-        _hab2.selectedSegmentIndex = 1;
-    }
-    else if([_phyloElement.habitat2 isEqualToString:@"freshwater"]){
-        _hab2.selectedSegmentIndex = 2;
-    }
-    else if([_phyloElement.habitat2 isEqualToString:@"grasslands"]){
-        _hab2.selectedSegmentIndex = 3;
-    }
-    else if([_phyloElement.habitat2 isEqualToString:@"ocean"]){
-        _hab2.selectedSegmentIndex = 4;
-    }
-    else if([_phyloElement.habitat2 isEqualToString:@"tundra"]){
-        _hab2.selectedSegmentIndex = 5;
-    }
-    else if([_phyloElement.habitat2 isEqualToString:@"urban"]){
-        _hab2.selectedSegmentIndex = 6;
-    }
-    
-    if([_phyloElement.habitat3 isEqualToString:@"desert"]){
-        _hab3.selectedSegmentIndex = 0;
-    }
-    else if([_phyloElement.habitat3 isEqualToString:@"forest"]){
-        _hab3.selectedSegmentIndex = 1;
-    }
-    else if([_phyloElement.habitat3 isEqualToString:@"freshwater"]){
-        _hab3.selectedSegmentIndex = 2;
-    }
-    else if([_phyloElement.habitat3 isEqualToString:@"grasslands"]){
-        _hab3.selectedSegmentIndex = 3;
-    }
-    else if([_phyloElement.habitat3 isEqualToString:@"ocean"]){
-        _hab3.selectedSegmentIndex = 4;
-    }
-    else if([_phyloElement.habitat3 isEqualToString:@"tundra"]){
-        _hab3.selectedSegmentIndex = 5;
-    }
-    else if([_phyloElement.habitat3 isEqualToString:@"urban"]){
-        _hab3.selectedSegmentIndex = 6;
-    }
-    */
-    
+   
     //separate the evolutionary string
     self.displayLabel.text = phyloELement.evolutionary;
     NSString *evol = [[NSString alloc]initWithFormat:@"%@", self.displayLabel.text];
@@ -252,10 +183,6 @@
     self.sci_name.text = phyloELement.scientific_name;
     
     colorArray = [NSArray arrayWithObjects:[UIColor yellowColor], [UIColor blackColor], [UIColor greenColor], [UIColor brownColor], [UIColor redColor], nil];   
-  //  self.pointColor.backgroundColor = [colorArray objectAtIndex:[phyloELement.foodChain integerValue]];
-  //  self.foodChain.text = phyloELement.foodChain;
-  //  foodChainSlider.value = [phyloELement.foodChain integerValue];
-  //  scaleSlider.value = [phyloELement.scale integerValue];
     diet_selection.selectedSegmentIndex = [phyloELement.foodChain integerValue] - 1;
     if ([phyloELement.diet isEqualToString:@"carnivore"]){
         diet_selection.selectedSegmentIndex = 3;
@@ -267,9 +194,6 @@
     sci_name.delegate = self;
     habitatType.delegate = self;
     artistInfo.delegate = self;
-   // climate.delegate = self;
-   // climate2.delegate = self;
-   // climate3.delegate = self;
     terrain.delegate = self;
     terrain2.delegate = self;
     desc.delegate = self;
@@ -277,9 +201,6 @@
     sci_name.returnKeyType = UIReturnKeyDone;
     habitatType.returnKeyType = UIReturnKeyDone;
     artistInfo.returnKeyType = UIReturnKeyDone;
-   // climate.returnKeyType = UIReturnKeyDone;
-   // climate2.returnKeyType = UIReturnKeyDone;
-   // climate3.returnKeyType = UIReturnKeyDone;
     terrain.returnKeyType = UIReturnKeyDone;
     terrain2.returnKeyType = UIReturnKeyDone;
     desc.returnKeyType = UIReturnKeyDone;
@@ -416,6 +337,9 @@
             ////////////////////
             
             p.evolutionary = [NSString stringWithFormat:@"%@, %@, %@", Kingdom, Phylum, classType];
+            [p setKingdom:Kingdom];
+            [p setPhylum: Phylum];
+            [p setCreature_class:classType];
             self.displayLabel.text = p.evolutionary;
             
             //NSLog(@"p.evolutionaryTree = %@", p.evolutionary);

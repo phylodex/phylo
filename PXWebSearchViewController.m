@@ -38,6 +38,9 @@
     [super viewDidLoad];
     activityIndicator.hidden = YES;
     isSearchingLabel.hidden = YES;
+    
+    searchTextField.delegate = self;
+    searchTextField.returnKeyType = UIReturnKeyDone;
 }
 
 - (void)didReceiveMemoryWarning
@@ -64,7 +67,10 @@
 //- (BOOL)textFieldShouldClear:(UITextField *)textField {}
 
 // called when 'return' key pressed. return NO to ignore.
-//- (BOOL)textFieldShouldReturn:(UITextField *)textField {}
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return NO;
+}
 
 #pragma mark - IBAction methods
 
@@ -84,6 +90,7 @@
     // clears the text field
     searchTextField.text = nil;
     [searchTextField resignFirstResponder];
+    [downloadManager terminateConnection];
 }
 
 -(IBAction)backgroundClick:(id)sender {
@@ -135,6 +142,13 @@
         childController.title = searchTextField.text;
         [self.navigationController pushViewController:childController animated:YES];
     }
+}
+
+- (void)downloadWasTerminated
+{
+    [activityIndicator stopAnimating];
+    activityIndicator.hidden = YES;
+    isSearchingLabel.hidden = YES;
 }
 
 @end

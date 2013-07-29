@@ -8,10 +8,12 @@
 
 #import "PXAppDelegate.h"
 #import "PXNetworkManager.h"
+#import "PXDetailViewController.h"
 
 @implementation PXAppDelegate
 {
     char _networkOperationCountDummy;
+    NSManagedObjectContext *context_phylo;
 }
 
 @synthesize managedObjectContext = _managedObjectContext;
@@ -25,6 +27,10 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+    
+    PXDetailViewController *detailViewController = [[PXDetailViewController alloc]init];
+    [self.window setRootViewController:detailViewController];
+    
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
@@ -68,7 +74,7 @@
     // set up the tab bar controller
     _rootController = [[UITabBarController alloc] init];
     _rootController.viewControllers = controllers;
-    
+       
     // FOR DEVELOPMENT PURPOSES: populate with dummy data
     // insert dummy data only if database is empty already
     if (![self coreDataHasEntriesForEntityName:@"Phylodex"]) {
@@ -86,17 +92,41 @@
 - (void)populateDummyData
 {
     PXDummyCollection *collection = [[PXDummyCollection alloc] init];
-    
     // add each dummy entry into the user database
     for (PXDummyModel *model in collection.dummyModels) {
         Phylodex *phylo = (Phylodex *)[NSEntityDescription insertNewObjectForEntityForName:@"Phylodex" inManagedObjectContext:_managedObjectContext];
         Photo *photo = (Photo *)[NSEntityDescription insertNewObjectForEntityForName:@"Photo" inManagedObjectContext:_managedObjectContext];
         
         [phylo setName:model.name];
-        [phylo setHabitat:@"Earth"];
+        [phylo setHabitat:model.habitat];
+        [phylo setTerrains:[NSString stringWithFormat:@"%@, %@", model.habitat2, model.habitat3]];
         [phylo setPhoto:photo];
         [phylo setArtist:@"Photographer"];
+        [phylo setScale:@"6"];
+        NSMutableString *climate_string = [[NSMutableString alloc]init];
+        if ([model.cold isEqualToNumber:[NSNumber numberWithInt:1]]){
+            [climate_string appendString:@"Cold"];
+        }
+        else{
+            [climate_string appendString:@"Hot"];
+        }
         
+        [phylo setClimate:climate_string];
+        [phylo setDesc:@"..."];
+        [phylo setEvolutionary:[NSString stringWithFormat:@"%@, %@, %@", model.kingdom, model.phylum, model.creature_class]];
+        [phylo setDiet:model.diet];
+        if([model.diet isEqualToString:@"carnivore"]){
+            [phylo setFoodChain:@"4"];
+        }
+        else if([model.diet isEqualToString:@"omnivore"]){
+            [phylo setFoodChain:@"3"];
+        }
+        else if([model.diet isEqualToString:@"herbivore"]){
+            [phylo setFoodChain:@"2"];
+        }
+        else if([model.diet isEqualToString:@"photosynthetic"]){
+            [phylo setFoodChain:@"1"];
+        }
         // set the image
         UIImage *selectedImage = [UIImage imageNamed:[NSString stringWithFormat:@"%@%@", model.name, @".png"]];
         

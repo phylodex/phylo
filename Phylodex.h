@@ -2,7 +2,7 @@
 //  Phylodex.h
 //  Phylodex
 //
-//  Created by Artha on 13-7-26.
+//  Created by Artha on 13-7-27.
 //  Copyright (c) 2013年 Phylosoft. All rights reserved.
 //
 
@@ -27,5 +27,4 @@
 @property (nonatomic, retain) id thumbnail;
 @property (nonatomic, retain) Photo *photo;
 
-// in progress  - (void) fixPoints;
 @end

@@ -9,8 +9,6 @@
 //
 
 #import "PXRootViewController.h"
-#import "PXDetailEdit.h"
-
 
 @interface PXRootViewController ()
 
@@ -51,7 +49,7 @@ static NSString *CellTableIdentifier = @"CellTableIdentifier";
 	if (mutableFetchResults == nil) {
 		// Handle the error.
 	}
-//	[self setLifeforms:mutableFetchResults];    //this sentence can be used to create new card but not to edit
+	[self setLifeforms:mutableFetchResults];    //this sentence can be used to create new card but not to edit
     [self.tableView reloadData];
 }
 //----------------------------------
@@ -63,9 +61,10 @@ static NSString *CellTableIdentifier = @"CellTableIdentifier";
     
     // set edit and add buttons in navigation controller
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
-    addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addPhylo)];
-	addButton.enabled = YES;
-    self.navigationItem.rightBarButtonItem = addButton;
+    //Insertion should come from the capture mode
+//    addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addPhylo)];
+//	addButton.enabled = YES;
+//    self.navigationItem.rightBarButtonItem = addButton;
 	
     // Fetch existing phylodex entries.
     // Create a fetch request, add a sort descriptor, then execute the fetch.
@@ -199,7 +198,7 @@ static NSString *CellTableIdentifier = @"CellTableIdentifier";
     
     detailViewController.image = phylo.photo.image;
     
-    detailViewController.name = phylo.name;
+    detailViewController.nameOfCreature.text = phylo.name;
     detailViewController.title = phylo.name;
     detailViewController.phyloELement = phylo;
     
@@ -230,9 +229,9 @@ static NSString *CellTableIdentifier = @"CellTableIdentifier";
 // ---------------------------------------------
     //PROBLEM: there is no image added function in edit view
     //SUGGESTION: this should push the camera mode or photo library
-    
-    PXDetailEdit *editView = [[PXDetailEdit alloc]init];
-    [self.navigationController pushViewController:editView animated:YES];
+//    
+    PXDetailViewController *detailViewController = [[PXDetailViewController alloc]init];
+    [self.navigationController pushViewController:detailViewController animated:YES];
     
 // ---------------------------------------------
     

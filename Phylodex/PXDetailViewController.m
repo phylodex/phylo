@@ -12,32 +12,50 @@
 
 #import "PXDetailViewController.h"
 #import "ImageCropper.h"
-#import "PXDetailEdit.h"
 #import "Photo.h"
 #import "PXAppDelegate.h"
 @interface PXDetailViewController ()
+{
+    NSManagedObjectContext *context_phylo;
+    NSString *Kingdom;
+    NSString *Phylum;
+    NSString *classType;
+    
+    int pointValueFoodChain;
+    NSArray *habitatArea;
+    NSArray *colorArray;
+}
+@property (nonatomic,assign) BOOL wantHorizontal;
 
 @end
 
+@implementation PXDetailViewController {}
 
-@implementation PXDetailViewController {
-    NSArray *attributeArray;
-    NSMutableArray *valueArray;
-    
-    
-}
+@synthesize phyloELement, photoElement;
 
+@synthesize window;
 
-@synthesize name, valueArray, phyloELement, photo;
-
-@synthesize image;
+@synthesize saveButton;
 @synthesize imageView;
-@synthesize tableView;
-@synthesize tableViewContro;
+@synthesize image;
 @synthesize delegate;
+@synthesize scroller;
+@synthesize scrollerView;
+@synthesize pointColor;
+
+//food chain slider
+@synthesize foodChainSlider, scaleSlider;
+
+//select segment
+@synthesize creature_class, creature_kingdom, creature_phylum;
+
+//textFiled
+@synthesize nameOfCreature, habitatType, artistInfo, climate, climate2, climate3, terrain, terrain2, desc;
+
+//UILable
+@synthesize displayLabel, pointValue, foodChain, scaleNumber;
 
 - (void) viewWillAppear:(BOOL)animated{
-    [self.tableViewContro.tableView reloadData];
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -46,6 +64,22 @@
     if (self) {
         // Custom initialization
         
+        [[self nameOfCreature]setDelegate:self];
+        [[self habitatType]setDelegate:self];
+        [[self artistInfo]setDelegate:self];
+        [[self climate]setDelegate:self];
+        [[self terrain]setDelegate:self];
+        [[self desc]setDelegate:self];
+        
+        PXAppDelegate *appledelegate = [[UIApplication sharedApplication]delegate];
+        context_phylo = [appledelegate managedObjectContext];
+        
+        //add save navigation bar item
+        self.navigationItem.rightBarButtonItem = self.editButtonItem;
+        saveButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(save)];
+        saveButton.enabled = YES;
+        self.navigationItem.rightBarButtonItem = saveButton;
+                
     }
     return self;
 }
@@ -55,44 +89,118 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    //--------------------------------
-    // change date into normal string, but not for now
-    //    NSDate* date = phyloELement.date;    //Create the dateformatter object
-    //    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];    //Set the required date format
-    //    [formatter setDateFormat:@"yyyy-MM-dd"];
-    //    NSString* dateStr = [formatter stringFromDate:date];    //Get the string date
-    //    NSLog(dateStr);   //Display on the console
-    //    valueArray = [[NSMutableArray alloc]initWithObjects:phyloELement.name, dateStr, phyloELement.habitat, @"", nil];
+    //set background
+    scroller.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"card_bg.png"]];
+
+    //scroll view
+    [scroller setScrollEnabled:YES];
+    [scroller setContentSize:CGSizeMake(320, 1100)];
+    [scroller addSubview:scrollerView];
     
-    //--------------------------------
+    //separate the habitat part
+    self.displayLabel.text = phyloELement.terrains;   //terrains contains 2 parts
+    NSString *hab = [[NSString alloc]initWithFormat:@"%@", self.displayLabel.text];
+    NSLog(@"The original terrain in core data is: %@", self.displayLabel.text);
+    NSLog(@"The tranfered string hab is: %@", hab);
+    NSArray *ha = [hab componentsSeparatedByString:@", "];
+    self.habitatType.text = phyloELement.habitat;
+    int counter = 0;
+    for (NSString *i in ha) {   //load habitat and terrain data
+        if (counter == 0) {
+            self.terrain.text = [ha objectAtIndex: 0];
+        }
+        else if (counter == 1) {
+            self.terrain2.text = [ha objectAtIndex: 1];
+        }
+        counter ++;
+    }
     
-    attributeArray= [NSArray arrayWithObjects:@"Name: ", @"Date: ", @"Habitat: ", @"Artist Info: ", nil];
+    //separate the climate part
+    self.displayLabel.text = phyloELement.climate;   //terrains contains 2 parts
+    NSString *clim = [[NSString alloc]initWithFormat:@"%@", self.displayLabel.text];
+    NSLog(@"The original climate in core data is: %@", self.displayLabel.text);
+    NSLog(@"The tranfered string hab is: %@", clim);
+    NSArray *cl = [clim componentsSeparatedByString:@", "];
+    counter = 0;
+    for (NSString *s in cl) {   //load the climate data
+        if (counter == 0) {
+            self.climate.text = [cl objectAtIndex: 0];
+        }
+        if (counter == 1) {
+            self.climate2.text = [cl objectAtIndex: 1];
+        }
+        if (counter == 2) {
+            self.climate3.text = [cl objectAtIndex: 2];
+        }
+        counter ++;
+    }
     
-    valueArray = [[NSMutableArray alloc]initWithObjects:phyloELement.name, @"Recent", phyloELement.habitat, phyloELement.artist, nil];
+    //separate the evolutionary string
+    self.displayLabel.text = phyloELement.evolutionary;
+    NSString *evol = [[NSString alloc]initWithFormat:@"%@", self.displayLabel.text];
+    NSLog(@"The original evolutionary in core data is: %@", self.displayLabel.text);
+    NSLog(@"The tranfered string evol is: %@", evol);
+    NSArray *arr = [evol componentsSeparatedByString:@", "];
+    for (NSString *i in arr) {
+        NSLog(@"the value in evolutionary tree is: %@", i);
+        //set default value to UISegmentControl
+        // From Ethan's code
+        if ([i isEqualToString: @"Animalia"]){ creature_kingdom.selectedSegmentIndex = 0;}
+        if ([i isEqualToString:@"Plantae"]){ creature_kingdom.selectedSegmentIndex = 1;}
+        if ([i isEqualToString:@"Fungi"]){ creature_kingdom.selectedSegmentIndex = 2;}
+        if ([i isEqualToString:@"Protista"]) { creature_kingdom.selectedSegmentIndex = 3;}
+        if ([i isEqualToString:@"Chordata"]){ creature_phylum.selectedSegmentIndex = 0;}
+        if ([i isEqualToString:@"Arthropoda"]){ creature_phylum.selectedSegmentIndex = 1;}
+        if ([i isEqualToString:@"Annelida"]){ creature_phylum.selectedSegmentIndex = 2;}
+        if ([i isEqualToString:@"Others"]){ creature_phylum.selectedSegmentIndex = 3;}
+        if ([i isEqualToString:@"Aves"]){ creature_class.selectedSegmentIndex = 0;}
+        if ([i isEqualToString:@"Amphibia"]){ creature_class.selectedSegmentIndex = 1;}
+        if ([i isEqualToString:@"Mammalia"]){ creature_class.selectedSegmentIndex = 2;}
+        if ([i isEqualToString:@"Reptilia"]){ creature_class.selectedSegmentIndex = 3;}
+        if ([i isEqualToString:@"Others"]) { creature_class.selectedSegmentIndex = 4;}
+        ///////////////////
+    }
+
+    //creature images
+    imageView.image = self.image;
+    //load data
+    self.nameOfCreature.text = phyloELement.name; 
+    self.artistInfo.text = phyloELement.artist;
+    self.displayLabel.text = phyloELement.evolutionary;
+    self.desc.text = phyloELement.desc;
+    self.scaleNumber.text = phyloELement.scale;
+    self.pointValue.text = phyloELement.point;
     
-    imageView = [[UIImageView alloc]initWithImage:image];
+    colorArray = [NSArray arrayWithObjects:[UIColor yellowColor], [UIColor blackColor], [UIColor greenColor], [UIColor brownColor], [UIColor redColor], nil];   
+    self.pointColor.backgroundColor = [colorArray objectAtIndex:[phyloELement.foodChain integerValue]];
+    self.foodChain.text = phyloELement.foodChain;
+    foodChainSlider.value = [phyloELement.foodChain integerValue];
+    scaleSlider.value = [phyloELement.scale integerValue];
     
-    [tableView addSubview:tableViewContro.tableView];
-    [tableView setContentSize:CGSizeMake(tableView.frame.size.width, 200)];
     
-    imageView = [[UIImageView alloc] initWithImage:self.image];
-	[imageView setFrame:CGRectMake(0.0, 0.0, 320.0, 200.0)];
-	[imageView setContentMode:UIViewContentModeScaleAspectFit];
-	
-	[[self view] addSubview:imageView];
-	
-	UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-	[button addTarget:self action:@selector(cropImage) forControlEvents:UIControlEventTouchUpInside];
-	[button setFrame:CGRectMake(30.0, 200.0, 130.0, 37.0)];
-	[button setTitle:@"Crop Image" forState:UIControlStateNormal];
+    nameOfCreature.delegate = self;
+    habitatType.delegate = self;
+    artistInfo.delegate = self;
+    climate.delegate = self;
+    climate2.delegate = self;
+    climate3.delegate = self;
+    terrain.delegate = self;
+    terrain2.delegate = self;
+    desc.delegate = self;
+    nameOfCreature.returnKeyType = UIReturnKeyDone;
+    habitatType.returnKeyType = UIReturnKeyDone;
+    artistInfo.returnKeyType = UIReturnKeyDone;
+    climate.returnKeyType = UIReturnKeyDone;
+    climate2.returnKeyType = UIReturnKeyDone;
+    climate3.returnKeyType = UIReturnKeyDone;
+    terrain.returnKeyType = UIReturnKeyDone;
+    terrain2.returnKeyType = UIReturnKeyDone;
+    desc.returnKeyType = UIReturnKeyDone;
     
-    [[self view] addSubview:button];
-    
+//    self.displayLabel.hidden = TRUE;    //Please don't delete the displayLabel. If it is not in need, just hide it.
 }
 
-
-- (void)cropImage {
-    
+- (IBAction)cropImage:(id)sender {
 	ImageCropper *cropper = [[ImageCropper alloc] initWithImage:image];
 	[cropper setDelegate:self];
 	
@@ -100,58 +208,12 @@
 	
 }
 
-//customize cell works.
-- (UITableViewCell *)tableView:(UITableView *)firstTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-//    NSLog(@"firstTableView is working");
-    static NSString *simpleTableIdentifier = @"DetailTableCell";
-    
-    SimpleTableCell *cell = [firstTableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
-    
-    if (cell == nil) {
-        //cell = [[SimpleTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
-        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"PXDetailTableCell" owner:self options:nil];
-        cell = [nib objectAtIndex:0];
-    }
-    
-    cell.attributeLabel.text = [attributeArray objectAtIndex:indexPath.row];
-    cell.valueLabel.text = [valueArray objectAtIndex:indexPath.row];
-    
-    return cell;
-}
-
-//table view section of detail view
--(NSInteger)numberOfSectionInTableView:(UITableView *)tableView{
-    return 1;
-}
-
-//table view rows of detail view
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return [attributeArray count];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-- (IBAction)editButton:(id)sender {
-    PXDetailEdit *detailEdit = [[PXDetailEdit alloc] init];
-    detailEdit.parent = self;
-    [self.navigationController pushViewController:detailEdit animated:YES];
-    
-}
-
-
 #pragma imageCoper delegate
-
 - (void)imageCropper:(ImageCropper *)cropper didFinishCroppingWithImage:(UIImage *)croppedImage
 {
 //    NSLog(@"delegate");
     PXAppDelegate *appDelegate = (PXAppDelegate *)[[UIApplication sharedApplication] delegate];
     NSManagedObjectContext *context=appDelegate.managedObjectContext;
-    
     
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Photo" inManagedObjectContext:context];
@@ -175,9 +237,196 @@
     }
 }
 
-- (void)imageCropperDidCancel:(ImageCropper *)cropper
+- (void)imageCropperDidCancel:(ImageCropper *)cropper{}
+
+#pragma color&food chain number
+- (IBAction)colorSliderChanged:(UISlider *)sender{
+    pointColor.backgroundColor = [UIColor yellowColor];
+    
+    int process = lrint(sender.value);
+    pointColor.backgroundColor = [colorArray objectAtIndex:process];
+    self.foodChain.text = [NSString stringWithFormat:@"%d", process];
+}
+
+#pragma scale
+- (IBAction)scaleSliderChanged:(UISlider *)sender {
+    int process = lrint(sender.value);
+    self.scaleNumber.text = [NSString stringWithFormat:@"%d", process];
+}
+
+#pragma save navigation bar button
+- (void)save {
+    
+    //update data in core data
+    
+    //    NSLog(@"delegate");
+    PXAppDelegate *appDelegate = (PXAppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *context = appDelegate.managedObjectContext;
+    
+    NSEntityDescription *entitydesc = [NSEntityDescription entityForName:@"Phylodex" inManagedObjectContext:context];
+    NSFetchRequest *request = [[NSFetchRequest alloc]init];
+    [request setEntity:entitydesc];
+    
+    NSPredicate *predictate = [NSPredicate predicateWithFormat:@"name like %@", phyloELement.name];
+    [request setPredicate:predictate];
+    
+    NSLog(@"predictate is %@", predictate);
+    
+    NSError *errorFetch;
+    NSArray *array = [context executeFetchRequest:request error:&errorFetch];
+    
+    if(array.count == 1) // update data
+    {
+        NSLog(@"%d is found", array.count);
+        for (Phylodex *p in array) {
+            NSLog(@"p is %@", p);
+
+            p.name = self.nameOfCreature.text;
+            NSLog(@"p.name = %@", p.name);
+            p.scale = self.scaleNumber.text;
+            p.foodChain = self.foodChain.text;
+            p.artist = self.artistInfo.text;
+            p.climate = [NSString stringWithFormat:@"%@, %@, %@", self.climate.text, self.climate2.text, self.climate3.text];
+            NSLog(@"%@", p.climate);
+            
+            p.habitat = self.habitatType.text;
+            p.terrains = [NSString stringWithFormat:@"%@, %@", self.terrain.text, self.terrain2.text];
+
+            NSLog(@"the terrains are %@, %@", self.terrain.text, self.terrain2.text);
+            
+            p.desc = self.desc.text;
+            
+            // From Ethan Code
+            if(self.creature_kingdom.selectedSegmentIndex == 0){Kingdom = @"Animalia";}
+            else if(self.creature_kingdom.selectedSegmentIndex == 1){Kingdom = @"Plantae";}
+            else if(self.creature_kingdom.selectedSegmentIndex == 2){Kingdom = @"Fungi";}
+            else {Kingdom = @"Protista";}
+            
+            if(self.creature_phylum.selectedSegmentIndex == 0){Phylum = @"Chordata";}
+            else if(self.creature_phylum.selectedSegmentIndex == 1){Phylum = @"Anthropoda";}
+            else if(self.creature_phylum.selectedSegmentIndex == 2){Phylum = @"Annelida";}
+            else {Phylum = @"Others";}
+            
+            if(self.creature_class.selectedSegmentIndex == 0){classType = @"Aves";}
+            else if(self.creature_class.selectedSegmentIndex == 1){classType = @"Amphbia";}
+            else if(self.creature_class.selectedSegmentIndex == 2){classType = @"Mammalia";}
+            else if(self.creature_class.selectedSegmentIndex == 3){classType = @"Reptilia";}
+            else {classType = @"Others";}
+            ////////////////////
+            
+            p.evolutionary = [NSString stringWithFormat:@"%@, %@, %@", Kingdom, Phylum, classType];
+            self.displayLabel.text = p.evolutionary;
+            
+            NSLog(@"p.evolutionaryTree = %@", p.evolutionary);
+            
+            
+            // set the value for point to calculate
+            if ([self.foodChain.text isEqualToString:@"4"]){ pointValueFoodChain = 7; }
+            else if ([self.foodChain.text isEqualToString:@"3"]){ pointValueFoodChain = 3; }
+            else if ([self.foodChain.text isEqualToString:@"2"]){ pointValueFoodChain = 4; }
+            else{ pointValueFoodChain = 2; }
+            //calculate the points of the point value
+            if ([habitatType.text length] > 0 && [terrain.text length] > 0 && [terrain2.text length] > 0)
+            {   // no empty textfields
+                if (habitatType.text == terrain.text && terrain.text == terrain2.text) {    //all habitats are the same
+                    pointValueFoodChain += 1;
+                }
+                else if (habitatType.text != terrain.text && habitatType.text != terrain2.text && terrain.text != terrain2.text)
+                {   // 3 different textfields
+                    pointValueFoodChain -= 1;
+                }
+            }
+            
+            else if ([habitatType.text length] == 0 && [terrain.text length] == 0 && [terrain2.text length] == 0)
+            {   // all textfields are empty. don't count this part
+            }
+            else if ([habitatType.text length] == 0 && [terrain2.text length] != [terrain.text length])
+            {
+                //only one empty textfield && 2 different textfields
+            }
+            else if ([terrain.text length] == 0 && [terrain2.text length] != [habitatType.text length])
+            {
+                //only one empty textfield && 2 different textfields
+            }
+            else if ([terrain2.text length] == 0 && [habitatType.text length] !=[terrain.text length])
+            {
+                //only one empty textfield && 2 different textfields == 0
+            }
+            else
+            {   // 2 empty textfields
+                if (habitatType.text == terrain.text || habitatType.text == terrain2.text || terrain.text == terrain2.text)
+                {   //1 empty textfield and 2 used textfields which are the same = 0
+                    pointValueFoodChain += 1;
+                }
+            }
+            
+            if ([climate.text length] > 0 && [climate2.text length] > 0 && [climate3.text length] > 0)
+            {   // no empty textfields
+                if (climate.text == climate2.text && climate2.text == climate3.text) {    //all habitats are the same
+                    pointValueFoodChain += 1;
+                }
+                else if (climate.text != climate2.text && climate.text != climate3.text && climate2.text != climate3.text)
+                {   // 3 different textfields
+                    pointValueFoodChain -= 1;
+                }
+                
+            }
+            else if ([climate.text length] == 0 && [climate2.text length] == 0 && [climate3.text length] == 0)
+            {   // all textfields are empty. don't count this part
+            }
+            else if ([climate2.text length] == 0 && [climate3.text length] != [climate2.text length])
+            {
+                //only one empty textfield && 2 different textfields
+            }
+            else if ([climate3.text length] == 0 && [climate.text length] != [climate2.text length])
+            {
+                //only one empty textfield && 2 different textfields
+            }
+            else if ([climate.text length] == 0 && [climate2.text length] != [climate3.text length])
+            {
+                //only one empty textfield && 2 different textfields == 0
+            }
+            else
+            {   // 2 empty textfields
+                if (climate.text == climate2.text || climate3.text == climate2.text || climate.text == climate3.text)
+                {
+                    //1 empty textfield and 2 used textfields which are the same = 0
+                    pointValueFoodChain += 1;
+                }
+            }
+            
+            self.pointValue.text = [NSString stringWithFormat:@"%i", pointValueFoodChain];
+            p.point = self.pointValue.text;
+        }
+
+        if(![context save:&errorFetch])
+        {
+            //NSLog(@"Failed to save - error: %@", [error localizedDescription]);
+        }
+    }
+    else
+    {
+        NSLog(@"error in name");
+    }
+
+}
+
+-(BOOL) textFieldShouldReturn:(UITextField *)textField
 {
-    // to do
+    [textField resignFirstResponder];
+    return NO;
+}
+
+- (IBAction)backgroundTap:(id)sender{
+    [nameOfCreature resignFirstResponder];
+    [habitatType resignFirstResponder];
+    [terrain resignFirstResponder];
+    [terrain2 resignFirstResponder];
+    [artistInfo resignFirstResponder];
+    [climate resignFirstResponder];
+    [climate2 resignFirstResponder];
+    [climate3 resignFirstResponder];
+    [desc resignFirstResponder];
 }
 
 @end

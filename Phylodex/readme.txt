@@ -2,7 +2,7 @@
 CMPT 275 GROUP 11: Phylodex
 
 Author: Steve King
-Date: June 23, 2013
+Data: June 23, 2013
 
 Readme: Version 2
 ==========================================================================================

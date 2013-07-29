@@ -7,6 +7,8 @@
 //
 
 #import "PXCameraViewController.h"
+#import "PXUserManager.h"
+#import "Users.h"
 
 @interface PXCameraViewController ()
 
@@ -101,8 +103,6 @@
     PXAppDelegate *appDelegate = (PXAppDelegate *)[[UIApplication sharedApplication] delegate];
     NSManagedObjectContext *managedObjectContext=appDelegate.managedObjectContext;
     
-    
-    
     PXDummyModel *model= [[PXDummyModel alloc]init];
     
     model.image=image;
@@ -115,9 +115,8 @@
     //    [phylo setDate:[NSDate date]]; // Should be timestamp, but this will be constant for simulator.
     [phylo setName:model.name];
     [phylo setHabitat:@"forest"];
-    
-    
-    
+    Users *currentUser = [PXUserManager sharedInstance].currentUser;
+    [phylo setUser:currentUser];
     
     // Associate the photo object with the phylodex entry
     photo.image = image;
@@ -138,6 +137,7 @@
     phylo.thumbnail = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     
+    [phylo setPhoto:photo];
     
     detailViewController.image = model.image;
     //    detailViewController.nameTextField.text = model.name;

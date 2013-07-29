@@ -27,4 +27,5 @@
 @property (nonatomic, retain) id thumbnail;
 @property (nonatomic, retain) Photo *photo;
 
+// in progress  - (void) fixPoints;
 @end

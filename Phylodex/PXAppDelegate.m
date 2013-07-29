@@ -114,10 +114,13 @@
         Phylodex *phylo = (Phylodex *)[NSEntityDescription insertNewObjectForEntityForName:@"Phylodex" inManagedObjectContext:_managedObjectContext];
         Photo *photo = (Photo *)[NSEntityDescription insertNewObjectForEntityForName:@"Photo" inManagedObjectContext:_managedObjectContext];
         
-        if (i % 2 == 0)
+        if (i % 3 == 0)
             [phylo setUser:adminUser];
-        else
+        else if (i % 3 == 1)
             [phylo setUser:user];
+        else if (i % 3 == 2)
+            [phylo setUser:nil];
+        i++;
         
         [phylo setName:model.name];
         [phylo setScientific_name:model.species];
